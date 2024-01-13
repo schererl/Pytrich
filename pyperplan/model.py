@@ -229,9 +229,9 @@ class Model:
 
         self._compress_facts_repr(self.facts) #NOTE: won't work without compress_model (facts are empty before it)
 
-    def _process_goal_facts_count():
+    def _process_goal_facts_count(self):
         pass
-    def _process_goal_task_count():
+    def _process_goal_task_count(self):
         pass    
         
     def goal_reached(self, state, task_network=[]):

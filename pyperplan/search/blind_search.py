@@ -26,7 +26,7 @@ def blind_search(model):
     seq_num=0
     visited = set()
     
-    node = htn_node.make_node(None, None, model.initial_state, model.initial_tn, seq_num=seq_num, g_value=0, heuristic=h_value)
+    node = htn_node.make_node(None, None, model.initial_state, model.initial_tn, seq_num=seq_num, g_value=0, heuristic=0)
     
     #queue = deque()
     #queue.append(node)
@@ -45,7 +45,7 @@ def blind_search(model):
         
         if current_time - control_time > 1:
             psutil.cpu_percent()
-            print(f"({h_value} of {model.number_goals}) Elapsed Time: {current_time - start_time:.2f} seconds, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {psutil.virtual_memory().percent}")
+            print(f"(Elapsed Time: {current_time - start_time:.2f} seconds, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {psutil.virtual_memory().percent}")
             control_time = time.time()
             if psutil.virtual_memory().percent > 85:
                 raise Exception('OUT OF MEMORY')

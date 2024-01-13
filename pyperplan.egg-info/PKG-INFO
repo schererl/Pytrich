@@ -24,6 +24,12 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: COPYING
 
+# ABOUT HTN PYPERPLAN
+
+## Execution
+pip install --editable .
+python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+
 **Pyperplan** is a lightweight STRIPS planner written in Python.
 
 Please note that Pyperplan deliberately prefers clean code over fast

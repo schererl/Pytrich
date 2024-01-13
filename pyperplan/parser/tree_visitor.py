@@ -801,7 +801,7 @@ class TraverseHDDLProblem(HDDLVisitor):
 
     Expands the functionality of the HDDLVisitor to traversal of ASTs that
     represent a HDDL-problem file. It results in the HDDL data structure
-    (pddl.py) representation of the problem file.
+    (hddl.py) representation of the problem file.
     """
 
     def get_in(self, node):
@@ -870,57 +870,35 @@ class TraverseHDDLProblem(HDDLVisitor):
 
     # TODO: maybe change here the subtasks here are already grounded so we don't have 'signature' exatcly.
     def visit_htn_stmt(self, node):
-        subtasks = list()
+        '''
+        Process an HTN statement node within the HDDL problem.
+
+        This method handles the 'and' connective in HTN tasks, validating and 
+        extracting subtask information in accordance with the domain definition.
+        '''
+        
         formula = node.ordered_subtasks.formula
                
         # For the given formula (which represents the tasks to perform in the problem instance), 
-        # we only allow 'and' as the outermost connective.
-        # NOTE: only abstract tasks  allowed
-        if formula.key == "and":
-            for subtask_formula in formula.children:
-                subtask_name = subtask_formula.key
-                subtask_facts = subtask_formula.children
-                
-                if not subtask_name in self._domain.tasks:
-                    subtask_formula = subtask_formula.children[0]
-                    subtask_name = subtask_formula.key
-                    subtask_facts = subtask_formula.children 
-                
-                if subtask_name in self._domain.tasks:
-                    subtask_signature = []
-                    task_definition_signature = self._domain.tasks[subtask_name].signature
-                    # check number of parameters compared to domain's task definition
-                    if len(subtask_facts) != len(task_definition_signature):
-                        raise SemanticError(f'[SUBTASK ERROR]: Task \'{subtask_name}\' requires {len(task_definition_signature)} fatcs, instead of {len(subtask_facts)}')    
-                    
-                    for i,f in enumerate(subtask_facts):
-                        # check if task's object is declared
-                        if not  f.key in self._objects:
-                            raise SemanticError(f"[SUBTASK ERROR]: fact \'{f.key}\' on Task \'{subtask_name}\' no declared on objects")    
-                        # check if object  type  match domain's task definition requirements
-                        if not self._helper_check_type_signature(task_definition_signature[i][1][0].name, self._objects[f.key].name):
-                            raise SemanticError(f"[SUBTASK ERROR]: Task \'{subtask_name}\' containing fact \'{f.key} - {self._objects[f.key]}\' requires type \'{task_definition_signature[i][1][0]}\'")    
-                        
-                        subtask_signature.append((f.key, task_definition_signature[i][1])) #NOTE: not sure if the problem subtask should be instantiated this way                                
-                    subtasks.append( (subtask_name, subtask_signature) )
-                    
-                else:
-                    raise SemanticError(f"[SUBTASK ERROR]: subtask \'{subtask_name}\' not defined")
-        self.set_in(node, hddl.OrderedSubtasks(subtasks))
-
-    def _helper_check_type_signature(self, type_definition, instance_type):
-        #print(f'{self._domain.types}\n{instance_type}\n{type_definition}')
-        curr_type = self._domain.types[instance_type]
-        #print(f'{curr_type} => {curr_type.parent}\n')
-        while True:
+        # only 'and' operations for now.
+        if formula.key != "and":
+            raise SemanticError(f"[SUBTASK ERROR]: invalid operator \'{formula.key}\'")
         
-            if curr_type.name == type_definition:
-                return True
-            elif curr_type == curr_type.parent:
-                break 
-            curr_type = curr_type.parent
+        subtasks = list()
+        for subtask_formula in formula.children:
+            subtask_name = subtask_formula.key
+            subtask_facts = subtask_formula.children
             
-        return False
+            #NOTE: in case we have pseudonames for subtasks, discard it, ex: :ordered-subtasks(and (t1 (do a b) (t2 (do b c)))) => :ordered-subtasks(and (do a b) (do b c)))
+            #TODO: later these name will be used for partial-order problems
+            if not subtask_name in self._domain.tasks:
+                subtask_formula = subtask_formula.children[0]
+                subtask_name = subtask_formula.key
+                subtask_facts = subtask_formula.children 
+            
+            subtasks = self._helper_validate_and_append_subtask(subtasks, subtask_name, subtask_facts)
+            
+        self.set_in(node, hddl.OrderedSubtasks(subtasks))
 
     def visit_object(self, node):
         """Visits a HDDL-problem object definition."""
@@ -954,7 +932,98 @@ class TraverseHDDLProblem(HDDLVisitor):
             initList.append(pred)
         self.set_in(node, initList)
 
-    def add_goal(self, goal, c):
+    def visit_goal_stmt(self, node):
+        """Visits a HDDL-problem goal state statement."""
+        formula = node.formula
+        goal = list()
+        # For now we only allow 'and' in the goal.
+        if formula.key == "and":
+            for c in formula.children:
+                if not isinstance(c.key, str):
+                    raise SemanticError(
+                        "Error predicate with non str key: "
+                        + "".join([c2.key.name + " " for c2 in formula.children])
+                    )
+                self._helper_add_goal(goal, c)
+        else:
+            # Only a single predicate is allowed then (s.a.)
+            if not formula.key in self._domain.predicates:
+                raise SemanticError(
+                    "Error: predicate in goal definition is " "not in CNF"
+                )
+            self._helper_add_goal(goal, formula)
+        self.set_in(node, goal)
+
+    def visit_predicate_instance(self, node):
+        """Visits a HDDL-problem predicate instance."""
+        signature = list()
+        # Visit all parameters.
+        for o in node.parameters:
+            o_type = None
+            # Check whether predicate was introduced in objects or domain
+            # constants.
+            if not (o in self._objects or o in self._domain.constants):
+                raise SemanticError(
+                    "Error: object " + o + " referenced in "
+                    "problem definition - but not defined"
+                )
+            elif o in self._objects:
+                o_type = self._objects[o]
+            elif o in self._domain.constants:
+                o_type = self._domain.constants[o]
+            signature.append((o, (o_type)))
+        self.set_in(node, hddl.Predicate(node.name, signature))
+    
+    def _helper_validate_and_append_subtask(self, subtasks, subtask_name, subtask_facts):
+        '''
+         Validates a subtask and appends it to the subtasks list if valid.
+
+        Args:
+            subtasks: The list of subtasks to append to.
+            subtask_name: The name of the subtask.
+            subtask_facts: The facts associated with the subtask.
+        '''
+        
+        if not subtask_name in self._domain.tasks:
+            raise SemanticError(f"[SUBTASK ERROR]: subtask \'{subtask_name}\' not defined")
+        
+        subtask_signature = []
+        task_definition_signature = self._domain.tasks[subtask_name].signature
+        # check number of parameters compared to domain's task definition
+        if len(subtask_facts) != len(task_definition_signature):
+            raise SemanticError(f'[SUBTASK ERROR]: Task \'{subtask_name}\' requires {len(task_definition_signature)} fatcs, instead of {len(subtask_facts)}')    
+        
+        for i,f in enumerate(subtask_facts):
+            # check if task's object is declared
+            if not  f.key in self._objects:
+                raise SemanticError(f"[SUBTASK ERROR]: fact \'{f.key}\' on Task \'{subtask_name}\' no declared on objects")    
+            # check if object  type  match domain's task definition requirements
+            if not self._helper_check_type_signature(task_definition_signature[i][1][0].name, self._objects[f.key].name):
+                raise SemanticError(f"[SUBTASK ERROR]: Task \'{subtask_name}\' containing fact \'{f.key} - {self._objects[f.key]}\' requires type \'{task_definition_signature[i][1][0]}\'")    
+            
+            subtask_signature.append((f.key, task_definition_signature[i][1])) #NOTE: not sure if the problem subtask should be instantiated this way                                
+        
+        subtasks.append( (subtask_name, subtask_signature) )
+        return subtasks
+    
+    def _helper_check_type_signature(self, type_definition, instance_type):
+        """Helper function for checking parameter type considering type hierarchy.
+
+        arguments:
+            type definition -- type needed from the atom on the lifted description (action or method)
+            instace type -- atom type to be grounded into the action or method
+        """
+        curr_type = self._domain.types[instance_type]
+        while True:
+            if curr_type.name == type_definition:
+                return True
+            elif curr_type == curr_type.parent:
+                break 
+            curr_type = curr_type.parent
+            
+        return False
+    
+    def _helper_add_goal(self, goal, c):
         """Helper function for visit_goal_stmt.
 
         Keyword arguments:
@@ -981,47 +1050,3 @@ class TraverseHDDLProblem(HDDLVisitor):
             count += 1
         # Add the predicate to the goal.
         goal.append(hddl.Predicate(c.key, signature))
-
-    def visit_goal_stmt(self, node):
-        """Visits a HDDL-problem goal state statement."""
-        formula = node.formula
-        goal = list()
-        # For now we only allow 'and' in the goal.
-        if formula.key == "and":
-            for c in formula.children:
-                if not isinstance(c.key, str):
-                    raise SemanticError(
-                        "Error predicate with non str key: "
-                        + "".join([c2.key.name + " " for c2 in formula.children])
-                    )
-                # Call helper.
-                self.add_goal(goal, c)
-        else:
-            # Only a single predicate is allowed then (s.a.)
-            if not formula.key in self._domain.predicates:
-                raise SemanticError(
-                    "Error: predicate in goal definition is " "not in CNF"
-                )
-            # Call helper.
-            self.add_goal(goal, formula)
-        self.set_in(node, goal)
-
-    def visit_predicate_instance(self, node):
-        """Visits a HDDL-problem predicate instance."""
-        signature = list()
-        # Visit all parameters.
-        for o in node.parameters:
-            o_type = None
-            # Check whether predicate was introduced in objects or domain
-            # constants.
-            if not (o in self._objects or o in self._domain.constants):
-                raise SemanticError(
-                    "Error: object " + o + " referenced in "
-                    "problem definition - but not defined"
-                )
-            elif o in self._objects:
-                o_type = self._objects[o]
-            elif o in self._domain.constants:
-                o_type = self._domain.constants[o]
-            signature.append((o, (o_type)))
-        self.set_in(node, hddl.Predicate(node.name, signature))
