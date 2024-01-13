@@ -1,8 +1,28 @@
-# ABOUT HTN PYPERPLAN
-
-## Execution
-pip install --editable .
-python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+Metadata-Version: 2.1
+Name: pyperplan
+Version: 2.1
+Summary: A lightweight STRIPS planner written in Python.
+Home-page: https://github.com/aibasel/pyperplan
+Author: Jendrik Seipp
+Author-email: jendrik.seipp@liu.se
+License: GPL3+
+Keywords: classical planning STRIPS
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: COPYING
 
 **Pyperplan** is a lightweight STRIPS planner written in Python.
 
@@ -106,3 +126,5 @@ Please cite Pyperplan using
       url =          "https://doi.org/10.5281/zenodo.3700819",
       howpublished = "\url{https://doi.org/10.5281/zenodo.3700819}"
     }
+
+
