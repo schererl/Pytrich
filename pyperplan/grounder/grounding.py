@@ -111,7 +111,7 @@ def ground(
     facts = [] #NOTE: check here about facts and how they are used in the 'Task/Model'
 
     name = problem.name
-    full_model = Model(name, facts, init, goals, operators, grounded_initial_tn, decompositions)
+    full_model = Model(name, facts, init, grounded_initial_tn, goals, operators, decompositions, grounded_tasks)
     return full_model
 
 

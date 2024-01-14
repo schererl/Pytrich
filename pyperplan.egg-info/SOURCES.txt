@@ -26,4 +26,6 @@ pyperplan/parser/parser_common.py
 pyperplan/parser/tree_visitor.py
 pyperplan/search/__init__.py
 pyperplan/search/blind_search.py
+pyperplan/search/heuristic.py
 pyperplan/search/htn_node.py
+pyperplan/search/relaxed_search.py
