@@ -67,8 +67,9 @@ class BlindNode(HTNNode):
 
 class AstarNode(HTNNode):
     def __lt__(self, other):
-        if self.heuristic + self.g_value ==  other.heuristic + other.g_value:
+        #if self.heuristic + self.g_value ==  other.heuristic + other.g_value:
             if self.heuristic == other.heuristic:
                 return self.seq_num < other.seq_num
             return self.heuristic < other.heuristic
-        return self.heuristic + self.g_value <  other.heuristic + other.g_value
+        #return self.heuristic + self.g_value < other.heuristic + other.g_value
+    

@@ -10,19 +10,18 @@ import heapq
 #!/usr/bin/env python
 import psutil
 
-from .heuristic import *
+from .heuristic import BlindHeuristic, FactCountHeuristic, TaskCountHeuristic
 from utils import UNSOLVABLE
-from .htn_node import BlindNode
+from .htn_node import BlindNode, AstarNode
 
 '''
-NOTE: Victor SP 14.01.21: Made some optimizations defining Strategy pattern on
-heuristic and nodes for performance.
-* Also observed  a significant improve if we diretly call the operation -applicable, apply, decompose, etc..- 
-directly from the task, instead of using the model function calls,
-but this would lead to the code become less readable and for now I decided to keep that way.
+NOTE: Victor SP 14.01.21: Made some optimizations defining Strategy pattern.
+*  observed  a significant improve if we diretly call the operation -applicable, apply, decompose, etc..- 
+directly from the task, instead of using the model function calls, but this would compromise code readability.
 '''
 
-def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
+#def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
+def blind_search(model, heuristic_type = BlindHeuristic, node_type = AstarNode):
     print('Staring solver')
     print(model)
     time.sleep(1)
@@ -35,9 +34,11 @@ def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
     iteration = 0
     count_revisits=0
     seq_num=0
-    #visited = set()
+    visited = set()
     node = node_type(None, None, model.initial_state, model.initial_tn, seq_num=seq_num, g_value=0, heuristic=0)
     h.compute_heuristic(model, None, node)
+    print(node.task_network)
+    print(node.heuristic)
     pq = []
     
     heapq.heappush(pq, node)
@@ -45,7 +46,7 @@ def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
         iteration += 1
         current_time = time.time()      
         node = heapq.heappop(pq)
-        
+        #print(node.heuristic, end = ' ')
         # time and memory control
         if current_time - control_time > 1:
             psutil.cpu_percent()
@@ -60,6 +61,7 @@ def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
             logging.info("%d Nodes expanded" % iteration)
             logging.info(f"Elapsed Time: {current_time - start_time:.2f} seconds, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {psutil.virtual_memory().percent}")
             return node.extract_solution()
+            
         elif len(node.task_network) == 0: #task network empty but goal wasnt achieved
             continue
         task = node.task_network[0]
@@ -72,7 +74,7 @@ def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
                 continue
             
             seq_num += 1
-            new_node = node_type(node, task, task.apply_bitwise(node.state), node.task_network[1:], seq_num=seq_num, g_value = node.g_value+1, heuristic=0)
+            new_node = node_type(node, task, model.apply(task, node.state), node.task_network[1:], seq_num=seq_num, g_value = node.g_value+1, heuristic=0)
             h.compute_heuristic(model, node, new_node)
             if new_node.heuristic == UNSOLVABLE:
                 #visited.add(node)
@@ -96,6 +98,7 @@ def blind_search(model, heuristic_type = BlindHeuristic, node_type = BlindNode):
                 if new_node.heuristic == UNSOLVABLE:
                     #visited.add(node)
                     continue
+                
                 # if new_node in visited:
                 #     count_revisits+=1
                 #     continue

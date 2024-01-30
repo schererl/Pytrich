@@ -80,7 +80,7 @@ class Operator:
         self.del_effects_bitwise = 0
         self.add_effects_bitwise = 0
 
-        self.h_goal_val = 0
+        self.is_goal_task = 0
 
     def applicable_bitwise(self, state_bitwise):
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
@@ -155,9 +155,9 @@ class GroundedTask:
         """
         self.name = name
         self.hash_name = hash(name)
-        self.h_goal_val = 0
         self.decompositions = []
-    
+        self.is_goal_task = 0
+
     def __eq__(self, other):
         return self.name == other.name
     
@@ -278,32 +278,35 @@ class Model:
         self.asbtract_tasks = asbtract_tasks
         self.states = {}
         
-        # goal count control
-        self.count_goal_facts = len(self.goals)
-        self.count_goal_tasks = 0
+        
+        # goal count heuristic
+        self.goal_facts_count = 0
+        self.goal_tasks_count = 0
+        self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
+        self._process_goal_facts_count()      #NOTE: before converting into bit representation, add facts counts into operators
         
         # model optimizations 
         self._compress_model_repr()
         self._process_negative_precons()      #NOTE: suggest to use it after compressing the model
-        self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
-        self._process_goal_facts_count()      #NOTE: before converting into bit representation, add facts counts into operators
-        self._process_goal_task_count()
         
         if literal_type:
             self._explicit_to_int = {}
             self._int_to_explicit = {}
+            self._goal_bit_pos = []
             self._compress_facts_repr(self.facts) #NOTE: won't work without compress_model (facts are empty before it)
             self.operation_type = self.BitwiseOP
-
-    # goal count heuristics
+            
+        else:
+            self.operation_type = self.StringOP
+    
     def _process_goal_facts_count(self):
-        pass
-
+        self.goal_facts_count = len(self.goals)
+    
     def _process_goal_task_count(self):
-        self.count_goal_tasks = len(self.initial_tn)
+        self.goal_tasks_count = len(self.initial_tn)
         for t in self.asbtract_tasks:
             if t in self.initial_tn:
-                t.h_goal_val = 1
+                t.is_goal_task=1
             
     def goal_reached(self, state, task_network=[]):
         return self.operation_type.goal_reached(state, self.goals, task_network)
@@ -437,6 +440,7 @@ class Model:
         si_bitwise_repr = self._convert_to_bitwise(self.initial_state)
         sf_bitwise_repr = self._convert_to_bitwise(self.goals)
         self.initial_state = si_bitwise_repr
+        self._goal_bit_pos = [self._explicit_to_int[g] for g in self.goals]
         self.goals = sf_bitwise_repr
         
         # convert preconditions and effects to integers for bitwise operations
@@ -461,10 +465,20 @@ class Model:
         This method is part of the process to convert states and operations to a bitwise format.
         """
         cont = 0
+
+        # NOTE: this is essential for fact goal count work faster
+        for g in self.goals:
+                self._explicit_to_int[g] = cont
+                self._int_to_explicit[cont] = g
+                cont+=1
+        
         for f in used_facts:
+            if f in self.goals:
+                continue
             self._explicit_to_int[f] = cont
             self._int_to_explicit[cont] = f
             cont+=1
+        
     
     def _convert_to_bitwise(self, facts_set):
         bitwise_representation = 0
