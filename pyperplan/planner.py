@@ -35,6 +35,12 @@ SEARCHES = {
     "blind": search.blind_search
 }
 
+HEURISTICS = {
+    "TaskCount": search.heuristic.TaskCountHeuristic,
+    "FactCount": search.heuristic.FactCountHeuristic,
+    "Blind": search.heuristic.BlindHeuristic
+}
+
 
 NUMBER = re.compile(r"\d+")
 
@@ -70,9 +76,9 @@ def _ground(
     return model
 
 
-def _search(task, search):
+def _search(task, search, heuristic):
     logging.info(f"Search start: {task.name}")
-    solution = search(task)
+    solution = search(task, heuristic)
     logging.info(f"Search end: {task.name}")
     return solution
 
@@ -85,7 +91,7 @@ def write_solution(solution, filename):
 
 
 def search_plan(
-    domain_file, problem_file, search
+    domain_file, problem_file, search, heuristic
 ):
     """
     Parses the given input files to a specific planner task and then tries to
@@ -103,7 +109,7 @@ def search_plan(
     problem = _parse(domain_file, problem_file)
     task = _ground(problem)
     search_start_time = time.process_time()
-    solution = _search(task, search)
+    solution = _search(task, search, heuristic)
     logging.info("Search time: {:.2}".format(time.process_time() - search_start_time))
     return solution
 

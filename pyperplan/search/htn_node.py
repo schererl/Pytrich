@@ -20,7 +20,7 @@ class HTNNode:
         self.g_value = g_value
 
         # NOTE: only use if we search considering visited nodes -high computational cost
-        #self.hash_node = hash((self.state, tuple(task_network)))
+        self.hash_node = hash((self.state, tuple(task_network)))
     
     def extract_solution(self):
         """
@@ -46,7 +46,8 @@ class HTNNode:
         if type(self.state) == int:
             state_str = ''
         else:    
-            state_str = '[\n\t\t' + '\n\t\t'.join(self.state) + ']'
+            state_str = '[\n\t\t' + '\n\t\t'.join(self.state)
+        state_str=f'--- {self.seq_num}'
         memory_info = (
             f"\n\tMemory Usage:"
             f"\n\t\tState: {sys.getsizeof(self.state)} bytes"
@@ -65,11 +66,12 @@ class BlindNode(HTNNode):
     def __lt__(self, other):
         return self.seq_num < other.seq_num
 
+#NOTE: Trying to figure out why using self.seq_num '<' other.seq_num instead of '>'
 class AstarNode(HTNNode):
     def __lt__(self, other):
         #if self.heuristic + self.g_value ==  other.heuristic + other.g_value:
             if self.heuristic == other.heuristic:
-                return self.seq_num < other.seq_num
+                return self.seq_num > other.seq_num
             return self.heuristic < other.heuristic
         #return self.heuristic + self.g_value < other.heuristic + other.g_value
     

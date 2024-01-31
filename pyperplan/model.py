@@ -466,7 +466,7 @@ class Model:
         """
         cont = 0
 
-        # NOTE: this is essential for fact goal count work faster
+        # NOTE: this is essential for fact count heuristic works faster
         for g in self.goals:
                 self._explicit_to_int[g] = cont
                 self._int_to_explicit[cont] = g

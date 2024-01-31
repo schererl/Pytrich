@@ -5,6 +5,12 @@
 
  (:objects t1 t2 t3 - TOWER r1 - RING)
 
+ (:htn
+  :ordered-subtasks (and
+    (task0 (shiftTower t1 t2 t3))
+  )
+ )
+
 (:init
   (smallerThan r1 t1)
   (smallerThan r1 t2)
@@ -15,11 +21,7 @@
   (towerTop t3 t3)
 (goal_on r1 t3))
 
- (:htn
-  :ordered-subtasks (and
-    (task0 (shiftTower t1 t2 t3))
-  )
- )
+
 
  (:goal (and (on r1 t3) ))
 )

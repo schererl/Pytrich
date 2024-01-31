@@ -5,7 +5,7 @@
 
  (:objects t1 t2 t3 - TOWER r1 r2 r3 - RING)
  (:htn
-  :ordered-tasks (and
+  :ordered-subtasks (and
     (task0 (shiftTower t1 t2 t3))
   )
  )

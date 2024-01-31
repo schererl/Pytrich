@@ -15,3 +15,4 @@
 (get_to truck_0 city_loc_2)
 (drive truck_0 city_loc_1 city_loc_2)
 (unload truck_0 city_loc_2 package_1)
+(drop truck_0 city_loc_2 package_1 capacity_0 capacity_1)

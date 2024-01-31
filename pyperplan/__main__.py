@@ -27,6 +27,7 @@ import sys
 from pyperplan.planner import (
     search_plan,
     SEARCHES,
+    HEURISTICS,
     validate_solution,
     write_solution,
 )
@@ -44,7 +45,7 @@ def main():
         return ", ".join(names)
 
     search_names = get_callable_names(SEARCHES.values(), "_search")
-
+    heuristic_names = get_callable_names(HEURISTICS.values(), "Heuristic")
     argparser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
@@ -56,6 +57,12 @@ def main():
         "--search",
         choices=SEARCHES.keys(),
         help=f"Select a search algorithm from {search_names}",
+        default="blind",
+    )
+    argparser.add_argument(
+        "-mh",
+        choices=HEURISTICS.keys(),
+        help=f"Select a heuristic from {heuristic_names}",
         default="blind",
     )
     args = argparser.parse_args()
@@ -71,10 +78,15 @@ def main():
 
     search = SEARCHES[args.search]
     logging.info("using search: %s" % search.__name__)
+    
+    heuristic = HEURISTICS[args.mh]
+    logging.info("using heuristic: %s" % heuristic.__name__)
+    
     solution = search_plan(
         args.domain,
         args.problem,
-        search
+        search,
+        heuristic
     )
 
     if solution is None:
