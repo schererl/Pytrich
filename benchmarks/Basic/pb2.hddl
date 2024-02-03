@@ -1,6 +1,0 @@
-(define (problem pb1)
-  (:domain basic)
-  (:objects kiwi banjo abaco)
-  (:init (have kiwi))
-  (:htn :subtasks (and (swap banjo kiwi) (swap banjo abaco)))
-)

@@ -38,7 +38,10 @@ SEARCHES = {
 HEURISTICS = {
     "TaskCount": search.heuristic.TaskCountHeuristic,
     "FactCount": search.heuristic.FactCountHeuristic,
-    "Blind": search.heuristic.BlindHeuristic
+    "Blind": search.heuristic.BlindHeuristic,
+    "MaxCount": search.heuristic.MaxCountHeuristic,
+    "DoubleCount": search.heuristic.DoubleCountHeuristic,
+    "TaskDecomposition": search.heuristic.TaskDecompositionHeuristic
 }
 
 
@@ -106,13 +109,25 @@ def search_plan(
                             interface
     @return A list of actions that solve the problem
     """
+    print(domain_file)
+    print(problem_file)
+    print(search)
+    print(heuristic)
     problem = _parse(domain_file, problem_file)
     task = _ground(problem)
     search_start_time = time.process_time()
-    solution = _search(task, search, heuristic)
-    logging.info("Search time: {:.2}".format(time.process_time() - search_start_time))
-    return solution
+    result = _search(task, search, heuristic)
+    search_time = time.process_time() - search_start_time
+    logging.info("Search time: {:.2f} seconds".format(search_time))
 
+    if 'solution' in result and result['solution'] is not None:
+        solution_file = problem_file + ".soln"
+        logging.info("Plan length: %s" % len(result['solution']))
+        write_solution(result['solution'], solution_file)
+        validate_solution(domain_file, problem_file, solution_file)
+    else:
+        logging.warning("No solution could be found")
+    return result
 
 def validate_solution(domain_file, problem_file, solution_file):
     if not validator_available():

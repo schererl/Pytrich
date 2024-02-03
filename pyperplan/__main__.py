@@ -32,8 +32,11 @@ from pyperplan.planner import (
     write_solution,
 )
 
+from run_benchmarks import run_benchmarks
+
 def main():
     
+
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error"]
 
@@ -78,25 +81,18 @@ def main():
 
     search = SEARCHES[args.search]
     logging.info("using search: %s" % search.__name__)
-    
+    print(search)
     heuristic = HEURISTICS[args.mh]
     logging.info("using heuristic: %s" % heuristic.__name__)
     
-    solution = search_plan(
-        args.domain,
-        args.problem,
-        search,
-        heuristic
-    )
+    run_benchmarks()
 
-    if solution is None:
-        logging.warning("No solution could be found")
-    else:
-        solution_file = args.problem + ".soln"
-        logging.info("Plan length: %s" % len(solution))
-        write_solution(solution, solution_file)
-        validate_solution(args.domain, args.problem, solution_file)
-    
+    # search_plan(
+    #     args.domain,
+    #     args.problem,
+    #     search,
+    #     heuristic
+    # )
     
 
 if __name__ == "__main__":

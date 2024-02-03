@@ -101,6 +101,7 @@ class Precondition:
         """
         self.poslist = set()
         self.neglist = set()
+        self.neqlist = set() #'=' signal solved during grounding
 
     def __str__(self):
         return (
@@ -151,7 +152,7 @@ class Method:
         self.name = name
         self.signature = signature
         self.precondition = precondition
-        self.decomposed_task = decomposed_task  #NOTE:here not sure if class called 'DecomposedTask' is necessary *I think, maybe Task is sufficient
+        self.decomposed_task = decomposed_task  #NOTE:here not sure if class called 'CompoundTask' is necessary *I think, maybe Task is sufficient
         self.ordered_subtasks = ordered_subtasks
     
     def __str__(self):
@@ -178,7 +179,7 @@ class OrderedSubtasks:
         return "{}".format("\n\t\t\t ".join(["{} - {}".format(param[0], "  ".join([str(ptype) for ptype in param[1]])) for param in self.signature]))
 
 #TODO: useless class, methods can have directly the signature of this task.
-class DecomposedTask:
+class CompoundTask:
     """
         name: Task name that should be declared after instantiating this decomposed task
         signature: A list of tuples (name, [types]) to represent a list of

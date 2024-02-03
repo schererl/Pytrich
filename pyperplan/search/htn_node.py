@@ -10,14 +10,15 @@ define the __lt__ function, without creating new __init__ functions and 'super()
 calls...
 '''
 class HTNNode:
-    def __init__(self, parent, action, state, task_network, seq_num, g_value, heuristic):
+    def __init__(self, parent, action, state, task_network, seq_num, g_value, h_val):
         self.state = state
         self.parent = parent
         self.action = action
         self.task_network = task_network
         self.seq_num = seq_num
-        self.heuristic = heuristic
+        self.h_val = h_val
         self.g_value = g_value
+        self.f_value = h_val + g_value
 
         # NOTE: only use if we search considering visited nodes -high computational cost
         self.hash_node = hash((self.state, tuple(task_network)))
@@ -66,12 +67,12 @@ class BlindNode(HTNNode):
     def __lt__(self, other):
         return self.seq_num < other.seq_num
 
-#NOTE: Trying to figure out why using self.seq_num '<' other.seq_num instead of '>'
+#NOTE: Trying to figure out why using self.seq_num '<' other.seq_num instead of '>' increases 2x nodes/sec
 class AstarNode(HTNNode):
     def __lt__(self, other):
-        #if self.heuristic + self.g_value ==  other.heuristic + other.g_value:
-            if self.heuristic == other.heuristic:
-                return self.seq_num > other.seq_num
-            return self.heuristic < other.heuristic
-        #return self.heuristic + self.g_value < other.heuristic + other.g_value
+        if self.f_value ==  other.f_value:
+            if self.h_val == other.h_val:
+                return self.seq_num < other.seq_num
+            return self.h_val < other.h_val
+        return self.f_value < other.f_value
     

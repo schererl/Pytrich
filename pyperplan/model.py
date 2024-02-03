@@ -80,7 +80,7 @@ class Operator:
         self.del_effects_bitwise = 0
         self.add_effects_bitwise = 0
 
-        self.is_goal_task = 0
+        self.h_val = 0
 
     def applicable_bitwise(self, state_bitwise):
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
@@ -145,7 +145,7 @@ class Operator:
     def __repr__(self):
         return "<Op %s>" % self.name
 
-class GroundedTask:
+class AbstractTask:
     """
         HTN Grounded task, different from Task descibed for the goal
     """ 
@@ -156,7 +156,7 @@ class GroundedTask:
         self.name = name
         self.hash_name = hash(name)
         self.decompositions = []
-        self.is_goal_task = 0
+        self.h_val = 0
 
     def __eq__(self, other):
         return self.name == other.name
@@ -169,11 +169,11 @@ class GroundedTask:
         return hash(self.hash_name)
 
 class Decomposition:
-    def __init__(self, name, pos_precons, neg_precons, decomposed_task, task_network):
+    def __init__(self, name, pos_precons, neg_precons, compound_task, task_network):
         '''
             @param name:                grounded name of the method, includes the literals used into the method
             @param hash_name:           hashed name for saving computation when hash is needed
-            @param decomposed_task:     grounded task which the decomposition can be decomposed into
+            @param compound_task:     grounded task which the decomposition can be decomposed into
             @param pos_precons:         literals using string version. - higher memory usage, more readable
             @param neg_precons:         ----
             @param pos_precons_bitwise: bitwise representatioon - lower memory, faster
@@ -183,7 +183,7 @@ class Decomposition:
         '''
         self.name = name
         self.hash_name = hash(name)
-        self.decomposed_task = decomposed_task
+        self.compound_task = compound_task
         self.pos_precons = frozenset(pos_precons)
         self.neg_precons = frozenset(neg_precons)
         self.task_network = task_network
@@ -213,7 +213,7 @@ class Decomposition:
         return self.hash_name
     
     def __repr__(self):
-        return f"<D {self.name} {self.decomposed_task}>"
+        return f"<D {self.name} {self.compound_task}>"
     
     def __str__(self):
         s = f"DECOMPOSISITION {self.name}\n"
@@ -224,7 +224,7 @@ class Decomposition:
         for neg_pre in self.neg_precons:
             s += f"not{neg_pre} "
         
-        s += f"\n  Decomposed Task: {self.decomposed_task}\n"
+        s += f"\n  Decomposed Task: {self.compound_task}\n"
         s += f"  Task Network: {self.task_network[0:min(5, len(self.task_network))]}\n"
         return s
     
@@ -306,7 +306,7 @@ class Model:
         self.goal_tasks_count = len(self.initial_tn)
         for t in self.asbtract_tasks:
             if t in self.initial_tn:
-                t.is_goal_task=1
+                t.h_val=1
             
     def goal_reached(self, state, task_network=[]):
         return self.operation_type.goal_reached(state, self.goals, task_network)
@@ -375,13 +375,11 @@ class Model:
         """
         Compresses the model representation to optimize memory usage and performance.
 
-        It filters out unused operators and decompositions based on the initial task network,
+        simple TDG cleaning: It filters out unused operators and decompositions based on the initial task network,
         and updates the model with only the necessary elements.
         It also logs the memory usage before and after the compression for profiling purposes.
-
-        NOTE: Less eficient than rechability analysis -it doesnt consider preconditions, neither
-        simplify used operators and decompositions by removing dispensable literals.
         """
+
         used_operators = []
         used_decompositions = []
         used_abstract_tasks = []

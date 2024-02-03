@@ -767,7 +767,8 @@ def parse_effect_stmt(it):
     return _parse_precondition_or_effect_or_subtasks(it, ":effect", EffectStmt)
 
 def _parse_ordered_subtasks_stmt(it, params_var_helper):
-    if not it.try_match(":ordered-subtasks"):
+    if not (it.try_match(":ordered-subtasks") or it.try_match(":ordered-tasks")):
+        print(it)
         raise ValueError(f'Error: {OrderedSubtasksStmt.__name__} must start with :ordered-subtasks keyword')
     cond = parse_formula(next(it))
     return OrderedSubtasksStmt(cond, params_var_helper)
@@ -786,7 +787,7 @@ def parse_action_stmt(iter):
     name = parse_name(iter, "action")
     # call parsers to parse parameters, precondition, effect
     param = parse_parameters(iter)
-    pre = parse_precondition_stmt(iter)
+    pre = _parse_precondition_ifexist(iter) #parse_precondition_stmt(iter)
     
     eff = parse_effect_stmt(iter)
     return ActionStmt(name, param, pre, eff)
@@ -872,7 +873,7 @@ def _parse_decomposition_task(iter, params):
         raise ValueError(f'Error: must start with :task keyword')
     return _parse_binding_task(next(iter), params) 
 
-def _parse_method_precondition_ifexist(iter):
+def _parse_precondition_ifexist(iter):
     """Parse an action precondition or effect
 
     Returns a PreconditionStmt or EffectStmt instance.
@@ -907,7 +908,7 @@ def parse_method_stmt(iter, tasks_lst, actions_lst=None):
         
     #NOTE: For what I understood, those verifications are made at the TreeVisitor
     decompt = _parse_decomposition_task(iter, param_var_helper)
-    pre = _parse_method_precondition_ifexist(iter)
+    pre = _parse_precondition_ifexist(iter)
     #TODO: parse_ordered_subtasks: not sure if it is a Formula per se
     subt = _parse_ordered_subtasks_stmt(iter, param_var_helper)
     return MethodStmt(name, decompt, param, pre, subt)

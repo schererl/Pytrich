@@ -188,7 +188,7 @@ class TraverseHDDLDomain(HDDLVisitor):
     represent a HDDL-domain file. It results in the HDDL data structure
     (pddl.py) representation of the domain file.
     """
-    def get_in(self, node):
+    def get_in(self, node, aux_structure=None):
         """
         Helper method to access a global hash in which information for each
         node in the AST can be stored.
@@ -214,6 +214,8 @@ class TraverseHDDLDomain(HDDLVisitor):
 
         self._tasks = dict()
         self._methods = dict()
+
+        self._aux_structure = None #NOTE: passing parameters for methods, actions and wharever it needs, not sure how to do that using another way
 
     def visit_domain_def(self, node):
         """Visits a HDDL domain definition."""
@@ -415,8 +417,13 @@ class TraverseHDDLDomain(HDDLVisitor):
             signature.append(signatureTuple)
 
         # Visit the precondition statement.
-        node.precond.accept(self)
-        precond = self.get_in(node.precond)
+        #node.precond.accept(self)
+        #precond = self.get_in(node.precond)
+        # Visit the precondition statement.
+        precond = None
+        if node.precond  != None:
+            node.precond.accept(self)
+            precond = self.get_in(node.precond)
 
         # Visit the effect statement.
         node.effect.accept(self)
@@ -424,114 +431,80 @@ class TraverseHDDLDomain(HDDLVisitor):
 
         # Create new HDDL action and store in node.
         self.set_in(node, hddl.Action(node.name, signature, precond, effect))
-        
-
-    def add_precond(self, precond, c, is_negative=False):
+    
+    def _process_signature(self, node, predicate_definition):
+        """
+        Process the signature for a given node and its predicate definition.
+        """
         from .parser import Variable
-        # cases without preconditions
-        if c.key == None:
-            return
+        signature = []
+        if len(node.children) != len(predicate_definition.signature):
+            raise SemanticError(f"Error: wrong number of arguments for predicate {node.key}")
 
-        predDef = self._predicates[c.key]
-        signature = list()
-        count = 0
-
-        # Check for correct number of arguments.
-        if len(c.children) != len(predDef.signature):
-            raise SemanticError(
-                "Error: wrong number of arguments for predicate " + c.key
-            )
-
-        # Apply to all arguments.
-        for v in c.children:
-            if isinstance(v.key, Variable):
-                signature.append((v.key.name, predDef.signature[count][1]))
+        for count, child in enumerate(node.children):
+            if isinstance(child.key, Variable):
+                signature.append((child.key.name, predicate_definition.signature[count][1]))
             else:
-                signature.append((v.key, predDef.signature[count][1]))
-            count += 1
+                signature.append((child.key, predicate_definition.signature[count][1]))
+        return signature
 
-        # Add predicate to the appropriate precondition list based on positive/negative.
+    def _handle_equality(self, precond, children):
+        """
+        Handle equality conditions.
+        """
+        literal_0 = children[0].key.name
+        literal_1 = children[1].key.name
+        precond.neqlist.add((hddl.Predicate(literal_0, []), hddl.Predicate(literal_1, [])))
+        
+    def _handle_predicate(self, precond, node, is_negative=False):
+        """
+        Handle adding a predicate to the precondition.
+        """
+        predicate_def = self._predicates[node.key]
+        signature = self._process_signature(node, predicate_def)
         if is_negative:
-            precond.neglist.add(hddl.Predicate(c.key, signature))
+            precond.neglist.add(hddl.Predicate(node.key, signature))
         else:
-            precond.poslist.add(hddl.Predicate(c.key, signature))
+            precond.poslist.add(hddl.Predicate(node.key, signature))
 
-    #NOTE: still considering situations with empty predicates (predicate.key == None)
+    def _add_precond(self, precond, node, is_equality=False, is_negative=False):
+        """
+        Add a precondition, adjusted to support recursive processing.
+        """
+        if is_equality:
+            self._handle_equality(precond, node)
+        else:
+            self._handle_predicate(precond, node, is_negative)
+
+    def _process_node(self, precond, node, is_negative=False):
+        """
+        Process a node in the precondition tree recursively.
+        """
+        if node.key is None:
+            # Skip or handle empty nodes
+            return
+    
+        if node.key == "and":
+            # Handle conjunctions by iterating over all children
+            for child in node.children:
+                self._process_node(precond, child, is_negative)
+        elif node.key == "not":
+            # Negation flips the is_negative flag for its child node
+            self._process_node(precond, node.children[0], not is_negative)
+        elif node.key == "=":
+            # Handle equality differently, assuming two children to compare
+            self._add_precond(precond, node.children, is_equality=True, is_negative=is_negative)
+        else:
+            # Handle base case (predicate)
+            self._add_precond(precond, node, is_negative=is_negative)
+
     def visit_precondition_stmt(self, node):
-        # precond_formula = self._traverse_formula(node.formula)
+        """
+        Visit and process a precondition statement, now using recursive processing.
+        """
         precond = hddl.Precondition()
-        formula = node.formula
-        
-        # Handling 'and' operator.
-        if formula.key == "and":
-            for c in formula.children:
-                if not isinstance(c.key, str):
-                    raise SemanticError(
-                        "Error predicate with non str key: "
-                        + "".join([c2.key.name for c2 in formula.children])
-                    )
-                is_negative = False
-                if c.key == "not":
-                    # Handle negative preconditions.
-                    is_negative = True
-                    c = c.children[0]
-                    #self.add_precond(precond, c.children[0], is_negative=True)
-                
-                if c.key !=  None and not c.key in self._predicates:
-                    raise SemanticError(
-                        "Error unknown predicate '{}'"
-                        " used in precondition of action".format(c.key)
-                    )
-                self.add_precond(precond, c, is_negative)
-        else:
-            if formula.key == "not":
-                # Handle negative preconditions.
-                self.add_precond(precond, formula.children[0], is_negative=True)
-            else:
-                if formula.key !=  None and not formula.key in self._predicates:
-                    raise SemanticError(
-                        f"Error: predicate {formula.key} in precondition is not defined"
-                    )
-                self.add_precond(precond, formula)
-                            
-
+        self._process_node(precond, node.formula)
         self.set_in(node, precond)
-        
-        
-    # NOTE: eventually we will need some type of evaluation using predicate formula as
-        # we add new operations, in order to avoid too many edge cases as we grow the evaluation of 'visit_precondition_stmt'
-    # def _traverse_formula(self, node):
-    #     """
-    #     Traverse and process a logical formula in an HDDL domain.
-
-    #     :param node: The formula node to process.
-    #     :return: Processed formula as a Predicate, conjunction, or disjunction.
-    #     """
-    #     if node.key is None:
-    #         return hddl.Formula(LogicalOperator.NOOP, None)
-    #     elif node.key in self._predicates:
-    #         return hddl.Formula(LogicalOperator.LITERAL, self.add_predicate(node))
-    #     else:
-    #         operator = node.key.upper()
-    #         if operator == '=':
-    #             variables = [n.key.name for n in node.children]
-    #             assert len(variables) == 2
-    #             return hddl.Formula(LogicalOperator.EQUAL, variables)
-            
-    #         operands = [self._traverse_formula(child) for child in node.children]
-    #         if operator == 'AND':
-    #             return hddl.Formula(LogicalOperator.AND, operands)
-    #         elif operator == 'OR':
-    #             return hddl.Formula(LogicalOperator.OR, operands)
-    #         elif operator == 'NOT':
-    #             return hddl.Formula(LogicalOperator.NOT, operands)
-    #         else:
-    #             # Handle other operators or raise an error
-    #             raise SemanticError(
-    #             "Error: invalid operator " + operator
-    #             )
-
-        
 
     def add_predicate(self, node):
         from .parser import Variable
@@ -651,36 +624,65 @@ class TraverseHDDLDomain(HDDLVisitor):
         self.set_in(node, hddl.Task(node.name, signature))
 
     def visit_method_stmt(self, node):
-        """Visits a HDDL method statement."""
-        
+        """
+        Processes a method statement within an HDDL domain, gathering all necessary components
+        such as parameters, preconditions, decomposed task, and ordered subtasks, then creating
+        a method object to represent this structure.
+
+        Args:
+            node: The current method statement node being visited.
+        """
         signature = list()
-        # Visit all parameters and create signature.
+        # Extract method signature from parameters.
         for v in node.parameters:
             v.accept(self)
             signatureTuple = self.get_in(v)
             signature.append(signatureTuple)
 
-        # Visit the precondition statement.
+        # Process precondition, if present.
         precond = None
         if node.precond  != None:
             node.precond.accept(self)
             precond = self.get_in(node.precond)
 
-        # Visit the decomposed task.
+        # Process the composed task.
         node.decomposed_task.accept(self)
-        decomposed_task = self.get_in(node.decomposed_task)
+        composed_task = self.get_in(node.decomposed_task)
 
-        # Visit subtasks:
+        # Process ordered subtasks.
         node.ordered_subtasks.accept(self)   
         ordered_subtasks = self.get_in(node.ordered_subtasks)
 
         # Create new HDDL action and store in node.
-        self.set_in(node, hddl.Method(node.name, signature, precond, decomposed_task, ordered_subtasks))
+        self.set_in(node, hddl.Method(node.name, signature, precond, composed_task, ordered_subtasks))
     
+    def visit_decomposed_task_stmt(self, node):
+        """
+        Processes a decomposed task statement within an HDDL method, ensuring the specified task
+        matches with its definition in terms of variable types and counts.
+
+        Args: node: The AST node representing the decomposed task statement.
+
+        Raises: ValueError: If the task is undefined or if there's a mismatch in variable types or counts.
+        """
+        task_name = node.name
+        if task_name not in self._tasks:
+            raise ValueError(f"Undefined task '{task_name}' used in method decomposition.")
+
+        # Retrieve task definition from domain specifications.
+        task_definition = self._tasks[task_name]
+
+        # Construct and validate the decomposition signature based on the task definition.
+        decomposition_signature = self._construct_decomposition_signature(node, task_definition)
+
+        # After validation, store the structured decomposed task in the node.
+        self.set_in(node, hddl.CompoundTask(task_name, decomposition_signature))
 
     def visit_ordered_subtasks(self, node):
-        """Visits the subtasks within a method in HDDL.
-        NOTE: we do not considere here arbitrarly task namming in primitive tasks like (t1 (primitive)) :subbtasks(and (primitive) (abstract)...)
+        """
+        Visits the subtasks within a method in HDDL.
+        
+        Each subtasks is processed getting its parameters signature
         """
         subtasks = list()
         formula = node.formula
@@ -696,101 +698,123 @@ class TraverseHDDLDomain(HDDLVisitor):
     
     def _process_subtasks(self, node, subtask_name, subtask_formula):
         subtask_signature = []
+        if subtask_name is None:
+            return (subtask_name,subtask_signature, 'none')
         
-        # in cases tasks being named ( ex: (t1 (move ?x ?y)) => move ?x ?y ) * for now we ignore the task ID
-        if not subtask_name in self._actions and not subtask_name in self._tasks:
-            subtask_formula = subtask_formula[0] 
-            subtask_name = subtask_formula.key
-            subtask_variables = subtask_formula.children
-        else:
-            subtask_variables = subtask_formula
-
-        if subtask_name in self._tasks:
-            task_definition_signature = self._tasks[subtask_name].signature
-            type_of_task = 'abstract'
-        elif subtask_name in self._actions:
-            task_definition_signature = self._actions[subtask_name].signature
-            type_of_task = 'primitive'
-        else:
-            raise SemanticError(f"[SUBTASK ERROR]: subtask \'{subtask_name}\' not defined {self._actions}\n\n{self._tasks}")
-                    
+        # Extract subtask name and variables, handling named tasks.    
+        subtask_name, subtask_variables = self._extract_subtask_name_and_variables(subtask_name, subtask_formula)
+    
+        # Determine the type of task and its definition signature.
+        try:
+            type_of_task, task_definition_signature = self._get_task_type_and_signature(subtask_name)
+        except SemanticError as e:
+            error_msg = f"{e} (occurred in subtask '{subtask_name}')"
+            raise SemanticError(error_msg) from None
+        
+        # Validate the number of variables against the task's definition.
         if len(task_definition_signature) != len(subtask_variables):
-            raise SemanticError(f"[SUBTASK ERROR] number of parameters on subtask \'{subtask_name}\' differs from its declaration")
+            raise SemanticError(f"number of parameters on subtask \'{subtask_name}\' differs from its declaration")
         
-        for idx in range(len(subtask_variables)):
-            fact = subtask_variables[idx].key
-            if fact in self._constants:
-                constant = fact
-                type_constant = self._constants[fact]
-                subtask_signature.append((fact, type_constant))
-            else:
-                var = fact
-                # check if variable was declared in :parameter
-                if not var.name in node.helper_params:
-                    raise SemanticError(f"[SUBTASK ERROR] {subtask_name}: {var.name} not defined")
-                #check if types required by subtasks match to task/action declaration
-                else:
-                    var_instance = node.helper_params[var.name]
-                    var_definition_signature = task_definition_signature[idx]
-                    for i in range(len(var_definition_signature[1])):
-                        #if var_definition_signature[1][i].name != var_instance.types[i]:
-                        if not self._helper_check_type_signature(var_definition_signature[1][i].name, var_instance.types[i]):
-                            raise SemanticError(f"[SUBTASK ERROR] \'{subtask_name}\': type \'{var_instance.types[i]}\' mismatch on variable \'{var.name}\', task \'{subtask_name}\' require type \'{var_definition_signature[1][i].name}\'")
-                    subtask_signature.append((var_instance.name, var_instance.types))
-        
+        # Create subtasks signature, each variable should match parameter requirements
+        for idx, variable in enumerate(subtask_variables):
+            variable = variable.key
+            lifted_parameter = node.helper_params.get(variable.name)
+            parameter_signature = task_definition_signature[idx]
+            
+            try:
+                var_signature = self._variable_signature(variable, lifted_parameter, parameter_signature)
+            except SemanticError as e:
+                error_msg = f"{e} (cccurred in subtask '{subtask_name}')"
+                raise SemanticError(error_msg) from None
+            
+            subtask_signature.append(var_signature)
+
         return (subtask_name,subtask_signature, type_of_task)
 
-    
+    def _get_task_type_and_signature(self, subtask_name):
+        """
+        Determines the type of task (abstract or primitive) and fetches its definition signature.
+        Args: subtask_name: Name of the subtask.
+        Returns: Tuple containing the type of task and its definition signature.
+        Raises: SemanticError: If the subtask is not defined.
+        """
+        if subtask_name in self._tasks:
+            return 'abstract', self._tasks[subtask_name].signature
+        elif subtask_name in self._actions:
+            return 'primitive', self._actions[subtask_name].signature
+        else:
+            raise SemanticError(f"Subtask '{subtask_name}' is not defined.")
+
+
+    def _extract_subtask_name_and_variables(self, subtask_name, subtask_formula):
+        """
+        Extracts the subtask name and variables, especially handling tasks with IDs.
+
+        Args:
+            subtask_name: Initial subtask name that might include an ID.
+            subtask_formula: Formula from which to extract subtask details.
+
+        Returns:
+            Tuple of the actual subtask name and its variables.
+        """
+        if not subtask_name in self._actions and not subtask_name in self._tasks:
+            # Task ID is ignored, and actual task details are extracted.
+            actual_subtask_name = subtask_formula[0].key
+            subtask_variables = subtask_formula[0].children
+        else:
+            actual_subtask_name = subtask_name
+            subtask_variables = subtask_formula
+
+        return actual_subtask_name, subtask_variables
+
+    def _variable_signature(self, variable, lifted_parameter, parameter_signature):
+        if variable in self._constants:
+            type_constant = self._constants[variable]
+            return (variable, type_constant)
+        else:
+            if lifted_parameter is None:
+                raise SemanticError(f"variable {variable.name} not defined")
+            for i in range(len(parameter_signature[1])):
+                if not self._helper_check_type_signature(parameter_signature[1][i].name, lifted_parameter.types[i]):
+                    raise SemanticError(f"type \'{lifted_parameter.types[i]}\' mismatch on variable \'{variable.name}\', require type \'{parameter_signature[1][i].name}\'")
+            return (lifted_parameter.name, lifted_parameter.types)
 
     def _helper_check_type_signature(self, type_definition, instance_type):
-        
         curr_type = self._types[instance_type]
         while True:
-        
             if curr_type.name == type_definition:
                 return True
             elif curr_type == curr_type.parent:
                 break 
             curr_type = curr_type.parent
-            
         return False
 
-
-    def visit_decomposed_task_stmt(self, node):
-        """Visits a decomposed task statement in HDDL.
-            NOTE: the method signature is not accessible from here because we cannot pass it by parameter and we have not instantiated it yet
-            then we attach to variable their types in order to verify if signature on task's  definition match with method's decomposed task
+    def _construct_decomposition_signature(self, node, task_definition):
         """
-        task_name = node.name
-        
-        # Check if the task exists
-        if not task_name in self._tasks:
-            raise ValueError(f"[DECOMP TASK ERROR] undefined tasks \'{task_name}\' used in method decomposition")
-        
-        task_definition = self._tasks[task_name]
-        
+        Constructs and validates the decomposition signature for a given task based on its definition.
 
-        # Validate that the variables of the decomposed task match the parameters of the task
+        Args:
+            node: The AST node representing the decomposed task.
+            task_definition: The task definition object from the domain.
+        Returns: List of tuples representing the validated decomposition signature.
+        Raises: ValueError: If there's a mismatch in the number of variables or variable types.
+        """
         if len(node.variables) != len(task_definition.signature):
-           raise ValueError(f"[DECOMP TASK ERROR] Number of variables in task {task_name} does not match task's definition.")
-        
-        decomposition_signature = list()
-        # Visit all parameters and create a decomposition signature.
-        for v in node.variables:
-            v.accept(self)
-            signatureTuple = self.get_in(v)
-            decomposition_signature.append(signatureTuple)
-                
-        for i in range(len(decomposition_signature)):
-            ds = decomposition_signature[i]     #decomposition signature
-            ts = task_definition.signature[i]   #task signature
-            for j in range(len(ds[1])):
-                if(ds[1][j].name != ts[1][j].name): 
-                    raise ValueError(f"[DECOMP TASK ERROR] task \'{task_name}\': Variable type ({ds[0]}, {ds[1][j].name}) not according task's definition ({ts[0]}, {ts[1][j].name}).")
-        
+            raise ValueError(f"Mismatch in number of variables for task '{task_definition.name}'.")
 
-        # Store the decomposed task in the node.
-        self.set_in(node, hddl.DecomposedTask(task_name, decomposition_signature))
+        decomposition_signature = []
+        for var_node, expected_type in zip(node.variables, task_definition.signature):
+            var_node.accept(self)
+            variable_info = self.get_in(var_node)
+            actual_type = variable_info[1]
+
+            if actual_type != expected_type[1]:
+                raise ValueError(f"Type mismatch for variable '{variable_info[0]}' in task '{task_definition.name}', expected '{expected_type[1].name}'.")
+
+            decomposition_signature.append(variable_info)
+
+        return decomposition_signature
+
 
 
 ###############################( PROBLEM )############################################

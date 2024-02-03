@@ -73,3 +73,4 @@
 (do_clear crate0 distributor1)
 (nop)
 (unload hoist2 crate5 truck1 distributor1)
+(drop hoist2 crate5 crate0 distributor1)

@@ -28,7 +28,7 @@ import re
 from ..utils import LogicalOperator
 
 
-from ..model import Operator, Model, GroundedTask, Decomposition
+from ..model import Operator, Model, AbstractTask, Decomposition
 
 # controls mass log output
 verbose_logging = False
@@ -163,17 +163,7 @@ def _assign_objects(lifted_structure, type_map):
         [(name, obj) for obj in objects] for name, objects in param_to_objects.items()
     ]
     
-    assignments = itertools.product(*domain_lists) #NOTE: this is bad, maybe rechability should be done before
-    
-    #NOTE: removed here (Barman example uses '=' operator to ensure more than one variable to have same atom)
-    # remove repeated literals into the same assignment
-    # valid_assignments = [
-    #     assign for assign in assignments if len(set(obj for _, obj in assign)) == len(assign)
-    # ]
-
-    # #return assignments
-    # return valid_assignments
-    
+    assignments = itertools.product(*domain_lists)
     return assignments
 
 def _ground_initial_tn(initial_tn, grounded_tasks):
@@ -261,6 +251,7 @@ def _ground_action(action, type_map):
     """
     Ground the action and return the resulting list of operators.
     """
+    import time
     logging.debug("Grounding %s" % action.name)
     assignments = _assign_objects(action,type_map)
     ops = [
@@ -274,14 +265,19 @@ def _create_grounded_method(method, primitive, abstract, assignment):
     args = [assignment[name] for name, types in method.signature]
     method_name = _get_grounded_string(method.name, args)
     
-    #precons = _ground_preconditions(method.precondition, assignment)
     if method.precondition is None:
         pos_precons = []
         neg_precons = []
     else:
+        # Check for '=' preconditions, in this case 'not =' restriction
+        if len(method.precondition.neqlist) > 0:
+            for t in method.precondition.neqlist:
+                if assignment[t[0].name] == assignment[t[1].name]:
+                    return None
         pos_precons = _ground_atoms(method.precondition.poslist, assignment)
         neg_precons = _ground_atoms(method.precondition.neglist, assignment)
         
+
     # grounding decomposed task according to its signature and method literals
     task_args = [assignment[dt_sig[0]] for dt_sig in method.decomposed_task.signature]
     decomposed_task_id = _get_grounded_string(method.decomposed_task.name, task_args)
@@ -314,31 +310,12 @@ def _create_grounded_method(method, primitive, abstract, assignment):
     if decomposed_task_id in abstract:
         abstract[decomposed_task_id].decompositions.append(decomposition)
         
-    return decomposition
-
-
-## NOTE: alternative precondition grounding using tree structure (too slow)
-# def _ground_preconditions(node, assignment):
-#     if not _PRECONS_USE_SET_OPERATIONS:
-#         if node._operator == LogicalOperator.NOOP:
-#             return Preconditions(LogicalOperator.NOOP, None)
-#         elif node._operator == LogicalOperator.LITERAL:
-#             # TODO: maybe here is an atom
-#             predicate = node._operands
-#             args = [assignment[name] for name, types in predicate.signature]
-#             name = _get_grounded_string(predicate.name, args)
-#             return Preconditions(LogicalOperator.LITERAL, name)
-#         elif node._operator == LogicalOperator.EQUAL:
-#             var_1, var_2 = node._operands
-#             return Preconditions(LogicalOperator.EQUAL, [assignment[var_1], assignment[var_2]])
-#         operands = [_ground_preconditions(op, assignment) for op in node._operands]
-#         return Preconditions(node._operator, operands)
-    
+    return decomposition 
 
 def _create_grounded_task(task, assignment):
     args = [assignment[name] for name, types in task.signature]
     name = _get_grounded_string(task.name, args)
-    return GroundedTask(name)
+    return AbstractTask(name)
 
 def _create_operator(action, assignment):
     """Create an operator for "action" and "assignment".
