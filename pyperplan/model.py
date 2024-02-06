@@ -312,7 +312,29 @@ class Model:
 
     def decompose(self, decomposition):
         return decomposition.task_network
-         
+
+    def count_positive_binary_facts(self, state):
+        binary_str = bin(state)[2:] 
+        binary_str = binary_str[::-1]
+        count=0
+        for i, bit in enumerate(binary_str):
+        
+            if int(bit) == 1:
+                count+=1
+        return count
+
+    def print_binary_state_info(self, state):
+        binary_str = bin(state)[2:]  # Convert state to binary string, remove the '0b' prefix
+        binary_str = binary_str[::-1]  # Reverse it to start from the least significant bit (LSB)
+        #print(f"Binary representation (LSB to MSB): {binary_str}")
+        facts_str = '['
+        for i, bit in enumerate(binary_str):
+            #print(f"Bit position: {i}, Bit value: {bit} - {self._int_to_explicit[i] }")
+            if int(bit) == 1:
+                facts_str += f'{self._int_to_explicit[i]} '
+        facts_str += ']'
+        return facts_str
+      
     def __str__(self):
         memory_info = (
             f"\nMemory Usage:"
