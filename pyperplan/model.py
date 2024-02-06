@@ -256,7 +256,7 @@ class Model:
         def applicable(modifier, state):
             return modifier.applicable(state)
 
-    def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, asbtract_tasks, literal_type = int):
+    def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks, operation_type = BitwiseOP):
         """
         Initializes a planning model with its properties.
         @param name: The name of the planning task.
@@ -275,36 +275,26 @@ class Model:
         self.operators = operators
         self.initial_tn = initial_tn
         self.decompositions = decompositions
-        self.asbtract_tasks = asbtract_tasks
+        self.abstract_tasks = abstract_tasks
         self.states = {}
         
+        self.operation_type = operation_type
         
         # goal count heuristic
         self.goal_facts_count = 0
         self.goal_tasks_count = 0
         self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
         self._process_goal_facts_count()      #NOTE: before converting into bit representation, add facts counts into operators
+        self._explicit_to_int = {}
+        self._int_to_explicit = {}
+        self._goal_bit_pos = []
         
-        # model optimizations 
-        self._compress_model_repr()
-        self._process_negative_precons()      #NOTE: suggest to use it after compressing the model
-        
-        if literal_type:
-            self._explicit_to_int = {}
-            self._int_to_explicit = {}
-            self._goal_bit_pos = []
-            self._compress_facts_repr(self.facts) #NOTE: won't work without compress_model (facts are empty before it)
-            self.operation_type = self.BitwiseOP
-            
-        else:
-            self.operation_type = self.StringOP
-    
     def _process_goal_facts_count(self):
         self.goal_facts_count = len(self.goals)
     
     def _process_goal_task_count(self):
         self.goal_tasks_count = len(self.initial_tn)
-        for t in self.asbtract_tasks:
+        for t in self.abstract_tasks:
             if t in self.initial_tn:
                 t.h_val=1
             
@@ -323,168 +313,6 @@ class Model:
     def decompose(self, decomposition):
         return decomposition.task_network
          
-    ### REMOVE NEGATIVE PRECONDITIONS ###
-    # NOTE: some test indicate that this leads to a slightly improve into search time
-    def _process_negative_precons(self):
-        neg_facts = set()
-    
-        # convert negative preconditions into 'neg literals'
-        for o in self.operators:
-            new_pos_precons = set(o.pos_precons)
-            for n_p in o.neg_precons:
-                new_fact = '(not_' + n_p[1:]
-                new_pos_precons.add(new_fact)
-                self.facts.add(new_fact)
-            neg_facts.update(o.neg_precons)
-            o.pos_precons = frozenset(new_pos_precons)
-
-        for d in self.decompositions:
-            new_pos_precons = set(d.pos_precons)
-            for n_p in d.neg_precons:
-                new_fact = '(not_' + n_p[1:]
-                new_pos_precons.add(new_fact)
-                self.facts.add(new_fact)
-            neg_facts.update(d.neg_precons)
-            d.pos_precons = frozenset(new_pos_precons)
-        
-        # change effects to turns a not literals true when modified
-        for o in self.operators:
-            for fact in o.add_effects:
-                if fact in neg_facts:
-                    o.del_effects.add('(not_' + fact[1:])
-            for fact in o.del_effects:
-                if fact in neg_facts:
-                    o.add_effects.add('(not_' + fact[1:])
-        
-        # update initial state
-        for fact in neg_facts:
-            new_initial_state = set()
-            if not fact in self.initial_state:
-                new_initial_state.add('(not_' + fact[1:])
-            new_initial_state.update(self.initial_state)
-            self.initial_state = frozenset(new_initial_state)
-            
-        #clear all negative precons
-        for o in self.operators:
-            o.neg_precons=frozenset()
-        for d in self.decompositions:
-            d.neg_precons=frozenset()
-            
-    ### OPTIMIZING MODEL ### 
-    def _compress_model_repr(self):
-        """
-        Compresses the model representation to optimize memory usage and performance.
-
-        simple TDG cleaning: It filters out unused operators and decompositions based on the initial task network,
-        and updates the model with only the necessary elements.
-        It also logs the memory usage before and after the compression for profiling purposes.
-        """
-
-        used_operators = []
-        used_decompositions = []
-        used_abstract_tasks = []
-        tasks = self.initial_tn[:]
-        visited_tasks = set()
-        used_facts = set()
-        
-        for l in self.initial_state:
-            used_facts.add(l)
-        
-        while len(tasks)>0:
-            task = tasks.pop()
-            if task in visited_tasks:
-                continue
-            visited_tasks.add(task)
-            if type(task) == Operator:
-                used_operators.append(task)
-                used_facts.update(task.pos_precons) 
-                used_facts.update(task.neg_precons)
-                used_facts.update(task.add_effects)
-                used_facts.update(task.del_effects)
-            else:
-                used_abstract_tasks.append(task)
-                for method in self.methods(task):
-                    used_decompositions.append(method)
-                    used_facts.update(method.pos_precons)
-                    used_facts.update(method.neg_precons)
-                    tasks+= self.decompose(method)[:]
-
-        # profilling stuff
-        op_before = sys.getsizeof(self.operators) 
-        decomp_before = sys.getsizeof(self.decompositions) 
-        abs_tasks_before = sys.getsizeof(self.asbtract_tasks) 
-        self.operators = used_operators
-        self.decompositions = used_decompositions
-        self.facts = used_facts
-        self.asbtract_tasks = used_abstract_tasks
-        op_after = sys.getsizeof(self.operators) 
-        decomp_after = sys.getsizeof(self.decompositions)
-        tasks_after = sys.getsizeof(self.asbtract_tasks)
-        logging.info(f"cleaning operators: before {op_before} bytes ==> after {op_after} bytes")
-        logging.info(f"cleaning decompositions: before {decomp_before} bytes ==> after {decomp_after} bytes")
-        logging.info(f"cleaning tasks: before {abs_tasks_before} bytes ==> after {tasks_after} bytes")
-        logging.info(f"used facts: {len(used_facts)}")
-        
-    
-    def _compress_facts_repr(self, used_facts):
-        """
-        Compresses fact representations by mapping facts to bit positions and converting
-        states to integer representations.
-        """
-        # map facts to bit position for bit representation
-        self._map_explicit_to_int(used_facts)
-        
-        # convert initial and goal state to int
-        si_bitwise_repr = self._convert_to_bitwise(self.initial_state)
-        sf_bitwise_repr = self._convert_to_bitwise(self.goals)
-        self.initial_state = si_bitwise_repr
-        self._goal_bit_pos = [self._explicit_to_int[g] for g in self.goals]
-        self.goals = sf_bitwise_repr
-        
-        # convert preconditions and effects to integers for bitwise operations
-        for o in self.operators:
-            o.pos_precons_bitwise = self._convert_to_bitwise(o.pos_precons)
-            o.neg_precons_bitwise = self._convert_to_bitwise(o.neg_precons)
-            o.add_effects_bitwise = self._convert_to_bitwise(o.add_effects)
-            o.del_effects_bitwise = self._convert_to_bitwise(o.del_effects)
-            o.pos_precons = frozenset()
-            o.neg_precons = frozenset()
-            o.add_effects = frozenset()
-            o.del_effects = frozenset()
-        for d in self.decompositions:
-            d.pos_precons_bitwise = self._convert_to_bitwise(d.pos_precons)
-            d.neg_precons_bitwise = self._convert_to_bitwise(d.neg_precons)
-            d.pos_precons = frozenset()
-            d.neg_precons = frozenset()
-            
-    def _map_explicit_to_int(self, used_facts):
-        """
-        Maps each fact to a unique integer, creating a mapping for bitwise operations.
-        This method is part of the process to convert states and operations to a bitwise format.
-        """
-        cont = 0
-
-        # NOTE: this is essential for fact count heuristic works faster
-        for g in self.goals:
-                self._explicit_to_int[g] = cont
-                self._int_to_explicit[cont] = g
-                cont+=1
-        
-        for f in used_facts:
-            if f in self.goals:
-                continue
-            self._explicit_to_int[f] = cont
-            self._int_to_explicit[cont] = f
-            cont+=1
-        
-    
-    def _convert_to_bitwise(self, facts_set):
-        bitwise_representation = 0
-        for fact in facts_set:
-            bit_position = self._explicit_to_int[fact]
-            bitwise_representation |= 1 << bit_position
-        return bitwise_representation
-
     def __str__(self):
         memory_info = (
             f"\nMemory Usage:"
@@ -503,3 +331,33 @@ class Model:
     def __repr__(self):
         string = "<Model {0}, vars: {1}, operators: {2}, decompositions: {3}>"
         return string.format(self.name, len(self.facts), len(self.operators), len(self.decompositions))
+
+
+# def _del_relax_rechability(self):
+    #     reachable_operators = self._remove_operators()
+    #     logging.info(f"Removable Operators: {len(self.operators) - len(reachable_operators)} of {len(self.operators)}")
+
+    #     removable_operators = set(self.operators) - reachable_operators
+    #     removable_tasks = set()
+    #     for compound in self.abstract_tasks:
+    #         removable_decompositions = [d for d in compound.decompositions if any(op in removable_operators for op in d.task_network)]
+    #         if len(removable_decompositions) > 0:    
+    #             logging.info(f"Task {compound} has {len(removable_decompositions)} of {len(compound.decompositions)} removable decompositions")
+    #             for removable in removable_decompositions:
+    #                 compound.decompositions.remove(removable)
+    #             if not compound.decompositions:
+    #                 removable_tasks.add(compound)
+        
+        
+    #     for compound in self.abstract_tasks:
+    #         removable_decompositions = [d for d in compound.decompositions if any(ab_task in removable_tasks for ab_task in d.task_network)]
+    #         if removable_decompositions:
+    #             logging.info(f"Task {compound} has more {len(removable_decompositions)} removable decompositions out of {len(compound.decompositions)}")
+    #             # Update the list of decompositions for the current task.
+    #             compound.decompositions = [d for d in compound.decompositions if d not in removable_decompositions]
+    #             if not compound.decompositions:
+    #                 removable_tasks.add(compound)
+        
+        
+    #     self.operators = list(reachable_operators)
+

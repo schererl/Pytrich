@@ -29,6 +29,7 @@ from ..utils import LogicalOperator
 
 
 from ..model import Operator, Model, AbstractTask, Decomposition
+from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_rechability
 
 # controls mass log output
 verbose_logging = False
@@ -104,15 +105,21 @@ def ground(
     if verbose_logging:
         logging.debug("Goal:\n%s" % goals)
 
-    # Collect facts from operators and include the ones from the goal
-    #facts = _collect_facts(operators) | goals
-    #if verbose_logging:
-    #    logging.debug("All grounded facts:\n%s" % facts)
     facts = [] #NOTE: check here about facts and how they are used in the 'Task/Model'
 
-    name = problem.name
-    full_model = Model(name, facts, init, grounded_initial_tn, goals, operators, decompositions, grounded_tasks)
-    return full_model
+    
+    model = Model(problem.name, facts, init, grounded_initial_tn, goals, operators, decompositions, grounded_tasks)
+    # remove operators and tasks not achievable from initial task network
+    clean_tdg(model)
+    # remove negative preconditions converting it into negated facts 'not_<literal>'
+    remove_negative_precons(model)
+    # convert facts representation to bitwise
+    convert_bitwise_repr(model)
+    # remove non delete relaxed tdg operators, tasks and methods
+    del_relax_rechability(model) #NOTE: works only using bitwise representation
+    
+    
+    return model
 
 
 def _create_type_map(objects):

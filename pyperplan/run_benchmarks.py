@@ -6,7 +6,7 @@ import os
 import sys
 
 FOLDER_LOCATION = 'benchmarks/' 
-DOMAINS = ['Factories', 'Barman', 'Robot', 'Transport', 'Towers', 'Blocksworld-GTOHP', 'Rover-GTOHP', 'Depots']
+DOMAINS = ['Robot', 'Rover-GTOHP', 'Towers', 'Transport','Blocksworld-GTOHP', 'Depots','Barman' ]
 from pyperplan.planner import (
     SEARCHES,
     HEURISTICS
@@ -48,12 +48,12 @@ def run_benchmarks():
         problems = get_problems(domain_path)
         #print(problems)
         for problem_file in problems[:5]:
-            for heuristic in ['TaskDecomposition', 'TaskCount', 'FactCount']:
+            for heuristic in ['Blind', 'TaskDecomposition']:
                 #print(heuristic)
                 data = search_plan(domain_file, problem_file, SEARCHES['blind'], HEURISTICS[heuristic])
                 result = format_data(domain_name, os.path.basename(problem_file), heuristic, data)
                 with open('benchmark_results.txt', 'a') as file:
                     file.write(result+'\n')
                 
-                if data['status'] != 'GOAL': #and heuristic == 'Blind':
-                   break
+                #if data['status'] != 'GOAL': #and heuristic == 'Blind':
+                #   break

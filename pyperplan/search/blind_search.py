@@ -94,8 +94,8 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
         
         try_get_node = closed_list.get(hash(node))
         if try_get_node and try_get_node.g_value < node.g_value:
-            count_revisits+=1
-            continue 
+           count_revisits+=1
+           continue 
         
         
         # time and memory control
@@ -112,7 +112,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
                 logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
                 return create_result_dict('MEMORY', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, -1)
             
-            if current_time - start_time > 60:
+            if current_time - start_time > 300:
                 logging.info("TIMEOUT.")
                 logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
                 return create_result_dict('TIMEOUT', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, -1)

@@ -85,14 +85,14 @@ def main():
     heuristic = HEURISTICS[args.mh]
     logging.info("using heuristic: %s" % heuristic.__name__)
     
-    run_benchmarks()
+    #run_benchmarks()
 
-    # search_plan(
-    #     args.domain,
-    #     args.problem,
-    #     search,
-    #     heuristic
-    # )
+    search_plan(
+        args.domain,
+        args.problem,
+        search,
+        heuristic
+    )
     
 
 if __name__ == "__main__":
