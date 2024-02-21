@@ -652,7 +652,6 @@ class TraverseHDDLDomain(HDDLVisitor):
         # Process ordered subtasks.
         node.ordered_subtasks.accept(self)   
         ordered_subtasks = self.get_in(node.ordered_subtasks)
-
         # Create new HDDL action and store in node.
         self.set_in(node, hddl.Method(node.name, signature, precond, composed_task, ordered_subtasks))
     
@@ -676,7 +675,7 @@ class TraverseHDDLDomain(HDDLVisitor):
         decomposition_signature = self._construct_decomposition_signature(node, task_definition)
 
         # After validation, store the structured decomposed task in the node.
-        self.set_in(node, hddl.CompoundTask(task_name, decomposition_signature))
+        self.set_in(node, hddl.Task(task_name, decomposition_signature))
 
     def visit_ordered_subtasks(self, node):
         """
@@ -694,12 +693,13 @@ class TraverseHDDLDomain(HDDLVisitor):
                 subtasks.append( self._process_subtasks(node, subtask_formula.key, subtask_formula.children) )
         else:
             subtasks.append( self._process_subtasks(node, formula.key, formula.children) )
-        self.set_in(node, hddl.OrderedSubtasks(subtasks))
+        self.set_in(node, subtasks)
     
     def _process_subtasks(self, node, subtask_name, subtask_formula):
         subtask_signature = []
         if subtask_name is None:
-            return (subtask_name,subtask_signature, 'none')
+            # NOTE: important to use 'none' here
+            return hddl.Task(subtask_name, subtask_signature, 'none')
         
         # Extract subtask name and variables, handling named tasks.    
         subtask_name, subtask_variables = self._extract_subtask_name_and_variables(subtask_name, subtask_formula)
@@ -729,7 +729,7 @@ class TraverseHDDLDomain(HDDLVisitor):
             
             subtask_signature.append(var_signature)
 
-        return (subtask_name,subtask_signature, type_of_task)
+        return hddl.Task(subtask_name, subtask_signature, type_of_task)
 
     def _get_task_type_and_signature(self, subtask_name):
         """
@@ -922,7 +922,7 @@ class TraverseHDDLProblem(HDDLVisitor):
             
             subtasks = self._helper_validate_and_append_subtask(subtasks, subtask_name, subtask_facts)
             
-        self.set_in(node, hddl.OrderedSubtasks(subtasks))
+        self.set_in(node, subtasks)
 
     def visit_object(self, node):
         """Visits a HDDL-problem object definition."""
@@ -1027,7 +1027,7 @@ class TraverseHDDLProblem(HDDLVisitor):
             
             subtask_signature.append((f.key, task_definition_signature[i][1])) #NOTE: not sure if the problem subtask should be instantiated this way                                
         
-        subtasks.append( (subtask_name, subtask_signature) )
+        subtasks.append( hddl.Task(subtask_name, subtask_signature) )
         return subtasks
     
     def _helper_check_type_signature(self, type_definition, instance_type):

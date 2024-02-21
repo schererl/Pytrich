@@ -9,6 +9,13 @@
 	cocktail1 - cocktail
 	level1 level2 level3 - level
 )
+
+(:htn
+	:ordered-subtasks (and
+		(AchieveContainsShotCocktail shot2 cocktail1)
+	)
+)
+
 (:init 
 	(ontable shaker1)
 	(ontable shot1)
@@ -30,10 +37,6 @@
 	(cocktailPart1 cocktail1 ingredient2)
 	(cocktailPart2 cocktail1 ingredient1)
 )
-(:htn
-	:ordered-subtasks (and
-		(AchieveContainsShotCocktail shot2 cocktail1)
-	)
-)
+
 
 )

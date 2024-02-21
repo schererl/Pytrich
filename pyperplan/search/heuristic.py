@@ -1,5 +1,16 @@
-from . import relaxed_search
+
 from ..model import Operator, AbstractTask
+#from .relaxed_search import relaxed_search
+from .htn_node import HTNNode
+import numpy as np
+
+from utils import UNSOLVABLE
+from .htn_node import AstarNode
+from utils import UNSOLVABLE
+from .htn_node import AstarNode
+from collections import deque
+import heapq
+import psutil
 class Heuristic:
     def __init__(self):
         pass
@@ -14,26 +25,20 @@ class BlindHeuristic(Heuristic):
     def compute_heuristic(self, model, parent_node, task, state, task_network):
         return 0
 
-# class RelaxedHeuristic(Heuristic):
-#     def __init__(self):
-#         super().__init__()
-#     @staticmethod
-#     def compute_heuristic(model, parent_node, node):
-#         return relaxed_search.relaxed_search(model, node)
-
 class TaskCountHeuristic(Heuristic):
     def __init__(self):
         super().__init__()
     
     def compute_heuristic(self, model, parent_node, task, state, task_network):
-        if parent_node:
-            if type(task) is Operator:
-                return parent_node.h_val
+        return len(task_network)
+        # if parent_node:
+        #     if type(task) is Operator:
+        #         return parent_node.h_val
             
-            return parent_node.h_val-task.h_val
-        else:
+        #     return parent_node.h_val-task.h_val
+        # else:
             
-            return len(model.initial_tn)
+        #     return len(model.initial_tn)
 
 class FactCountHeuristic(Heuristic):
     def __init__(self):
@@ -41,25 +46,89 @@ class FactCountHeuristic(Heuristic):
 
     
     def compute_heuristic(self, model, parent_node, task, state, task_network):
+        import time
         if parent_node:
             if not type(task) is Operator:
                 return parent_node.h_val
             
-            goal_count = 0
-            bit_state = state
-            bit_goal = model.goals
-            #NOTE: here goal facts should be the k-first bits positions, otherwise won't work
-            while bit_goal:
-                if (bit_state & 1) and (bit_goal & 1):
-                    goal_count += 1
-                bit_state >>= 1
-                bit_goal >>= 1
-            
-            
-            return model.goal_facts_count - goal_count
+            #NOTE: here goal facts should be the k-last bits positions, otherwise won't work
+            count_zeros = 0
+            for i in bin(state)[len(bin(state))-len(bin(model.goals))-2:]:
+                if int(i) == 0:
+                    count_zeros+=1
+            return count_zeros
         else:
             
             return model.goal_facts_count
+
+class DellEffHeuristic(Heuristic):
+    def __init__(self):
+        super().__init__()
+    def compute_heuristic(self, model, parent_node, task, state, task_network):
+        if parent_node:
+            return self.relaxed_search(model, HTNNode(parent_node, task, state, task_network[:], 0, 0, 0))
+        else:
+            return self.relaxed_search(model, HTNNode(None, None, state, task_network[:], 0, 0, 0))
+
+    
+    #NOTE: solving relaxed htn problems seem to become harder when getting only add effects
+    def relaxed_search(self, model, init_node, node_type = AstarNode):
+        seq_num = 0
+        visited = set()
+
+        h = TaskDecompositionHeuristic()
+        #node = HTNNode(init_node.parent, init_node.action, init_node.state, init_node.task_network[:], 0, 0, 0)
+        node = node_type(init_node.parent, init_node.action, init_node.state, init_node.task_network[:], 0, 0, h.compute_heuristic(model, init_node.parent, init_node.action, init_node.state, init_node.task_network))
+        queue = deque()
+        
+        pq = []
+        heapq.heappush(pq, node)
+        
+        #queue.append(node)
+
+        #while queue:
+        while pq:
+            #node = queue.popleft()
+            node = heapq.heappop(pq)
+            if psutil.virtual_memory().percent > 85:
+                return UNSOLVABLE
+            if model.goal_reached(node.state, node.task_network):
+                return node.g_value
+
+            elif len(node.task_network) == 0:
+                continue
+            task = node.task_network[0]
+            
+            # check if task is primitive
+            if type(task) is Operator:
+                if not task.applicable_bitwise(node.state):
+                    continue
+                
+                seq_num += 1
+                new_state = task.relaxed_apply_bitwise(node.state)
+                new_task_network = node.task_network[1:]
+                new_node = node_type(node, task, new_state, new_task_network, seq_num, node.g_value+1, h.compute_heuristic(model, node, task, new_state, new_task_network))
+                if new_node in visited:
+                    continue 
+                #queue.append(new_node)
+                heapq.heappush(pq, new_node)
+                
+            # otherwise its abstract
+            else:
+                for method in task.decompositions:
+                    if not method.applicable_bitwise(node.state):
+                        continue
+                    seq_num += 1
+                    new_task_network= method.task_network+node.task_network[1:]
+                    new_node = node_type(node, task, node.state, new_task_network, seq_num, node.g_value+1, h.compute_heuristic(model, node, task, node.state, new_task_network))
+                    if new_node in visited:
+                        continue
+                    #queue.append(new_node)
+                    heapq.heappush(pq, new_node)
+            
+            
+            visited.add(node)
+        return UNSOLVABLE
 
 ##### EXPERIMENTAL HEURISTICS ########
 '''
@@ -91,6 +160,7 @@ class TaskDecompositionHeuristic(Heuristic):
 
         task.h_val = heuristic_value
         return heuristic_value
+
 
     def compute_heuristic(self, model, parent_node, task, state, task_network):
         if parent_node:

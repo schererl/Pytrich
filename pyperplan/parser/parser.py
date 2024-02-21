@@ -768,7 +768,6 @@ def parse_effect_stmt(it):
 
 def _parse_ordered_subtasks_stmt(it, params_var_helper):
     if not (it.try_match(":ordered-subtasks") or it.try_match(":ordered-tasks")):
-        print(it)
         raise ValueError(f'Error: {OrderedSubtasksStmt.__name__} must start with :ordered-subtasks keyword')
     cond = parse_formula(next(it))
     return OrderedSubtasksStmt(cond, params_var_helper)

@@ -23,7 +23,7 @@ import subprocess
 import sys
 import time
 
-from .grounder.grounding import ground
+
 
 from . import search, tools
 #from .pddl.parser import Parser
@@ -38,9 +38,10 @@ SEARCHES = {
 HEURISTICS = {
     "TaskCount": search.heuristic.TaskCountHeuristic,
     "FactCount": search.heuristic.FactCountHeuristic,
-    "Blind": search.heuristic.BlindHeuristic,
-    "MaxCount": search.heuristic.MaxCountHeuristic,
+    "Blind"    : search.heuristic.BlindHeuristic,
+    "MaxCount" : search.heuristic.MaxCountHeuristic,
     "DoubleCount": search.heuristic.DoubleCountHeuristic,
+    "DellEff": search.heuristic.DellEffHeuristic,
     "TaskDecomposition": search.heuristic.TaskDecompositionHeuristic
 }
 
@@ -65,20 +66,26 @@ def _parse(domain_file, problem_file):
     logging.info("{} Constants parsed".format(len(domain.constants)))
     return problem
 
-
+from .grounder.full_grounding import FullGround
+from .grounder.TDG_grounding import TDGGround
 def _ground(
     problem, remove_statics_from_initial_state=True, remove_irrelevant_operators=True
 ):
     logging.info(f"Grounding start: {problem.name}")
-    model = ground(
+    
+    grounder_type = TDGGround
+    #grounder_type = FullGround
+
+    grounder = grounder_type(
         problem, remove_statics_from_initial_state, remove_irrelevant_operators
     )
-    logging.info(f"Grounding end: {problem.name}")
-    logging.info("{} Variables created".format(len(model.facts)))
-    logging.info("{} Operators created".format(len(model.operators)))
+
+    model = grounder.groundify()
+    print(type(grounder))
+    logging.info(f"Ground ended")
+    #return grounder
     return model
-
-
+    
 def _search(task, search, heuristic):
     logging.info(f"Search start: {task.name}")
     solution = search(task, heuristic)

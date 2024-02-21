@@ -20,37 +20,6 @@ from functools import lru_cache
 """
 Classes for representing a STRIPS planning task
 """
-# class Preconditions:
-#     def __init__(self, operator, operands=[]):
-#         self._operator = operator
-#         self._operands = operands
-
-#     def evaluate(self, state):
-#         if self._operator == LogicalOperator.NOOP:
-#             return True
-#         elif self._operator ==  LogicalOperator.LITERAL:
-#             return self._operands in state
-#         elif self._operator == LogicalOperator.AND:
-#             return all(operand.evaluate(state) for operand in self._operands)
-#         elif self._operator ==  LogicalOperator.OR:
-#             return any(operand.evaluate(state) for operand in self._operands)
-#         elif self._operator ==  LogicalOperator.NOT:
-#             assert len(self._operands) == 1
-#             return not self._operands[0].evaluate(state)
-#         elif self._operator == LogicalOperator.EQUAL:
-#             assert len(self._operands) == 2
-#             return self._operands[0] == self._operands[1]
-        
-#     def __repr__(self):
-#         return f"Formula(operator={self._operator}, operands={self._operands!r})"
-
-#     def __str__(self):
-#         if self._operator == LogicalOperator.NOOP:
-#             return 'NOOP'
-#         elif self._operator == LogicalOperator.LITERAL:
-#             return str(self._operands) if self._operands else 'Empty Literal'
-#         return f"{self._operator.name}({self._operands})"
-
 class Operator:
     """
     Attributes:
@@ -116,6 +85,7 @@ class Operator:
         return  self.hash_name
 
     def __str__(self):
+        return "OP( %s )" % self.name
         s = "OPERATOR %s: " % self.name
         #s+= "pre: %s" % self.preconditions
         
@@ -162,7 +132,7 @@ class AbstractTask:
         return self.name == other.name
     
     def __str__(self):
-        return f'GT({self.name})'
+        return f'GT({self.name} arity {len(self.decompositions)})'
     def __repr__(self):
         return f'<Gt %s>' % self.name
     def __hash__(self):
@@ -256,7 +226,9 @@ class Model:
         def applicable(modifier, state):
             return modifier.applicable(state)
 
+    # TODO: change operators and decompositions to set()
     def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks, operation_type = BitwiseOP):
+        
         """
         Initializes a planning model with its properties.
         @param name: The name of the planning task.
@@ -283,11 +255,11 @@ class Model:
         # goal count heuristic
         self.goal_facts_count = 0
         self.goal_tasks_count = 0
-        self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
+        #self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
         self._process_goal_facts_count()      #NOTE: before converting into bit representation, add facts counts into operators
         self._explicit_to_int = {}
         self._int_to_explicit = {}
-        self._goal_bit_pos = []
+        self._goal_bit_pos    = []
         
     def _process_goal_facts_count(self):
         self.goal_facts_count = len(self.goals)
@@ -301,6 +273,9 @@ class Model:
     def goal_reached(self, state, task_network=[]):
         return self.operation_type.goal_reached(state, self.goals, task_network)
     
+    def relaxed_goal_reached(self, state, task_network=[]):
+        return (state & self.goals) == self.goals
+
     def apply(self, operator, state):
         return self.operation_type.apply(operator, state)
        
@@ -326,14 +301,16 @@ class Model:
     def print_binary_state_info(self, state):
         binary_str = bin(state)[2:]  # Convert state to binary string, remove the '0b' prefix
         binary_str = binary_str[::-1]  # Reverse it to start from the least significant bit (LSB)
+        s = []
         #print(f"Binary representation (LSB to MSB): {binary_str}")
         facts_str = '['
         for i, bit in enumerate(binary_str):
             #print(f"Bit position: {i}, Bit value: {bit} - {self._int_to_explicit[i] }")
             if int(bit) == 1:
                 facts_str += f'{self._int_to_explicit[i]} '
+                s.append(self._int_to_explicit[i])
         facts_str += ']'
-        return facts_str
+        return facts_str, s
       
     def __str__(self):
         memory_info = (

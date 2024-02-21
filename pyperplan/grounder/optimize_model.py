@@ -33,6 +33,14 @@ def clean_tdg(
     and updates the model with only the necessary elements.
     It also logs the memory usage before and after the compression for profiling purposes.
     """
+    # profilling stuff
+    op_before            = sys.getsizeof(model.operators) 
+    decomp_before        = sys.getsizeof(model.decompositions) 
+    abs_tasks_before     = sys.getsizeof(model.abstract_tasks)
+
+    count_op_before     = len(model.operators)
+    count_decomp_before = len(model.decompositions)
+    count_abs_task_before = len(model.abstract_tasks)
 
     used_operators      = []
     used_decompositions = []
@@ -65,9 +73,6 @@ def clean_tdg(
                 
 
     # profilling stuff
-    op_before            = sys.getsizeof(model.operators) 
-    decomp_before        = sys.getsizeof(model.decompositions) 
-    abs_tasks_before     = sys.getsizeof(model.abstract_tasks) 
     model.operators      = used_operators
     model.decompositions = used_decompositions
     model.facts          = used_facts
@@ -75,11 +80,15 @@ def clean_tdg(
     op_after     = sys.getsizeof(model.operators) 
     decomp_after = sys.getsizeof(model.decompositions)
     tasks_after  = sys.getsizeof(model.abstract_tasks)
-    logging.info(f"cleaning operators: before {op_before} bytes ==> after {op_after} bytes")
-    logging.info(f"cleaning decompositions: before {decomp_before} bytes ==> after {decomp_after} bytes")
-    logging.info(f"cleaning tasks: before {abs_tasks_before} bytes ==> after {tasks_after} bytes")
-    logging.info(f"used facts: {len(used_facts)}")
+    count_op_after     = len(model.operators)
+    count_decomp_after = len(model.decompositions)
+    count_abs_task_after = len(model.abstract_tasks)
 
+    logging.info(f"used facts: {len(used_facts)}")
+    logging.info(f"cleaning operators: before {count_op_before} un ==> after {count_op_after} un")
+    logging.info(f"cleaning decompositions: before {count_decomp_before} un ==> after {count_decomp_after} un")
+    logging.info(f"cleaning tasks: before {count_abs_task_before} un ==> after {count_abs_task_after} un")
+                
 def remove_negative_precons(model):
     neg_facts = set()
     # convert negative preconditions into 'neg literals'
@@ -132,6 +141,8 @@ def convert_bitwise_repr(model):
         """
         cont = 0
 
+        model.facts = sorted(model.facts)
+        model.goals = sorted(model.goals)
         # NOTE: this is essential for fact count heuristic works faster
         for g in model.goals:
                 model._explicit_to_int[g]    = cont
@@ -193,32 +204,24 @@ def del_relax_rechability(model):
         model (Model): The planning model to optimize.
     """
     # profilling stuff
-    op_before     = sys.getsizeof(model.operators) 
+    op_before     = sys.getsizeof(model.operators)
     decomp_before = sys.getsizeof(model.decompositions) 
     abs_tasks_before = sys.getsizeof(model.abstract_tasks) 
 
-    print(f'BEFORE (tasks: {len(model.abstract_tasks)})')
-    print(f'BEFORE (decompositions: {len(model.decompositions)})')
-    print(f'BEFORE (operators: {len(model.operators)})')
+    count_op_before     = len(model.operators)
+    count_decomp_before = len(model.decompositions)
+    count_abs_task_before = len(model.abstract_tasks)
 
-    # for o in used_operators:
-    #     print(f'\nOP:{o.name}\nPRECONS: {model.print_binary_state_info(o.pos_precons_bitwise)} |  NEG {model.print_binary_state_info(o.neg_precons_bitwise)}')
-    #     print(f'EFFECTS: {model.print_binary_state_info(o.add_effects_bitwise)} | NEG {model.print_binary_state_info(o.del_effects_bitwise)}\n')
-    
-    it=0
-    
-    
     removed_tasks = set()
     removed_operators = set()
     # TODO: problem here is to updated used_operators based on TDG, it generates invalid plans
-    while it<100:
-        it+=1
-        used_operators, positive_facts = rechable_operators(model, model.initial_state)
+    changed=True
+    while changed:
+        changed=False
+        used_operators, positive_facts = rechable_operators(model, model.initial_state)    
         #print(model.print_binary_state_info(positive_facts))    
-        
-        #remove unrechable decompositions
-        removed_operators.update(set(model.operators) - used_operators)
         htn_rechable_operators = set()
+        removed_operators |= set(model.operators) - used_operators
         for t in model.abstract_tasks:
             if t in removed_tasks:
                 continue
@@ -230,40 +233,48 @@ def del_relax_rechability(model):
                     t.decompositions.remove(d)
                     d_removal=True
                     continue 
-
                 for subt in d.task_network:
                     # if subtask was removed, removed the decomposition from the task
                     if subt in removed_operators or subt in removed_tasks:
                         t.decompositions.remove(d)
                         d_removal=True
                         break  # decomposition removed, there is no d anymore
-                
-                
-                #NOTE: i dont know why but this is not working
-                # if not d_removal:
-                #     for subt in d.task_network:
-                #         if isinstance(subt, Operator):
-                #             htn_rechable_operators.add(subt)
-            
-            #logging.info(f"task {t} has {t_decomp_before-len(t.decompositions)} removed of {len(t.decompositions)} - del relaxation rechability")
             if d_removal and len(t.decompositions) == 0:
                 removed_tasks.add(t)
                 model.abstract_tasks.remove(t)
         
-        print(f"iteration {it} facts {model.count_positive_binary_facts(positive_facts)} rechable operators {len(htn_rechable_operators)} used operator {len(used_operators)} rechable tasks {len(model.abstract_tasks)}")
-        #model.operators = list(htn_rechable_operators)  
+        rechable_decompositions = set()
+        for t in model.abstract_tasks:
+            if t in removed_tasks:
+                continue
+            for d in t.decompositions:
+                rechable_decompositions.add(d)
+                for subt in d.task_network:
+                    if isinstance(subt, Operator) and not subt in removed_operators:
+                        htn_rechable_operators.add(subt)
+
+        rechable_tasks = set(model.abstract_tasks) -  removed_tasks
+        logging.info(f" op ({len(model.operators)}=>{len(htn_rechable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(rechable_tasks)})|decompo ({len(model.decompositions)}=>{len(rechable_decompositions)})")
+        if len(rechable_tasks) != len(model.abstract_tasks) or len(htn_rechable_operators) != len(model.operators) or len(model.decompositions) != len(rechable_decompositions):
+            changed=True
+            model.operators = list(htn_rechable_operators)  
+            model.decompositions = list(rechable_decompositions)
+            model.abstract_tasks = list(rechable_tasks) 
         
 
 
 
     # # profilling stuff
-    # op_after         = sys.getsizeof(list(used_operators) )
-    # decomp_after     = sys.getsizeof(list(used_decompositions))
-    # tasks_after      = sys.getsizeof(list(used_abstract_tasks))
+    op_after         = sys.getsizeof(list(model.operators) )
+    decomp_after     = sys.getsizeof(list(model.decompositions))
+    tasks_after      = sys.getsizeof(list(model.abstract_tasks))
 
-    # logging.info(f"cleaning operators: before {op_before} bytes ==> after {op_after} bytes")
-    # logging.info(f"cleaning decompositions: before {decomp_before} bytes ==> after {decomp_after} bytes")
-    # logging.info(f"cleaning tasks: before {abs_tasks_before} bytes ==> after {tasks_after} bytes")
+    count_op_after     = len(model.operators)
+    count_decomp_after = len(model.decompositions)
+    count_abs_task_after = len(model.abstract_tasks)
+
+    logging.info(f"DELETE RECHABILITY (operators, decompositions, tasks) ({count_op_before},{count_decomp_before},{count_abs_task_before}) ==> ({count_op_after}, {count_decomp_after}, {count_abs_task_after})")
+    
                 
 #TODO:  fixing it
 def rechable_operators(model, initial_facts):
@@ -271,6 +282,7 @@ def rechable_operators(model, initial_facts):
     reachable_operators = set()
     reachable_facts = initial_facts
     changed = True
+
     while changed:
         changed = False
         for op in model.operators:
@@ -281,58 +293,4 @@ def rechable_operators(model, initial_facts):
                 
     return reachable_operators, reachable_facts
 
-
-#TODO:  fixing it
-def relaxed_tdg_rechability(model, removable_operators, removable_tasks, positive_facts):
-    changed=False
-    
-    used_abstract_tasks      = set()
-    used_operators           = set()
-    used_decompositions      = set()
-    
-    removable_tasks          = set()
-    removable_decompositions = set()
-    
-    visited_tasks            = set()
-    tasks = model.initial_tn[:]
-    while len(tasks)>0:
-        task = tasks.pop(0)
-        if task in visited_tasks:
-            continue
-        visited_tasks.add(task)
-
-        # If operador is applicable, use it
-        if type(task) == Operator:
-            if task.applicable_bitwise(positive_facts):
-                if not task in removable_operators:
-                        used_operators.add(task)
-                else: 
-                    removable_operators.add(task)
-        else:
-            # Each method should be relaxed applicable, but also should have every subtask available, otherwise, remove method.
-            prev_decompositions=len(task.decompositions)
-            for method in model.methods(task):
-                if not method.applicable_bitwise(positive_facts) or any((subtask in removable_tasks or subtask in removable_operators) for subtask in method.task_network):
-                    removable_decompositions.add(method)
-                    task.decompositions.remove(method)
-                    changed=True
-                    continue
-                tasks+= model.decompose(method)[:]
-                if not method in used_decompositions:
-                    used_decompositions.add(method)
-                    
-            
-            removed_methods = prev_decompositions-len(task.decompositions)
-            if removed_methods > 0:
-                print(f"Task {task} has {removed_methods} of {prev_decompositions} removable decompositions")
-                if len(task.decompositions)==0:
-                    removable_tasks.add(task)
-
-            elif len(task.decompositions)>0 and not task in removable_tasks:
-                    used_abstract_tasks.add(task)
-
-    print(f'AFTER ({len(model.abstract_tasks)}) removable task removed {len(removable_tasks)} used {len(used_abstract_tasks)}')
-    print(f'AFTER ({len(model.decompositions)}) removable decompositions removed {len(removable_decompositions)} used {len(used_decompositions)}')
-    print(f'AFTER ({len(model.operators)}) removed {len(removable_operators)} operators used {len(used_operators)} \n')
-    return changed, used_operators, used_abstract_tasks, used_decompositions
 

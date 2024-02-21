@@ -139,7 +139,7 @@ class Action:
 
 
 class Method:
-    def __init__(self, name, signature, precondition, decomposed_task, ordered_subtasks):
+    def __init__(self, name, signature, precondition, compound_task, ordered_subtasks):
         """
         name: The name identifying the action
         signature: A list of tuples (name, [types]) to represent a list of
@@ -152,7 +152,7 @@ class Method:
         self.name = name
         self.signature = signature
         self.precondition = precondition
-        self.decomposed_task = decomposed_task  #NOTE:here not sure if class called 'CompoundTask' is necessary *I think, maybe Task is sufficient
+        self.compound_task = compound_task  #NOTE:here not sure if class called 'CompoundTask' is necessary *I think, maybe Task is sufficient
         self.ordered_subtasks = ordered_subtasks
     
     def __str__(self):
@@ -161,49 +161,22 @@ class Method:
                 self.name,
                 ", ".join(["{} - {}".format(param[0], " ".join([str(ptype) for ptype in param[1]])) for param in self.signature]),
                 str(self.precondition),
-                str(self.decomposed_task),
+                str(self.compound_task),
                 self.ordered_subtasks
             )
         )
 
-
-#TODO: another useless class, remove someday
-class OrderedSubtasks:
-    """
-        signature: A list of tuples (name, [types]) to represent a list of
-                   parameters an their type(s).
-    """
-    def __init__(self, signature):
-        self.signature = signature
-    def __str__(self):
-        return "{}".format("\n\t\t\t ".join(["{} - {}".format(param[0], "  ".join([str(ptype) for ptype in param[1]])) for param in self.signature]))
-
-#TODO: useless class, methods can have directly the signature of this task.
-class CompoundTask:
-    """
-        name: Task name that should be declared after instantiating this decomposed task
-        signature: A list of tuples (name, [types]) to represent a list of
-                   parameters an their type(s).
-    """
-    def __init__(self, name, signature):
-        self.name = name
-        self.signature = signature    
-    
-    def __str__(self):
-        return "('{}: {})".format(
-            self.name, 
-            ", ".join(["{} - {}".format(param[0], " ".join([str(ptype) for ptype in param[1]])) for param in self.signature])
-        )
-
 class Task:
-    def __init__(self, name, signature):
+    def __init__(self, name, signature, task_type = 'abstract'):
         """
-        name: The name identifying the task
+        name:      The name identifying the task
         signature: A list of tuples (name, [types]) to represent a list of
                    parameters and their type(s).
+        task_type: Flag indicating if its primitive, abstract or none (for empty tasks only)
         """
         self.name = name
         self.signature = signature
+        self.task_type = task_type
         
     def __str__(self):
         return (
@@ -212,6 +185,8 @@ class Task:
                 ", ".join(["{} - {}".format(param[0], "/".join([str(ptype) for ptype in param[1]])) for param in self.signature])
             )
         )
+    def __repr__(self) -> str:
+        return f'TSK<{self.name}:{self.signature}>'
     
 class Domain:
     def __init__(self, name, types, predicates, tasks, actions, methods, constants={}):

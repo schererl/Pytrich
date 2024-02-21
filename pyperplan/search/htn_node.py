@@ -1,5 +1,5 @@
 import sys
-
+from ..model import Operator
 '''
 NOTE: Im using Strategy pattern because I observe there is a significant difference
 for searching time when we avoid 'if then else' selections, which in our case
@@ -29,11 +29,14 @@ class HTNNode:
         the goal node.
         """
         solution = []
+        operators = []
         while self.parent is not None:
+            if isinstance(self.action, Operator):
+                operators.append(self.action)
             solution.append(self.action)
             self = self.parent
         solution.reverse()
-        return solution
+        return solution, operators
 
     #TODO: not sure if im doing it right
     def __hash__(self):
