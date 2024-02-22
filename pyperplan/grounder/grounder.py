@@ -83,34 +83,17 @@ class Grounder:
         
         for t in self.grounded_tasks:
             t.decompositions.sort(key=lambda x: x.name, reverse=True)
-        # For grounded methods
-        for m in self.grounded_methods:
-            # Temporarily convert frozensets to lists, sort them, and convert back to frozensets
-            m.pos_precons = frozenset(sorted(list(m.pos_precons)))
-            m.neg_precons = frozenset(sorted(list(m.neg_precons)))
-
-        # For grounded actions
-        for a in self.grounded_actions:
-            # Repeat the process for each attribute of the actions
-            a.pos_precons = set(sorted(list(a.pos_precons)))
-            a.neg_precons = set(sorted(list(a.neg_precons)))
-            a.add_effects = set(sorted(list(a.add_effects)))
-            a.del_effects = set(sorted(list(a.del_effects)))
-
         
         self.grounded_methods.sort(key=lambda x: x.name, reverse=True) 
         self.grounded_actions.sort(key=lambda x: x.name, reverse=True) 
         self.grounded_tasks.sort(key=lambda x: x.name, reverse=True) 
         
         model = Model(self.problem.name, [], self.grounded_init, self.grounded_itn, self.grounded_goals, self.grounded_actions, self.grounded_methods, self.grounded_tasks)
+        
         # remove operators and tasks not achievable from initial task network
         clean_tdg(model)
-        
         # remove negative preconditions converting it into negated facts 'not_<literal>'
         remove_negative_precons(model)
-        
-        self.export_elements_to_txt()
-
         # convert facts representation to bitwise
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
@@ -183,25 +166,38 @@ class Grounder:
 
         :param filename: The name of the file where to save the grounded elements.
         """
+        # # For grounded methods
+        # for m in self.grounded_methods:
+        #     # Temporarily convert frozensets to lists, sort them, and convert back to frozensets
+        #     m.pos_precons = frozenset(sorted(list(m.pos_precons)))
+        #     m.neg_precons = frozenset(sorted(list(m.neg_precons)))
+
+        # # For grounded actions
+        # for a in self.grounded_actions:
+        #     # Repeat the process for each attribute of the actions
+        #     a.pos_precons = set(sorted(list(a.pos_precons)))
+        #     a.neg_precons = set(sorted(list(a.neg_precons)))
+        #     a.add_effects = set(sorted(list(a.add_effects)))
+        #     a.del_effects = set(sorted(list(a.del_effects)))
+
         with open(filename, 'w') as file:
             file.write("Actions:\n")
             for action in self.grounded_actions:
-                file.write(f"{action.name}:\n")
-                file.write(f"\t {[a for a in action.pos_precons]}\n")
-                file.write(f"\t {[a for a in action.add_effects]}\n")
-                file.write(f"\t {[a for a in action.del_effects]}\n")
+                file.write(f"{action.name}\n")
+                #file.write(f"\t {sorted([a for a in action.pos_precons])}\n")
+                #file.write(f"\t {sorted([a for a in action.add_effects])}\n")
+                #file.write(f"\t {sorted([a for a in action.del_effects])}\n")
             
             file.write("\nMethods:\n")
             for method in self.grounded_methods:
-                file.write(f"{method.name}:\n")
-                file.write(f"\t {[m for m in method.pos_precons]}\n")
-                
+                file.write(f"{method.name}\n")
+                #file.write(f"\t {sorted([m for m in method.pos_precons])}\n")
                 #for subtask in method.task_network:
-                #    file.write(f"\t\t- {subtask.name}\n")
+                #   file.write(f"\t\t- {subtask.name}\n")
             
-            #file.write("\nTasks:\n")
-            #for task in self.grounded_tasks:
-            #    file.write(f"\t{task.name}\n")
+            file.write("\nTasks:\n")
+            for task in self.grounded_tasks:
+                file.write(f"{task.name}\n")
             #    if hasattr(task, 'decompositions') and task.decompositions:
             #        for decomposition in task.decompositions:
             #            file.write(f"\t\t- {decomposition.name}\n")

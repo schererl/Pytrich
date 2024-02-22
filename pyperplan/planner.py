@@ -75,7 +75,6 @@ def _ground(
     
     grounder_type = TDGGround
     #grounder_type = FullGround
-
     grounder = grounder_type(
         problem, remove_statics_from_initial_state, remove_irrelevant_operators
     )

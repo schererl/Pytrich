@@ -1,6 +1,12 @@
 # ABOUT HTN PYPERPLAN
 extension of pyperplan for htn under development
 
+## DEBUG FEATURES
+
+* There is a graphviz generator using the DOT_output.py (by now remove the comment '#' form dot call at the blind_search.py)
+* Is possible to output the grounding instance in grounder.py, call function export_elements_to_txt
+* NO automated tests available yet
+
 **TODOS**
 [] TDG Grounder *UNDER DEVELOPMENT*
 [] Add grounder's memory usage limit (only for TDG grounder)

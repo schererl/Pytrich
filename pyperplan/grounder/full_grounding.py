@@ -43,7 +43,7 @@ class FullGround(Grounder):
             # Combine the sets into one set
             objects = set(itertools.chain(*objects))
             param_to_objects[param_name] = objects
-            #print("Parameter {}: Possible Objects -> {}".format(param_name, objects))
+            
         domain_lists = [
             [(name, obj) for obj in objects] for name, objects in param_to_objects.items()
         ]

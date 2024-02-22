@@ -99,7 +99,6 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
             logging.info("Goal reached. Start extraction of solution.")
             logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
             solution, operators = node.extract_solution()
-            print(solution)
             #graph_dot.to_graphviz()
             return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
         
@@ -142,7 +141,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
                 new_node = node_type(node, task, node.state, new_task_network, seq_num, node.g_value+1, h.compute_heuristic(model, node, task, node.state, new_task_network))
                 
                 #graph_dot.add_node(new_node, model)
-                #graph_dot.add_relation(new_node, ":DECOMPOSE:"+str(method.name))
+                #graph_dot.add_relation(new_node, ":DECOMPOSE:"+str(method.name)+str(model.count_positive_binary_facts(method.pos_precons_bitwise)))
                 
                 #queue.append(new_node)
                 heapq.heappush(pq, new_node)

@@ -218,7 +218,7 @@ def del_relax_rechability(model):
     changed=True
     while changed:
         changed=False
-        used_operators, positive_facts = rechable_operators(model, model.initial_state)    
+        used_operators, positive_facts = _rechable_operators(model, model.initial_state)    
         #print(model.print_binary_state_info(positive_facts))    
         htn_rechable_operators = set()
         removed_operators |= set(model.operators) - used_operators
@@ -277,7 +277,7 @@ def del_relax_rechability(model):
     
                 
 #TODO:  fixing it
-def rechable_operators(model, initial_facts):
+def _rechable_operators(model, initial_facts):
     # Initialize reachable facts from the initial state
     reachable_operators = set()
     reachable_facts = initial_facts
