@@ -385,6 +385,7 @@ class DomainDef(Visitable):
             self.methods = methods  # a list of MethodStmt
 
         self.constants = constants
+        
 
 
 class ProblemDef(Visitable):
@@ -767,8 +768,10 @@ def parse_effect_stmt(it):
     return _parse_precondition_or_effect_or_subtasks(it, ":effect", EffectStmt)
 
 def _parse_ordered_subtasks_stmt(it, params_var_helper):
-    if not (it.try_match(":ordered-subtasks") or it.try_match(":ordered-tasks")):
+    if not (it.try_match(":ordered-subtasks") or it.try_match(":ordered-tasks") or it.try_match(":subtasks")):
+        print(it)
         raise ValueError(f'Error: {OrderedSubtasksStmt.__name__} must start with :ordered-subtasks keyword')
+
     cond = parse_formula(next(it))
     return OrderedSubtasksStmt(cond, params_var_helper)
     #return _parse_precondition_or_effect_or_subtasks(it, ":ordered-subtasks", OrderedSubtasksStmt)
@@ -947,6 +950,7 @@ def parse_domain_def(iter):
         elif key.name == "constants":
             const = parse_constants_stmt(next_iter)
             domain.constants = const
+            
         elif key.name == "method":
             method = parse_method_stmt(next_iter, domain.tasks)
             domain.methods.append(method)

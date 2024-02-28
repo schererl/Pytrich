@@ -17,9 +17,9 @@ verbose_logging = False
 
 class FullGround(Grounder):
     def __init__(self,
-        problem, remove_statics_from_initial_state=True, remove_irrelevant_operators=True
+        problem
     ):
-        super().__init__(problem, remove_statics_from_initial_state, remove_irrelevant_operators)
+        super().__init__(problem)
 
 
 
@@ -176,7 +176,12 @@ class FullGround(Grounder):
             
             subtask_args = []
             for param_sig in subt_sig:
-                subtask_args.append(assignment[param_sig[0]])
+                subt_assign = assignment.get(param_sig[0])
+                
+                if subt_assign is None: # its a constant
+                    subt_assign = self.objects.get(param_sig[0]).name
+                
+                subtask_args.append(subt_assign)
             
             task_id = self._get_grounded_string(subtask_name, subtask_args)
             

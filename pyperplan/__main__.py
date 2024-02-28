@@ -33,10 +33,10 @@ from pyperplan.planner import (
 )
 
 from run_benchmarks import run_benchmarks
+import sys
 
 def main():
-    
-
+    sys.setrecursionlimit(2000)    
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error"]
 
@@ -85,14 +85,14 @@ def main():
     heuristic = HEURISTICS[args.mh]
     logging.info("using heuristic: %s" % heuristic.__name__)
     
-    #run_benchmarks()
+    run_benchmarks()
 
-    search_plan(
-        args.domain,
-        args.problem,
-        search,
-        heuristic
-    )
+    # search_plan(
+    #     args.domain,
+    #     args.problem,
+    #     search,
+    #     heuristic
+    # )
     
 
 if __name__ == "__main__":

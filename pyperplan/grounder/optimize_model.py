@@ -203,11 +203,6 @@ def del_relax_rechability(model):
     Args:
         model (Model): The planning model to optimize.
     """
-    # profilling stuff
-    op_before     = sys.getsizeof(model.operators)
-    decomp_before = sys.getsizeof(model.decompositions) 
-    abs_tasks_before = sys.getsizeof(model.abstract_tasks) 
-
     count_op_before     = len(model.operators)
     count_decomp_before = len(model.decompositions)
     count_abs_task_before = len(model.abstract_tasks)
@@ -261,14 +256,6 @@ def del_relax_rechability(model):
             model.decompositions = list(rechable_decompositions)
             model.abstract_tasks = list(rechable_tasks) 
         
-
-
-
-    # # profilling stuff
-    op_after         = sys.getsizeof(list(model.operators) )
-    decomp_after     = sys.getsizeof(list(model.decompositions))
-    tasks_after      = sys.getsizeof(list(model.abstract_tasks))
-
     count_op_after     = len(model.operators)
     count_decomp_after = len(model.decompositions)
     count_abs_task_after = len(model.abstract_tasks)
@@ -276,21 +263,20 @@ def del_relax_rechability(model):
     logging.info(f"DELETE RECHABILITY (operators, decompositions, tasks) ({count_op_before},{count_decomp_before},{count_abs_task_before}) ==> ({count_op_after}, {count_decomp_after}, {count_abs_task_after})")
     
                 
-#TODO:  fixing it
 def _rechable_operators(model, initial_facts):
-    # Initialize reachable facts from the initial state
     reachable_operators = set()
     reachable_facts = initial_facts
     changed = True
 
     while changed:
         changed = False
-        for op in model.operators:
+        valid_operators = set(model.operators) - reachable_operators
+        for op in valid_operators:
+        # for op in model.operators:
             if not op in reachable_operators and model.applicable(op, reachable_facts):
                 reachable_operators.add(op)
                 reachable_facts = op.relaxed_apply_bitwise(reachable_facts)
                 changed = True
                 
     return reachable_operators, reachable_facts
-
 

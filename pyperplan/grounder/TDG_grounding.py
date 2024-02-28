@@ -8,32 +8,61 @@ from copy import deepcopy
 import itertools
 import logging
 import re
-
-
 from .grounder import Grounder
 from ..model import Operator, Model, AbstractTask, Decomposition
-
-
-# controls mass log output
 verbose_logging = False
+
+
+import psutil
+import time
+from .errors import OutOfMemoryError, OutOfTimeError
 
 
 class TDGGround(Grounder):
 
-
     def __init__(self,
-        problem, remove_statics_from_initial_state=True, remove_irrelevant_operators=True
+        problem
     ):
-        super().__init__(problem, remove_statics_from_initial_state, remove_irrelevant_operators)
-        
-        
+        super().__init__(problem)
+        self.start_time   =  time.time()
+        self.heart_time   = time.time()
+        self.heart_memory = time.time()
+        self.status = 'EMPTY'
+
+    def monitor_memory(self):
+        if time.time() - self.heart_memory > 0.1:
+            self.heart_memory = time.time()
+            psutil.cpu_percent()
+            if psutil.virtual_memory().percent > 85:
+                raise OutOfMemoryError('MEM OVERFLOW')
+
+    def monitor_time(self):
+        if time.time() - self.heart_time > 0.1:
+            self.heart_time = time.time()
+            if time.time() - self.start_time > 60:
+                raise OutOfTimeError('TIMEOUT')
+    
     def groundify(self):
         self.grounded_init  = self._get_partial_state(self.problem.initial_state)
         self.grounded_goals = self._get_partial_state(self.problem.goal)
-        self._run_TDGGround(self.lifted_itn)
+        try:
+            self._run_TDGGround(self.lifted_itn)
+        except OutOfMemoryError as e:
+            self.status = e
+            return None
+        except OutOfTimeError as e:
+            self.status = e
+            return None
+        except RecursionError as e:
+            self.status =  'STACK OVERFLOW' 
+            return None
+        
+        
         self.grounded_tasks   = [ t for t in self.grounded_tasks.values()]
         self.grounded_methods = [ m for m in self.grounded_methods.values()]
         self.grounded_actions = [ a for a in self.grounded_actions.values()]
+        
+        self.status = 'SUCCESS'
         return super().groundify()
     
     def _run_TDGGround(self, lifted_itn):
@@ -68,7 +97,11 @@ class TDGGround(Grounder):
         @param assignment: A dictionary mapping each parameter to its assigned value within
                         the context of the compound task.
         '''
+        self.monitor_memory()
+        self.monitor_time()
+        
         for l_m in self.lifted_methods:
+            
             if not l_m.compound_task.name in compound_task.name:
                 continue
             
@@ -78,11 +111,13 @@ class TDGGround(Grounder):
                 lifted_to_ground_map[dt_s[0]] = assignment[idx]
             
             assignments =self._assign_objects(l_m, self.type_map, already_facts = lifted_to_ground_map)
-            
             for assign in assignments:
                 grounded_method = self._ground_method(l_m, compound_task, dict(assign)) 
                 if not grounded_method is None:
                     compound_task.decompositions.append(grounded_method)
+            
+        
+        
         
     def _reach_task_network(self, decomposition, lifted_method, assignment):
         '''
@@ -95,15 +130,27 @@ class TDGGround(Grounder):
             assignment: The current assignment of parameters to values for grounding.
 
         '''
+        self.monitor_memory() 
+        self.monitor_time()
+        
+        
         # reach task network
         for subt in lifted_method.ordered_subtasks:
             subtask_name = subt.name
+            
+            # empty subtask
+            if subtask_name is None:
+                break
+            
             subtask_sig  = subt.signature
             task_type    = subt.task_type
-
             subt_params = []
             for param_sig in subtask_sig:
-                subt_params.append(assignment[param_sig[0]])
+                subt_assign = assignment.get(param_sig[0])
+                if subt_assign is None: # its a constant, already assignment
+                    subt_assign = self.objects.get(param_sig[0]).name
+                
+                subt_params.append(subt_assign)
                     
             
             if task_type == 'primitive':
@@ -127,6 +174,9 @@ class TDGGround(Grounder):
         Returns:
             A Decomposition object if the method can be successfully grounded; otherwise, None.
         '''
+        self.monitor_memory() 
+        self.monitor_time()
+        
         args = [a for a in assignment.values()]
         grounded_name = self._get_grounded_string(lifted_method.name, args)
         
@@ -160,6 +210,9 @@ class TDGGround(Grounder):
         Returns:
             The grounded task instance.
         '''
+        self.monitor_memory() 
+        self.monitor_time()
+        
         grounded_name = self._get_grounded_string(lifted_task.name, parameters)
         task = self.grounded_tasks.get(grounded_name)
         if task is None:
@@ -180,6 +233,10 @@ class TDGGround(Grounder):
         Returns:
             The grounded operator instance.
         '''
+        self.monitor_memory() 
+        self.monitor_time()
+        
+        #print(f'grounded_name {lifted_action} \n {parameters}')
         grounded_name = self._get_grounded_string(lifted_action.name, parameters)
         
         operator = self.grounded_actions.get(grounded_name)
@@ -223,6 +280,8 @@ class TDGGround(Grounder):
                     MTA block1, block5, block2
 
         '''
+        self.monitor_memory() 
+        self.monitor_time()
         
         param_to_objects = {}
         for param_name, param_types in lifted_structure.signature:

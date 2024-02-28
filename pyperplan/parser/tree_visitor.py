@@ -177,9 +177,6 @@ class HDDLVisitor:
     def visit_keyword(self, node):
         return  # nothing to do right now
 
-    
-
-
 
 class TraverseHDDLDomain(HDDLVisitor):
     """The HDDL-domain Visitor.
@@ -690,9 +687,15 @@ class TraverseHDDLDomain(HDDLVisitor):
         # TODO: This is terrible, improve it later
         if formula.key == "and":
             for subtask_formula in formula.children:
-                subtasks.append( self._process_subtasks(node, subtask_formula.key, subtask_formula.children) )
+                subtask = self._process_subtasks(node, subtask_formula.key, subtask_formula.children)
+                if not subtask is None:
+                    subtasks.append( subtask )
+                else:
+                    break
         else:
-            subtasks.append( self._process_subtasks(node, formula.key, formula.children) )
+            subtask = self._process_subtasks(node, formula.key, formula.children)
+            if not subtask is None:
+                subtasks.append( subtask )
         self.set_in(node, subtasks)
     
     def _process_subtasks(self, node, subtask_name, subtask_formula):
@@ -702,7 +705,7 @@ class TraverseHDDLDomain(HDDLVisitor):
             return hddl.Task(subtask_name, subtask_signature, 'none')
         
         # Extract subtask name and variables, handling named tasks.    
-        subtask_name, subtask_variables = self._extract_subtask_name_and_variables(subtask_name, subtask_formula)
+        subtask_name, subtask_parameters = self._extract_subtask_name_and_parameters(subtask_name, subtask_formula)
     
         # Determine the type of task and its definition signature.
         try:
@@ -712,22 +715,24 @@ class TraverseHDDLDomain(HDDLVisitor):
             raise SemanticError(error_msg) from None
         
         # Validate the number of variables against the task's definition.
-        if len(task_definition_signature) != len(subtask_variables):
+        if len(task_definition_signature) != len(subtask_parameters):
             raise SemanticError(f"number of parameters on subtask \'{subtask_name}\' differs from its declaration")
         
         # Create subtasks signature, each variable should match parameter requirements
-        for idx, variable in enumerate(subtask_variables):
-            variable = variable.key
-            lifted_parameter = node.helper_params.get(variable.name)
-            parameter_signature = task_definition_signature[idx]
-            
+        for idx, parameter in enumerate(subtask_parameters):
             try:
-                var_signature = self._variable_signature(variable, lifted_parameter, parameter_signature)
+                if parameter.type == 2: #constant
+                    param_signature = self._create_param_signature(parameter.key, None, None)
+                else: #variable
+                    lifted_parameter = node.helper_params.get(parameter.key.name)
+                    parameter_signature = task_definition_signature[idx]
+                    param_signature = self._create_param_signature(parameter, lifted_parameter, parameter_signature)
+                    
             except SemanticError as e:
-                error_msg = f"{e} (cccurred in subtask '{subtask_name}')"
+                error_msg = f"{e} (occurred in subtask '{subtask_name}')"
                 raise SemanticError(error_msg) from None
             
-            subtask_signature.append(var_signature)
+            subtask_signature.append(param_signature)
 
         return hddl.Task(subtask_name, subtask_signature, type_of_task)
 
@@ -746,7 +751,7 @@ class TraverseHDDLDomain(HDDLVisitor):
             raise SemanticError(f"Subtask '{subtask_name}' is not defined.")
 
 
-    def _extract_subtask_name_and_variables(self, subtask_name, subtask_formula):
+    def _extract_subtask_name_and_parameters(self, subtask_name, subtask_formula):
         """
         Extracts the subtask name and variables, especially handling tasks with IDs.
 
@@ -767,10 +772,10 @@ class TraverseHDDLDomain(HDDLVisitor):
 
         return actual_subtask_name, subtask_variables
 
-    def _variable_signature(self, variable, lifted_parameter, parameter_signature):
+    def _create_param_signature(self, variable, lifted_parameter, parameter_signature):
         if variable in self._constants:
             type_constant = self._constants[variable]
-            return (variable, type_constant)
+            return (variable, [type_constant.name])
         else:
             if lifted_parameter is None:
                 raise SemanticError(f"variable {variable.name} not defined")
@@ -894,6 +899,7 @@ class TraverseHDDLProblem(HDDLVisitor):
 
     # TODO: maybe change here the subtasks here are already grounded so we don't have 'signature' exatcly.
     def visit_htn_stmt(self, node):
+        import time
         '''
         Process an HTN statement node within the HDDL problem.
 
@@ -903,24 +909,35 @@ class TraverseHDDLProblem(HDDLVisitor):
         
         formula = node.ordered_subtasks.formula
                
-        # For the given formula (which represents the tasks to perform in the problem instance), 
-        # only 'and' operations for now.
-        if formula.key != "and":
-            raise SemanticError(f"[SUBTASK ERROR]: invalid operator \'{formula.key}\'")
         
+        # There is only one subtask without 'and' clause
         subtasks = list()
-        for subtask_formula in formula.children:
-            subtask_name = subtask_formula.key
-            subtask_facts = subtask_formula.children
+        if formula.key != "and":
+            subtask_name = formula.key
+            subtask_facts = formula.children
             
-            #NOTE: in case we have pseudonames for subtasks, discard it, ex: :ordered-subtasks(and (t1 (do a b) (t2 (do b c)))) => :ordered-subtasks(and (do a b) (do b c)))
-            #TODO: later these name will be used for partial-order problems
             if not subtask_name in self._domain.tasks:
                 subtask_formula = subtask_formula.children[0]
                 subtask_name = subtask_formula.key
-                subtask_facts = subtask_formula.children 
-            
+                subtask_facts = subtask_formula.children
             subtasks = self._helper_validate_and_append_subtask(subtasks, subtask_name, subtask_facts)
+            
+        # There are many subtasks including 'and'
+        else:
+            for subtask_formula in formula.children:
+                subtask_name = subtask_formula.key
+                subtask_facts = subtask_formula.children
+                
+                #NOTE: in case we have pseudonames for subtasks, discard it, ex: :ordered-subtasks(and (t1 (do a b) (t2 (do b c)))) => :ordered-subtasks(and (do a b) (do b c)))
+                #TODO: later these name will be used for partial-order problems
+                if not subtask_name in self._domain.tasks:
+                    subtask_formula = subtask_formula.children[0]
+                    subtask_name = subtask_formula.key
+                    subtask_facts = subtask_formula.children 
+                
+                subtasks = self._helper_validate_and_append_subtask(subtasks, subtask_name, subtask_facts)
+                
+                
             
         self.set_in(node, subtasks)
 

@@ -69,14 +69,14 @@ def _parse(domain_file, problem_file):
 from .grounder.full_grounding import FullGround
 from .grounder.TDG_grounding import TDGGround
 def _ground(
-    problem, remove_statics_from_initial_state=True, remove_irrelevant_operators=True
+    problem
 ):
     logging.info(f"Grounding start: {problem.name}")
     
     grounder_type = TDGGround
     #grounder_type = FullGround
     grounder = grounder_type(
-        problem, remove_statics_from_initial_state, remove_irrelevant_operators
+        problem
     )
 
     model = grounder.groundify()
@@ -115,10 +115,6 @@ def search_plan(
                             interface
     @return A list of actions that solve the problem
     """
-    print(domain_file)
-    print(problem_file)
-    print(search)
-    print(heuristic)
     problem = _parse(domain_file, problem_file)
     task = _ground(problem)
     search_start_time = time.process_time()

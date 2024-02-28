@@ -1,7 +1,7 @@
 (define (problem HTN_ROVER_PB_01)
 (:domain ROVER)
 
-
+;---------------- Facts -----------------------
 (:objects
 
 general - lander
@@ -13,7 +13,7 @@ camera0 camera1 camera2 camera3 - camera
 objective0 objective1 objective2 - objective
 )
 
-
+;--------------- Initial State -----------------
 (:htn :parameters () :ordered-subtasks (and
 (task1 (get_soil_data waypoint1))
 (task2 (get_soil_data waypoint3))

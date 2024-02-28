@@ -36,7 +36,7 @@ verbose_logging = False
 
 class Grounder:
     def __init__(self,
-        problem, remove_statics_from_initial_state=True, remove_irrelevant_operators=True
+        problem
     ):
         """
         This is the main method that grounds the PDDL task and returns an

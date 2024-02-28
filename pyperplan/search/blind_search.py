@@ -82,12 +82,12 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
                 logging.info('OUT OF MEMORY')
                 logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
                 
-                return create_result_dict('MEMORY', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, -1, -1)
+                return create_result_dict('MEMORY', -1, -1, -1, start_time, current_time, memory_usage, -1, -1)
             
-            if current_time - start_time > 60:
+            if current_time - start_time > 300:
                 logging.info("TIMEOUT.")
                 logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
-                return create_result_dict('TIMEOUT', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, -1, -1)
+                return create_result_dict('TIMEOUT', -1, -1, -1, start_time, current_time, memory_usage, -1, -1)
             
         
         if model.goal_reached(node.state, node.task_network):

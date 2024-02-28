@@ -165,6 +165,8 @@ class Method:
                 self.ordered_subtasks
             )
         )
+    def __repr__(self) -> str:
+        return f'M<{self.name}:{self.compound_task.name}:{self.signature}>'
 
 class Task:
     def __init__(self, name, signature, task_type = 'abstract'):
