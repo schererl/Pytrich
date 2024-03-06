@@ -1,24 +1,3 @@
-#! /usr/bin/env python3
-#
-# This file is part of pyperplan.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
-#
-
-# TODO: Give searches and heuristics commandline options and reenable preferred
-# operators.
-
 import argparse
 import logging
 import os
@@ -33,67 +12,40 @@ from pyperplan.planner import (
 )
 
 from run_benchmarks import run_benchmarks
-import sys
 
 def main():
-    sys.setrecursionlimit(2000)    
+    sys.setrecursionlimit(2000)
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error"]
 
-    # get pretty print names for the search algorithms:
-    # use the function/class name and strip off '_search'
-    def get_callable_names(callables, omit_string):
-        names = [c.__name__ for c in callables]
-        names = [n.replace(omit_string, "").replace("_", " ") for n in names]
-        return ", ".join(names)
-
-    search_names = get_callable_names(SEARCHES.values(), "_search")
-    heuristic_names = get_callable_names(HEURISTICS.values(), "Heuristic")
-    argparser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
-    )
-    argparser.add_argument(dest="domain", nargs="?")
-    argparser.add_argument(dest="problem")
+    argparser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    argparser.add_argument("domain", nargs="?", help="Path to the domain file. Optional if running benchmarks.")
+    argparser.add_argument("problem", nargs="?", help="Path to the problem file. Required unless running benchmarks.")
     argparser.add_argument("-l", "--loglevel", choices=log_levels, default="info")
-    argparser.add_argument(
-        "-s",
-        "--search",
-        choices=SEARCHES.keys(),
-        help=f"Select a search algorithm from {search_names}",
-        default="blind",
-    )
-    argparser.add_argument(
-        "-mh",
-        choices=HEURISTICS.keys(),
-        help=f"Select a heuristic from {heuristic_names}",
-        default="blind",
-    )
+    argparser.add_argument("-s", "--search", choices=SEARCHES.keys(), default="blind")
+    argparser.add_argument("-H", "--heuristic", choices=HEURISTICS.keys(), default="Blind")
+    argparser.add_argument("-rb", "--runBenchmark", action='store_true', help="Flag to run benchmarks. If set, domain and problem arguments are ignored.")
+    argparser.add_argument("-po", "--pandaOpt", action='store_true', help="Use the pandaGrounder for parsing an already grounded problem.")
     args = argparser.parse_args()
 
-    logging.basicConfig(
-        level=getattr(logging, args.loglevel.upper()),
-        format="%(asctime)s %(levelname)-8s %(message)s",
-        stream=sys.stdout,
-    )
+    # Basic logging setup
+    logging.basicConfig(level=getattr(logging, args.loglevel.upper()), format="%(asctime)s %(levelname)-8s %(message)s", stream=sys.stdout)
 
-    args.problem = os.path.abspath(args.problem)
-    args.domain = os.path.abspath(args.domain)
+    if args.runBenchmark:
+        run_benchmarks()
+    else:
+        if not args.domain or not args.problem:
+            argparser.error("The domain and problem arguments are required unless --runBenchmark is specified.")
+        
+        args.problem = os.path.abspath(args.problem) if args.problem else None
+        args.domain = os.path.abspath(args.domain) if args.domain else None
 
-    search = SEARCHES[args.search]
-    logging.info("using search: %s" % search.__name__)
-    print(search)
-    heuristic = HEURISTICS[args.mh]
-    logging.info("using heuristic: %s" % heuristic.__name__)
-    
-    #run_benchmarks()
+        search = SEARCHES[args.search]
+        heuristic = HEURISTICS[args.heuristic]
+        logging.info(f"Using search: {search.__name__}")
+        logging.info(f"Using heuristic: {heuristic.__name__}")
 
-    search_plan(
-        args.domain,
-        args.problem,
-        search,
-        heuristic
-    )
-    
+        search_plan(args.domain, args.problem, search, heuristic, pandaOpt=args.pandaOpt)
 
 if __name__ == "__main__":
     main()

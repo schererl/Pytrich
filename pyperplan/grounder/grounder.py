@@ -36,7 +36,7 @@ verbose_logging = False
 
 class Grounder:
     def __init__(self,
-        problem
+        problem, have_lifted=True
     ):
         """
         This is the main method that grounds the PDDL task and returns an
@@ -58,25 +58,29 @@ class Grounder:
         Problem.domain.tasks        -> groundedTasks        -> Model.operators
         Problem.domain.predicates   -> variables            -> Model.facts
         """
-        self.problem  = problem
-        self.domain   = problem.domain
-        self.objects  = self.problem.objects
-        self.objects.update(self.domain.constants)
-        
-        
-        self.lifted_actions = {action.name: action for action in self.domain.actions.values()}        
-        self.lifted_tasks   = {task.name: task for task in self.domain.tasks.values()}        
-        self.lifted_methods =  self.domain.methods.values()
-        self.lifted_itn     = self.problem.htn                      
-        self.type_map       = self._create_type_map(self.objects)
+        self.problem_name = None
         self.grounded_init  = set()
         self.grounded_goals = set()
         self.grounded_itn     = []
+        self.grounded_facts   = []
         self.grounded_actions = {}
         self.grounded_methods = {}
         self.grounded_tasks   = {}
 
-
+        # in case we are dealing with a lifted format (not already grounded from another planner)
+        if have_lifted:
+            self.problem  = problem
+            self.problem_name = problem.name
+            self.domain   = problem.domain
+            self.objects  = self.problem.objects
+            self.objects.update(self.domain.constants)
+            self.lifted_actions = {action.name: action for action in self.domain.actions.values()}        
+            self.lifted_tasks   = {task.name: task for task in self.domain.tasks.values()}        
+            self.lifted_methods =  self.domain.methods.values()
+            self.lifted_itn     = self.problem.htn                      
+            self.type_map       = self._create_type_map(self.objects)
+        
+         
     def groundify(self):
         self.grounded_actions = [a for a in self.grounded_actions]
         self.grounded_methods = [a for a in self.grounded_methods]
@@ -89,7 +93,7 @@ class Grounder:
         self.grounded_actions.sort(key=lambda x: x.name, reverse=True) 
         self.grounded_tasks.sort(key=lambda x: x.name, reverse=True) 
         
-        model = Model(self.problem.name, [], self.grounded_init, self.grounded_itn, self.grounded_goals, self.grounded_actions, self.grounded_methods, self.grounded_tasks)
+        model = Model(self.problem_name, self.grounded_facts, self.grounded_init, self.grounded_itn, self.grounded_goals, self.grounded_actions, self.grounded_methods, self.grounded_tasks)
         
         # remove operators and tasks not achievable from initial task network
         clean_tdg(model)

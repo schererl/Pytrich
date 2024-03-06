@@ -29,6 +29,9 @@ from . import search, tools
 #from .pddl.parser import Parser
 from .parser.parser import Parser
 
+from .grounder.full_grounding import FullGround
+from .grounder.TDG_grounding import TDGGround
+from .grounder.pandaGround import pandaGrounder
 
 
 SEARCHES = {
@@ -66,8 +69,6 @@ def _parse(domain_file, problem_file):
     logging.info("{} Constants parsed".format(len(domain.constants)))
     return problem
 
-from .grounder.full_grounding import FullGround
-from .grounder.TDG_grounding import TDGGround
 def _ground(
     problem
 ):
@@ -82,7 +83,6 @@ def _ground(
     model = grounder.groundify()
     print(type(grounder))
     logging.info(f"Ground ended")
-    #return grounder
     return model
     
 def _search(task, search, heuristic):
@@ -100,7 +100,7 @@ def write_solution(solution, filename):
 
 
 def search_plan(
-    domain_file, problem_file, search, heuristic
+    domain_file, problem_file, search, heuristic, pandaOpt=False
 ):
     """
     Parses the given input files to a specific planner task and then tries to
@@ -115,8 +115,15 @@ def search_plan(
                             interface
     @return A list of actions that solve the problem
     """
-    problem = _parse(domain_file, problem_file)
-    task = _ground(problem)
+    if not pandaOpt:
+        problem = _parse(domain_file, problem_file)
+        task = _ground(problem)
+    else:
+        pandaInstance = pandaGrounder(domain_file, problem_file)
+        task = pandaInstance.groundify()
+    
+        
+    
     search_start_time = time.process_time()
     result = _search(task, search, heuristic)
     search_time = time.process_time() - search_start_time

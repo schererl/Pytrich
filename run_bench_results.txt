@@ -661,3 +661,7 @@ DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	Blind	TaskDecomposition	TaskCount	B
 DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount
 				STATUS			 PLAN LENGTH			 EXP. NODES			 TIME			 INIT-H			 AVG-H			
 DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount
+				STATUS			 PLAN LENGTH			 EXP. NODES			 TIME			 INIT-H			 AVG-H			
+DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount
+				STATUS			 PLAN LENGTH			 EXP. NODES			 TIME			 INIT-H			 AVG-H			
+DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount	Blind	TaskDecomposition	TaskCount

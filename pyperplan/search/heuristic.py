@@ -212,7 +212,7 @@ class TaskDecompositionHeuristic(Heuristic):
 
     def compute_heuristic(self, model, parent_node, task, state, task_network):
         if parent_node:
-            return sum([t.h_val for t in task_network]) + self.del_relax_count(model, task_network, state)
+            return sum([t.h_val for t in task_network]) #+ self.del_relax_count(model, task_network, state)
         else:
             h_sum = sum([self._compute_tdg_values(t) for t in model.initial_tn])
             self.visited.clear()
