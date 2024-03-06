@@ -11,7 +11,7 @@ from pyperplan.grounder.full_grounding import FullGround
 from pyperplan.grounder.TDG_grounding import TDGGround
 
 FOLDER_LOCATION = 'benchmarks/' 
-DOMAINS = [ 'Depots', 'Barman', 'Towers', 'Barman-BDI', 'Satellite-GTOHP', 'Rover-GTOHP', 'Rover', 'Factories-simple','Blocksworld-GTOHP', 'Robot',  'Lamps','Minecraft-Regular',  'ModifiedTransport', 'Transport ']
+DOMAINS = [ 'Transport', 'Barman-BDI', 'Towers', 'Blocksworld-GTOHP', 'Depots', 'Barman', 'Satellite-GTOHP', 'Rover-GTOHP', 'Rover', 'Factories-simple','Robot',  'Lamps','Minecraft-Regular',  'ModifiedTransport', ]
 
 from pyperplan.planner import (
     SEARCHES,

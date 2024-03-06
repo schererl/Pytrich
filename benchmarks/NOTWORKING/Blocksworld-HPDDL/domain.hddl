@@ -83,7 +83,6 @@
     :precondition (and (holding ?b) (not (goal_on-table ?b)))
     :ordered-tasks (and (putdown_abstract ?b) (achieve-goals)))
 
- 
   (:method setdone
     :parameters ()
     :task (achieve-goals)

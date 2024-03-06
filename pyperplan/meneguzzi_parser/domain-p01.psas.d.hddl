@@ -1,0 +1,777 @@
+(define (domain rc)
+  (:predicates (phandempty__)
+               (pontable_b1_)
+               (pon_b2_b3_)
+               (pon_b3_b5_)
+               (pon_b4_b1_)
+               (pon_b5_b4_)
+               (pclear_b2_)
+               (mclear_b1_)
+               (mclear_b3_)
+               (mclear_b4_)
+               (mclear_b5_)
+               (montable_b2_)
+               (montable_b3_)
+               (montable_b4_)
+               (pholding_b2_)
+               (pclear_b3_)
+               (mclear_b2_)
+               (pholding_b3_)
+               (pclear_b5_)
+               (pontable_b3_)
+               (pholding_b5_)
+               (pclear_b4_)
+               (pholding_b4_)
+               (pclear_b1_)
+               (pontable_b4_)
+               (pon_b4_b2_)
+               (montable_b1_)
+               (pholding_b1_)
+               (pon_b3_b1_)
+               (pon_b1_b4_)
+  )
+
+  (:task x__top__ :parameters ())
+  (:task do_put_on_b3_b1_ :parameters ())
+  (:task do_move_b3_b1_ :parameters ())
+  (:task do_on_table_b1_ :parameters ())
+  (:task do_clear_b1_ :parameters ())
+  (:task do_clear_b4_ :parameters ())
+  (:task do_clear_b5_ :parameters ())
+  (:task do_clear_b3_ :parameters ())
+  (:task do_clear_b2_ :parameters ())
+  (:task do_put_on_b1_b4_ :parameters ())
+  (:task do_move_b1_b4_ :parameters ())
+  (:task do_on_table_b4_ :parameters ())
+  (:task do_put_on_b4_b2_ :parameters ())
+  (:task do_move_b4_b2_ :parameters ())
+  (:task do_on_table_b2_ :parameters ())
+
+  (:method x__top_method_0
+     :parameters ()
+     :task (x__top__)
+     :ordered-subtasks (and
+        (do_put_on_b4_b2_)
+        (do_put_on_b1_b4_)
+        (do_put_on_b3_b1_)
+     )
+  )
+  (:method m0_do_put_on_1
+     :parameters ()
+     :task (do_put_on_b3_b1_)
+     :precondition (and 
+         (pon_b3_b1_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m1_do_put_on_2
+     :parameters ()
+     :task (do_put_on_b3_b1_)
+     :precondition (and 
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b3_)
+        (do_clear_b1_)
+        (do_on_table_b1_)
+        (do_move_b3_b1_)
+     )
+  )
+  (:method m4_do_move_3
+     :parameters ()
+     :task (do_move_b3_b1_)
+     :precondition (and 
+         (pontable_b3_)
+         (phandempty__)
+         (pclear_b1_)
+         (pclear_b3_)
+     )
+     :ordered-subtasks (and
+        (pickmup_b3_)
+        (stack_b3_b1_)
+     )
+  )
+  (:method m5_do_move_4
+     :parameters ()
+     :task (do_move_b3_b1_)
+     :precondition (and 
+         (montable_b3_)
+         (phandempty__)
+         (pclear_b1_)
+         (pclear_b3_)
+     )
+     :ordered-subtasks (and
+        (unstack_b3_b5_)
+        (stack_b3_b1_)
+     )
+  )
+  (:method m5_do_move_5
+     :parameters ()
+     :task (do_move_b3_b1_)
+     :precondition (and 
+         (montable_b3_)
+         (phandempty__)
+         (pclear_b1_)
+         (pclear_b3_)
+     )
+     :ordered-subtasks (and
+        (unstack_b3_b1_)
+        (stack_b3_b1_)
+     )
+  )
+  (:method m2_do_on_table_6
+     :parameters ()
+     :task (do_on_table_b1_)
+     :precondition (and 
+         (montable_b1_)
+         (phandempty__)
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (unstack_b1_b4_)
+        (putmdown_b1_)
+     )
+  )
+  (:method m3_do_on_table_7
+     :parameters ()
+     :task (do_on_table_b1_)
+     :precondition (and 
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m6_do_clear_8
+     :parameters ()
+     :task (do_clear_b1_)
+     :precondition (and 
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_clear_9
+     :parameters ()
+     :task (do_clear_b1_)
+     :precondition (and 
+         (pon_b4_b1_)
+         (mclear_b1_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b4_)
+        (unstack_b4_b1_)
+        (putmdown_b4_)
+     )
+  )
+  (:method m6_do_clear_10
+     :parameters ()
+     :task (do_clear_b4_)
+     :precondition (and 
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_clear_11
+     :parameters ()
+     :task (do_clear_b4_)
+     :precondition (and 
+         (pon_b1_b4_)
+         (mclear_b4_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b1_)
+        (unstack_b1_b4_)
+        (putmdown_b1_)
+     )
+  )
+  (:method m7_do_clear_12
+     :parameters ()
+     :task (do_clear_b4_)
+     :precondition (and 
+         (pon_b5_b4_)
+         (mclear_b4_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b5_)
+        (unstack_b5_b4_)
+        (putmdown_b5_)
+     )
+  )
+  (:method m6_do_clear_13
+     :parameters ()
+     :task (do_clear_b5_)
+     :precondition (and 
+         (pclear_b5_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_clear_14
+     :parameters ()
+     :task (do_clear_b5_)
+     :precondition (and 
+         (pon_b3_b5_)
+         (mclear_b5_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b3_)
+        (unstack_b3_b5_)
+        (putmdown_b3_)
+     )
+  )
+  (:method m6_do_clear_15
+     :parameters ()
+     :task (do_clear_b3_)
+     :precondition (and 
+         (pclear_b3_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_clear_16
+     :parameters ()
+     :task (do_clear_b3_)
+     :precondition (and 
+         (pon_b2_b3_)
+         (mclear_b3_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b2_)
+        (unstack_b2_b3_)
+        (putmdown_b2_)
+     )
+  )
+  (:method m6_do_clear_17
+     :parameters ()
+     :task (do_clear_b2_)
+     :precondition (and 
+         (pclear_b2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_clear_18
+     :parameters ()
+     :task (do_clear_b2_)
+     :precondition (and 
+         (pon_b4_b2_)
+         (mclear_b2_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b4_)
+        (unstack_b4_b2_)
+        (putmdown_b4_)
+     )
+  )
+  (:method m7_do_clear_19
+     :parameters ()
+     :task (do_clear_b1_)
+     :precondition (and 
+         (pon_b3_b1_)
+         (mclear_b1_)
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b3_)
+        (unstack_b3_b1_)
+        (putmdown_b3_)
+     )
+  )
+  (:method m0_do_put_on_20
+     :parameters ()
+     :task (do_put_on_b1_b4_)
+     :precondition (and 
+         (pon_b1_b4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m1_do_put_on_21
+     :parameters ()
+     :task (do_put_on_b1_b4_)
+     :precondition (and 
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b1_)
+        (do_clear_b4_)
+        (do_on_table_b4_)
+        (do_move_b1_b4_)
+     )
+  )
+  (:method m4_do_move_22
+     :parameters ()
+     :task (do_move_b1_b4_)
+     :precondition (and 
+         (pontable_b1_)
+         (phandempty__)
+         (pclear_b4_)
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (pickmup_b1_)
+        (stack_b1_b4_)
+     )
+  )
+  (:method m5_do_move_23
+     :parameters ()
+     :task (do_move_b1_b4_)
+     :precondition (and 
+         (montable_b1_)
+         (phandempty__)
+         (pclear_b4_)
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (unstack_b1_b4_)
+        (stack_b1_b4_)
+     )
+  )
+  (:method m2_do_on_table_24
+     :parameters ()
+     :task (do_on_table_b4_)
+     :precondition (and 
+         (montable_b4_)
+         (phandempty__)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (unstack_b4_b1_)
+        (putmdown_b4_)
+     )
+  )
+  (:method m2_do_on_table_25
+     :parameters ()
+     :task (do_on_table_b4_)
+     :precondition (and 
+         (montable_b4_)
+         (phandempty__)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (unstack_b4_b2_)
+        (putmdown_b4_)
+     )
+  )
+  (:method m3_do_on_table_26
+     :parameters ()
+     :task (do_on_table_b4_)
+     :precondition (and 
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m0_do_put_on_27
+     :parameters ()
+     :task (do_put_on_b4_b2_)
+     :precondition (and 
+         (pon_b4_b2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m1_do_put_on_28
+     :parameters ()
+     :task (do_put_on_b4_b2_)
+     :precondition (and 
+         (phandempty__)
+     )
+     :ordered-subtasks (and
+        (do_clear_b4_)
+        (do_clear_b2_)
+        (do_on_table_b2_)
+        (do_move_b4_b2_)
+     )
+  )
+  (:method m4_do_move_29
+     :parameters ()
+     :task (do_move_b4_b2_)
+     :precondition (and 
+         (pontable_b4_)
+         (phandempty__)
+         (pclear_b2_)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (pickmup_b4_)
+        (stack_b4_b2_)
+     )
+  )
+  (:method m5_do_move_30
+     :parameters ()
+     :task (do_move_b4_b2_)
+     :precondition (and 
+         (montable_b4_)
+         (phandempty__)
+         (pclear_b2_)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (unstack_b4_b1_)
+        (stack_b4_b2_)
+     )
+  )
+  (:method m5_do_move_31
+     :parameters ()
+     :task (do_move_b4_b2_)
+     :precondition (and 
+         (montable_b4_)
+         (phandempty__)
+         (pclear_b2_)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (unstack_b4_b2_)
+        (stack_b4_b2_)
+     )
+  )
+  (:method m2_do_on_table_32
+     :parameters ()
+     :task (do_on_table_b2_)
+     :precondition (and 
+         (montable_b2_)
+         (phandempty__)
+         (pclear_b2_)
+     )
+     :ordered-subtasks (and
+        (unstack_b2_b3_)
+        (putmdown_b2_)
+     )
+  )
+  (:method m3_do_on_table_33
+     :parameters ()
+     :task (do_on_table_b2_)
+     :precondition (and 
+         (pclear_b2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  
+  (:action stack_b3_b1_
+     :parameters ()
+     :precondition (and 
+         (pclear_b1_)
+         (pholding_b3_)
+  )
+     :effect (and 
+         (phandempty__)
+         (pon_b3_b1_)
+         (pclear_b3_)
+         (mclear_b1_)
+         (not(mclear_b3_))
+         (not(pclear_b1_))
+         (not(pholding_b3_))
+     )
+  )
+
+  (:action nop__
+     :parameters ()
+  )
+
+
+
+  (:action pickmup_b3_
+     :parameters ()
+     :precondition (and 
+         (phandempty__)
+         (pontable_b3_)
+         (pclear_b3_)
+     )
+     :effect (and 
+         (pholding_b3_)
+         (mclear_b3_)
+         (montable_b3_)
+         (not(phandempty__))
+         (not(pclear_b3_))
+         (not(pontable_b3_))
+     )
+  )
+
+  (:action unstack_b3_b5_
+     :parameters ()
+     :precondition (and 
+         (pon_b3_b5_)
+         (phandempty__)
+         (pclear_b3_)
+     )
+     :effect (and 
+         (mclear_b3_)
+         (pclear_b5_)
+         (pholding_b3_)
+         (not(pon_b3_b5_))
+         (not(phandempty__))
+         (not(pclear_b3_))
+         (not(mclear_b5_))
+     )
+  )
+
+  (:action unstack_b3_b1_
+     :parameters ()
+     :precondition (and 
+         (phandempty__)
+         (pon_b3_b1_)
+         (pclear_b3_)
+     )
+     :effect (and 
+         (mclear_b3_)
+         (pclear_b1_)
+         (pholding_b3_)
+         (not(phandempty__))
+         (not(pon_b3_b1_))
+         (not(pclear_b3_))
+         (not(mclear_b1_))
+     )
+  )
+
+  (:action unstack_b1_b4_
+     :parameters ()
+     :precondition (and 
+         (pon_b1_b4_)
+         (phandempty__)
+         (pclear_b1_)
+     )
+     :effect (and 
+         (mclear_b1_)
+         (pclear_b4_)
+         (pholding_b1_)
+         (not(pon_b1_b4_))
+         (not(phandempty__))
+         (not(pclear_b1_))
+         (not(mclear_b4_))
+     )
+  )
+
+  (:action putmdown_b1_
+     :parameters ()
+     :precondition (and 
+         (pholding_b1_)
+     )
+     :effect (and 
+         (pontable_b1_)
+         (phandempty__)
+         (pclear_b1_)
+         (not(montable_b1_))
+         (not(mclear_b1_))
+         (not(pholding_b1_))
+     )
+  )
+
+  (:action unstack_b4_b1_
+     :parameters ()
+     :precondition (and 
+         (pon_b4_b1_)
+         (phandempty__)
+         (pclear_b4_)
+     )
+     :effect (and 
+         (pclear_b1_)
+         (mclear_b4_)
+         (pholding_b4_)
+         (not(pon_b4_b1_))
+         (not(phandempty__))
+         (not(pclear_b4_))
+         (not(mclear_b1_))
+     )
+  )
+
+  (:action putmdown_b4_
+     :parameters ()
+     :precondition (and 
+         (pholding_b4_)
+     )
+     :effect (and 
+         (pontable_b4_)
+         (phandempty__)
+         (pclear_b4_)
+         (not(montable_b4_))
+         (not(mclear_b4_))
+         (not(pholding_b4_))
+     )
+  )
+
+  (:action unstack_b5_b4_
+     :parameters ()
+     :precondition (and 
+         (phandempty__)
+         (pon_b5_b4_)
+         (pclear_b5_)
+     )
+     :effect (and 
+         (mclear_b5_)
+         (pclear_b4_)
+         (pholding_b5_)
+         (not(phandempty__))
+         (not(pon_b5_b4_))
+         (not(pclear_b5_))
+         (not(mclear_b4_))
+     )
+  )
+
+  (:action putmdown_b5_
+     :parameters ()
+     :precondition (and 
+         (pholding_b5_)
+     )
+     :effect (and 
+         (phandempty__)
+         (pclear_b5_)
+         (not(mclear_b5_))
+         (not(pholding_b5_))
+     )
+  )
+
+  (:action putmdown_b3_
+     :parameters ()
+     :precondition (and 
+         (pholding_b3_)
+     )
+     :effect (and 
+         (pontable_b3_)
+         (phandempty__)
+         (pclear_b3_)
+         (not(montable_b3_))
+         (not(mclear_b3_))
+         (not(pholding_b3_))
+     )
+  )
+
+  (:action unstack_b2_b3_
+     :parameters ()
+     :precondition (and 
+         (pon_b2_b3_)
+         (phandempty__)
+         (pclear_b2_)
+     )
+     :effect (and 
+         (mclear_b2_)
+         (pclear_b3_)
+         (pholding_b2_)
+         (not(pon_b2_b3_))
+         (not(phandempty__))
+         (not(pclear_b2_))
+         (not(mclear_b3_))
+     )
+  )
+
+  (:action putmdown_b2_
+     :parameters ()
+     :precondition (and 
+         (pholding_b2_)
+     )
+     :effect (and 
+         (phandempty__)
+         (pclear_b2_)
+         (not(montable_b2_))
+         (not(mclear_b2_))
+         (not(pholding_b2_))
+     )
+  )
+
+  (:action unstack_b4_b2_
+     :parameters ()
+     :precondition (and 
+         (pon_b4_b2_)
+         (phandempty__)
+         (pclear_b4_)
+     )
+     :effect (and 
+         (pclear_b2_)
+         (mclear_b4_)
+         (pholding_b4_)
+         (not(pon_b4_b2_))
+         (not(phandempty__))
+         (not(pclear_b4_))
+         (not(mclear_b2_))
+     )
+  )
+
+  (:action stack_b1_b4_
+     :parameters ()
+     :precondition (and 
+         (pclear_b4_)
+         (pholding_b1_)
+     )
+     :effect (and 
+         (pon_b1_b4_)
+         (phandempty__)
+         (pclear_b1_)
+         (mclear_b4_)
+         (not(mclear_b1_))
+         (not(pclear_b4_))
+         (not(pholding_b1_))
+     )
+  )
+
+  (:action pickmup_b1_
+     :parameters ()
+     :precondition (and 
+         (phandempty__)
+         (pontable_b1_)
+         (pclear_b1_)
+     )
+     :effect (and 
+         (pholding_b1_)
+         (mclear_b1_)
+         (montable_b1_)
+         (not(phandempty__))
+         (not(pclear_b1_))
+         (not(pontable_b1_))
+     )
+  )
+
+  (:action stack_b4_b2_
+     :parameters ()
+     :precondition (and 
+         (pclear_b2_)
+         (pholding_b4_)
+     )
+     :effect (and 
+         (pon_b4_b2_)
+         (phandempty__)
+         (pclear_b4_)
+         (mclear_b2_)
+         (not(pclear_b2_))
+         (not(mclear_b4_))
+         (not(pholding_b4_))
+     )
+  )
+
+  (:action pickmup_b4_
+     :parameters ()
+     :precondition (and 
+         (phandempty__)
+         (pontable_b4_)
+         (pclear_b4_)
+     )
+     :effect (and 
+         (pholding_b4_)
+         (mclear_b4_)
+         (montable_b4_)
+         (not(phandempty__))
+         (not(pclear_b4_))
+         (not(pontable_b4_))
+     )
+  )
+
+)

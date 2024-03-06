@@ -100,6 +100,8 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
             logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
             solution, operators = node.extract_solution()
             #graph_dot.to_graphviz()
+            print(operators)
+            print(f'operators count: {len(operators)}')
             return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
         
         elif len(node.task_network) == 0: #task network empty but goal wasnt achieved
@@ -109,10 +111,10 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
         # check if task is primitive
         if type(task) is Operator:
             #print(f'\n:APPLY: {task}')
-            
+            #time.sleep(5)
             if not model.applicable(task, node.state):
-                #print(f':NOT APPLICABLE:')
-                #graph_dot.not_applicable(":APPLY:"+str(task.name))
+                #print(f':NOT APPLICABLE: {task.name}')
+                ##graph_dot.not_applicable(":APPLY:"+str(task.name))
                 continue
             
             seq_num += 1
@@ -132,7 +134,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
             for method in model.methods(task):
                 if not model.applicable(method, node.state):
                     #print(f':NOT APPLICABLE:')
-                    #graph_dot.not_applicable(":DECOMPOSE:"+str(method.name))
+                    ##graph_dot.not_applicable(":DECOMPOSE:"+str(method.name))
                     continue
 
                 #print(f'\n:APPLY: {method}')        

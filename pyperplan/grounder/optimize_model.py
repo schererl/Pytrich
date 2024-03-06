@@ -213,10 +213,13 @@ def del_relax_rechability(model):
     changed=True
     while changed:
         changed=False
-        used_operators, positive_facts = _rechable_operators(model, model.initial_state)    
+        used_operators, positive_facts = _rechable_operators(model, model.initial_state)
+        
         #print(model.print_binary_state_info(positive_facts))    
         htn_rechable_operators = set()
         removed_operators |= set(model.operators) - used_operators
+
+        
         for t in model.abstract_tasks:
             if t in removed_tasks:
                 continue
@@ -225,9 +228,10 @@ def del_relax_rechability(model):
             # decompositions can be pruned due to not satisfying positive preconditions and some subtask removed
             for d in t.decompositions:
                 if not model.applicable(d, positive_facts):
-                    t.decompositions.remove(d)
-                    d_removal=True
-                    continue 
+                   t.decompositions.remove(d)
+                   d_removal=True
+                   continue 
+                
                 for subt in d.task_network:
                     # if subtask was removed, removed the decomposition from the task
                     if subt in removed_operators or subt in removed_tasks:
@@ -237,31 +241,32 @@ def del_relax_rechability(model):
             if d_removal and len(t.decompositions) == 0:
                 removed_tasks.add(t)
                 model.abstract_tasks.remove(t)
-        
+            
         rechable_decompositions = set()
         for t in model.abstract_tasks:
             if t in removed_tasks:
-                continue
+               continue
             for d in t.decompositions:
                 rechable_decompositions.add(d)
                 for subt in d.task_network:
                     if isinstance(subt, Operator) and not subt in removed_operators:
                         htn_rechable_operators.add(subt)
-
+                    
         rechable_tasks = set(model.abstract_tasks) -  removed_tasks
         logging.info(f" op ({len(model.operators)}=>{len(htn_rechable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(rechable_tasks)})|decompo ({len(model.decompositions)}=>{len(rechable_decompositions)})")
         if len(rechable_tasks) != len(model.abstract_tasks) or len(htn_rechable_operators) != len(model.operators) or len(model.decompositions) != len(rechable_decompositions):
-            changed=True
             model.operators = list(htn_rechable_operators)  
             model.decompositions = list(rechable_decompositions)
             model.abstract_tasks = list(rechable_tasks) 
+            changed=True
+            
         
     count_op_after     = len(model.operators)
     count_decomp_after = len(model.decompositions)
     count_abs_task_after = len(model.abstract_tasks)
 
     logging.info(f"DELETE RECHABILITY (operators, decompositions, tasks) ({count_op_before},{count_decomp_before},{count_abs_task_before}) ==> ({count_op_after}, {count_decomp_after}, {count_abs_task_after})")
-    
+    correctness_check(model)
                 
 def _rechable_operators(model, initial_facts):
     reachable_operators = set()
@@ -280,3 +285,136 @@ def _rechable_operators(model, initial_facts):
                 
     return reachable_operators, reachable_facts
 
+
+def correctness_check(model):
+    logging.info('Starting correctness check')
+    ab_set = set(model.abstract_tasks)
+    op_set = set(model.operators)
+
+    tn_errors=[]
+    for d in model.decompositions:
+        for t in d.task_network:
+            if type(t) is AbstractTask and not t in ab_set:
+                tn_errors.append(f"ABTASK {d.name} -> {t.name}")
+            elif type(t) is Operator and not t in op_set:
+                tn_errors.append(f"OPERATOR {d.name} -> {t.name}")
+
+    if len(tn_errors)>0:
+        print("MODEL INCONSISTENCIES FOUND")
+        print(tn_errors)
+        exit(0)
+    logging.info('Correctness check over')
+
+def pullup(model):
+    logging.info('initializing pullup')
+    ctask_map = {} # map each decomposition to its compound task
+    for abtask_idx, ab_task in enumerate(model.abstract_tasks):
+        for decomp in ab_task.decompositions:
+            ctask_map[decomp] = abtask_idx
+
+    # Progression and done pullup control
+    decomp_progression = [0] * len(model.decompositions)
+    task_progression   = [0] * len(model.abstract_tasks)
+    decomp_done = [False] * len(model.decompositions)
+    task_done   = [False] * len(model.abstract_tasks)
+
+    #check for empty decompositions:
+    for m_idx, decomp in enumerate(model.decompositions):
+        if len(decomp.task_network) == 0:
+            decomp_done[m_idx] = True
+    
+    decomp_pullup_eff = [0] * len(model.decompositions)
+    changed=True
+    iterations=0
+    while changed:
+        iterations += 1
+        count_op_pus = 0
+        count_m_pus = 0
+        count_t_pus = 0
+        changed=False
+        for m_idx, decomp in enumerate(model.decompositions):
+            if decomp_done[m_idx]:
+                continue
+            
+            next_task = decomp.task_network[decomp_progression[m_idx]]
+            # if operator, pullup facts that are not effects of some previous task
+            if type(next_task) is Operator:
+                pullup_precons = next_task.pos_precons_bitwise & ~decomp_pullup_eff[m_idx]
+                decomp_pullup_eff[m_idx] |= next_task.add_effects_bitwise
+                decomp.pos_precons_bitwise |= pullup_precons
+                count_op_pus+=1
+                
+            # if abstract task and its done, pullup common facts from task's decompositions
+            else:
+                ctask_idx = ctask_map[decomp]
+                if not task_done[ctask_idx]:
+                    continue
+                precons_intersec = next_task.decompositions[0]
+                for d in next_task.decompositions:
+                    precons_intersec &= d.pos_precons_bitwise
+                pullup_precons = precons_intersec & ~decomp_pullup_eff[m_idx]
+                decomp.pos_precons_bitwise |= pullup_precons
+                count_t_pus+=1
+                #print(f'>>> ABSTRACT task pullup {decomp.name}')
+
+
+            # check if decomposition and task are done
+                # decomposition pullup over all task network
+                # abstract task pullup over all decompositions
+            decomp_progression[m_idx]+=1
+            if decomp_progression[m_idx] >= len(decomp.task_network):
+                decomp_done[m_idx]=True
+                #print(f'({decomp_progression[m_idx]}) decomposition pullup {decomp.name}')
+                count_m_pus+=1
+                ctask_idx = ctask_map[decomp]
+                task_progression[ctask_idx]+=1
+                compound_task = model.abstract_tasks[ctask_idx]
+                if task_progression[ctask_idx] >= len(compound_task.decompositions):
+                    task_done[ctask_idx] = True
+            changed=True    
+        logging.info(f"it ({iterations}) Pullup Op {count_op_pus} Pullup Methods {count_m_pus} Pullup Tasks {count_t_pus}")
+    logging.info(f'Pullup ended')
+
+
+def ascend_first_task_precons(model):
+    #index_op_ascended = [0 for i in range len()]
+    import time
+    for d in model.decompositions:
+        #if True:
+        if len(d.task_network) == 0:
+            continue
+        
+        first_task = d.task_network[0]
+        precons_intersection = 0
+        if type(first_task) is Operator:
+            precons_intersection = first_task.pos_precons_bitwise - (d.pos_precons_bitwise & first_task.pos_precons_bitwise)
+            d.pos_precons_bitwise |= first_task.pos_precons_bitwise
+            if precons_intersection > 0:
+                print(f'Some refinement at {d.name} with {first_task.name} \n\t {bin(precons_intersection)}')
+        else:
+            abstract_task_intersecions = first_task.decompositions[0].pos_precons_bitwise
+            for d2 in first_task.decompositions:
+                abstract_task_intersecions = abstract_task_intersecions & d2.pos_precons_bitwise
+            
+            #d.pos_precons_bitwise |= abstract_task_intersecions
+            if abstract_task_intersecions > 1:
+                print(f'Some refinement at {d.name} with {first_task.name} \n\t {bin(abstract_task_intersecions)}')
+
+        if precons_intersection == 0 or len(d.task_network)<=1:
+            continue
+
+        second_task = d.task_network[1]
+        if type(first_task) is Operator and type(second_task) is Operator:
+            unsolved_precons = second_task.pos_precons_bitwise & ~(second_task.pos_precons_bitwise & first_task.add_effects_bitwise)
+            second_task_intersec = unsolved_precons & ~(d.pos_precons_bitwise & unsolved_precons)
+            #d.pos_precons_bitwise |= second_task.pos_precons_bitwise
+            if second_task_intersec > 0:
+                print(f'\t\t\t\tMore refinement at {d.name} with {first_task.name} \n\t {bin(second_task_intersec)}')
+                time.sleep(5)
+        
+
+        
+
+    
+    
+        

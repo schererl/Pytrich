@@ -13,7 +13,7 @@ class DotOutput:
         self.colisions=0
         self.nodes = {}  # Key: Node hash; Value: Tuple (Node Label, Counter)
         self.relations = []
-        self.tree_size = 200
+        self.tree_size = 1000
         self.task_limit = 10
         self.state_limit = 10
         self.tree_count = 0
@@ -78,6 +78,7 @@ class DotOutput:
         self.nodes[hash_invalid] = {'label': "NOT APPLICABLE", 'counter': -1}
         self.invalid_node_counter += 1
         self.relations.append((self.from_node, hash_invalid, str_relation))
+        self.tree_count+=1
 
     def already_visited(self, str_relation=''):
         if self.tree_count >= self.tree_size:
@@ -86,6 +87,7 @@ class DotOutput:
         self.nodes[hash_invalid] = {'label': "ALREADY VISITED", 'counter': -1}
         self.visited_node_counter += 1
         self.relations.append((self.from_node, hash_invalid, str_relation))
+
 
 
     def add_relation(self, node_to, str_relation=''):

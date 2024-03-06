@@ -3,14 +3,13 @@ from ..model import Operator, AbstractTask
 #from .relaxed_search import relaxed_search
 from .htn_node import HTNNode
 import numpy as np
-
-from utils import UNSOLVABLE
 from .htn_node import AstarNode
 from utils import UNSOLVABLE
 from .htn_node import AstarNode
 from collections import deque
 import heapq
 import psutil
+import time
 class Heuristic:
     def __init__(self):
         pass
@@ -161,10 +160,59 @@ class TaskDecompositionHeuristic(Heuristic):
         task.h_val = heuristic_value
         return heuristic_value
 
+    def _rechable_operators(self, visited, rechable_op ,task):
+        if task in visited:
+            return 
+        
+        visited.add(task)
+        if isinstance(task, Operator):
+            rechable_op.add(task)
+            return
+        else:
+            for decomposition in task.decompositions:
+                for subtask in decomposition.task_network:
+                    self._rechable_operators(visited, rechable_op, subtask)
+        
+
+    
+    def del_relax_count(self, model, task_network, state):
+        curr_state = state
+        op_available = set()
+        visited=set()
+        for task in task_network:
+           self._rechable_operators(visited, op_available, task)
+        
+        it_count = 0
+        changed = True
+        goal_reached = False
+        
+        while changed:
+            changed = False
+            new_state = curr_state
+            if (new_state & model.goals) == (model.goals):
+                goal_reached = True
+                break
+            
+            to_remove = set()  
+            for o in op_available:
+                if o.applicable_bitwise(new_state):
+                    curr_state |= o.relaxed_apply_bitwise(curr_state)
+                    to_remove.add(o) 
+                    changed = True
+                    
+            
+            op_available-=to_remove 
+            it_count += 1
+        
+        if not goal_reached:
+            return UNSOLVABLE
+        return it_count
+
+
 
     def compute_heuristic(self, model, parent_node, task, state, task_network):
         if parent_node:
-            return sum([t.h_val for t in task_network])
+            return sum([t.h_val for t in task_network]) + self.del_relax_count(model, task_network, state)
         else:
             h_sum = sum([self._compute_tdg_values(t) for t in model.initial_tn])
             self.visited.clear()

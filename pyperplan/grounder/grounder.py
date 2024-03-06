@@ -29,7 +29,7 @@ from ..utils import LogicalOperator
 
 
 from ..model import Operator, Model, AbstractTask, Decomposition
-from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_rechability
+from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_rechability,pullup, correctness_check
 
 # controls mass log output
 verbose_logging = False
@@ -62,12 +62,13 @@ class Grounder:
         self.domain   = problem.domain
         self.objects  = self.problem.objects
         self.objects.update(self.domain.constants)
+        
+        
         self.lifted_actions = {action.name: action for action in self.domain.actions.values()}        
         self.lifted_tasks   = {task.name: task for task in self.domain.tasks.values()}        
         self.lifted_methods =  self.domain.methods.values()
         self.lifted_itn     = self.problem.htn                      
         self.type_map       = self._create_type_map(self.objects)
-
         self.grounded_init  = set()
         self.grounded_goals = set()
         self.grounded_itn     = []
@@ -97,6 +98,7 @@ class Grounder:
         # convert facts representation to bitwise
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
+        pullup(model)
         del_relax_rechability(model) #NOTE: works only using bitwise representation
         
         return model

@@ -38,14 +38,15 @@ python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmark
 ## Parser TODOS
 - [ ] (**ADD**) ORDERINGS
 - [ ] (**ADD**) FORALL
-- [ ] (**ADD**) CONSTANTS
+- [x] (**ADD**) CONSTANTS -feb26
 - [ ] (**MEMORY**) Variables from Methods and Actions paramaters should be unique and share addresses with effects, subtasks instances etc.
 - [ ] Improve parser (too confusing maybe change it completely)
-- [ ] (**ADD**) CONSTANT -feb26
+
 
 ## Grounder TODOS
 - [x] (**ADD**) grounder's memory usage limit (only for TDG grounder) -feb26
-- [ ] (**OPT**) Implement a simple LookUp table
+- [ ] (**OPT**) Type specialization
+- [x] (**OPT**) Pullup 04-fev
 - [ ] (**FIX**) TDG Grounder RecursionError exception for deep domains
 - [ ] (**MEMORY**) Remove lifted structures already grounded
 - [ ] (**MEMORY**) (**MODEL CHANGE**) Test if change Decomposition and AbstractTask, instead of pointing to objects in theirs subtasks and compound task, have the index to get into Model. The same for nodes with tasknetworks.
@@ -56,6 +57,7 @@ python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmark
 - [x] (**MEMORY**) Grounder post-processing convert facts into bitwise representation -jan24
 
 ## Domain TODOS
+- [ ] (**FIX**) Childsnack is not working, invalid solutions
 - [ ] (**ADD**) Woodworking: constants
 - [ ] (**ADD**) Freecell: ordering
 - [ ] (**ADD**) Snake: '=' sign without 'not', and forall
@@ -65,6 +67,7 @@ python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmark
 - [ ] (**MODIF**) Remove the need for declaring explicitly parent types (e.j original Barman/Barman-BDI domains)
 - [ ] (**MODIF**) Some subtasks are in a different formula format, they doesn't have the 'key' only the subtask names (e.j Factories, Factories-simple)
 - [ ] (**COMPARE**) Transport domain with panda, why is it too hard for htn-pyperplan?
+
 
 * The problem with Factories was the empty subtasks. I changed the grounded to check if the subtasks contains None element, For now it works but latter it should create an empty list of subtasks only.
 * **TRANSPORT** almost impossible to solve (only the first problem solved)

@@ -115,6 +115,17 @@ class TDGGround(Grounder):
                 grounded_method = self._ground_method(l_m, compound_task, dict(assign)) 
                 if not grounded_method is None:
                     compound_task.decompositions.append(grounded_method)
+                    if "m0" in grounded_method.name and "place" in str(grounded_method.task_network):
+                        print(grounded_method)
+                        print(assign)
+                        #print(lifted_to_ground_map)
+                        #print(self.objects)
+                        #print(self.type_map)
+                        #print(grounded_method.task_network[2])
+                        #print(l_m.ordered_subtasks[2])
+                        exit()
+                
+                    
             
         
         
@@ -149,12 +160,19 @@ class TDGGround(Grounder):
                 subt_assign = assignment.get(param_sig[0])
                 if subt_assign is None: # its a constant, already assignment
                     subt_assign = self.objects.get(param_sig[0]).name
-                
+                #TODO: HERE IS A HUGE BUGFIX, REMOVE HERE AND TEST CHILDSNACK PROB1
+                    # The problem is with the constant that somehow is not getting a 'NONE' value in the parser
+                if not  "?" in param_sig[0]:
+                    subt_assign = param_sig[0]
+
                 subt_params.append(subt_assign)
                     
             
             if task_type == 'primitive':
                 l_a = self.lifted_actions[subtask_name]
+                #NOTE: DO NOT REMOVE HERE WHILE FIX THE BUG WITH CHILDSNACK
+                #if "place" in str(subt_params):
+                #    print(f'{subt_params}\n\t{subtask_sig}')
                 new_operator = self._ground_operator(l_a, subt_params)
                 decomposition.task_network.append(new_operator)
             else:

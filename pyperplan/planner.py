@@ -73,8 +73,8 @@ def _ground(
 ):
     logging.info(f"Grounding start: {problem.name}")
     
+    #grounder_type = TDGGround
     grounder_type = TDGGround
-    #grounder_type = FullGround
     grounder = grounder_type(
         problem
     )

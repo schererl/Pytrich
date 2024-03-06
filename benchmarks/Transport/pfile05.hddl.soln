@@ -60,7 +60,7 @@
 (drop truck_0 city_loc_1 package_3 capacity_2 capacity_3)
 (deliver package_4 city_loc_2)
 (get_to truck_0 city_loc_1)
-(drive truck_0 city_loc_1 city_loc_1)
+(noop truck_0 city_loc_1)
 (load truck_0 city_loc_1 package_4)
 (pick_up truck_0 city_loc_1 package_4 capacity_2 capacity_3)
 (get_to truck_0 city_loc_2)

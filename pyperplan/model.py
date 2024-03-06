@@ -307,7 +307,7 @@ class Model:
         for i, bit in enumerate(binary_str):
             #print(f"Bit position: {i}, Bit value: {bit} - {self._int_to_explicit[i] }")
             if int(bit) == 1:
-                facts_str += f'{self._int_to_explicit[i]} '
+                facts_str += f'{self._int_to_explicit[i]} ({i})\n'
                 s.append(self._int_to_explicit[i])
         facts_str += ']'
         return facts_str, s
@@ -331,32 +331,4 @@ class Model:
         string = "<Model {0}, vars: {1}, operators: {2}, decompositions: {3}>"
         return string.format(self.name, len(self.facts), len(self.operators), len(self.decompositions))
 
-
-# def _del_relax_rechability(self):
-    #     reachable_operators = self._remove_operators()
-    #     logging.info(f"Removable Operators: {len(self.operators) - len(reachable_operators)} of {len(self.operators)}")
-
-    #     removable_operators = set(self.operators) - reachable_operators
-    #     removable_tasks = set()
-    #     for compound in self.abstract_tasks:
-    #         removable_decompositions = [d for d in compound.decompositions if any(op in removable_operators for op in d.task_network)]
-    #         if len(removable_decompositions) > 0:    
-    #             logging.info(f"Task {compound} has {len(removable_decompositions)} of {len(compound.decompositions)} removable decompositions")
-    #             for removable in removable_decompositions:
-    #                 compound.decompositions.remove(removable)
-    #             if not compound.decompositions:
-    #                 removable_tasks.add(compound)
-        
-        
-    #     for compound in self.abstract_tasks:
-    #         removable_decompositions = [d for d in compound.decompositions if any(ab_task in removable_tasks for ab_task in d.task_network)]
-    #         if removable_decompositions:
-    #             logging.info(f"Task {compound} has more {len(removable_decompositions)} removable decompositions out of {len(compound.decompositions)}")
-    #             # Update the list of decompositions for the current task.
-    #             compound.decompositions = [d for d in compound.decompositions if d not in removable_decompositions]
-    #             if not compound.decompositions:
-    #                 removable_tasks.add(compound)
-        
-        
-    #     self.operators = list(reachable_operators)
 
