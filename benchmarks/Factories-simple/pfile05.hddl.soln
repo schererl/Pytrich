@@ -1,743 +1,692 @@
-(construct_factory last_factory last_location)
-(get_resource resource_4 last_location)
-(construct_factory factory_4 location_4)
-(get_resource resource_f_4_2 location_4)
-(get_resource resource_f_4_1 location_4)
-(get_resource resource_f_4_0 location_4)
-(get_resource resource_0 location_4)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_4)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_4)
-(move location_0 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_0 location_4)
-(get_resource resource_2 location_4)
-(construct_factory factory_2 location_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(construct factory_1 resource_0 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(construct factory_2 resource_f_2_1 location_2)
-(produce_resource resource_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(produce resource_2 resource_f_2_1 factory_2 location_2)
-(deliver_resource resource_2 location_4)
-(goto location_2)
-(pickup resource_2 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_2 location_4)
-(fuse resource_f_4_0 resource_0 resource_2 location_4)
-(get_resource resource_3 location_4)
-(construct_factory factory_3 location_1)
-(get_resource resource_f_3_2 location_1)
-(get_resource resource_f_3_1 location_1)
-(get_resource resource_f_3_0 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(get_resource resource_2 location_1)
-(construct_factory factory_2 location_2)
-(produce_resource resource_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(produce resource_2 resource_f_2_1 factory_2 location_2)
-(deliver_resource resource_2 location_1)
-(goto location_2)
-(pickup resource_2 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_2 location_1)
-(fuse resource_f_3_0 resource_0 resource_2 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(fuse resource_f_3_1 resource_f_3_0 resource_0 location_1)
-(get_resource resource_1 location_1)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_1)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_1)
-(move location_3 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_1 location_1)
-(fuse resource_f_3_2 resource_f_3_1 resource_1 location_1)
-(construct factory_3 resource_f_3_2 location_1)
-(produce_resource resource_3)
-(get_resource resource_f_3_2 location_1)
-(get_resource resource_f_3_1 location_1)
-(get_resource resource_f_3_0 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(get_resource resource_2 location_1)
-(construct_factory factory_2 location_2)
-(produce_resource resource_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(produce resource_2 resource_f_2_1 factory_2 location_2)
-(deliver_resource resource_2 location_1)
-(goto location_2)
-(pickup resource_2 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_2 location_1)
-(fuse resource_f_3_0 resource_0 resource_2 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(fuse resource_f_3_1 resource_f_3_0 resource_0 location_1)
-(get_resource resource_1 location_1)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_1)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_1)
-(move location_3 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_1 location_1)
-(fuse resource_f_3_2 resource_f_3_1 resource_1 location_1)
-(produce resource_3 resource_f_3_2 factory_3 location_1)
-(deliver_resource resource_3 location_4)
-(goto location_1)
-(pickup resource_3 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_3 location_4)
-(fuse resource_f_4_1 resource_f_4_0 resource_3 location_4)
-(get_resource resource_0 location_4)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_4)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_4)
-(move location_0 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_0 location_4)
-(fuse resource_f_4_2 resource_f_4_1 resource_0 location_4)
-(construct factory_4 resource_f_4_2 location_4)
-(produce_resource resource_4)
-(get_resource resource_f_4_2 location_4)
-(get_resource resource_f_4_1 location_4)
-(get_resource resource_f_4_0 location_4)
-(get_resource resource_0 location_4)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_4)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_4)
-(move location_0 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_0 location_4)
-(get_resource resource_2 location_4)
-(construct_factory factory_2 location_2)
-(produce_resource resource_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(produce resource_2 resource_f_2_1 factory_2 location_2)
-(deliver_resource resource_2 location_4)
-(goto location_2)
-(pickup resource_2 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_2 location_4)
-(fuse resource_f_4_0 resource_0 resource_2 location_4)
-(get_resource resource_3 location_4)
-(construct_factory factory_3 location_1)
-(produce_resource resource_3)
-(get_resource resource_f_3_2 location_1)
-(get_resource resource_f_3_1 location_1)
-(get_resource resource_f_3_0 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(get_resource resource_2 location_1)
-(construct_factory factory_2 location_2)
-(produce_resource resource_2)
-(get_resource resource_f_2_1 location_2)
-(get_resource resource_f_2_0 location_2)
-(get_resource resource_0 location_2)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_2)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_2)
-(move location_0 location_1)
-(goto location_2)
-(move location_1 location_2)
-(goto location_2)
-(drop resource_0 location_2)
-(get_resource resource_0 location_2)
-(fuse resource_f_2_0 resource_0 resource_0 location_2)
-(get_resource resource_1 location_2)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_2)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_2)
-(move location_3 location_2)
-(goto location_2)
-(drop resource_1 location_2)
-(fuse resource_f_2_1 resource_f_2_0 resource_1 location_2)
-(produce resource_2 resource_f_2_1 factory_2 location_2)
-(deliver_resource resource_2 location_1)
-(goto location_2)
-(pickup resource_2 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_2 location_1)
-(fuse resource_f_3_0 resource_0 resource_2 location_1)
-(get_resource resource_0 location_1)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_1)
-(move location_0 location_1)
-(goto location_1)
-(drop resource_0 location_1)
-(fuse resource_f_3_1 resource_f_3_0 resource_0 location_1)
-(get_resource resource_1 location_1)
-(construct_factory factory_1 location_3)
-(produce_resource resource_1)
-(get_resource resource_0 location_3)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_3)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_3)
-(move location_0 location_1)
-(goto location_3)
-(move location_1 location_2)
-(goto location_3)
-(move location_2 location_3)
-(goto location_3)
-(drop resource_0 location_3)
-(produce resource_1 resource_0 factory_1 location_3)
-(deliver_resource resource_1 location_1)
-(goto location_3)
-(pickup resource_1 location_3)
-(goto location_1)
-(move location_3 location_2)
-(goto location_1)
-(move location_2 location_1)
-(goto location_1)
-(drop resource_1 location_1)
-(fuse resource_f_3_2 resource_f_3_1 resource_1 location_1)
-(produce resource_3 resource_f_3_2 factory_3 location_1)
-(deliver_resource resource_3 location_4)
-(goto location_1)
-(pickup resource_3 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_3 location_4)
-(fuse resource_f_4_1 resource_f_4_0 resource_3 location_4)
-(get_resource resource_0 location_4)
-(construct_factory factory_0 location_0)
-(produce_resource resource_0)
-(produce-without-demands resource_0 factory_0 location_0)
-(deliver_resource resource_0 location_4)
-(goto location_0)
-(move location_4 location_3)
-(goto location_0)
-(move location_3 location_2)
-(goto location_0)
-(move location_2 location_1)
-(goto location_0)
-(move location_1 location_0)
-(goto location_0)
-(pickup resource_0 location_0)
-(goto location_4)
-(move location_0 location_1)
-(goto location_4)
-(move location_1 location_2)
-(goto location_4)
-(move location_2 location_3)
-(goto location_4)
-(move location_3 location_4)
-(goto location_4)
-(drop resource_0 location_4)
-(fuse resource_f_4_2 resource_f_4_1 resource_0 location_4)
-(produce resource_4 resource_f_4_2 factory_4 location_4)
-(deliver_resource resource_4 last_location)
-(goto location_4)
-(pickup resource_4 location_4)
-(goto last_location)
-(move location_4 last_location)
-(goto last_location)
-(drop resource_4 last_location)
-(construct last_factory resource_4 last_location)
+x__top__
+construct_factory_last_factory_last_location_
+get_resource_resource_4_last_location_
+construct_factory_factory_4_location_4_
+get_resource_resource_f_4_2_location_4_
+get_resource_resource_f_4_1_location_4_
+get_resource_resource_f_4_0_location_4_
+get_resource_resource_0_location_4_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_4_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_4_
+move_location_0_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_0_location_4_
+get_resource_resource_2_location_4_
+construct_factory_factory_2_location_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+construct_factory_1_resource_0_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+construct_factory_2_resource_f_2_1_location_2_
+produce_resource_resource_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+produce_resource_2_resource_f_2_1_factory_2_location_2_
+deliver_resource_resource_2_location_4_
+goto_location_2_
+pickup_resource_2_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_2_location_4_
+fuse_resource_f_4_0_resource_0_resource_2_location_4_
+get_resource_resource_3_location_4_
+construct_factory_factory_3_location_1_
+get_resource_resource_f_3_2_location_1_
+get_resource_resource_f_3_1_location_1_
+get_resource_resource_f_3_0_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+get_resource_resource_2_location_1_
+construct_factory_factory_2_location_2_
+produce_resource_resource_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+produce_resource_2_resource_f_2_1_factory_2_location_2_
+deliver_resource_resource_2_location_1_
+goto_location_2_
+pickup_resource_2_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_2_location_1_
+fuse_resource_f_3_0_resource_0_resource_2_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+fuse_resource_f_3_1_resource_f_3_0_resource_0_location_1_
+get_resource_resource_1_location_1_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_1_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_1_
+move_location_3_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_1_location_1_
+fuse_resource_f_3_2_resource_f_3_1_resource_1_location_1_
+construct_factory_3_resource_f_3_2_location_1_
+produce_resource_resource_3_
+get_resource_resource_f_3_2_location_1_
+get_resource_resource_f_3_1_location_1_
+get_resource_resource_f_3_0_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+get_resource_resource_2_location_1_
+construct_factory_factory_2_location_2_
+produce_resource_resource_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+produce_resource_2_resource_f_2_1_factory_2_location_2_
+deliver_resource_resource_2_location_1_
+goto_location_2_
+pickup_resource_2_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_2_location_1_
+fuse_resource_f_3_0_resource_0_resource_2_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+fuse_resource_f_3_1_resource_f_3_0_resource_0_location_1_
+get_resource_resource_1_location_1_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_1_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_1_
+move_location_3_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_1_location_1_
+fuse_resource_f_3_2_resource_f_3_1_resource_1_location_1_
+produce_resource_3_resource_f_3_2_factory_3_location_1_
+deliver_resource_resource_3_location_4_
+goto_location_1_
+pickup_resource_3_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_3_location_4_
+fuse_resource_f_4_1_resource_f_4_0_resource_3_location_4_
+get_resource_resource_0_location_4_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_4_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_4_
+move_location_0_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_0_location_4_
+fuse_resource_f_4_2_resource_f_4_1_resource_0_location_4_
+construct_factory_4_resource_f_4_2_location_4_
+produce_resource_resource_4_
+get_resource_resource_f_4_2_location_4_
+get_resource_resource_f_4_1_location_4_
+get_resource_resource_f_4_0_location_4_
+get_resource_resource_0_location_4_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_4_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_4_
+move_location_0_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_0_location_4_
+get_resource_resource_2_location_4_
+construct_factory_factory_2_location_2_
+produce_resource_resource_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+produce_resource_2_resource_f_2_1_factory_2_location_2_
+deliver_resource_resource_2_location_4_
+goto_location_2_
+pickup_resource_2_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_2_location_4_
+fuse_resource_f_4_0_resource_0_resource_2_location_4_
+get_resource_resource_3_location_4_
+construct_factory_factory_3_location_1_
+produce_resource_resource_3_
+get_resource_resource_f_3_2_location_1_
+get_resource_resource_f_3_1_location_1_
+get_resource_resource_f_3_0_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+get_resource_resource_2_location_1_
+construct_factory_factory_2_location_2_
+produce_resource_resource_2_
+get_resource_resource_f_2_1_location_2_
+get_resource_resource_f_2_0_location_2_
+get_resource_resource_0_location_2_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_2_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_2_
+move_location_0_location_1_
+goto_location_2_
+move_location_1_location_2_
+goto_location_2_
+drop_resource_0_location_2_
+get_resource_resource_0_location_2_
+fuse_resource_f_2_0_resource_0_resource_0_location_2_
+get_resource_resource_1_location_2_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_2_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_2_
+move_location_3_location_2_
+goto_location_2_
+drop_resource_1_location_2_
+fuse_resource_f_2_1_resource_f_2_0_resource_1_location_2_
+produce_resource_2_resource_f_2_1_factory_2_location_2_
+deliver_resource_resource_2_location_1_
+goto_location_2_
+pickup_resource_2_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_2_location_1_
+fuse_resource_f_3_0_resource_0_resource_2_location_1_
+get_resource_resource_0_location_1_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_1_
+move_location_0_location_1_
+goto_location_1_
+drop_resource_0_location_1_
+fuse_resource_f_3_1_resource_f_3_0_resource_0_location_1_
+get_resource_resource_1_location_1_
+construct_factory_factory_1_location_3_
+produce_resource_resource_1_
+get_resource_resource_0_location_3_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_3_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_3_
+move_location_0_location_1_
+goto_location_3_
+move_location_1_location_2_
+goto_location_3_
+move_location_2_location_3_
+goto_location_3_
+drop_resource_0_location_3_
+produce_resource_1_resource_0_factory_1_location_3_
+deliver_resource_resource_1_location_1_
+goto_location_3_
+pickup_resource_1_location_3_
+goto_location_1_
+move_location_3_location_2_
+goto_location_1_
+move_location_2_location_1_
+goto_location_1_
+drop_resource_1_location_1_
+fuse_resource_f_3_2_resource_f_3_1_resource_1_location_1_
+produce_resource_3_resource_f_3_2_factory_3_location_1_
+deliver_resource_resource_3_location_4_
+goto_location_1_
+pickup_resource_3_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_3_location_4_
+fuse_resource_f_4_1_resource_f_4_0_resource_3_location_4_
+get_resource_resource_0_location_4_
+producemwithoutmdemands_resource_0_factory_0_location_0_
+deliver_resource_resource_0_location_4_
+goto_location_0_
+move_location_4_location_3_
+goto_location_0_
+move_location_3_location_2_
+goto_location_0_
+move_location_2_location_1_
+goto_location_0_
+move_location_1_location_0_
+goto_location_0_
+pickup_resource_0_location_0_
+goto_location_4_
+move_location_0_location_1_
+goto_location_4_
+move_location_1_location_2_
+goto_location_4_
+move_location_2_location_3_
+goto_location_4_
+move_location_3_location_4_
+goto_location_4_
+drop_resource_0_location_4_
+fuse_resource_f_4_2_resource_f_4_1_resource_0_location_4_
+produce_resource_4_resource_f_4_2_factory_4_location_4_
+deliver_resource_resource_4_last_location_
+goto_location_4_
+pickup_resource_4_location_4_
+goto_last_location_
+move_location_4_last_location_
+goto_last_location_
+drop_resource_4_last_location_
+construct_last_factory_resource_4_last_location_

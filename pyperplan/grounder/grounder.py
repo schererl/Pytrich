@@ -102,8 +102,9 @@ class Grounder:
         # convert facts representation to bitwise
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
-        pullup(model)
-        del_relax_rechability(model) #NOTE: works only using bitwise representation
+        
+        #pullup(model)
+        #del_relax_rechability(model) #NOTE: works only using bitwise representation
         
         return model
 

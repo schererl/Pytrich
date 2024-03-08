@@ -1,0 +1,12 @@
+(define (problem p)
+   (:domain rc)
+   (:htn :parameters ()
+      :subtasks (and
+         (x__top__)
+      )
+   )
+   (:init
+      (pclosed_d01_)
+      (prloc_c_)
+   )
+)

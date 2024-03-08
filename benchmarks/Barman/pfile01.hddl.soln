@@ -1,36 +1,37 @@
-(achievecontainsshotcocktail shot2 cocktail1)
-(achievecontainsshakercocktail shaker1 cocktail1)
-(achievecleanshaker shaker1)
-(achievecontainsshakeringredient shaker1 ingredient2)
-(achievecontainsshotingredient shot1 ingredient2)
-(achievecleanshot shot1)
-(achieveholding left shot1)
-(achievehandempty left)
-(achieveontable shot1)
-(grasp left shot1)
-(achievehandempty right)
-(fill-shot shot1 ingredient2 left right dispenser2)
-(achieveholding left shot1)
-(pour-shot-to-clean-shaker shot1 ingredient2 shaker1 left level1 level1)
-(achievecontainsshakeringredient shaker1 ingredient1)
-(achievecontainsshotingredient shot1 ingredient1)
-(achievecleanshot shot1)
-(achieveholding left shot1)
-(achievehandempty right)
-(clean-shot shot1 ingredient2 left right)
-(achieveholding left shot1)
-(achievehandempty right)
-(fill-shot shot1 ingredient1 left right dispenser1)
-(achieveholding left shot1)
-(pour-shot-to-used-shaker shot1 ingredient1 shaker1 left level1 level1)
-(achieveholding right shaker1)
-(achievehandempty right)
-(achieveontable shaker1)
-(grasp right shaker1)
-(achievehandempty left)
-(drop left shot1)
-(shake cocktail1 ingredient2 ingredient1 shaker1 right left)
-(achievecleanshot shot2)
-(achieveholding right shaker1)
-(dopourshakertoshot shaker1 shot2 cocktail1)
-(pour-shaker-to-shot cocktail1 shot2 right shaker1 level1 level1)
+x__top__
+AchieveContainsShotCocktail_shot2_cocktail1_
+AchieveContainsShakerCocktail_shaker1_cocktail1_
+AchieveCleanShaker_shaker1_
+AchieveContainsShakerIngredient_shaker1_ingredient2_
+AchieveContainsShotIngredient_shot1_ingredient2_
+AchieveCleanShot_shot1_
+AchieveHolding_right_shot1_
+AchieveHandEmpty_right_
+AchieveOnTable_shot1_
+grasp_right_shot1_
+AchieveHandEmpty_left_
+fillmshot_shot1_ingredient2_right_left_dispenser2_
+AchieveHolding_right_shot1_
+pourmshotmtomcleanmshaker_shot1_ingredient2_shaker1_right_level1_level1_
+AchieveContainsShakerIngredient_shaker1_ingredient1_
+AchieveContainsShotIngredient_shot1_ingredient1_
+AchieveCleanShot_shot1_
+AchieveHolding_right_shot1_
+AchieveHandEmpty_left_
+cleanmshot_shot1_ingredient2_right_left_
+AchieveHolding_right_shot1_
+AchieveHandEmpty_left_
+fillmshot_shot1_ingredient1_right_left_dispenser1_
+AchieveHolding_right_shot1_
+pourmshotmtomusedmshaker_shot1_ingredient1_shaker1_right_level1_level1_
+AchieveHolding_right_shaker1_
+AchieveHandEmpty_right_
+drop_right_shot1_
+AchieveOnTable_shaker1_
+grasp_right_shaker1_
+AchieveHandEmpty_left_
+shake_cocktail1_ingredient2_ingredient1_shaker1_right_left_
+AchieveCleanShot_shot2_
+AchieveHolding_right_shaker1_
+DoPourShakerToShot_shaker1_shot2_cocktail1_
+pourmshakermtomshot_cocktail1_shot2_right_shaker1_level1_level1_

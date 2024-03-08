@@ -1,0 +1,21 @@
+(define (problem p)
+   (:domain rc)
+   (:htn :parameters ()
+      :subtasks (and
+         (x__top__)
+      )
+   )
+   (:init
+      (mpointing_satellite0_Star5_)
+      (mpointing_satellite0_Phenomenon4_)
+      (mpointing_satellite0_GroundStation2_)
+      (mcalibrated_instrument0_)
+      (ppointing_satellite0_Phenomenon6_)
+      (ppower_avail_satellite0_)
+   )
+   (:goal (and
+      (phave_image_Phenomenon4_thermograph0_)
+      (phave_image_Star5_thermograph0_)
+      (phave_image_Phenomenon6_thermograph0_)
+   ))
+)

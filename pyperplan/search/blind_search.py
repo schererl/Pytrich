@@ -76,7 +76,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
             elapsed_time = current_time - start_time
             nodes_second = iteration/float(current_time - start_time)
             h_avg=h_sum/iteration
-            print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
+            print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
             control_time = time.time()
             if psutil.virtual_memory().percent > 85:
                 logging.info('OUT OF MEMORY')
@@ -84,7 +84,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
                 
                 return create_result_dict('MEMORY', -1, -1, -1, start_time, current_time, memory_usage, -1, -1)
             
-            if current_time - start_time > 300:
+            if current_time - start_time > 5:
                 logging.info("TIMEOUT.")
                 logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
                 return create_result_dict('TIMEOUT', -1, -1, -1, start_time, current_time, memory_usage, -1, -1)
@@ -97,7 +97,7 @@ def blind_search(model, heuristic_type = TaskCountHeuristic, node_type = AstarNo
             nodes_second = iteration/float(current_time - start_time)
             h_avg=h_sum/iteration
             logging.info("Goal reached. Start extraction of solution.")
-            logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
+            logging.info(f"Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}, Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
             solution, operators = node.extract_solution()
             #graph_dot.to_graphviz()
             print(operators)

@@ -9,9 +9,11 @@ from pyperplan.parser.parser import Parser
 from pyperplan.planner import search_plan
 from pyperplan.grounder.full_grounding import FullGround
 from pyperplan.grounder.TDG_grounding import TDGGround
+from pyperplan.grounder.pandaGround import pandaGrounder
+
 
 FOLDER_LOCATION = 'benchmarks/' 
-DOMAINS = [ 'Transport', 'Barman-BDI', 'Towers', 'Blocksworld-GTOHP', 'Depots', 'Barman', 'Satellite-GTOHP', 'Rover-GTOHP', 'Rover', 'Factories-simple','Robot',  'Lamps','Minecraft-Regular',  'ModifiedTransport', ]
+DOMAINS = [ 'Blocksworld-GTOHP', 'Depots', 'Transport', 'Barman-BDI', 'Towers', 'Barman', 'Satellite-GTOHP', 'Rover-GTOHP', 'Rover', 'Factories-simple','Robot',  'Lamps','Minecraft-Regular' ]
 
 from pyperplan.planner import (
     SEARCHES,
@@ -19,7 +21,7 @@ from pyperplan.planner import (
 )
 
 def get_problems(domain_path):
-    return [os.path.join(domain_path, f) for f in os.listdir(domain_path) if f.endswith('.hddl') and 'p' in f.lower()]
+    return [os.path.join(domain_path, f) for f in os.listdir(domain_path) if f.endswith('.hddl') and 'p' in f.lower() and not '-grounded' in f.lower()]
 
 def get_callable_names(callables, omit_string):
         names = [c.__name__ for c in callables]
@@ -70,8 +72,8 @@ def create_header(heuristics):
 
     return f"{first_line}\n{second_line}\n"
 
-def run_benchmarks():
-    heuristics = ['Blind', 'TaskDecomposition', 'TaskCount']
+def run_benchmarks( pandaOpt=False):
+    heuristics = ['TaskDecompositionPlus', 'TaskDecomposition']
     with open('run_bench_results.txt', 'a') as file:
         file.write(create_header(heuristics))
     print(create_header(heuristics))
@@ -84,28 +86,37 @@ def run_benchmarks():
             done = True
             results = {}
             logging.info(f'Starting {domain_name}: {problem_file}')
-            # run parser
-            logging.info('Starting parser')
-            parser = Parser(domain_file, problem_file)
-            domain = parser.parse_domain()
-            problem = parser.parse_problem(domain)
-            logging.info('Parser finished')
-
-            # run grounder
-            logging.info('Starting grounder')
-            ground_start_time = time.time()
-            grounder_type = TDGGround
-            grounder = grounder_type(
-                problem
-            )
+            
+            ground_start_time=None
+            if pandaOpt:
+                # run grounder
+                logging.info('Starting grounder')
+                ground_start_time = time.time()
+                grounder = pandaGrounder(domain_file, problem_file)
+                grounder_status = 'SUCCESS' #TODO: change it
+            else:
+                # run parser
+                logging.info('Starting parser')
+                parser = Parser(domain_file, problem_file)
+                domain = parser.parse_domain()
+                problem = parser.parse_problem(domain)
+                logging.info('Parser finished')
+                logging.info('Starting grounder')
+                ground_start_time = time.time()
+                grounder_type = TDGGround
+                grounder = grounder_type(
+                    problem
+                )
+                grounder_status = grounder.status
+            
             model = grounder.groundify()
             grounder_elapsed_time = time.time() - ground_start_time
-            grounder_status = grounder.status
+            
             if not grounder_status == 'SUCCESS':
                 logging.info('Grounder failed')
                 with open('run_bench_results.txt', 'a') as file:
-                   file.write(format_data_grounder_error(domain_name, problem_file, grounder_status, grounder_elapsed_time, len(heuristics)))
-                continue
+                    file.write(format_data_grounder_error(domain_name, problem_file, grounder_status, grounder_elapsed_time, len(heuristics)))
+                    continue
             logging.info('Grounder ended')
             for heuristic in heuristics:
                 logging.info(f'Starting search with {heuristic}')

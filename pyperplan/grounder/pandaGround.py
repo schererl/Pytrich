@@ -22,37 +22,41 @@ class pandaGrounder(Grounder):
         script_dir = os.path.dirname(__file__) 
         pandaPIparser_path = os.path.join(script_dir, "../../pandaOpt/pandaPIparser")
         pandaPIgrounder_path = os.path.join(script_dir, "../../pandaOpt/pandaPIgrounder")
+        pandaPIengine_path = os.path.join(script_dir, "../../pandaOpt/pandaPIengine")
 
         domain_base = os.path.splitext(os.path.basename(domain_file_path))[0]
         problem_base = os.path.splitext(os.path.basename(problem_file_path))[0]
-        psas_output = f"{domain_base}-{problem_base}.psas"
-
+        
+        print(f'reading\n\tdomain: {domain_file_path}\n\tproblem: {problem_file_path}')
         parsed_output = "temp.parsed"
         subprocess.run([pandaPIparser_path, domain_file_path, problem_file_path, parsed_output], check=True)
         if not os.path.exists(parsed_output):
             print("Parsing failed.")
             exit()
-            return
         else:
             print("Parsing ended")
 
+        psas_output = f"{domain_base}-{problem_base}.psas"
         subprocess.run([pandaPIgrounder_path, "-q", parsed_output, psas_output], check=True)
-        #os.remove(parsed_output)
+        os.remove(parsed_output)
         if not os.path.exists(psas_output):
             print("Grounding failed.")
             exit()
-            return
         else:
             print("Grounder ended")
 
+
+        # Run the planner engine and write its output to a log file
+        panda_log = "panda.log"
+        subprocess.run([pandaPIengine_path, "--writeInputToHDDL", psas_output], stdout=open(panda_log, "w"), check=True)
+        os.remove(psas_output)
+        
         grounded_domain_output = domain_file_path[:-5]+'-grounded.hddl'
         grounded_problem_output = problem_file_path[:-5]+'-grounded.hddl'
         # Rename the output files to the desired names
         os.rename(f"{psas_output}.d.hddl", grounded_domain_output)
         os.rename(f"{psas_output}.p.hddl", grounded_problem_output)
-        print(f'new files {grounded_problem_output} {grounded_domain_output}')
-        exit()
-        print(f"Grounding completed. Outputs: {grounded_domain_output}, {grounded_problem_output}")
+        print(f"Grounding completed: \n\tdomain:{grounded_domain_output}\n\tproblem:{grounded_problem_output}")
         self.grounded_domain_file = grounded_domain_output
         self.grounded_problem_file = grounded_problem_output
 

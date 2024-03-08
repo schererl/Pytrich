@@ -32,7 +32,7 @@ def main():
     logging.basicConfig(level=getattr(logging, args.loglevel.upper()), format="%(asctime)s %(levelname)-8s %(message)s", stream=sys.stdout)
 
     if args.runBenchmark:
-        run_benchmarks()
+        run_benchmarks(pandaOpt=args.pandaOpt)
     else:
         if not args.domain or not args.problem:
             argparser.error("The domain and problem arguments are required unless --runBenchmark is specified.")

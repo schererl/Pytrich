@@ -1,0 +1,5096 @@
+(define (domain rc)
+  (:predicates (phandmempty__)
+               (pclear_b1_)
+               (ponmtable_b28_)
+               (pon_b1_b12_)
+               (pon_b12_b15_)
+               (pon_b15_b30_)
+               (pon_b30_b28_)
+               (pclear_b6_)
+               (ponmtable_b25_)
+               (pon_b6_b27_)
+               (pon_b27_b25_)
+               (pclear_b9_)
+               (ponmtable_b24_)
+               (pon_b9_b17_)
+               (pon_b17_b22_)
+               (pon_b22_b7_)
+               (pon_b7_b5_)
+               (pon_b5_b29_)
+               (pon_b29_b10_)
+               (pon_b10_b3_)
+               (pon_b3_b26_)
+               (pon_b26_b24_)
+               (pclear_b19_)
+               (ponmtable_b16_)
+               (pon_b19_b2_)
+               (pon_b2_b16_)
+               (pclear_b14_)
+               (ponmtable_b13_)
+               (pon_b14_b11_)
+               (pon_b11_b23_)
+               (pon_b23_b21_)
+               (pon_b21_b4_)
+               (pon_b4_b18_)
+               (pon_b18_b20_)
+               (pon_b20_b8_)
+               (pon_b8_b13_)
+               (pgoal_on_b7_b26_)
+               (pgoal_on_b26_b9_)
+               (pgoal_on_b9_b27_)
+               (pgoal_on_b27_b20_)
+               (pgoal_on_b20_b16_)
+               (pgoal_on_b16_b15_)
+               (pgoal_on_b15_b14_)
+               (pgoal_on_b14_b28_)
+               (pgoal_on_b10_b25_)
+               (pgoal_on_b12_b22_)
+               (pgoal_on_b4_b6_)
+               (pgoal_on_b6_b13_)
+               (pgoal_on_b13_b3_)
+               (pgoal_on_b3_b1_)
+               (pgoal_on_b1_b19_)
+               (pgoal_on_b19_b29_)
+               (pgoal_on_b29_b23_)
+               (pgoal_on_b23_b17_)
+               (pgoal_on_b17_b21_)
+               (pgoal_on_b18_b24_)
+               (pgoal_on_b24_b8_)
+               (pgoal_on_b11_b30_)
+               (pgoal_on_b30_b5_)
+               (mdone_b1_)
+               (mdone_b10_)
+               (mdone_b11_)
+               (mdone_b12_)
+               (mdone_b13_)
+               (mdone_b14_)
+               (mdone_b15_)
+               (mdone_b16_)
+               (mdone_b17_)
+               (mdone_b18_)
+               (mdone_b19_)
+               (mdone_b2_)
+               (mdone_b20_)
+               (mdone_b21_)
+               (mdone_b22_)
+               (mdone_b23_)
+               (mdone_b24_)
+               (mdone_b25_)
+               (mdone_b26_)
+               (mdone_b27_)
+               (mdone_b28_)
+               (mdone_b29_)
+               (mdone_b3_)
+               (mdone_b30_)
+               (mdone_b4_)
+               (mdone_b5_)
+               (mdone_b6_)
+               (mdone_b7_)
+               (mdone_b8_)
+               (mdone_b9_)
+               (monmtable_b1_)
+               (monmtable_b10_)
+               (monmtable_b11_)
+               (monmtable_b12_)
+               (monmtable_b14_)
+               (monmtable_b15_)
+               (monmtable_b17_)
+               (monmtable_b18_)
+               (monmtable_b19_)
+               (monmtable_b2_)
+               (monmtable_b20_)
+               (monmtable_b21_)
+               (monmtable_b22_)
+               (monmtable_b23_)
+               (monmtable_b26_)
+               (monmtable_b27_)
+               (monmtable_b29_)
+               (monmtable_b3_)
+               (monmtable_b30_)
+               (monmtable_b4_)
+               (monmtable_b5_)
+               (monmtable_b6_)
+               (monmtable_b7_)
+               (monmtable_b8_)
+               (monmtable_b9_)
+               (pdone_b1_)
+               (pdone_b10_)
+               (pdone_b11_)
+               (pdone_b12_)
+               (pdone_b13_)
+               (pdone_b14_)
+               (pdone_b15_)
+               (pdone_b16_)
+               (pdone_b17_)
+               (pdone_b18_)
+               (pdone_b19_)
+               (pdone_b2_)
+               (pdone_b20_)
+               (pdone_b21_)
+               (pdone_b22_)
+               (pdone_b23_)
+               (pdone_b24_)
+               (pdone_b25_)
+               (pdone_b26_)
+               (pdone_b27_)
+               (pdone_b28_)
+               (pdone_b29_)
+               (pdone_b3_)
+               (pdone_b30_)
+               (pdone_b4_)
+               (pdone_b5_)
+               (pdone_b6_)
+               (pdone_b7_)
+               (pdone_b8_)
+               (pdone_b9_)
+               (pholding_b1_)
+               (pclear_b12_)
+               (pholding_b6_)
+               (pclear_b27_)
+               (pholding_b9_)
+               (pclear_b17_)
+               (pholding_b19_)
+               (pclear_b2_)
+               (pholding_b14_)
+               (pclear_b11_)
+               (ponmtable_b1_)
+               (pon_b1_b19_)
+               (pholding_b12_)
+               (pclear_b15_)
+               (ponmtable_b6_)
+               (pholding_b27_)
+               (pclear_b25_)
+               (ponmtable_b9_)
+               (pon_b9_b27_)
+               (pholding_b17_)
+               (pclear_b22_)
+               (ponmtable_b19_)
+               (pholding_b2_)
+               (pclear_b16_)
+               (ponmtable_b14_)
+               (pholding_b11_)
+               (pclear_b23_)
+               (ponmtable_b12_)
+               (pholding_b15_)
+               (pclear_b30_)
+               (ponmtable_b27_)
+               (monmtable_b25_)
+               (pholding_b25_)
+               (ponmtable_b17_)
+               (pon_b12_b22_)
+               (pholding_b22_)
+               (pclear_b7_)
+               (ponmtable_b2_)
+               (monmtable_b16_)
+               (pholding_b16_)
+               (ponmtable_b11_)
+               (pholding_b23_)
+               (pclear_b21_)
+               (ponmtable_b15_)
+               (pon_b15_b14_)
+               (pon_b11_b30_)
+               (pholding_b30_)
+               (pclear_b28_)
+               (ponmtable_b22_)
+               (pholding_b7_)
+               (pclear_b5_)
+               (pon_b16_b15_)
+               (ponmtable_b23_)
+               (pon_b23_b17_)
+               (pon_b17_b21_)
+               (pholding_b21_)
+               (pclear_b4_)
+               (ponmtable_b30_)
+               (monmtable_b28_)
+               (pholding_b28_)
+               (pon_b14_b28_)
+               (ponmtable_b7_)
+               (pon_b30_b5_)
+               (pholding_b5_)
+               (pclear_b29_)
+               (ponmtable_b21_)
+               (pholding_b4_)
+               (pclear_b18_)
+               (ponmtable_b5_)
+               (pon_b19_b29_)
+               (pholding_b29_)
+               (pclear_b10_)
+               (ponmtable_b4_)
+               (pon_b4_b6_)
+               (pholding_b18_)
+               (pclear_b20_)
+               (ponmtable_b29_)
+               (pon_b29_b23_)
+               (pholding_b10_)
+               (pclear_b3_)
+               (ponmtable_b18_)
+               (pon_b27_b20_)
+               (pholding_b20_)
+               (pclear_b8_)
+               (ponmtable_b10_)
+               (pon_b10_b25_)
+               (pholding_b3_)
+               (pclear_b26_)
+               (ponmtable_b20_)
+               (pon_b20_b16_)
+               (pholding_b8_)
+               (pclear_b13_)
+               (ponmtable_b3_)
+               (pon_b3_b1_)
+               (pon_b7_b26_)
+               (pholding_b26_)
+               (pclear_b24_)
+               (ponmtable_b8_)
+               (monmtable_b13_)
+               (pholding_b13_)
+               (pon_b6_b13_)
+               (ponmtable_b26_)
+               (pon_b26_b9_)
+               (monmtable_b24_)
+               (pholding_b24_)
+               (pon_b18_b24_)
+               (pon_b13_b3_)
+               (pon_b24_b8_)
+  )
+
+  (:task x__top__ :parameters ())
+  (:task achievemgoals__ :parameters ())
+  (:task acquire_abstract_b23_ :parameters ())
+  (:task release__ :parameters ())
+  (:task acquire_abstract_b1_ :parameters ())
+  (:task acquire_abstract_b17_ :parameters ())
+  (:task acquire_abstract_b24_ :parameters ())
+  (:task acquire_abstract_b18_ :parameters ())
+  (:task acquire_abstract_b16_ :parameters ())
+  (:task acquire_abstract_b10_ :parameters ())
+  (:task acquire_abstract_b12_ :parameters ())
+  (:task acquire_abstract_b13_ :parameters ())
+  (:task acquire_abstract_b30_ :parameters ())
+  (:task acquire_abstract_b6_ :parameters ())
+  (:task acquire_abstract_b4_ :parameters ())
+  (:task acquire_abstract_b26_ :parameters ())
+  (:task acquire_abstract_b7_ :parameters ())
+  (:task acquire_abstract_b15_ :parameters ())
+  (:task acquire_abstract_b9_ :parameters ())
+  (:task acquire_abstract_b19_ :parameters ())
+  (:task acquire_abstract_b29_ :parameters ())
+  (:task acquire_abstract_b11_ :parameters ())
+  (:task acquire_abstract_b20_ :parameters ())
+  (:task acquire_abstract_b27_ :parameters ())
+  (:task acquire_abstract_b3_ :parameters ())
+  (:task acquire_abstract_b14_ :parameters ())
+  (:task acquire_abstract_b22_ :parameters ())
+  (:task acquire_abstract_b2_ :parameters ())
+  (:task acquire_abstract_b5_ :parameters ())
+  (:task acquire_abstract_b8_ :parameters ())
+  (:task acquire_abstract_b21_ :parameters ())
+
+  (:method x__top_method_0
+     :parameters ()
+     :task (x__top__)
+     :ordered-subtasks (and
+        (achievemgoals__)
+     )
+  )
+  (:method setdone_1
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pdone_b10_)
+         (pdone_b26_)
+         (pdone_b27_)
+         (pdone_b28_)
+         (pdone_b29_)
+         (pdone_b3_)
+         (pdone_b30_)
+         (pdone_b4_)
+         (pdone_b5_)
+         (pdone_b6_)
+         (pdone_b7_)
+         (pdone_b9_)
+         (pdone_b1_)
+         (pdone_b8_)
+         (pdone_b23_)
+         (pdone_b25_)
+         (pdone_b24_)
+         (pdone_b22_)
+         (pdone_b21_)
+         (pdone_b20_)
+         (pdone_b2_)
+         (pdone_b19_)
+         (pdone_b18_)
+         (pdone_b17_)
+         (pdone_b16_)
+         (pdone_b15_)
+         (pdone_b14_)
+         (pdone_b13_)
+         (pdone_b12_)
+         (pdone_b11_)
+     )
+     :ordered-subtasks (and
+     )
+  )
+  (:method markmdonemtable_2
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b22_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b22_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_3
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b5_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b5_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_4
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b25_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b25_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_5
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b28_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b28_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_6
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b2_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b2_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_7
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b21_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b21_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemtable_8
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (ponmtable_b8_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b8_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_9
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b12_b22_)
+         (pgoal_on_b12_b22_)
+         (pdone_b22_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b12_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_10
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b29_b23_)
+         (pgoal_on_b29_b23_)
+         (pdone_b23_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b29_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_11
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b23_b17_)
+         (pgoal_on_b23_b17_)
+         (pdone_b17_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b23_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_12
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b26_b9_)
+         (pgoal_on_b26_b9_)
+         (pdone_b9_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b26_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_13
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b4_b6_)
+         (pgoal_on_b4_b6_)
+         (pdone_b6_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b4_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_14
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b18_b24_)
+         (pgoal_on_b18_b24_)
+         (pdone_b24_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b18_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_15
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b13_b3_)
+         (pgoal_on_b13_b3_)
+         (pdone_b3_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b13_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_16
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b11_b30_)
+         (pon_b11_b30_)
+         (pdone_b30_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b11_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_17
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b15_b14_)
+         (pgoal_on_b15_b14_)
+         (pdone_b14_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b15_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_18
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b17_b21_)
+         (pgoal_on_b17_b21_)
+         (pdone_b21_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b17_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_19
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b10_b25_)
+         (pgoal_on_b10_b25_)
+         (pdone_b25_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b10_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_20
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b24_b8_)
+         (pgoal_on_b24_b8_)
+         (pdone_b8_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b24_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_21
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b30_b5_)
+         (pgoal_on_b30_b5_)
+         (pdone_b5_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b30_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_22
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b14_b28_)
+         (pgoal_on_b14_b28_)
+         (pdone_b28_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b14_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_23
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b1_b19_)
+         (pgoal_on_b1_b19_)
+         (pdone_b19_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b1_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_24
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b16_b15_)
+         (pgoal_on_b16_b15_)
+         (pdone_b15_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b16_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_25
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b20_b16_)
+         (pgoal_on_b20_b16_)
+         (pdone_b16_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b20_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_26
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b7_b26_)
+         (pgoal_on_b7_b26_)
+         (pdone_b26_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b7_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_27
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b27_b20_)
+         (pgoal_on_b27_b20_)
+         (pdone_b20_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b27_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_28
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b19_b29_)
+         (pon_b19_b29_)
+         (pdone_b29_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b19_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_29
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b9_b27_)
+         (pgoal_on_b9_b27_)
+         (pdone_b27_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b9_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_30
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b3_b1_)
+         (pgoal_on_b3_b1_)
+         (pdone_b1_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b3_)
+        (achievemgoals__)
+     )
+  )
+  (:method markmdonemon_31
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pon_b6_b13_)
+         (pgoal_on_b6_b13_)
+         (pdone_b13_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b6_)
+        (achievemgoals__)
+     )
+  )
+  (:method pickupmreadymblock_32
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b23_)
+         (pclear_b17_)
+         (pgoal_on_b23_b17_)
+         (pclear_b23_)
+         (pdone_b17_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b23_)
+        (release__)
+     )
+  )
+  (:method newMethod9_33
+     :parameters ()
+     :task (acquire_abstract_b23_)
+     :ordered-subtasks (and
+        (pickup_b23_)
+     )
+  )
+  (:method newMethod12_34
+     :parameters ()
+     :task (acquire_abstract_b23_)
+     :ordered-subtasks (and
+        (unstack_b23_b17_)
+     )
+  )
+  (:method newMethod12_35
+     :parameters ()
+     :task (acquire_abstract_b23_)
+     :ordered-subtasks (and
+        (unstack_b23_b21_)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b23_b17__newMethod11_3_0_1_2_m1_4__36
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b23_b17_)
+         (pclear_b17_)
+         (pdone_b17_)
+         (pholding_b23_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b23_b17_)
+        (mark_done_b23_)
+        (stack_b23_b17_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b4_b6__newMethod11_3_0_1_2_m1_4__37
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b4_b6_)
+         (pclear_b6_)
+         (pdone_b6_)
+         (pholding_b4_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b4_b6_)
+        (mark_done_b4_)
+        (stack_b4_b6_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b14_b28__newMethod11_3_0_1_2_m1_4__38
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b14_b28_)
+         (pdone_b28_)
+         (pclear_b28_)
+         (pholding_b14_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b14_b28_)
+        (mark_done_b14_)
+        (stack_b14_b28_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b17_b21__newMethod11_3_0_1_2_m1_4__39
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b17_b21_)
+         (pclear_b21_)
+         (pdone_b21_)
+         (pholding_b17_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b17_b21_)
+        (mark_done_b17_)
+        (stack_b17_b21_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b18_b24__newMethod11_3_0_1_2_m1_4__40
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b18_b24_)
+         (pclear_b24_)
+         (pdone_b24_)
+         (pholding_b18_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b18_b24_)
+        (mark_done_b18_)
+        (stack_b18_b24_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b3_b1__newMethod11_3_0_1_2_m1_4__41
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pclear_b1_)
+         (pgoal_on_b3_b1_)
+         (pdone_b1_)
+         (pholding_b3_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b3_b1_)
+        (mark_done_b3_)
+        (stack_b3_b1_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b9_b27__newMethod11_3_0_1_2_m1_4__42
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b9_b27_)
+         (pclear_b27_)
+         (pdone_b27_)
+         (pholding_b9_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b9_b27_)
+        (mark_done_b9_)
+        (stack_b9_b27_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b10_b25__newMethod11_3_0_1_2_m1_4__43
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b10_b25_)
+         (pclear_b25_)
+         (pdone_b25_)
+         (pholding_b10_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b10_b25_)
+        (mark_done_b10_)
+        (stack_b10_b25_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b24_b8__newMethod11_3_0_1_2_m1_4__44
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b24_b8_)
+         (pclear_b8_)
+         (pdone_b8_)
+         (pholding_b24_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b24_b8_)
+        (mark_done_b24_)
+        (stack_b24_b8_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b26_b9__newMethod11_3_0_1_2_m1_4__45
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b26_b9_)
+         (pclear_b9_)
+         (pdone_b9_)
+         (pholding_b26_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b26_b9_)
+        (mark_done_b26_)
+        (stack_b26_b9_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b7_b26__newMethod11_3_0_1_2_m1_4__46
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b7_b26_)
+         (pclear_b26_)
+         (pdone_b26_)
+         (pholding_b7_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b7_b26_)
+        (mark_done_b7_)
+        (stack_b7_b26_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b13_b3__newMethod11_3_0_1_2_m1_4__47
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pclear_b3_)
+         (pdone_b3_)
+         (pgoal_on_b13_b3_)
+         (pholding_b13_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b13_b3_)
+        (mark_done_b13_)
+        (stack_b13_b3_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b16_b15__newMethod11_3_0_1_2_m1_4__48
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b16_b15_)
+         (pdone_b15_)
+         (pclear_b15_)
+         (pholding_b16_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b16_b15_)
+        (mark_done_b16_)
+        (stack_b16_b15_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b29_b23__newMethod11_3_0_1_2_m1_4__49
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b29_b23_)
+         (pclear_b23_)
+         (pdone_b23_)
+         (pholding_b29_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b29_b23_)
+        (mark_done_b29_)
+        (stack_b29_b23_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b6_b13__newMethod11_3_0_1_2_m1_4__50
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b6_b13_)
+         (pclear_b13_)
+         (pdone_b13_)
+         (pholding_b6_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b6_b13_)
+        (mark_done_b6_)
+        (stack_b6_b13_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b30_b5__newMethod11_3_0_1_2_m1_4__51
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b30_b5_)
+         (pclear_b5_)
+         (pdone_b5_)
+         (pholding_b30_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b30_b5_)
+        (mark_done_b30_)
+        (stack_b30_b5_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b19_b29__newMethod11_3_0_1_2_m1_4__52
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b19_b29_)
+         (pclear_b29_)
+         (pdone_b29_)
+         (pholding_b19_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b19_b29_)
+        (mark_done_b19_)
+        (stack_b19_b29_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b11_b30__newMethod11_3_0_1_2_m1_4__53
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b11_b30_)
+         (pclear_b30_)
+         (pdone_b30_)
+         (pholding_b11_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b11_b30_)
+        (mark_done_b11_)
+        (stack_b11_b30_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b15_b14__newMethod11_3_0_1_2_m1_4__54
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pclear_b14_)
+         (pdone_b14_)
+         (pgoal_on_b15_b14_)
+         (pholding_b15_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b15_b14_)
+        (mark_done_b15_)
+        (stack_b15_b14_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b12_b22__newMethod11_3_0_1_2_m1_4__55
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b12_b22_)
+         (pclear_b22_)
+         (pdone_b22_)
+         (pholding_b12_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b12_b22_)
+        (mark_done_b12_)
+        (stack_b12_b22_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b27_b20__newMethod11_3_0_1_2_m1_4__56
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b27_b20_)
+         (pclear_b20_)
+         (pdone_b20_)
+         (pholding_b27_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b27_b20_)
+        (mark_done_b27_)
+        (stack_b27_b20_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b20_b16__newMethod11_3_0_1_2_m1_4__57
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b20_b16_)
+         (pclear_b16_)
+         (pdone_b16_)
+         (pholding_b20_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b20_b16_)
+        (mark_done_b20_)
+        (stack_b20_b16_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemstack_stack_abstract_b1_b19__newMethod11_3_0_1_2_m1_4__58
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pgoal_on_b1_b19_)
+         (pclear_b19_)
+         (pdone_b19_)
+         (pholding_b1_)
+     )
+     :ordered-subtasks (and
+        (delete_goal_on_b1_b19_)
+        (mark_done_b1_)
+        (stack_b1_b19_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b28__newMethod10_2_0_1_m1_3__59
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b28_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b28_)
+        (putdown_b28_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b21__newMethod10_2_0_1_m1_3__60
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b21_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b21_)
+        (putdown_b21_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b2__newMethod10_2_0_1_m1_3__61
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b2_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b2_)
+        (putdown_b2_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b22__newMethod10_2_0_1_m1_3__62
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b22_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b22_)
+        (putdown_b22_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b25__newMethod10_2_0_1_m1_3__63
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b25_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b25_)
+        (putdown_b25_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b8__newMethod10_2_0_1_m1_3__64
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b8_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b8_)
+        (putdown_b8_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtablemdone_putdown_abstract_b5__newMethod10_2_0_1_m1_3__65
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b5_)
+     )
+     :ordered-subtasks (and
+        (mark_done_b5_)
+        (putdown_b5_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b20__newMethod10_1_0_m1_2__66
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b20_)
+     )
+     :ordered-subtasks (and
+        (putdown_b20_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b3__newMethod10_1_0_m1_2__67
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b3_)
+     )
+     :ordered-subtasks (and
+        (putdown_b3_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b23__newMethod10_1_0_m1_2__68
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b23_)
+     )
+     :ordered-subtasks (and
+        (putdown_b23_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b30__newMethod10_1_0_m1_2__69
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b30_)
+     )
+     :ordered-subtasks (and
+        (putdown_b30_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b4__newMethod10_1_0_m1_2__70
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b4_)
+     )
+     :ordered-subtasks (and
+        (putdown_b4_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b26__newMethod10_1_0_m1_2__71
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b26_)
+     )
+     :ordered-subtasks (and
+        (putdown_b26_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b16__newMethod10_1_0_m1_2__72
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b16_)
+     )
+     :ordered-subtasks (and
+        (putdown_b16_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b13__newMethod10_1_0_m1_2__73
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b13_)
+     )
+     :ordered-subtasks (and
+        (putdown_b13_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b29__newMethod10_1_0_m1_2__74
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b29_)
+     )
+     :ordered-subtasks (and
+        (putdown_b29_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b7__newMethod10_1_0_m1_2__75
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b7_)
+     )
+     :ordered-subtasks (and
+        (putdown_b7_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b15__newMethod10_1_0_m1_2__76
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b15_)
+     )
+     :ordered-subtasks (and
+        (putdown_b15_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b18__newMethod10_1_0_m1_2__77
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b18_)
+     )
+     :ordered-subtasks (and
+        (putdown_b18_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b11__newMethod10_1_0_m1_2__78
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b11_)
+     )
+     :ordered-subtasks (and
+        (putdown_b11_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b1__newMethod10_1_0_m1_2__79
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b1_)
+     )
+     :ordered-subtasks (and
+        (putdown_b1_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b24__newMethod10_1_0_m1_2__80
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b24_)
+     )
+     :ordered-subtasks (and
+        (putdown_b24_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b6__newMethod10_1_0_m1_2__81
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b6_)
+     )
+     :ordered-subtasks (and
+        (putdown_b6_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b17__newMethod10_1_0_m1_2__82
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b17_)
+     )
+     :ordered-subtasks (and
+        (putdown_b17_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b27__newMethod10_1_0_m1_2__83
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b27_)
+     )
+     :ordered-subtasks (and
+        (putdown_b27_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b12__newMethod10_1_0_m1_2__84
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b12_)
+     )
+     :ordered-subtasks (and
+        (putdown_b12_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b9__newMethod10_1_0_m1_2__85
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b9_)
+     )
+     :ordered-subtasks (and
+        (putdown_b9_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b10__newMethod10_1_0_m1_2__86
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b10_)
+     )
+     :ordered-subtasks (and
+        (putdown_b10_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b14__newMethod10_1_0_m1_2__87
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b14_)
+     )
+     :ordered-subtasks (and
+        (putdown_b14_)
+        (achievemgoals__)
+     )
+  )
+  (:method x_releasemtable_putdown_abstract_b19__newMethod10_1_0_m1_2__88
+     :parameters ()
+     :task (release__)
+     :precondition (and 
+         (pholding_b19_)
+     )
+     :ordered-subtasks (and
+        (putdown_b19_)
+        (achievemgoals__)
+     )
+  )
+  (:method pickupmreadymblock_89
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b1_b19_)
+         (pclear_b19_)
+         (pclear_b1_)
+         (mdone_b1_)
+         (pdone_b19_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b1_)
+        (release__)
+     )
+  )
+  (:method newMethod9_90
+     :parameters ()
+     :task (acquire_abstract_b1_)
+     :ordered-subtasks (and
+        (pickup_b1_)
+     )
+  )
+  (:method newMethod12_91
+     :parameters ()
+     :task (acquire_abstract_b1_)
+     :ordered-subtasks (and
+        (unstack_b1_b19_)
+     )
+  )
+  (:method newMethod12_92
+     :parameters ()
+     :task (acquire_abstract_b1_)
+     :ordered-subtasks (and
+        (unstack_b1_b12_)
+     )
+  )
+  (:method pickupmreadymblock_93
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b17_)
+         (pgoal_on_b17_b21_)
+         (pclear_b21_)
+         (pclear_b17_)
+         (pdone_b21_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b17_)
+        (release__)
+     )
+  )
+  (:method newMethod9_94
+     :parameters ()
+     :task (acquire_abstract_b17_)
+     :ordered-subtasks (and
+        (pickup_b17_)
+     )
+  )
+  (:method newMethod12_95
+     :parameters ()
+     :task (acquire_abstract_b17_)
+     :ordered-subtasks (and
+        (unstack_b17_b21_)
+     )
+  )
+  (:method newMethod12_96
+     :parameters ()
+     :task (acquire_abstract_b17_)
+     :ordered-subtasks (and
+        (unstack_b17_b22_)
+     )
+  )
+  (:method pickupmreadymblock_97
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b24_)
+         (pgoal_on_b24_b8_)
+         (pclear_b8_)
+         (pclear_b24_)
+         (pdone_b8_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b24_)
+        (release__)
+     )
+  )
+  (:method newMethod9_98
+     :parameters ()
+     :task (acquire_abstract_b24_)
+     :ordered-subtasks (and
+        (pickup_b24_)
+     )
+  )
+  (:method newMethod12_99
+     :parameters ()
+     :task (acquire_abstract_b24_)
+     :ordered-subtasks (and
+        (unstack_b24_b8_)
+     )
+  )
+  (:method pickupmreadymblock_100
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pclear_b24_)
+         (mdone_b18_)
+         (pgoal_on_b18_b24_)
+         (pclear_b18_)
+         (pdone_b24_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b18_)
+        (release__)
+     )
+  )
+  (:method newMethod9_101
+     :parameters ()
+     :task (acquire_abstract_b18_)
+     :ordered-subtasks (and
+        (pickup_b18_)
+     )
+  )
+  (:method newMethod12_102
+     :parameters ()
+     :task (acquire_abstract_b18_)
+     :ordered-subtasks (and
+        (unstack_b18_b24_)
+     )
+  )
+  (:method newMethod12_103
+     :parameters ()
+     :task (acquire_abstract_b18_)
+     :ordered-subtasks (and
+        (unstack_b18_b20_)
+     )
+  )
+  (:method pickupmreadymblock_104
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b16_b15_)
+         (mdone_b16_)
+         (pclear_b15_)
+         (pclear_b16_)
+         (pdone_b15_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b16_)
+        (release__)
+     )
+  )
+  (:method newMethod9_105
+     :parameters ()
+     :task (acquire_abstract_b16_)
+     :ordered-subtasks (and
+        (pickup_b16_)
+     )
+  )
+  (:method newMethod12_106
+     :parameters ()
+     :task (acquire_abstract_b16_)
+     :ordered-subtasks (and
+        (unstack_b16_b15_)
+     )
+  )
+  (:method pickupmreadymblock_107
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b10_)
+         (pgoal_on_b10_b25_)
+         (pclear_b25_)
+         (pclear_b10_)
+         (pdone_b25_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b10_)
+        (release__)
+     )
+  )
+  (:method newMethod9_108
+     :parameters ()
+     :task (acquire_abstract_b10_)
+     :ordered-subtasks (and
+        (pickup_b10_)
+     )
+  )
+  (:method newMethod12_109
+     :parameters ()
+     :task (acquire_abstract_b10_)
+     :ordered-subtasks (and
+        (unstack_b10_b25_)
+     )
+  )
+  (:method newMethod12_110
+     :parameters ()
+     :task (acquire_abstract_b10_)
+     :ordered-subtasks (and
+        (unstack_b10_b3_)
+     )
+  )
+  (:method pickupmreadymblock_111
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b12_)
+         (pgoal_on_b12_b22_)
+         (pclear_b22_)
+         (pclear_b12_)
+         (pdone_b22_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b12_)
+        (release__)
+     )
+  )
+  (:method newMethod9_112
+     :parameters ()
+     :task (acquire_abstract_b12_)
+     :ordered-subtasks (and
+        (pickup_b12_)
+     )
+  )
+  (:method newMethod12_113
+     :parameters ()
+     :task (acquire_abstract_b12_)
+     :ordered-subtasks (and
+        (unstack_b12_b15_)
+     )
+  )
+  (:method newMethod12_114
+     :parameters ()
+     :task (acquire_abstract_b12_)
+     :ordered-subtasks (and
+        (unstack_b12_b22_)
+     )
+  )
+  (:method pickupmreadymblock_115
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b13_)
+         (pgoal_on_b13_b3_)
+         (pclear_b3_)
+         (pclear_b13_)
+         (pdone_b3_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b13_)
+        (release__)
+     )
+  )
+  (:method newMethod9_116
+     :parameters ()
+     :task (acquire_abstract_b13_)
+     :ordered-subtasks (and
+        (pickup_b13_)
+     )
+  )
+  (:method newMethod12_117
+     :parameters ()
+     :task (acquire_abstract_b13_)
+     :ordered-subtasks (and
+        (unstack_b13_b3_)
+     )
+  )
+  (:method pickupmreadymblock_118
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b30_b5_)
+         (pclear_b5_)
+         (mdone_b30_)
+         (pclear_b30_)
+         (pdone_b5_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b30_)
+        (release__)
+     )
+  )
+  (:method newMethod9_119
+     :parameters ()
+     :task (acquire_abstract_b30_)
+     :ordered-subtasks (and
+        (pickup_b30_)
+     )
+  )
+  (:method newMethod12_120
+     :parameters ()
+     :task (acquire_abstract_b30_)
+     :ordered-subtasks (and
+        (unstack_b30_b28_)
+     )
+  )
+  (:method newMethod12_121
+     :parameters ()
+     :task (acquire_abstract_b30_)
+     :ordered-subtasks (and
+        (unstack_b30_b5_)
+     )
+  )
+  (:method pickupmreadymblock_122
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b6_b13_)
+         (mdone_b6_)
+         (pclear_b6_)
+         (pclear_b13_)
+         (pdone_b13_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b6_)
+        (release__)
+     )
+  )
+  (:method newMethod9_123
+     :parameters ()
+     :task (acquire_abstract_b6_)
+     :ordered-subtasks (and
+        (pickup_b6_)
+     )
+  )
+  (:method newMethod12_124
+     :parameters ()
+     :task (acquire_abstract_b6_)
+     :ordered-subtasks (and
+        (unstack_b6_b13_)
+     )
+  )
+  (:method newMethod12_125
+     :parameters ()
+     :task (acquire_abstract_b6_)
+     :ordered-subtasks (and
+        (unstack_b6_b27_)
+     )
+  )
+  (:method pickupmreadymblock_126
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b4_b6_)
+         (pclear_b6_)
+         (mdone_b4_)
+         (pclear_b4_)
+         (pdone_b6_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b4_)
+        (release__)
+     )
+  )
+  (:method newMethod9_127
+     :parameters ()
+     :task (acquire_abstract_b4_)
+     :ordered-subtasks (and
+        (pickup_b4_)
+     )
+  )
+  (:method newMethod12_128
+     :parameters ()
+     :task (acquire_abstract_b4_)
+     :ordered-subtasks (and
+        (unstack_b4_b18_)
+     )
+  )
+  (:method newMethod12_129
+     :parameters ()
+     :task (acquire_abstract_b4_)
+     :ordered-subtasks (and
+        (unstack_b4_b6_)
+     )
+  )
+  (:method pickupmreadymblock_130
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b26_)
+         (pgoal_on_b26_b9_)
+         (pclear_b9_)
+         (pclear_b26_)
+         (pdone_b9_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b26_)
+        (release__)
+     )
+  )
+  (:method newMethod9_131
+     :parameters ()
+     :task (acquire_abstract_b26_)
+     :ordered-subtasks (and
+        (pickup_b26_)
+     )
+  )
+  (:method newMethod12_132
+     :parameters ()
+     :task (acquire_abstract_b26_)
+     :ordered-subtasks (and
+        (unstack_b26_b9_)
+     )
+  )
+  (:method newMethod12_133
+     :parameters ()
+     :task (acquire_abstract_b26_)
+     :ordered-subtasks (and
+        (unstack_b26_b24_)
+     )
+  )
+  (:method pickupmreadymblock_134
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b7_)
+         (pgoal_on_b7_b26_)
+         (pclear_b26_)
+         (pclear_b7_)
+         (pdone_b26_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b7_)
+        (release__)
+     )
+  )
+  (:method newMethod9_135
+     :parameters ()
+     :task (acquire_abstract_b7_)
+     :ordered-subtasks (and
+        (pickup_b7_)
+     )
+  )
+  (:method newMethod12_136
+     :parameters ()
+     :task (acquire_abstract_b7_)
+     :ordered-subtasks (and
+        (unstack_b7_b26_)
+     )
+  )
+  (:method newMethod12_137
+     :parameters ()
+     :task (acquire_abstract_b7_)
+     :ordered-subtasks (and
+        (unstack_b7_b5_)
+     )
+  )
+  (:method pickupmreadymblock_138
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (pgoal_on_b15_b14_)
+         (mdone_b15_)
+         (pclear_b14_)
+         (pclear_b15_)
+         (pdone_b14_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b15_)
+        (release__)
+     )
+  )
+  (:method newMethod9_139
+     :parameters ()
+     :task (acquire_abstract_b15_)
+     :ordered-subtasks (and
+        (pickup_b15_)
+     )
+  )
+  (:method newMethod12_140
+     :parameters ()
+     :task (acquire_abstract_b15_)
+     :ordered-subtasks (and
+        (unstack_b15_b14_)
+     )
+  )
+  (:method newMethod12_141
+     :parameters ()
+     :task (acquire_abstract_b15_)
+     :ordered-subtasks (and
+        (unstack_b15_b30_)
+     )
+  )
+  (:method pickupmreadymblock_142
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b9_)
+         (pgoal_on_b9_b27_)
+         (pclear_b27_)
+         (pclear_b9_)
+         (pdone_b27_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b9_)
+        (release__)
+     )
+  )
+  (:method newMethod9_143
+     :parameters ()
+     :task (acquire_abstract_b9_)
+     :ordered-subtasks (and
+        (pickup_b9_)
+     )
+  )
+  (:method newMethod12_144
+     :parameters ()
+     :task (acquire_abstract_b9_)
+     :ordered-subtasks (and
+        (unstack_b9_b17_)
+     )
+  )
+  (:method newMethod12_145
+     :parameters ()
+     :task (acquire_abstract_b9_)
+     :ordered-subtasks (and
+        (unstack_b9_b27_)
+     )
+  )
+  (:method pickupmreadymblock_146
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b19_)
+         (pgoal_on_b19_b29_)
+         (pclear_b29_)
+         (pclear_b19_)
+         (pdone_b29_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b19_)
+        (release__)
+     )
+  )
+  (:method newMethod9_147
+     :parameters ()
+     :task (acquire_abstract_b19_)
+     :ordered-subtasks (and
+        (pickup_b19_)
+     )
+  )
+  (:method newMethod12_148
+     :parameters ()
+     :task (acquire_abstract_b19_)
+     :ordered-subtasks (and
+        (unstack_b19_b2_)
+     )
+  )
+  (:method newMethod12_149
+     :parameters ()
+     :task (acquire_abstract_b19_)
+     :ordered-subtasks (and
+        (unstack_b19_b29_)
+     )
+  )
+  (:method pickupmreadymblock_150
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b29_)
+         (pclear_b23_)
+         (pgoal_on_b29_b23_)
+         (pclear_b29_)
+         (pdone_b23_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b29_)
+        (release__)
+     )
+  )
+  (:method newMethod9_151
+     :parameters ()
+     :task (acquire_abstract_b29_)
+     :ordered-subtasks (and
+        (pickup_b29_)
+     )
+  )
+  (:method newMethod12_152
+     :parameters ()
+     :task (acquire_abstract_b29_)
+     :ordered-subtasks (and
+        (unstack_b29_b23_)
+     )
+  )
+  (:method newMethod12_153
+     :parameters ()
+     :task (acquire_abstract_b29_)
+     :ordered-subtasks (and
+        (unstack_b29_b10_)
+     )
+  )
+  (:method pickupmreadymblock_154
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b11_)
+         (pgoal_on_b11_b30_)
+         (pclear_b30_)
+         (pclear_b11_)
+         (pdone_b30_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b11_)
+        (release__)
+     )
+  )
+  (:method newMethod9_155
+     :parameters ()
+     :task (acquire_abstract_b11_)
+     :ordered-subtasks (and
+        (pickup_b11_)
+     )
+  )
+  (:method newMethod12_156
+     :parameters ()
+     :task (acquire_abstract_b11_)
+     :ordered-subtasks (and
+        (unstack_b11_b30_)
+     )
+  )
+  (:method newMethod12_157
+     :parameters ()
+     :task (acquire_abstract_b11_)
+     :ordered-subtasks (and
+        (unstack_b11_b23_)
+     )
+  )
+  (:method pickupmreadymblock_158
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b20_)
+         (pgoal_on_b20_b16_)
+         (pclear_b16_)
+         (pclear_b20_)
+         (pdone_b16_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b20_)
+        (release__)
+     )
+  )
+  (:method newMethod9_159
+     :parameters ()
+     :task (acquire_abstract_b20_)
+     :ordered-subtasks (and
+        (pickup_b20_)
+     )
+  )
+  (:method newMethod12_160
+     :parameters ()
+     :task (acquire_abstract_b20_)
+     :ordered-subtasks (and
+        (unstack_b20_b16_)
+     )
+  )
+  (:method newMethod12_161
+     :parameters ()
+     :task (acquire_abstract_b20_)
+     :ordered-subtasks (and
+        (unstack_b20_b8_)
+     )
+  )
+  (:method pickupmreadymblock_162
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b27_)
+         (pgoal_on_b27_b20_)
+         (pclear_b20_)
+         (pclear_b27_)
+         (pdone_b20_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b27_)
+        (release__)
+     )
+  )
+  (:method newMethod9_163
+     :parameters ()
+     :task (acquire_abstract_b27_)
+     :ordered-subtasks (and
+        (pickup_b27_)
+     )
+  )
+  (:method newMethod12_164
+     :parameters ()
+     :task (acquire_abstract_b27_)
+     :ordered-subtasks (and
+        (unstack_b27_b20_)
+     )
+  )
+  (:method newMethod12_165
+     :parameters ()
+     :task (acquire_abstract_b27_)
+     :ordered-subtasks (and
+        (unstack_b27_b25_)
+     )
+  )
+  (:method pickupmreadymblock_166
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b3_)
+         (pclear_b1_)
+         (pclear_b3_)
+         (pgoal_on_b3_b1_)
+         (pdone_b1_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b3_)
+        (release__)
+     )
+  )
+  (:method newMethod9_167
+     :parameters ()
+     :task (acquire_abstract_b3_)
+     :ordered-subtasks (and
+        (pickup_b3_)
+     )
+  )
+  (:method newMethod12_168
+     :parameters ()
+     :task (acquire_abstract_b3_)
+     :ordered-subtasks (and
+        (unstack_b3_b1_)
+     )
+  )
+  (:method newMethod12_169
+     :parameters ()
+     :task (acquire_abstract_b3_)
+     :ordered-subtasks (and
+        (unstack_b3_b26_)
+     )
+  )
+  (:method pickupmreadymblock_170
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b14_)
+         (pclear_b28_)
+         (pclear_b14_)
+         (pgoal_on_b14_b28_)
+         (pdone_b28_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b14_)
+        (release__)
+     )
+  )
+  (:method newMethod9_171
+     :parameters ()
+     :task (acquire_abstract_b14_)
+     :ordered-subtasks (and
+        (pickup_b14_)
+     )
+  )
+  (:method newMethod12_172
+     :parameters ()
+     :task (acquire_abstract_b14_)
+     :ordered-subtasks (and
+        (unstack_b14_b11_)
+     )
+  )
+  (:method newMethod12_173
+     :parameters ()
+     :task (acquire_abstract_b14_)
+     :ordered-subtasks (and
+        (unstack_b14_b28_)
+     )
+  )
+  (:method unstackmblock_174
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b27_)
+         (monmtable_b27_)
+         (pclear_b27_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b27_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_175
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b15_)
+         (monmtable_b15_)
+         (pclear_b15_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b15_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_176
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (monmtable_b22_)
+         (mdone_b22_)
+         (pclear_b22_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b22_)
+        (release__)
+     )
+  )
+  (:method newMethod9_177
+     :parameters ()
+     :task (acquire_abstract_b22_)
+     :ordered-subtasks (and
+        (pickup_b22_)
+     )
+  )
+  (:method newMethod12_178
+     :parameters ()
+     :task (acquire_abstract_b22_)
+     :ordered-subtasks (and
+        (unstack_b22_b7_)
+     )
+  )
+  (:method unstackmblock_179
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b2_)
+         (monmtable_b2_)
+         (pclear_b2_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b2_)
+        (release__)
+     )
+  )
+  (:method newMethod9_180
+     :parameters ()
+     :task (acquire_abstract_b2_)
+     :ordered-subtasks (and
+        (pickup_b2_)
+     )
+  )
+  (:method newMethod12_181
+     :parameters ()
+     :task (acquire_abstract_b2_)
+     :ordered-subtasks (and
+        (unstack_b2_b16_)
+     )
+  )
+  (:method unstackmblock_182
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b11_)
+         (monmtable_b11_)
+         (pclear_b11_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b11_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_183
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (monmtable_b4_)
+         (mdone_b4_)
+         (pclear_b4_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b4_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_184
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b17_)
+         (monmtable_b17_)
+         (pclear_b17_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b17_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_185
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b3_)
+         (monmtable_b3_)
+         (pclear_b3_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b3_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_186
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b12_)
+         (monmtable_b12_)
+         (pclear_b12_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b12_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_187
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b26_)
+         (monmtable_b26_)
+         (pclear_b26_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b26_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_188
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b16_)
+         (monmtable_b16_)
+         (pclear_b16_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b16_)
+        (release__)
+     )
+  )
+  (:method x_unstackmblock_acquire_abstract_b28__newMethod9_1_0_m1_2__189
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b28_)
+         (monmtable_b28_)
+         (pclear_b28_)
+     )
+     :ordered-subtasks (and
+        (pickup_b28_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_190
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b10_)
+         (monmtable_b10_)
+         (pclear_b10_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b10_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_191
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b7_)
+         (monmtable_b7_)
+         (pclear_b7_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b7_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_192
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b1_)
+         (monmtable_b1_)
+         (pclear_b1_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b1_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_193
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b14_)
+         (monmtable_b14_)
+         (pclear_b14_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b14_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_194
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b5_)
+         (monmtable_b5_)
+         (pclear_b5_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b5_)
+        (release__)
+     )
+  )
+  (:method newMethod9_195
+     :parameters ()
+     :task (acquire_abstract_b5_)
+     :ordered-subtasks (and
+        (pickup_b5_)
+     )
+  )
+  (:method newMethod12_196
+     :parameters ()
+     :task (acquire_abstract_b5_)
+     :ordered-subtasks (and
+        (unstack_b5_b29_)
+     )
+  )
+  (:method unstackmblock_197
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (monmtable_b18_)
+         (mdone_b18_)
+         (pclear_b18_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b18_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_198
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b8_)
+         (monmtable_b8_)
+         (pclear_b8_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b8_)
+        (release__)
+     )
+  )
+  (:method newMethod9_199
+     :parameters ()
+     :task (acquire_abstract_b8_)
+     :ordered-subtasks (and
+        (pickup_b8_)
+     )
+  )
+  (:method newMethod12_200
+     :parameters ()
+     :task (acquire_abstract_b8_)
+     :ordered-subtasks (and
+        (unstack_b8_b13_)
+     )
+  )
+  (:method unstackmblock_201
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b19_)
+         (monmtable_b19_)
+         (pclear_b19_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b19_)
+        (release__)
+     )
+  )
+  (:method x_unstackmblock_acquire_abstract_b25__newMethod9_1_0_m1_2__202
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b25_)
+         (monmtable_b25_)
+         (pclear_b25_)
+     )
+     :ordered-subtasks (and
+        (pickup_b25_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_203
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b29_)
+         (monmtable_b29_)
+         (pclear_b29_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b29_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_204
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b24_)
+         (monmtable_b24_)
+         (pclear_b24_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b24_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_205
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b23_)
+         (monmtable_b23_)
+         (pclear_b23_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b23_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_206
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b20_)
+         (monmtable_b20_)
+         (pclear_b20_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b20_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_207
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b21_)
+         (monmtable_b21_)
+         (pclear_b21_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b21_)
+        (release__)
+     )
+  )
+  (:method newMethod9_208
+     :parameters ()
+     :task (acquire_abstract_b21_)
+     :ordered-subtasks (and
+        (pickup_b21_)
+     )
+  )
+  (:method newMethod12_209
+     :parameters ()
+     :task (acquire_abstract_b21_)
+     :ordered-subtasks (and
+        (unstack_b21_b4_)
+     )
+  )
+  (:method unstackmblock_210
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b9_)
+         (monmtable_b9_)
+         (pclear_b9_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b9_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_211
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (monmtable_b30_)
+         (mdone_b30_)
+         (pclear_b30_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b30_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_212
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (mdone_b13_)
+         (monmtable_b13_)
+         (pclear_b13_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b13_)
+        (release__)
+     )
+  )
+  (:method unstackmblock_213
+     :parameters ()
+     :task (achievemgoals__)
+     :precondition (and 
+         (monmtable_b6_)
+         (mdone_b6_)
+         (pclear_b6_)
+     )
+     :ordered-subtasks (and
+        (acquire_abstract_b6_)
+        (release__)
+     )
+  )
+
+  (:action mark_done_b22_
+     :parameters ()
+     :effect (and 
+         (pdone_b22_)
+         (not(mdone_b22_))
+     )
+  )
+
+  (:action mark_done_b5_
+     :parameters ()
+     :effect (and 
+         (pdone_b5_)
+         (not(mdone_b5_))
+     )
+  )
+
+  (:action mark_done_b25_
+     :parameters ()
+     :effect (and 
+         (pdone_b25_)
+         (not(mdone_b25_))
+     )
+  )
+
+  (:action mark_done_b28_
+     :parameters ()
+     :effect (and 
+         (pdone_b28_)
+         (not(mdone_b28_))
+     )
+  )
+
+  (:action mark_done_b2_
+     :parameters ()
+     :effect (and 
+         (pdone_b2_)
+         (not(mdone_b2_))
+     )
+  )
+
+  (:action mark_done_b21_
+     :parameters ()
+     :effect (and 
+         (pdone_b21_)
+         (not(mdone_b21_))
+     )
+  )
+
+  (:action mark_done_b8_
+     :parameters ()
+     :effect (and 
+         (pdone_b8_)
+         (not(mdone_b8_))
+     )
+  )
+
+  (:action mark_done_b12_
+     :parameters ()
+     :effect (and 
+         (pdone_b12_)
+         (not(mdone_b12_))
+     )
+  )
+
+  (:action mark_done_b29_
+     :parameters ()
+     :effect (and 
+         (pdone_b29_)
+         (not(mdone_b29_))
+     )
+  )
+
+  (:action mark_done_b23_
+     :parameters ()
+     :effect (and 
+         (pdone_b23_)
+         (not(mdone_b23_))
+     )
+  )
+
+  (:action mark_done_b26_
+     :parameters ()
+     :effect (and 
+         (pdone_b26_)
+         (not(mdone_b26_))
+     )
+  )
+
+  (:action mark_done_b4_
+     :parameters ()
+     :effect (and 
+         (pdone_b4_)
+         (not(mdone_b4_))
+     )
+  )
+
+  (:action mark_done_b18_
+     :parameters ()
+     :effect (and 
+         (pdone_b18_)
+         (not(mdone_b18_))
+     )
+  )
+
+  (:action mark_done_b13_
+     :parameters ()
+     :effect (and 
+         (pdone_b13_)
+         (not(mdone_b13_))
+     )
+  )
+
+  (:action mark_done_b11_
+     :parameters ()
+     :effect (and 
+         (pdone_b11_)
+         (not(mdone_b11_))
+     )
+  )
+
+  (:action mark_done_b15_
+     :parameters ()
+     :effect (and 
+         (pdone_b15_)
+         (not(mdone_b15_))
+     )
+  )
+
+  (:action mark_done_b17_
+     :parameters ()
+     :effect (and 
+         (pdone_b17_)
+         (not(mdone_b17_))
+     )
+  )
+
+  (:action mark_done_b10_
+     :parameters ()
+     :effect (and 
+         (pdone_b10_)
+         (not(mdone_b10_))
+     )
+  )
+
+  (:action mark_done_b24_
+     :parameters ()
+     :effect (and 
+         (pdone_b24_)
+         (not(mdone_b24_))
+     )
+  )
+
+  (:action mark_done_b30_
+     :parameters ()
+     :effect (and 
+         (pdone_b30_)
+         (not(mdone_b30_))
+     )
+  )
+
+  (:action mark_done_b14_
+     :parameters ()
+     :effect (and 
+         (pdone_b14_)
+         (not(mdone_b14_))
+     )
+  )
+
+  (:action mark_done_b1_
+     :parameters ()
+     :effect (and 
+         (pdone_b1_)
+         (not(mdone_b1_))
+     )
+  )
+
+  (:action mark_done_b16_
+     :parameters ()
+     :effect (and 
+         (pdone_b16_)
+         (not(mdone_b16_))
+     )
+  )
+
+  (:action mark_done_b20_
+     :parameters ()
+     :effect (and 
+         (pdone_b20_)
+         (not(mdone_b20_))
+     )
+  )
+
+  (:action mark_done_b7_
+     :parameters ()
+     :effect (and 
+         (pdone_b7_)
+         (not(mdone_b7_))
+     )
+  )
+
+  (:action mark_done_b27_
+     :parameters ()
+     :effect (and 
+         (pdone_b27_)
+         (not(mdone_b27_))
+     )
+  )
+
+  (:action mark_done_b19_
+     :parameters ()
+     :effect (and 
+         (pdone_b19_)
+         (not(mdone_b19_))
+     )
+  )
+
+  (:action mark_done_b9_
+     :parameters ()
+     :effect (and 
+         (pdone_b9_)
+         (not(mdone_b9_))
+     )
+  )
+
+  (:action mark_done_b3_
+     :parameters ()
+     :effect (and 
+         (pdone_b3_)
+         (not(mdone_b3_))
+     )
+  )
+
+  (:action mark_done_b6_
+     :parameters ()
+     :effect (and 
+         (pdone_b6_)
+         (not(mdone_b6_))
+     )
+  )
+
+  (:action pickup_b23_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b23_)
+         (pclear_b23_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b23_)
+         (monmtable_b23_)
+         (not(ponmtable_b23_))
+         (not(pclear_b23_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b23_b17_
+     :parameters ()
+     :precondition (and 
+         (pon_b23_b17_)
+         (pclear_b23_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b17_)
+         (pholding_b23_)
+         (not(pon_b23_b17_))
+         (not(pclear_b23_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b23_b21_
+     :parameters ()
+     :precondition (and 
+         (pon_b23_b21_)
+         (pclear_b23_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b21_)
+         (pholding_b23_)
+         (not(pon_b23_b21_))
+         (not(pclear_b23_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action stack_b23_b17_
+     :parameters ()
+     :precondition (and 
+         (pclear_b17_)
+         (pholding_b23_)
+     )
+     :effect (and 
+         (pclear_b23_)
+         (pon_b23_b17_)
+         (phandmempty__)
+         (not(pclear_b17_))
+         (not(pholding_b23_))
+     )
+  )
+
+  (:action delete_goal_on_b23_b17_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b23_b17_))
+     )
+  )
+
+  (:action stack_b4_b6_
+     :parameters ()
+     :precondition (and 
+         (pclear_b6_)
+         (pholding_b4_)
+     )
+     :effect (and 
+         (pclear_b4_)
+         (pon_b4_b6_)
+         (phandmempty__)
+         (not(pclear_b6_))
+         (not(pholding_b4_))
+     )
+  )
+
+  (:action delete_goal_on_b4_b6_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b4_b6_))
+     )
+  )
+
+  (:action stack_b14_b28_
+     :parameters ()
+     :precondition (and 
+         (pclear_b28_)
+         (pholding_b14_)
+     )
+     :effect (and 
+         (pon_b14_b28_)
+         (pclear_b14_)
+         (phandmempty__)
+         (not(pclear_b28_))
+         (not(pholding_b14_))
+     )
+  )
+
+  (:action delete_goal_on_b14_b28_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b14_b28_))
+     )
+  )
+
+  (:action stack_b17_b21_
+     :parameters ()
+     :precondition (and 
+         (pclear_b21_)
+         (pholding_b17_)
+     )
+     :effect (and 
+         (pclear_b17_)
+         (pon_b17_b21_)
+         (phandmempty__)
+         (not(pclear_b21_))
+         (not(pholding_b17_))
+     )
+  )
+
+  (:action delete_goal_on_b17_b21_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b17_b21_))
+     )
+  )
+
+  (:action stack_b18_b24_
+     :parameters ()
+     :precondition (and 
+         (pclear_b24_)
+         (pholding_b18_)
+     )
+     :effect (and 
+         (pclear_b18_)
+         (pon_b18_b24_)
+         (phandmempty__)
+         (not(pclear_b24_))
+         (not(pholding_b18_))
+     )
+  )
+
+  (:action delete_goal_on_b18_b24_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b18_b24_))
+     )
+  )
+
+  (:action stack_b3_b1_
+     :parameters ()
+     :precondition (and 
+         (pclear_b1_)
+         (pholding_b3_)
+     )
+     :effect (and 
+         (pclear_b3_)
+         (pon_b3_b1_)
+         (phandmempty__)
+         (not(pclear_b1_))
+         (not(pholding_b3_))
+     )
+  )
+
+  (:action delete_goal_on_b3_b1_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b3_b1_))
+     )
+  )
+
+  (:action stack_b9_b27_
+     :parameters ()
+     :precondition (and 
+         (pclear_b27_)
+         (pholding_b9_)
+     )
+     :effect (and 
+         (pclear_b9_)
+         (pon_b9_b27_)
+         (phandmempty__)
+         (not(pclear_b27_))
+         (not(pholding_b9_))
+     )
+  )
+
+  (:action delete_goal_on_b9_b27_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b9_b27_))
+     )
+  )
+
+  (:action stack_b10_b25_
+     :parameters ()
+     :precondition (and 
+         (pclear_b25_)
+         (pholding_b10_)
+     )
+     :effect (and 
+         (pclear_b10_)
+         (pon_b10_b25_)
+         (phandmempty__)
+         (not(pclear_b25_))
+         (not(pholding_b10_))
+     )
+  )
+
+  (:action delete_goal_on_b10_b25_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b10_b25_))
+     )
+  )
+
+  (:action stack_b24_b8_
+     :parameters ()
+     :precondition (and 
+         (pclear_b8_)
+         (pholding_b24_)
+     )
+     :effect (and 
+         (pclear_b24_)
+         (pon_b24_b8_)
+         (phandmempty__)
+         (not(pclear_b8_))
+         (not(pholding_b24_))
+     )
+  )
+
+  (:action delete_goal_on_b24_b8_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b24_b8_))
+     )
+  )
+
+  (:action stack_b26_b9_
+     :parameters ()
+     :precondition (and 
+         (pclear_b9_)
+         (pholding_b26_)
+     )
+     :effect (and 
+         (pclear_b26_)
+         (pon_b26_b9_)
+         (phandmempty__)
+         (not(pclear_b9_))
+         (not(pholding_b26_))
+     )
+  )
+
+  (:action delete_goal_on_b26_b9_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b26_b9_))
+     )
+  )
+
+  (:action stack_b7_b26_
+     :parameters ()
+     :precondition (and 
+         (pclear_b26_)
+         (pholding_b7_)
+     )
+     :effect (and 
+         (pclear_b7_)
+         (pon_b7_b26_)
+         (phandmempty__)
+         (not(pclear_b26_))
+         (not(pholding_b7_))
+     )
+  )
+
+  (:action delete_goal_on_b7_b26_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b7_b26_))
+     )
+  )
+
+  (:action stack_b13_b3_
+     :parameters ()
+     :precondition (and 
+         (pclear_b3_)
+         (pholding_b13_)
+     )
+     :effect (and 
+         (pclear_b13_)
+         (pon_b13_b3_)
+         (phandmempty__)
+         (not(pclear_b3_))
+         (not(pholding_b13_))
+     )
+  )
+
+  (:action delete_goal_on_b13_b3_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b13_b3_))
+     )
+  )
+
+  (:action stack_b16_b15_
+     :parameters ()
+     :precondition (and 
+         (pclear_b15_)
+         (pholding_b16_)
+     )
+     :effect (and 
+         (pclear_b16_)
+         (pon_b16_b15_)
+         (phandmempty__)
+         (not(pclear_b15_))
+         (not(pholding_b16_))
+     )
+  )
+
+  (:action delete_goal_on_b16_b15_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b16_b15_))
+     )
+  )
+
+  (:action stack_b29_b23_
+     :parameters ()
+     :precondition (and 
+         (pclear_b23_)
+         (pholding_b29_)
+     )
+     :effect (and 
+         (pclear_b29_)
+         (pon_b29_b23_)
+         (phandmempty__)
+         (not(pclear_b23_))
+         (not(pholding_b29_))
+     )
+  )
+
+  (:action delete_goal_on_b29_b23_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b29_b23_))
+     )
+  )
+
+  (:action stack_b6_b13_
+     :parameters ()
+     :precondition (and 
+         (pclear_b13_)
+         (pholding_b6_)
+     )
+     :effect (and 
+         (pclear_b6_)
+         (pon_b6_b13_)
+         (phandmempty__)
+         (not(pclear_b13_))
+         (not(pholding_b6_))
+     )
+  )
+
+  (:action delete_goal_on_b6_b13_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b6_b13_))
+     )
+  )
+
+  (:action stack_b30_b5_
+     :parameters ()
+     :precondition (and 
+         (pclear_b5_)
+         (pholding_b30_)
+     )
+     :effect (and 
+         (pclear_b30_)
+         (pon_b30_b5_)
+         (phandmempty__)
+         (not(pclear_b5_))
+         (not(pholding_b30_))
+     )
+  )
+
+  (:action delete_goal_on_b30_b5_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b30_b5_))
+     )
+  )
+
+  (:action stack_b19_b29_
+     :parameters ()
+     :precondition (and 
+         (pclear_b29_)
+         (pholding_b19_)
+     )
+     :effect (and 
+         (pclear_b19_)
+         (pon_b19_b29_)
+         (phandmempty__)
+         (not(pclear_b29_))
+         (not(pholding_b19_))
+     )
+  )
+
+  (:action delete_goal_on_b19_b29_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b19_b29_))
+     )
+  )
+
+  (:action stack_b11_b30_
+     :parameters ()
+     :precondition (and 
+         (pclear_b30_)
+         (pholding_b11_)
+     )
+     :effect (and 
+         (pclear_b11_)
+         (pon_b11_b30_)
+         (phandmempty__)
+         (not(pclear_b30_))
+         (not(pholding_b11_))
+     )
+  )
+
+  (:action delete_goal_on_b11_b30_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b11_b30_))
+     )
+  )
+
+  (:action stack_b15_b14_
+     :parameters ()
+     :precondition (and 
+         (pclear_b14_)
+         (pholding_b15_)
+     )
+     :effect (and 
+         (pclear_b15_)
+         (pon_b15_b14_)
+         (phandmempty__)
+         (not(pclear_b14_))
+         (not(pholding_b15_))
+     )
+  )
+
+  (:action delete_goal_on_b15_b14_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b15_b14_))
+     )
+  )
+
+  (:action stack_b12_b22_
+     :parameters ()
+     :precondition (and 
+         (pclear_b22_)
+         (pholding_b12_)
+     )
+     :effect (and 
+         (pclear_b12_)
+         (pon_b12_b22_)
+         (phandmempty__)
+         (not(pclear_b22_))
+         (not(pholding_b12_))
+     )
+  )
+
+  (:action delete_goal_on_b12_b22_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b12_b22_))
+     )
+  )
+
+  (:action stack_b27_b20_
+     :parameters ()
+     :precondition (and 
+         (pclear_b20_)
+         (pholding_b27_)
+     )
+     :effect (and 
+         (pclear_b27_)
+         (pon_b27_b20_)
+         (phandmempty__)
+         (not(pclear_b20_))
+         (not(pholding_b27_))
+     )
+  )
+
+  (:action delete_goal_on_b27_b20_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b27_b20_))
+     )
+  )
+
+  (:action stack_b20_b16_
+     :parameters ()
+     :precondition (and 
+         (pclear_b16_)
+         (pholding_b20_)
+     )
+     :effect (and 
+         (pclear_b20_)
+         (pon_b20_b16_)
+         (phandmempty__)
+         (not(pclear_b16_))
+         (not(pholding_b20_))
+     )
+  )
+
+  (:action delete_goal_on_b20_b16_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b20_b16_))
+     )
+  )
+
+  (:action stack_b1_b19_
+     :parameters ()
+     :precondition (and 
+         (pclear_b19_)
+         (pholding_b1_)
+     )
+     :effect (and 
+         (pclear_b1_)
+         (pon_b1_b19_)
+         (phandmempty__)
+         (not(pclear_b19_))
+         (not(pholding_b1_))
+     )
+  )
+
+  (:action delete_goal_on_b1_b19_
+     :parameters ()
+     :effect (and 
+         (not(pgoal_on_b1_b19_))
+     )
+  )
+
+  (:action putdown_b28_
+     :parameters ()
+     :precondition (and 
+         (pholding_b28_)
+     )
+     :effect (and 
+         (pclear_b28_)
+         (ponmtable_b28_)
+         (phandmempty__)
+         (not(monmtable_b28_))
+         (not(pholding_b28_))
+     )
+  )
+
+  (:action putdown_b21_
+     :parameters ()
+     :precondition (and 
+         (pholding_b21_)
+     )
+     :effect (and 
+         (pclear_b21_)
+         (ponmtable_b21_)
+         (phandmempty__)
+         (not(monmtable_b21_))
+         (not(pholding_b21_))
+     )
+  )
+
+  (:action putdown_b2_
+     :parameters ()
+     :precondition (and 
+         (pholding_b2_)
+     )
+     :effect (and 
+         (pclear_b2_)
+         (ponmtable_b2_)
+         (phandmempty__)
+         (not(monmtable_b2_))
+         (not(pholding_b2_))
+     )
+  )
+
+  (:action putdown_b22_
+     :parameters ()
+     :precondition (and 
+         (pholding_b22_)
+     )
+     :effect (and 
+         (pclear_b22_)
+         (ponmtable_b22_)
+         (phandmempty__)
+         (not(monmtable_b22_))
+         (not(pholding_b22_))
+     )
+  )
+
+  (:action putdown_b25_
+     :parameters ()
+     :precondition (and 
+         (pholding_b25_)
+     )
+     :effect (and 
+         (pclear_b25_)
+         (ponmtable_b25_)
+         (phandmempty__)
+         (not(monmtable_b25_))
+         (not(pholding_b25_))
+     )
+  )
+
+  (:action putdown_b8_
+     :parameters ()
+     :precondition (and 
+         (pholding_b8_)
+     )
+     :effect (and 
+         (pclear_b8_)
+         (ponmtable_b8_)
+         (phandmempty__)
+         (not(monmtable_b8_))
+         (not(pholding_b8_))
+     )
+  )
+
+  (:action putdown_b5_
+     :parameters ()
+     :precondition (and 
+         (pholding_b5_)
+     )
+     :effect (and 
+         (pclear_b5_)
+         (ponmtable_b5_)
+         (phandmempty__)
+         (not(monmtable_b5_))
+         (not(pholding_b5_))
+     )
+  )
+
+  (:action putdown_b20_
+     :parameters ()
+     :precondition (and 
+         (pholding_b20_)
+     )
+     :effect (and 
+         (pclear_b20_)
+         (ponmtable_b20_)
+         (phandmempty__)
+         (not(monmtable_b20_))
+         (not(pholding_b20_))
+     )
+  )
+
+  (:action putdown_b3_
+     :parameters ()
+     :precondition (and 
+         (pholding_b3_)
+     )
+     :effect (and 
+         (pclear_b3_)
+         (ponmtable_b3_)
+         (phandmempty__)
+         (not(monmtable_b3_))
+         (not(pholding_b3_))
+     )
+  )
+
+  (:action putdown_b23_
+     :parameters ()
+     :precondition (and 
+         (pholding_b23_)
+     )
+     :effect (and 
+         (pclear_b23_)
+         (ponmtable_b23_)
+         (phandmempty__)
+         (not(monmtable_b23_))
+         (not(pholding_b23_))
+     )
+  )
+
+  (:action putdown_b30_
+     :parameters ()
+     :precondition (and 
+         (pholding_b30_)
+     )
+     :effect (and 
+         (pclear_b30_)
+         (ponmtable_b30_)
+         (phandmempty__)
+         (not(monmtable_b30_))
+         (not(pholding_b30_))
+     )
+  )
+
+  (:action putdown_b4_
+     :parameters ()
+     :precondition (and 
+         (pholding_b4_)
+     )
+     :effect (and 
+         (pclear_b4_)
+         (ponmtable_b4_)
+         (phandmempty__)
+         (not(monmtable_b4_))
+         (not(pholding_b4_))
+     )
+  )
+
+  (:action putdown_b26_
+     :parameters ()
+     :precondition (and 
+         (pholding_b26_)
+     )
+     :effect (and 
+         (pclear_b26_)
+         (ponmtable_b26_)
+         (phandmempty__)
+         (not(monmtable_b26_))
+         (not(pholding_b26_))
+     )
+  )
+
+  (:action putdown_b16_
+     :parameters ()
+     :precondition (and 
+         (pholding_b16_)
+     )
+     :effect (and 
+         (pclear_b16_)
+         (ponmtable_b16_)
+         (phandmempty__)
+         (not(monmtable_b16_))
+         (not(pholding_b16_))
+     )
+  )
+
+  (:action putdown_b13_
+     :parameters ()
+     :precondition (and 
+         (pholding_b13_)
+     )
+     :effect (and 
+         (pclear_b13_)
+         (ponmtable_b13_)
+         (phandmempty__)
+         (not(monmtable_b13_))
+         (not(pholding_b13_))
+     )
+  )
+
+  (:action putdown_b29_
+     :parameters ()
+     :precondition (and 
+         (pholding_b29_)
+     )
+     :effect (and 
+         (ponmtable_b29_)
+         (pclear_b29_)
+         (phandmempty__)
+         (not(monmtable_b29_))
+         (not(pholding_b29_))
+     )
+  )
+
+  (:action putdown_b7_
+     :parameters ()
+     :precondition (and 
+         (pholding_b7_)
+     )
+     :effect (and 
+         (pclear_b7_)
+         (ponmtable_b7_)
+         (phandmempty__)
+         (not(monmtable_b7_))
+         (not(pholding_b7_))
+     )
+  )
+
+  (:action putdown_b15_
+     :parameters ()
+     :precondition (and 
+         (pholding_b15_)
+     )
+     :effect (and 
+         (pclear_b15_)
+         (ponmtable_b15_)
+         (phandmempty__)
+         (not(monmtable_b15_))
+         (not(pholding_b15_))
+     )
+  )
+
+  (:action putdown_b18_
+     :parameters ()
+     :precondition (and 
+         (pholding_b18_)
+     )
+     :effect (and 
+         (pclear_b18_)
+         (ponmtable_b18_)
+         (phandmempty__)
+         (not(monmtable_b18_))
+         (not(pholding_b18_))
+     )
+  )
+
+  (:action putdown_b11_
+     :parameters ()
+     :precondition (and 
+         (pholding_b11_)
+     )
+     :effect (and 
+         (pclear_b11_)
+         (ponmtable_b11_)
+         (phandmempty__)
+         (not(monmtable_b11_))
+         (not(pholding_b11_))
+     )
+  )
+
+  (:action putdown_b1_
+     :parameters ()
+     :precondition (and 
+         (pholding_b1_)
+     )
+     :effect (and 
+         (pclear_b1_)
+         (ponmtable_b1_)
+         (phandmempty__)
+         (not(monmtable_b1_))
+         (not(pholding_b1_))
+     )
+  )
+
+  (:action putdown_b24_
+     :parameters ()
+     :precondition (and 
+         (pholding_b24_)
+     )
+     :effect (and 
+         (pclear_b24_)
+         (ponmtable_b24_)
+         (phandmempty__)
+         (not(monmtable_b24_))
+         (not(pholding_b24_))
+     )
+  )
+
+  (:action putdown_b6_
+     :parameters ()
+     :precondition (and 
+         (pholding_b6_)
+     )
+     :effect (and 
+         (pclear_b6_)
+         (ponmtable_b6_)
+         (phandmempty__)
+         (not(monmtable_b6_))
+         (not(pholding_b6_))
+     )
+  )
+
+  (:action putdown_b17_
+     :parameters ()
+     :precondition (and 
+         (pholding_b17_)
+     )
+     :effect (and 
+         (pclear_b17_)
+         (ponmtable_b17_)
+         (phandmempty__)
+         (not(monmtable_b17_))
+         (not(pholding_b17_))
+     )
+  )
+
+  (:action putdown_b27_
+     :parameters ()
+     :precondition (and 
+         (pholding_b27_)
+     )
+     :effect (and 
+         (pclear_b27_)
+         (ponmtable_b27_)
+         (phandmempty__)
+         (not(monmtable_b27_))
+         (not(pholding_b27_))
+     )
+  )
+
+  (:action putdown_b12_
+     :parameters ()
+     :precondition (and 
+         (pholding_b12_)
+     )
+     :effect (and 
+         (pclear_b12_)
+         (ponmtable_b12_)
+         (phandmempty__)
+         (not(monmtable_b12_))
+         (not(pholding_b12_))
+     )
+  )
+
+  (:action putdown_b9_
+     :parameters ()
+     :precondition (and 
+         (pholding_b9_)
+     )
+     :effect (and 
+         (pclear_b9_)
+         (ponmtable_b9_)
+         (phandmempty__)
+         (not(monmtable_b9_))
+         (not(pholding_b9_))
+     )
+  )
+
+  (:action putdown_b10_
+     :parameters ()
+     :precondition (and 
+         (pholding_b10_)
+     )
+     :effect (and 
+         (pclear_b10_)
+         (ponmtable_b10_)
+         (phandmempty__)
+         (not(monmtable_b10_))
+         (not(pholding_b10_))
+     )
+  )
+
+  (:action putdown_b14_
+     :parameters ()
+     :precondition (and 
+         (pholding_b14_)
+     )
+     :effect (and 
+         (ponmtable_b14_)
+         (pclear_b14_)
+         (phandmempty__)
+         (not(monmtable_b14_))
+         (not(pholding_b14_))
+     )
+  )
+
+  (:action putdown_b19_
+     :parameters ()
+     :precondition (and 
+         (pholding_b19_)
+     )
+     :effect (and 
+         (pclear_b19_)
+         (ponmtable_b19_)
+         (phandmempty__)
+         (not(monmtable_b19_))
+         (not(pholding_b19_))
+     )
+  )
+
+  (:action pickup_b1_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b1_)
+         (pclear_b1_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b1_)
+         (monmtable_b1_)
+         (not(ponmtable_b1_))
+         (not(pclear_b1_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b1_b19_
+     :parameters ()
+     :precondition (and 
+         (pon_b1_b19_)
+         (pclear_b1_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b19_)
+         (pholding_b1_)
+         (not(pon_b1_b19_))
+         (not(pclear_b1_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b1_b12_
+     :parameters ()
+     :precondition (and 
+         (pon_b1_b12_)
+         (pclear_b1_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b12_)
+         (pholding_b1_)
+         (not(pon_b1_b12_))
+         (not(pclear_b1_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b17_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b17_)
+         (pclear_b17_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b17_)
+         (monmtable_b17_)
+         (not(ponmtable_b17_))
+         (not(pclear_b17_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b17_b21_
+     :parameters ()
+     :precondition (and 
+         (pon_b17_b21_)
+         (pclear_b17_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b21_)
+         (pholding_b17_)
+         (not(pon_b17_b21_))
+         (not(pclear_b17_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b17_b22_
+     :parameters ()
+     :precondition (and 
+         (pon_b17_b22_)
+         (pclear_b17_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b22_)
+         (pholding_b17_)
+         (not(pon_b17_b22_))
+         (not(pclear_b17_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b24_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b24_)
+         (pclear_b24_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b24_)
+         (monmtable_b24_)
+         (not(ponmtable_b24_))
+         (not(pclear_b24_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b24_b8_
+     :parameters ()
+     :precondition (and 
+         (pon_b24_b8_)
+         (pclear_b24_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b8_)
+         (pholding_b24_)
+         (not(pon_b24_b8_))
+         (not(pclear_b24_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b18_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b18_)
+         (pclear_b18_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b18_)
+         (monmtable_b18_)
+         (not(ponmtable_b18_))
+         (not(pclear_b18_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b18_b24_
+     :parameters ()
+     :precondition (and 
+         (pon_b18_b24_)
+         (pclear_b18_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b24_)
+         (pholding_b18_)
+         (not(pon_b18_b24_))
+         (not(pclear_b18_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b18_b20_
+     :parameters ()
+     :precondition (and 
+         (pon_b18_b20_)
+         (pclear_b18_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b20_)
+         (pholding_b18_)
+         (not(pon_b18_b20_))
+         (not(pclear_b18_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b16_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b16_)
+         (pclear_b16_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b16_)
+         (monmtable_b16_)
+         (not(ponmtable_b16_))
+         (not(pclear_b16_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b16_b15_
+     :parameters ()
+     :precondition (and 
+         (pclear_b16_)
+         (pon_b16_b15_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b15_)
+         (pholding_b16_)
+         (not(pclear_b16_))
+         (not(pon_b16_b15_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b10_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b10_)
+         (pclear_b10_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b10_)
+         (monmtable_b10_)
+         (not(ponmtable_b10_))
+         (not(pclear_b10_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b10_b25_
+     :parameters ()
+     :precondition (and 
+         (pon_b10_b25_)
+         (pclear_b10_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b25_)
+         (pholding_b10_)
+         (not(pon_b10_b25_))
+         (not(pclear_b10_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b10_b3_
+     :parameters ()
+     :precondition (and 
+         (pon_b10_b3_)
+         (pclear_b10_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b3_)
+         (pholding_b10_)
+         (not(pon_b10_b3_))
+         (not(pclear_b10_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b12_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b12_)
+         (pclear_b12_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b12_)
+         (monmtable_b12_)
+         (not(ponmtable_b12_))
+         (not(pclear_b12_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b12_b15_
+     :parameters ()
+     :precondition (and 
+         (pon_b12_b15_)
+         (pclear_b12_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b15_)
+         (pholding_b12_)
+         (not(pon_b12_b15_))
+         (not(pclear_b12_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b12_b22_
+     :parameters ()
+     :precondition (and 
+         (pon_b12_b22_)
+         (pclear_b12_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b22_)
+         (pholding_b12_)
+         (not(pon_b12_b22_))
+         (not(pclear_b12_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b13_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b13_)
+         (pclear_b13_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b13_)
+         (monmtable_b13_)
+         (not(ponmtable_b13_))
+         (not(pclear_b13_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b13_b3_
+     :parameters ()
+     :precondition (and 
+         (pon_b13_b3_)
+         (pclear_b13_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b3_)
+         (pholding_b13_)
+         (not(pon_b13_b3_))
+         (not(pclear_b13_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b30_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b30_)
+         (pclear_b30_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b30_)
+         (monmtable_b30_)
+         (not(ponmtable_b30_))
+         (not(pclear_b30_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b30_b28_
+     :parameters ()
+     :precondition (and 
+         (pon_b30_b28_)
+         (pclear_b30_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b28_)
+         (pholding_b30_)
+         (not(pon_b30_b28_))
+         (not(pclear_b30_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b30_b5_
+     :parameters ()
+     :precondition (and 
+         (pon_b30_b5_)
+         (pclear_b30_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b5_)
+         (pholding_b30_)
+         (not(pon_b30_b5_))
+         (not(pclear_b30_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b6_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b6_)
+         (pclear_b6_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b6_)
+         (monmtable_b6_)
+         (not(ponmtable_b6_))
+         (not(pclear_b6_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b6_b13_
+     :parameters ()
+     :precondition (and 
+         (pon_b6_b13_)
+         (pclear_b6_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b13_)
+         (pholding_b6_)
+         (not(pon_b6_b13_))
+         (not(pclear_b6_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b6_b27_
+     :parameters ()
+     :precondition (and 
+         (pon_b6_b27_)
+         (pclear_b6_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b27_)
+         (pholding_b6_)
+         (not(pon_b6_b27_))
+         (not(pclear_b6_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b4_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b4_)
+         (pclear_b4_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b4_)
+         (monmtable_b4_)
+         (not(ponmtable_b4_))
+         (not(pclear_b4_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b4_b18_
+     :parameters ()
+     :precondition (and 
+         (pon_b4_b18_)
+         (pclear_b4_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b18_)
+         (pholding_b4_)
+         (not(pon_b4_b18_))
+         (not(pclear_b4_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b4_b6_
+     :parameters ()
+     :precondition (and 
+         (pon_b4_b6_)
+         (pclear_b4_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b6_)
+         (pholding_b4_)
+         (not(pon_b4_b6_))
+         (not(pclear_b4_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b26_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b26_)
+         (pclear_b26_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b26_)
+         (monmtable_b26_)
+         (not(ponmtable_b26_))
+         (not(pclear_b26_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b26_b9_
+     :parameters ()
+     :precondition (and 
+         (pon_b26_b9_)
+         (pclear_b26_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b9_)
+         (pholding_b26_)
+         (not(pon_b26_b9_))
+         (not(pclear_b26_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b26_b24_
+     :parameters ()
+     :precondition (and 
+         (pon_b26_b24_)
+         (pclear_b26_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b24_)
+         (pholding_b26_)
+         (not(pon_b26_b24_))
+         (not(pclear_b26_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b7_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b7_)
+         (pclear_b7_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b7_)
+         (monmtable_b7_)
+         (not(ponmtable_b7_))
+         (not(pclear_b7_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b7_b26_
+     :parameters ()
+     :precondition (and 
+         (pon_b7_b26_)
+         (pclear_b7_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b26_)
+         (pholding_b7_)
+         (not(pon_b7_b26_))
+         (not(pclear_b7_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b7_b5_
+     :parameters ()
+     :precondition (and 
+         (pon_b7_b5_)
+         (pclear_b7_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b5_)
+         (pholding_b7_)
+         (not(pon_b7_b5_))
+         (not(pclear_b7_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b15_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b15_)
+         (pclear_b15_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b15_)
+         (monmtable_b15_)
+         (not(ponmtable_b15_))
+         (not(pclear_b15_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b15_b14_
+     :parameters ()
+     :precondition (and 
+         (pon_b15_b14_)
+         (pclear_b15_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b14_)
+         (pholding_b15_)
+         (not(pon_b15_b14_))
+         (not(pclear_b15_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b15_b30_
+     :parameters ()
+     :precondition (and 
+         (pon_b15_b30_)
+         (pclear_b15_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b30_)
+         (pholding_b15_)
+         (not(pon_b15_b30_))
+         (not(pclear_b15_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b9_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b9_)
+         (pclear_b9_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b9_)
+         (monmtable_b9_)
+         (not(ponmtable_b9_))
+         (not(pclear_b9_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b9_b17_
+     :parameters ()
+     :precondition (and 
+         (pclear_b9_)
+         (pon_b9_b17_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b17_)
+         (pholding_b9_)
+         (not(pclear_b9_))
+         (not(pon_b9_b17_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b9_b27_
+     :parameters ()
+     :precondition (and 
+         (pon_b9_b27_)
+         (pclear_b9_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b27_)
+         (pholding_b9_)
+         (not(pon_b9_b27_))
+         (not(pclear_b9_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b19_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b19_)
+         (pclear_b19_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b19_)
+         (monmtable_b19_)
+         (not(ponmtable_b19_))
+         (not(pclear_b19_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b19_b2_
+     :parameters ()
+     :precondition (and 
+         (pon_b19_b2_)
+         (pclear_b19_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b2_)
+         (pholding_b19_)
+         (not(pon_b19_b2_))
+         (not(pclear_b19_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b19_b29_
+     :parameters ()
+     :precondition (and 
+         (pon_b19_b29_)
+         (pclear_b19_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b29_)
+         (pholding_b19_)
+         (not(pon_b19_b29_))
+         (not(pclear_b19_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b29_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b29_)
+         (pclear_b29_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b29_)
+         (monmtable_b29_)
+         (not(ponmtable_b29_))
+         (not(pclear_b29_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b29_b23_
+     :parameters ()
+     :precondition (and 
+         (pon_b29_b23_)
+         (pclear_b29_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b23_)
+         (pholding_b29_)
+         (not(pon_b29_b23_))
+         (not(pclear_b29_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b29_b10_
+     :parameters ()
+     :precondition (and 
+         (pon_b29_b10_)
+         (pclear_b29_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b10_)
+         (pholding_b29_)
+         (not(pon_b29_b10_))
+         (not(pclear_b29_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b11_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b11_)
+         (pclear_b11_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b11_)
+         (monmtable_b11_)
+         (not(ponmtable_b11_))
+         (not(pclear_b11_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b11_b30_
+     :parameters ()
+     :precondition (and 
+         (pon_b11_b30_)
+         (pclear_b11_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b30_)
+         (pholding_b11_)
+         (not(pon_b11_b30_))
+         (not(pclear_b11_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b11_b23_
+     :parameters ()
+     :precondition (and 
+         (pon_b11_b23_)
+         (pclear_b11_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b23_)
+         (pholding_b11_)
+         (not(pon_b11_b23_))
+         (not(pclear_b11_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b20_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b20_)
+         (pclear_b20_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b20_)
+         (monmtable_b20_)
+         (not(ponmtable_b20_))
+         (not(pclear_b20_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b20_b16_
+     :parameters ()
+     :precondition (and 
+         (pon_b20_b16_)
+         (pclear_b20_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b16_)
+         (pholding_b20_)
+         (not(pon_b20_b16_))
+         (not(pclear_b20_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b20_b8_
+     :parameters ()
+     :precondition (and 
+         (pon_b20_b8_)
+         (pclear_b20_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b8_)
+         (pholding_b20_)
+         (not(pon_b20_b8_))
+         (not(pclear_b20_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b27_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b27_)
+         (pclear_b27_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b27_)
+         (monmtable_b27_)
+         (not(ponmtable_b27_))
+         (not(pclear_b27_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b27_b20_
+     :parameters ()
+     :precondition (and 
+         (pon_b27_b20_)
+         (pclear_b27_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b20_)
+         (pholding_b27_)
+         (not(pon_b27_b20_))
+         (not(pclear_b27_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b27_b25_
+     :parameters ()
+     :precondition (and 
+         (pon_b27_b25_)
+         (pclear_b27_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b25_)
+         (pholding_b27_)
+         (not(pon_b27_b25_))
+         (not(pclear_b27_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b3_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b3_)
+         (pclear_b3_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b3_)
+         (monmtable_b3_)
+         (not(ponmtable_b3_))
+         (not(pclear_b3_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b3_b1_
+     :parameters ()
+     :precondition (and 
+         (pon_b3_b1_)
+         (pclear_b3_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b1_)
+         (pholding_b3_)
+         (not(pon_b3_b1_))
+         (not(pclear_b3_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b3_b26_
+     :parameters ()
+     :precondition (and 
+         (pon_b3_b26_)
+         (pclear_b3_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b26_)
+         (pholding_b3_)
+         (not(pon_b3_b26_))
+         (not(pclear_b3_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b14_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b14_)
+         (pclear_b14_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b14_)
+         (monmtable_b14_)
+         (not(ponmtable_b14_))
+         (not(pclear_b14_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b14_b11_
+     :parameters ()
+     :precondition (and 
+         (pon_b14_b11_)
+         (pclear_b14_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b11_)
+         (pholding_b14_)
+         (not(pon_b14_b11_))
+         (not(pclear_b14_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b14_b28_
+     :parameters ()
+     :precondition (and 
+         (pon_b14_b28_)
+         (pclear_b14_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b28_)
+         (pholding_b14_)
+         (not(pon_b14_b28_))
+         (not(pclear_b14_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b22_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b22_)
+         (pclear_b22_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b22_)
+         (monmtable_b22_)
+         (not(ponmtable_b22_))
+         (not(pclear_b22_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b22_b7_
+     :parameters ()
+     :precondition (and 
+         (pon_b22_b7_)
+         (pclear_b22_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b7_)
+         (pholding_b22_)
+         (not(pon_b22_b7_))
+         (not(pclear_b22_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b2_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b2_)
+         (pclear_b2_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b2_)
+         (monmtable_b2_)
+         (not(ponmtable_b2_))
+         (not(pclear_b2_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b2_b16_
+     :parameters ()
+     :precondition (and 
+         (pon_b2_b16_)
+         (pclear_b2_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b16_)
+         (pholding_b2_)
+         (not(pon_b2_b16_))
+         (not(pclear_b2_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b28_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b28_)
+         (pclear_b28_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b28_)
+         (monmtable_b28_)
+         (not(ponmtable_b28_))
+         (not(pclear_b28_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b5_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b5_)
+         (pclear_b5_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b5_)
+         (monmtable_b5_)
+         (not(ponmtable_b5_))
+         (not(pclear_b5_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b5_b29_
+     :parameters ()
+     :precondition (and 
+         (pon_b5_b29_)
+         (pclear_b5_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b29_)
+         (pholding_b5_)
+         (not(pon_b5_b29_))
+         (not(pclear_b5_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b8_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b8_)
+         (pclear_b8_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b8_)
+         (monmtable_b8_)
+         (not(ponmtable_b8_))
+         (not(pclear_b8_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b8_b13_
+     :parameters ()
+     :precondition (and 
+         (pon_b8_b13_)
+         (pclear_b8_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b13_)
+         (pholding_b8_)
+         (not(pon_b8_b13_))
+         (not(pclear_b8_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b25_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b25_)
+         (pclear_b25_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b25_)
+         (monmtable_b25_)
+         (not(ponmtable_b25_))
+         (not(pclear_b25_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action pickup_b21_
+     :parameters ()
+     :precondition (and 
+         (ponmtable_b21_)
+         (pclear_b21_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pholding_b21_)
+         (monmtable_b21_)
+         (not(ponmtable_b21_))
+         (not(pclear_b21_))
+         (not(phandmempty__))
+     )
+  )
+
+  (:action unstack_b21_b4_
+     :parameters ()
+     :precondition (and 
+         (pon_b21_b4_)
+         (pclear_b21_)
+         (phandmempty__)
+     )
+     :effect (and 
+         (pclear_b4_)
+         (pholding_b21_)
+         (not(pon_b21_b4_))
+         (not(pclear_b21_))
+         (not(phandmempty__))
+     )
+  )
+
+)

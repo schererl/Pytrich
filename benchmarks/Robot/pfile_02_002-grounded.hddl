@@ -1,0 +1,18 @@
+(define (problem p)
+   (:domain rc)
+   (:htn :parameters ()
+      :subtasks (and
+         (x__top__)
+      )
+   )
+   (:init
+      (pin_o2_r1_)
+      (pclosed_d02_)
+      (pclosed_d12_)
+      (parmempty__)
+      (prloc_c_)
+   )
+   (:goal (and
+      (pin_o2_r2_)
+   ))
+)

@@ -1,0 +1,15 @@
+(define (problem p)
+   (:domain rc)
+   (:htn :parameters ()
+      :subtasks (and
+         (x__top__)
+      )
+   )
+   (:init
+      (mfactorymconstructed_last_factory_)
+      (mfactorymconstructed_factory_1_)
+      (plocationmfree_location_1_)
+      (plocationmfree_last_location_)
+      (ptruckmat_location_0_)
+   )
+)

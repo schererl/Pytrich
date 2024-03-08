@@ -1,0 +1,3471 @@
+(define (domain rc)
+  (:predicates (pclear_crate1_)
+               (pclear_crate0_)
+               (pclear_crate4_)
+               (pclear_crate5_)
+               (pclear_crate3_)
+               (pat_truck0_depot1_)
+               (pat_truck1_depot2_)
+               (pavailable_hoist0_)
+               (pavailable_hoist1_)
+               (pavailable_hoist2_)
+               (pavailable_hoist3_)
+               (pavailable_hoist5_)
+               (pat_crate0_depot1_)
+               (pon_crate0_pallet1_)
+               (pat_crate1_depot0_)
+               (pon_crate1_pallet0_)
+               (pat_crate2_distributor2_)
+               (pon_crate2_pallet5_)
+               (pat_crate3_distributor2_)
+               (pon_crate3_crate2_)
+               (pat_crate4_depot2_)
+               (pon_crate4_pallet2_)
+               (pat_crate5_distributor0_)
+               (pon_crate5_pallet3_)
+               (mat_truck0_depot0_)
+               (mat_truck0_depot2_)
+               (mat_truck0_distributor0_)
+               (mat_truck0_distributor2_)
+               (mat_truck1_depot0_)
+               (mat_truck1_depot1_)
+               (mat_truck1_distributor0_)
+               (mat_truck1_distributor2_)
+               (mclear_crate2_)
+               (mclear_pallet0_)
+               (mclear_pallet3_)
+               (mclear_pallet5_)
+               (mat_truck0_depot1_)
+               (pat_truck0_depot0_)
+               (pat_truck0_depot2_)
+               (pat_truck0_distributor0_)
+               (pat_truck0_distributor2_)
+               (mat_truck1_depot2_)
+               (pat_truck1_depot0_)
+               (pat_truck1_depot1_)
+               (pat_truck1_distributor0_)
+               (pat_truck1_distributor2_)
+               (plifting_hoist1_crate0_)
+               (plifting_hoist0_crate1_)
+               (pclear_pallet0_)
+               (plifting_hoist5_crate3_)
+               (pclear_crate2_)
+               (plifting_hoist2_crate4_)
+               (mclear_crate4_)
+               (plifting_hoist3_crate5_)
+               (pclear_pallet3_)
+               (pin_crate0_truck0_)
+               (pin_crate0_truck1_)
+               (pin_crate3_truck0_)
+               (pin_crate3_truck1_)
+               (plifting_hoist5_crate2_)
+               (pclear_pallet5_)
+               (pin_crate4_truck1_)
+               (pin_crate4_truck0_)
+               (plifting_hoist2_crate0_)
+               (plifting_hoist5_crate0_)
+               (plifting_hoist0_crate3_)
+               (pin_crate2_truck0_)
+               (pin_crate2_truck1_)
+               (plifting_hoist5_crate4_)
+               (pat_crate0_depot2_)
+               (pon_crate0_crate4_)
+               (pat_crate3_depot0_)
+               (pon_crate3_pallet0_)
+               (plifting_hoist3_crate2_)
+               (pat_crate4_distributor2_)
+               (pon_crate4_pallet5_)
+               (pat_crate2_distributor0_)
+               (pon_crate2_pallet3_)
+               (pat_crate0_distributor2_)
+  )
+
+  (:task x__top__ :parameters ())
+  (:task do_put_on_crate0_crate4_ :parameters ())
+  (:task do_clear_crate4_distributor2_ :parameters ())
+  (:task do_get_truck_truck1_distributor2_ :parameters ())
+  (:task do_get_truck_truck0_distributor2_ :parameters ())
+  (:task do_clear_crate4_depot2_ :parameters ())
+  (:task do_get_truck_truck1_depot2_ :parameters ())
+  (:task do_get_truck_truck0_depot2_ :parameters ())
+  (:task do_lift_crate_crate0_distributor2_hoist5_ :parameters ())
+  (:task do_lift_crate_crate0_depot2_hoist2_ :parameters ())
+  (:task do_get_truck_truck1_depot1_ :parameters ())
+  (:task do_get_truck_truck0_depot1_ :parameters ())
+  (:task do_put_on_crate4_pallet5_ :parameters ())
+  (:task do_clear_pallet5_distributor2_ :parameters ())
+  (:task do_clear_crate2_distributor2_ :parameters ())
+  (:task do_lift_crate_crate4_distributor2_hoist5_ :parameters ())
+  (:task do_put_on_crate2_pallet3_ :parameters ())
+  (:task do_clear_pallet3_distributor0_ :parameters ())
+  (:task do_get_truck_truck1_distributor0_ :parameters ())
+  (:task do_get_truck_truck0_distributor0_ :parameters ())
+  (:task do_lift_crate_crate2_distributor0_hoist3_ :parameters ())
+  (:task do_put_on_crate3_pallet0_ :parameters ())
+  (:task do_clear_pallet0_depot0_ :parameters ())
+  (:task do_get_truck_truck1_depot0_ :parameters ())
+  (:task do_get_truck_truck0_depot0_ :parameters ())
+  (:task do_lift_crate_crate3_depot0_hoist0_ :parameters ())
+
+  (:method x__top_method_0
+     :parameters ()
+     :task (x__top__)
+     :ordered-subtasks (and
+        (do_put_on_crate3_pallet0_)
+        (do_put_on_crate2_pallet3_)
+        (do_put_on_crate4_pallet5_)
+        (do_put_on_crate0_crate4_)
+     )
+  )
+  (:method m0_do_put_on_1
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :precondition (and 
+         (pon_crate0_crate4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m2_do_put_on_2
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :precondition (and 
+         (pin_crate0_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor2_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck1_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method m4_do_clear_3
+     :parameters ()
+     :task (do_clear_crate4_distributor2_)
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pclear_crate4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate0_distributor2__m4_do_clear_1_0_m1_m2_2_3_4__4
+     :parameters ()
+     :task (do_clear_crate4_distributor2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate4_distributor2_crate0_hoist5_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (do_get_truck_truck1_distributor2_)
+        (Load_hoist5_crate0_truck1_distributor2_)
+     )
+  )
+  (:method m6_do_get_truck_5
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_6
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (mat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor2_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_7
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (mat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor0_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_8
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (mat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot1_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_9
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (mat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot0_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_10
+     :parameters ()
+     :task (do_get_truck_truck1_distributor2_)
+     :precondition (and 
+         (mat_truck1_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot2_distributor2_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate0_distributor2__m4_do_clear_1_0_m1_m2_2_3_4__11
+     :parameters ()
+     :task (do_clear_crate4_distributor2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate4_distributor2_crate0_hoist5_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (do_get_truck_truck0_distributor2_)
+        (Load_hoist5_crate0_truck0_distributor2_)
+     )
+  )
+  (:method m6_do_get_truck_12
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_13
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (mat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor2_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_14
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (mat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor0_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_15
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (mat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot2_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_16
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (mat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot0_distributor2_)
+     )
+  )
+  (:method m7_do_get_truck_17
+     :parameters ()
+     :task (do_get_truck_truck0_distributor2_)
+     :precondition (and 
+         (mat_truck0_distributor2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot1_distributor2_)
+     )
+  )
+  (:method m2_do_put_on_18
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :precondition (and 
+         (pin_crate0_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_depot2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck1_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m4_do_clear_19
+     :parameters ()
+     :task (do_clear_crate4_depot2_)
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pclear_crate4_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate0_depot2__m4_do_clear_1_0_m1_m2_2_3_4__20
+     :parameters ()
+     :task (do_clear_crate4_depot2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate4_depot2_crate0_hoist2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (do_get_truck_truck1_depot2_)
+        (Load_hoist2_crate0_truck1_depot2_)
+     )
+  )
+  (:method m6_do_get_truck_21
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_22
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (mat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot0_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_23
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (mat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor2_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_24
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (mat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor0_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_25
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (mat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot1_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_26
+     :parameters ()
+     :task (do_get_truck_truck1_depot2_)
+     :precondition (and 
+         (mat_truck1_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot2_depot2_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate0_depot2__m4_do_clear_1_0_m1_m2_2_3_4__27
+     :parameters ()
+     :task (do_clear_crate4_depot2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate4_depot2_crate0_hoist2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (do_get_truck_truck0_depot2_)
+        (Load_hoist2_crate0_truck0_depot2_)
+     )
+  )
+  (:method m6_do_get_truck_28
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_29
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (mat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor2_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_30
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (mat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor0_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_31
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (mat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot2_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_32
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (mat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot1_depot2_)
+     )
+  )
+  (:method m7_do_get_truck_33
+     :parameters ()
+     :task (do_get_truck_truck0_depot2_)
+     :precondition (and 
+         (mat_truck0_depot2_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot0_depot2_)
+     )
+  )
+  (:method m2_do_put_on_34
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :precondition (and 
+         (pin_crate0_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_depot2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck0_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m2_do_put_on_35
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :precondition (and 
+         (pin_crate0_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor2_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck0_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x_m1_do_put_on_do_clear_crate0_distributor2__m4_do_clear_1_0_m1_m2_2_3_4__36
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m1_do_put_on_crate0_distributor2_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (do_clear_crate4_distributor2_)
+        (do_lift_crate_crate0_distributor2_hoist5_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method m9_do_lift_crate_37
+     :parameters ()
+     :task (do_lift_crate_crate0_distributor2_hoist5_)
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pat_crate0_distributor2_)
+         (pon_crate0_crate4_)
+     )
+     :ordered-subtasks (and
+        (Lift_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method m8_do_lift_crate_38
+     :parameters ()
+     :task (do_lift_crate_crate0_distributor2_hoist5_)
+     :precondition (and 
+         (pin_crate0_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor2_)
+        (Unload_hoist5_crate0_truck1_distributor2_)
+     )
+  )
+  (:method m8_do_lift_crate_39
+     :parameters ()
+     :task (do_lift_crate_crate0_distributor2_hoist5_)
+     :precondition (and 
+         (pin_crate0_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor2_)
+        (Unload_hoist5_crate0_truck0_distributor2_)
+     )
+  )
+  (:method x_m1_do_put_on_do_clear_crate0_depot2__m4_do_clear_1_0_m1_m2_2_3_4__40
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m1_do_put_on_crate0_depot2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (do_clear_crate4_depot2_)
+        (do_lift_crate_crate0_depot2_hoist2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m9_do_lift_crate_41
+     :parameters ()
+     :task (do_lift_crate_crate0_depot2_hoist2_)
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pat_crate0_depot2_)
+         (pon_crate0_crate4_)
+     )
+     :ordered-subtasks (and
+        (Lift_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m8_do_lift_crate_42
+     :parameters ()
+     :task (do_lift_crate_crate0_depot2_hoist2_)
+     :precondition (and 
+         (pin_crate0_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_depot2_)
+        (Unload_hoist2_crate0_truck1_depot2_)
+     )
+  )
+  (:method m8_do_lift_crate_43
+     :parameters ()
+     :task (do_lift_crate_crate0_depot2_hoist2_)
+     :precondition (and 
+         (pin_crate0_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_depot2_)
+        (Unload_hoist2_crate0_truck0_depot2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_distributor2_truck1___m10_do_load_truck_do_clear_crate0_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__44
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_distributor2_hoist5_crate4_)
+        (do_get_truck_truck1_distributor2_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (Load_hoist5_crate0_truck1_distributor2_)
+        (Drive_truck1_distributor2_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck1_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck1_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_load_truck_crate0_crate4_distributor2_truck1___m10_do_load_truck_do_clear_crate0_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2__do_unload_truck_crate0_crate4_distributor2_truck1__m11_do_unload_truck_7_0_1_2_3_4_5_6_m1_m2_m3_m4__45
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_distributor2_hoist5_crate4_)
+        (do_get_truck_truck1_distributor2_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (Load_hoist5_crate0_truck1_distributor2_)
+        (Drive_truck1_distributor2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck1_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck1_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x___m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_pallet1_depot1_truck1__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__do_clear_crate0_depot1__m4_do_clear_2_0_1_m1_m2_3_4_5_6_7_8_9__46
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate0_pallet1_depot1_hoist1_)
+        (do_get_truck_truck1_depot1_)
+        (x__method_precondition_m4_do_clear_crate0_depot1_)
+        (nop__)
+        (Lift_hoist1_crate0_pallet1_depot1_)
+        (Load_hoist1_crate0_truck1_depot1_)
+        (Drive_truck1_depot1_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck1_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck1_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m6_do_get_truck_47
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_48
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (mat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot0_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_49
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (mat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor2_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_50
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (mat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor0_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_51
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (mat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot1_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_52
+     :parameters ()
+     :task (do_get_truck_truck1_depot1_)
+     :precondition (and 
+         (mat_truck1_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot2_depot1_)
+     )
+  )
+  (:method x___m3_do_put_on_do_unload_truck_crate0_crate4_distributor2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_pallet1_depot1_truck1__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__do_clear_crate0_depot1__m4_do_clear_2_0_1_m1_m2_3_4_5_6_7_8_9__53
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate0_pallet1_depot1_hoist1_)
+        (do_get_truck_truck1_depot1_)
+        (x__method_precondition_m4_do_clear_crate0_depot1_)
+        (nop__)
+        (Lift_hoist1_crate0_pallet1_depot1_)
+        (Load_hoist1_crate0_truck1_depot1_)
+        (Drive_truck1_depot1_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck1_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck1_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_depot2_truck1___m10_do_load_truck_do_clear_crate0_depot2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__54
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_depot2_hoist2_crate4_)
+        (do_get_truck_truck1_depot2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (Load_hoist2_crate0_truck1_depot2_)
+        (Drive_truck1_depot2_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck1_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck1_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_distributor2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_depot2_truck1___m10_do_load_truck_do_clear_crate0_depot2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__55
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_depot2_hoist2_crate4_)
+        (do_get_truck_truck1_depot2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (Load_hoist2_crate0_truck1_depot2_)
+        (Drive_truck1_depot2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck1_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck1_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_pallet1_depot1_truck0___m10_do_load_truck_do_clear_crate0_depot1__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__56
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate0_pallet1_depot1_hoist1_)
+        (do_get_truck_truck0_depot1_)
+        (x__method_precondition_m4_do_clear_crate0_depot1_)
+        (nop__)
+        (Lift_hoist1_crate0_pallet1_depot1_)
+        (Load_hoist1_crate0_truck0_depot1_)
+        (Drive_truck0_depot1_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck0_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck0_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method m6_do_get_truck_57
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_58
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (mat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor2_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_59
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (mat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor0_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_60
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (mat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot2_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_61
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (mat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot1_depot1_)
+     )
+  )
+  (:method m7_do_get_truck_62
+     :parameters ()
+     :task (do_get_truck_truck0_depot1_)
+     :precondition (and 
+         (mat_truck0_depot1_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot0_depot1_)
+     )
+  )
+  (:method x__m3_do_put_on_do_load_truck_crate0_pallet1_depot1_truck0___m10_do_load_truck_do_clear_crate0_depot1__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2__do_unload_truck_crate0_crate4_distributor2_truck0__m11_do_unload_truck_7_0_1_2_3_4_5_6_m1_m2_m3_m4__63
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate0_pallet1_depot1_hoist1_)
+        (do_get_truck_truck0_depot1_)
+        (x__method_precondition_m4_do_clear_crate0_depot1_)
+        (nop__)
+        (Lift_hoist1_crate0_pallet1_depot1_)
+        (Load_hoist1_crate0_truck0_depot1_)
+        (Drive_truck0_depot1_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck0_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck0_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_depot2_truck0___m10_do_load_truck_do_clear_crate0_depot2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__64
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_depot2_hoist2_crate4_)
+        (do_get_truck_truck0_depot2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (Load_hoist2_crate0_truck0_depot2_)
+        (Drive_truck0_depot2_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck0_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck0_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_distributor2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_depot2_truck0___m10_do_load_truck_do_clear_crate0_depot2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__65
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_depot2_hoist2_crate4_)
+        (do_get_truck_truck0_depot2_)
+        (x__method_precondition_m4_do_clear_crate0_depot2_)
+        (nop__)
+        (Lift_hoist2_crate0_crate4_depot2_)
+        (Load_hoist2_crate0_truck0_depot2_)
+        (Drive_truck0_depot2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck0_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck0_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_depot2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_distributor2_truck0___m10_do_load_truck_do_clear_crate0_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__66
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_distributor2_hoist5_crate4_)
+        (do_get_truck_truck0_distributor2_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (Load_hoist5_crate0_truck0_distributor2_)
+        (Drive_truck0_distributor2_depot2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck0_hoist2_)
+        (do_clear_crate4_depot2_)
+        (Unload_hoist2_crate0_truck0_depot2_)
+        (Drop_hoist2_crate0_crate4_depot2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate0_crate4_distributor2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate0_crate4_distributor2_truck0___m10_do_load_truck_do_clear_crate0_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__67
+     :parameters ()
+     :task (do_put_on_crate0_crate4_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate0_distributor2_hoist5_crate4_)
+        (do_get_truck_truck0_distributor2_)
+        (x__method_precondition_m4_do_clear_crate0_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate0_crate4_distributor2_)
+        (Load_hoist5_crate0_truck0_distributor2_)
+        (Drive_truck0_distributor2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck0_hoist5_)
+        (do_clear_crate4_distributor2_)
+        (Unload_hoist5_crate0_truck0_distributor2_)
+        (Drop_hoist5_crate0_crate4_distributor2_)
+     )
+  )
+  (:method m0_do_put_on_68
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :precondition (and 
+         (pon_crate4_pallet5_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m2_do_put_on_69
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :precondition (and 
+         (pin_crate4_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor2_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck1_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method m4_do_clear_70
+     :parameters ()
+     :task (do_clear_pallet5_distributor2_)
+     :precondition (and 
+         (pclear_pallet5_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m5_do_clear_71
+     :parameters ()
+     :task (do_clear_pallet5_distributor2_)
+     :precondition (and 
+         (pon_crate4_pallet5_)
+         (mclear_pallet5_)
+     )
+     :ordered-subtasks (and
+        (do_clear_crate4_distributor2_)
+        (Lift_hoist5_crate4_pallet5_distributor2_)
+        (do_get_truck_truck1_distributor2_)
+        (Load_hoist5_crate4_truck1_distributor2_)
+     )
+  )
+  (:method m5_do_clear_72
+     :parameters ()
+     :task (do_clear_pallet5_distributor2_)
+     :precondition (and 
+         (pon_crate2_pallet5_)
+         (mclear_pallet5_)
+     )
+     :ordered-subtasks (and
+        (do_clear_crate2_distributor2_)
+        (Lift_hoist5_crate2_pallet5_distributor2_)
+        (do_get_truck_truck1_distributor2_)
+        (Load_hoist5_crate2_truck1_distributor2_)
+     )
+  )
+  (:method m4_do_clear_73
+     :parameters ()
+     :task (do_clear_crate2_distributor2_)
+     :precondition (and 
+         (pat_crate2_distributor2_)
+         (pclear_crate2_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate3_distributor2__m4_do_clear_1_0_m1_m2_2_3_4__74
+     :parameters ()
+     :task (do_clear_crate2_distributor2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate2_distributor2_crate3_hoist5_)
+        (x__method_precondition_m4_do_clear_crate3_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate3_crate2_distributor2_)
+        (do_get_truck_truck1_distributor2_)
+        (Load_hoist5_crate3_truck1_distributor2_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate3_distributor2__m4_do_clear_1_0_m1_m2_2_3_4__75
+     :parameters ()
+     :task (do_clear_crate2_distributor2_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_crate2_distributor2_crate3_hoist5_)
+        (x__method_precondition_m4_do_clear_crate3_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate3_crate2_distributor2_)
+        (do_get_truck_truck0_distributor2_)
+        (Load_hoist5_crate3_truck0_distributor2_)
+     )
+  )
+  (:method m5_do_clear_76
+     :parameters ()
+     :task (do_clear_pallet5_distributor2_)
+     :precondition (and 
+         (pon_crate4_pallet5_)
+         (mclear_pallet5_)
+     )
+     :ordered-subtasks (and
+        (do_clear_crate4_distributor2_)
+        (Lift_hoist5_crate4_pallet5_distributor2_)
+        (do_get_truck_truck0_distributor2_)
+        (Load_hoist5_crate4_truck0_distributor2_)
+     )
+  )
+  (:method m5_do_clear_77
+     :parameters ()
+     :task (do_clear_pallet5_distributor2_)
+     :precondition (and 
+         (pon_crate2_pallet5_)
+         (mclear_pallet5_)
+     )
+     :ordered-subtasks (and
+        (do_clear_crate2_distributor2_)
+        (Lift_hoist5_crate2_pallet5_distributor2_)
+        (do_get_truck_truck0_distributor2_)
+        (Load_hoist5_crate2_truck0_distributor2_)
+     )
+  )
+  (:method m2_do_put_on_78
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :precondition (and 
+         (pin_crate4_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor2_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck0_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method m1_do_put_on_79
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :precondition (and 
+         (pat_crate4_distributor2_)
+     )
+     :ordered-subtasks (and
+        (do_clear_crate4_distributor2_)
+        (do_clear_pallet5_distributor2_)
+        (do_lift_crate_crate4_distributor2_hoist5_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method m9_do_lift_crate_80
+     :parameters ()
+     :task (do_lift_crate_crate4_distributor2_hoist5_)
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pon_crate4_pallet5_)
+     )
+     :ordered-subtasks (and
+        (Lift_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method m8_do_lift_crate_81
+     :parameters ()
+     :task (do_lift_crate_crate4_distributor2_hoist5_)
+     :precondition (and 
+         (pin_crate4_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor2_)
+        (Unload_hoist5_crate4_truck1_distributor2_)
+     )
+  )
+  (:method m8_do_lift_crate_82
+     :parameters ()
+     :task (do_lift_crate_crate4_distributor2_hoist5_)
+     :precondition (and 
+         (pin_crate4_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor2_)
+        (Unload_hoist5_crate4_truck0_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate4_pallet5_distributor2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate4_pallet5_distributor2_truck1__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__83
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate4_distributor2_hoist5_pallet5_)
+        (do_get_truck_truck1_distributor2_)
+        (do_clear_crate4_distributor2_)
+        (Lift_hoist5_crate4_pallet5_distributor2_)
+        (Load_hoist5_crate4_truck1_distributor2_)
+        (Drive_truck1_distributor2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck1_hoist5_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck1_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate4_pallet5_distributor2_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate4_pallet2_depot2_truck1__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__84
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate4_pallet2_depot2_hoist2_)
+        (do_get_truck_truck1_depot2_)
+        (do_clear_crate4_depot2_)
+        (Lift_hoist2_crate4_pallet2_depot2_)
+        (Load_hoist2_crate4_truck1_depot2_)
+        (Drive_truck1_depot2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck1_hoist5_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck1_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate4_pallet5_distributor2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate4_pallet2_depot2_truck0__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__85
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate4_pallet2_depot2_hoist2_)
+        (do_get_truck_truck0_depot2_)
+        (do_clear_crate4_depot2_)
+        (Lift_hoist2_crate4_pallet2_depot2_)
+        (Load_hoist2_crate4_truck0_depot2_)
+        (Drive_truck0_depot2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck0_hoist5_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck0_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate4_pallet5_distributor2_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate4_pallet5_distributor2_truck0__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__86
+     :parameters ()
+     :task (do_put_on_crate4_pallet5_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate4_distributor2_hoist5_pallet5_)
+        (do_get_truck_truck0_distributor2_)
+        (do_clear_crate4_distributor2_)
+        (Lift_hoist5_crate4_pallet5_distributor2_)
+        (Load_hoist5_crate4_truck0_distributor2_)
+        (Drive_truck0_distributor2_distributor2_)
+        (x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck0_hoist5_)
+        (do_clear_pallet5_distributor2_)
+        (Unload_hoist5_crate4_truck0_distributor2_)
+        (Drop_hoist5_crate4_pallet5_distributor2_)
+     )
+  )
+  (:method m0_do_put_on_87
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :precondition (and 
+         (pon_crate2_pallet3_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m2_do_put_on_88
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :precondition (and 
+         (pin_crate2_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor0_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck1_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method m4_do_clear_89
+     :parameters ()
+     :task (do_clear_pallet3_distributor0_)
+     :precondition (and 
+         (pclear_pallet3_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate2_distributor0__m4_do_clear_1_0_m1_m2_2_3_4__90
+     :parameters ()
+     :task (do_clear_pallet3_distributor0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet3_distributor0_crate2_hoist3_)
+        (x__method_precondition_m4_do_clear_crate2_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate2_pallet3_distributor0_)
+        (do_get_truck_truck1_distributor0_)
+        (Load_hoist3_crate2_truck1_distributor0_)
+     )
+  )
+  (:method m6_do_get_truck_91
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_92
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (mat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor2_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_93
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (mat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor0_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_94
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (mat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot1_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_95
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (mat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot0_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_96
+     :parameters ()
+     :task (do_get_truck_truck1_distributor0_)
+     :precondition (and 
+         (mat_truck1_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot2_distributor0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate5_distributor0__m4_do_clear_1_0_m1_m2_2_3_4__97
+     :parameters ()
+     :task (do_clear_pallet3_distributor0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet3_distributor0_crate5_hoist3_)
+        (x__method_precondition_m4_do_clear_crate5_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate5_pallet3_distributor0_)
+        (do_get_truck_truck1_distributor0_)
+        (Load_hoist3_crate5_truck1_distributor0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate2_distributor0__m4_do_clear_1_0_m1_m2_2_3_4__98
+     :parameters ()
+     :task (do_clear_pallet3_distributor0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet3_distributor0_crate2_hoist3_)
+        (x__method_precondition_m4_do_clear_crate2_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate2_pallet3_distributor0_)
+        (do_get_truck_truck0_distributor0_)
+        (Load_hoist3_crate2_truck0_distributor0_)
+     )
+  )
+  (:method m6_do_get_truck_99
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_100
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (mat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor2_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_101
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (mat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor0_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_102
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (mat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot2_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_103
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (mat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot0_distributor0_)
+     )
+  )
+  (:method m7_do_get_truck_104
+     :parameters ()
+     :task (do_get_truck_truck0_distributor0_)
+     :precondition (and 
+         (mat_truck0_distributor0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot1_distributor0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate5_distributor0__m4_do_clear_1_0_m1_m2_2_3_4__105
+     :parameters ()
+     :task (do_clear_pallet3_distributor0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet3_distributor0_crate5_hoist3_)
+        (x__method_precondition_m4_do_clear_crate5_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate5_pallet3_distributor0_)
+        (do_get_truck_truck0_distributor0_)
+        (Load_hoist3_crate5_truck0_distributor0_)
+     )
+  )
+  (:method m2_do_put_on_106
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :precondition (and 
+         (pin_crate2_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor0_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck0_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method x_m1_do_put_on_do_clear_crate2_distributor0__m4_do_clear_1_0_m1_m2_2_3_4__107
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :ordered-subtasks (and
+        (x__method_precondition_m1_do_put_on_crate2_distributor0_)
+        (x__method_precondition_m4_do_clear_crate2_distributor0_)
+        (nop__)
+        (do_clear_pallet3_distributor0_)
+        (do_lift_crate_crate2_distributor0_hoist3_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method m9_do_lift_crate_108
+     :parameters ()
+     :task (do_lift_crate_crate2_distributor0_hoist3_)
+     :precondition (and 
+         (pat_crate2_distributor0_)
+         (pon_crate2_pallet3_)
+     )
+     :ordered-subtasks (and
+        (Lift_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method m8_do_lift_crate_109
+     :parameters ()
+     :task (do_lift_crate_crate2_distributor0_hoist3_)
+     :precondition (and 
+         (pin_crate2_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_distributor0_)
+        (Unload_hoist3_crate2_truck1_distributor0_)
+     )
+  )
+  (:method m8_do_lift_crate_110
+     :parameters ()
+     :task (do_lift_crate_crate2_distributor0_hoist3_)
+     :precondition (and 
+         (pin_crate2_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_distributor0_)
+        (Unload_hoist3_crate2_truck0_distributor0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate2_pallet3_distributor0_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate2_pallet3_distributor0_truck1___m10_do_load_truck_do_clear_crate2_distributor0__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__111
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate2_distributor0_hoist3_pallet3_)
+        (do_get_truck_truck1_distributor0_)
+        (x__method_precondition_m4_do_clear_crate2_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate2_pallet3_distributor0_)
+        (Load_hoist3_crate2_truck1_distributor0_)
+        (Drive_truck1_distributor0_distributor0_)
+        (x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck1_hoist3_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck1_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate2_pallet3_distributor0_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate2_pallet5_distributor2_truck1__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__112
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate2_pallet5_distributor2_hoist5_)
+        (do_get_truck_truck1_distributor2_)
+        (do_clear_crate2_distributor2_)
+        (Lift_hoist5_crate2_pallet5_distributor2_)
+        (Load_hoist5_crate2_truck1_distributor2_)
+        (Drive_truck1_distributor2_distributor0_)
+        (x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck1_hoist3_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck1_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate2_pallet3_distributor0_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate2_pallet3_distributor0_truck0___m10_do_load_truck_do_clear_crate2_distributor0__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__113
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate2_distributor0_hoist3_pallet3_)
+        (do_get_truck_truck0_distributor0_)
+        (x__method_precondition_m4_do_clear_crate2_distributor0_)
+        (nop__)
+        (Lift_hoist3_crate2_pallet3_distributor0_)
+        (Load_hoist3_crate2_truck0_distributor0_)
+        (Drive_truck0_distributor0_distributor0_)
+        (x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck0_hoist3_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck0_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate2_pallet3_distributor0_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate2_pallet5_distributor2_truck0__m10_do_load_truck_0_m1_m2_m3_m4_m5_1_2_3_4_5__114
+     :parameters ()
+     :task (do_put_on_crate2_pallet3_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate2_pallet5_distributor2_hoist5_)
+        (do_get_truck_truck0_distributor2_)
+        (do_clear_crate2_distributor2_)
+        (Lift_hoist5_crate2_pallet5_distributor2_)
+        (Load_hoist5_crate2_truck0_distributor2_)
+        (Drive_truck0_distributor2_distributor0_)
+        (x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck0_hoist3_)
+        (do_clear_pallet3_distributor0_)
+        (Unload_hoist3_crate2_truck0_distributor0_)
+        (Drop_hoist3_crate2_pallet3_distributor0_)
+     )
+  )
+  (:method m0_do_put_on_115
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :precondition (and 
+         (pon_crate3_pallet0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m2_do_put_on_116
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :precondition (and 
+         (pin_crate3_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_depot0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck1_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method m4_do_clear_117
+     :parameters ()
+     :task (do_clear_pallet0_depot0_)
+     :precondition (and 
+         (pclear_pallet0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate1_depot0__m4_do_clear_1_0_m1_m2_2_3_4__118
+     :parameters ()
+     :task (do_clear_pallet0_depot0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet0_depot0_crate1_hoist0_)
+        (x__method_precondition_m4_do_clear_crate1_depot0_)
+        (nop__)
+        (Lift_hoist0_crate1_pallet0_depot0_)
+        (do_get_truck_truck1_depot0_)
+        (Load_hoist0_crate1_truck1_depot0_)
+     )
+  )
+  (:method m6_do_get_truck_119
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_120
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (mat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot0_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_121
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (mat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor2_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_122
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (mat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_distributor0_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_123
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (mat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot1_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_124
+     :parameters ()
+     :task (do_get_truck_truck1_depot0_)
+     :precondition (and 
+         (mat_truck1_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck1_depot2_depot0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate3_depot0__m4_do_clear_1_0_m1_m2_2_3_4__125
+     :parameters ()
+     :task (do_clear_pallet0_depot0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet0_depot0_crate3_hoist0_)
+        (x__method_precondition_m4_do_clear_crate3_depot0_)
+        (nop__)
+        (Lift_hoist0_crate3_pallet0_depot0_)
+        (do_get_truck_truck1_depot0_)
+        (Load_hoist0_crate3_truck1_depot0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate1_depot0__m4_do_clear_1_0_m1_m2_2_3_4__126
+     :parameters ()
+     :task (do_clear_pallet0_depot0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet0_depot0_crate1_hoist0_)
+        (x__method_precondition_m4_do_clear_crate1_depot0_)
+        (nop__)
+        (Lift_hoist0_crate1_pallet0_depot0_)
+        (do_get_truck_truck0_depot0_)
+        (Load_hoist0_crate1_truck0_depot0_)
+     )
+  )
+  (:method m6_do_get_truck_127
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (nop__)
+     )
+  )
+  (:method m7_do_get_truck_128
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (mat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor2_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_129
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (mat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_distributor0_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_130
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (mat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot2_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_131
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (mat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot1_depot0_)
+     )
+  )
+  (:method m7_do_get_truck_132
+     :parameters ()
+     :task (do_get_truck_truck0_depot0_)
+     :precondition (and 
+         (mat_truck0_depot0_)
+     )
+     :ordered-subtasks (and
+        (Drive_truck0_depot0_depot0_)
+     )
+  )
+  (:method x_m5_do_clear_do_clear_crate3_depot0__m4_do_clear_1_0_m1_m2_2_3_4__133
+     :parameters ()
+     :task (do_clear_pallet0_depot0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m5_do_clear_pallet0_depot0_crate3_hoist0_)
+        (x__method_precondition_m4_do_clear_crate3_depot0_)
+        (nop__)
+        (Lift_hoist0_crate3_pallet0_depot0_)
+        (do_get_truck_truck0_depot0_)
+        (Load_hoist0_crate3_truck0_depot0_)
+     )
+  )
+  (:method m2_do_put_on_134
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :precondition (and 
+         (pin_crate3_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_depot0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck0_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method x_m1_do_put_on_do_clear_crate3_depot0__m4_do_clear_1_0_m1_m2_2_3_4__135
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m1_do_put_on_crate3_depot0_)
+        (x__method_precondition_m4_do_clear_crate3_depot0_)
+        (nop__)
+        (do_clear_pallet0_depot0_)
+        (do_lift_crate_crate3_depot0_hoist0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method m9_do_lift_crate_136
+     :parameters ()
+     :task (do_lift_crate_crate3_depot0_hoist0_)
+     :precondition (and 
+         (pat_crate3_depot0_)
+         (pon_crate3_pallet0_)
+     )
+     :ordered-subtasks (and
+        (Lift_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method m8_do_lift_crate_137
+     :parameters ()
+     :task (do_lift_crate_crate3_depot0_hoist0_)
+     :precondition (and 
+         (pin_crate3_truck1_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck1_depot0_)
+        (Unload_hoist0_crate3_truck1_depot0_)
+     )
+  )
+  (:method m8_do_lift_crate_138
+     :parameters ()
+     :task (do_lift_crate_crate3_depot0_hoist0_)
+     :precondition (and 
+         (pin_crate3_truck0_)
+     )
+     :ordered-subtasks (and
+        (do_get_truck_truck0_depot0_)
+        (Unload_hoist0_crate3_truck0_depot0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate3_pallet0_depot0_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate3_pallet0_depot0_truck1___m10_do_load_truck_do_clear_crate3_depot0__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__139
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate3_depot0_hoist0_pallet0_)
+        (do_get_truck_truck1_depot0_)
+        (x__method_precondition_m4_do_clear_crate3_depot0_)
+        (nop__)
+        (Lift_hoist0_crate3_pallet0_depot0_)
+        (Load_hoist0_crate3_truck1_depot0_)
+        (Drive_truck1_depot0_depot0_)
+        (x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck1_hoist0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck1_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate3_pallet0_depot0_truck1__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate3_crate2_distributor2_truck1___m10_do_load_truck_do_clear_crate3_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__140
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate3_crate2_distributor2_hoist5_)
+        (do_get_truck_truck1_distributor2_)
+        (x__method_precondition_m4_do_clear_crate3_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate3_crate2_distributor2_)
+        (Load_hoist5_crate3_truck1_distributor2_)
+        (Drive_truck1_distributor2_depot0_)
+        (x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck1_hoist0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck1_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate3_pallet0_depot0_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate3_pallet0_depot0_truck0___m10_do_load_truck_do_clear_crate3_depot0__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__141
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m9_do_lift_crate_crate3_depot0_hoist0_pallet0_)
+        (do_get_truck_truck0_depot0_)
+        (x__method_precondition_m4_do_clear_crate3_depot0_)
+        (nop__)
+        (Lift_hoist0_crate3_pallet0_depot0_)
+        (Load_hoist0_crate3_truck0_depot0_)
+        (Drive_truck0_depot0_depot0_)
+        (x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck0_hoist0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck0_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+  (:method x__m3_do_put_on_do_unload_truck_crate3_pallet0_depot0_truck0__m11_do_unload_truck_2_0_1_m1_m2_m3_m4__do_load_truck_crate3_crate2_distributor2_truck0___m10_do_load_truck_do_clear_crate3_distributor2__m4_do_clear_2_0_1_m1_m2_3_4__0_m1_m2_m3_m4_m5_m6_1_2_3_4_5__142
+     :parameters ()
+     :task (do_put_on_crate3_pallet0_)
+     :ordered-subtasks (and
+        (x__method_precondition_m10_do_load_truck_crate3_crate2_distributor2_hoist5_)
+        (do_get_truck_truck0_distributor2_)
+        (x__method_precondition_m4_do_clear_crate3_distributor2_)
+        (nop__)
+        (Lift_hoist5_crate3_crate2_distributor2_)
+        (Load_hoist5_crate3_truck0_distributor2_)
+        (Drive_truck0_distributor2_depot0_)
+        (x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck0_hoist0_)
+        (do_clear_pallet0_depot0_)
+        (Unload_hoist0_crate3_truck0_depot0_)
+        (Drop_hoist0_crate3_pallet0_depot0_)
+     )
+  )
+
+  (:action nop__
+     :parameters ()
+  )
+
+  (:action Drop_hoist5_crate0_crate4_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pclear_crate4_)
+         (plifting_hoist5_crate0_)
+     )
+     :effect (and 
+         (pon_crate0_crate4_)
+         (pclear_crate0_)
+         (mclear_crate4_)
+         (pat_crate0_distributor2_)
+         (pavailable_hoist5_)
+         (not(pclear_crate4_))
+         (not(plifting_hoist5_crate0_))
+     )
+  )
+
+  (:action Unload_hoist5_crate0_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (pavailable_hoist5_)
+         (pin_crate0_truck1_)
+     )
+     :effect (and 
+         (plifting_hoist5_crate0_)
+         (not(pavailable_hoist5_))
+         (not(pin_crate0_truck1_))
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_crate4_distributor2_crate0_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pon_crate0_crate4_)
+         (mclear_crate4_)
+     )
+  )
+
+  (:action Load_hoist5_crate0_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (plifting_hoist5_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate0_truck1_)
+         (not(plifting_hoist5_crate0_))
+     )
+  )
+
+  (:action Lift_hoist5_crate0_crate4_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_distributor2_)
+         (pclear_crate0_)
+         (pon_crate0_crate4_)
+         (pavailable_hoist5_)
+     )
+     :effect (and 
+         (pclear_crate4_)
+         (plifting_hoist5_crate0_)
+         (not(pon_crate0_crate4_))
+         (not(pavailable_hoist5_))
+         (not(pclear_crate0_))
+         (not(mclear_crate4_))
+         (not(pat_crate0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor2_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :effect (and 
+         (pat_truck1_distributor2_)
+         (not(mat_truck1_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :effect (and 
+         (pat_truck1_distributor2_)
+         (mat_truck1_distributor0_)
+         (not(mat_truck1_distributor2_))
+         (not(pat_truck1_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_depot1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :effect (and 
+         (pat_truck1_distributor2_)
+         (mat_truck1_depot1_)
+         (not(mat_truck1_distributor2_))
+         (not(pat_truck1_depot1_))
+     )
+  )
+
+  (:action Drive_truck1_depot0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :effect (and 
+         (pat_truck1_distributor2_)
+         (mat_truck1_depot0_)
+         (not(mat_truck1_distributor2_))
+         (not(pat_truck1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_depot2_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :effect (and 
+         (pat_truck1_distributor2_)
+         (mat_truck1_depot2_)
+         (not(mat_truck1_distributor2_))
+         (not(pat_truck1_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_distributor2_)
+         (pclear_crate0_)
+     )
+  )
+
+  (:action Load_hoist5_crate0_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (plifting_hoist5_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate0_truck0_)
+         (not(plifting_hoist5_crate0_))
+     )
+  )
+
+  (:action Drive_truck0_distributor2_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :effect (and 
+         (pat_truck0_distributor2_)
+         (not(mat_truck0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :effect (and 
+         (pat_truck0_distributor2_)
+         (mat_truck0_distributor0_)
+         (not(mat_truck0_distributor2_))
+         (not(pat_truck0_distributor0_))
+     )
+  )
+
+  (:action Drive_truck0_depot2_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :effect (and 
+         (pat_truck0_distributor2_)
+         (mat_truck0_depot2_)
+         (not(mat_truck0_distributor2_))
+         (not(pat_truck0_depot2_))
+     )
+  )
+
+  (:action Drive_truck0_depot0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :effect (and 
+         (pat_truck0_distributor2_)
+         (mat_truck0_depot0_)
+         (not(mat_truck0_distributor2_))
+         (not(pat_truck0_depot0_))
+     )
+  )
+
+  (:action Drive_truck0_depot1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :effect (and 
+         (pat_truck0_distributor2_)
+         (mat_truck0_depot1_)
+         (not(mat_truck0_distributor2_))
+         (not(pat_truck0_depot1_))
+     )
+  )
+
+  (:action Drop_hoist2_crate0_crate4_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pclear_crate4_)
+         (plifting_hoist2_crate0_)
+     )
+     :effect (and 
+         (pon_crate0_crate4_)
+         (pclear_crate0_)
+         (mclear_crate4_)
+         (pat_crate0_depot2_)
+         (pavailable_hoist2_)
+         (not(pclear_crate4_))
+         (not(plifting_hoist2_crate0_))
+     )
+  )
+
+  (:action Unload_hoist2_crate0_truck1_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+         (pavailable_hoist2_)
+         (pin_crate0_truck1_)
+     )
+     :effect (and 
+         (plifting_hoist2_crate0_)
+         (not(pavailable_hoist2_))
+         (not(pin_crate0_truck1_))
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_crate4_depot2_crate0_hoist2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pon_crate0_crate4_)
+         (mclear_crate4_)
+     )
+  )
+
+  (:action Load_hoist2_crate0_truck1_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+         (plifting_hoist2_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist2_)
+         (pin_crate0_truck1_)
+         (not(plifting_hoist2_crate0_))
+     )
+  )
+
+  (:action Lift_hoist2_crate0_crate4_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot2_)
+         (pclear_crate0_)
+         (pon_crate0_crate4_)
+         (pavailable_hoist2_)
+     )
+     :effect (and 
+         (pclear_crate4_)
+         (plifting_hoist2_crate0_)
+         (not(pon_crate0_crate4_))
+         (not(mclear_crate4_))
+         (not(pavailable_hoist2_))
+         (not(pclear_crate0_))
+         (not(pat_crate0_depot2_))
+     )
+  )
+
+  (:action Drive_truck1_depot0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :effect (and 
+         (pat_truck1_depot2_)
+         (mat_truck1_depot0_)
+         (not(mat_truck1_depot2_))
+         (not(pat_truck1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_distributor2_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :effect (and 
+         (pat_truck1_depot2_)
+         (mat_truck1_distributor2_)
+         (not(mat_truck1_depot2_))
+         (not(pat_truck1_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :effect (and 
+         (pat_truck1_depot2_)
+         (mat_truck1_distributor0_)
+         (not(mat_truck1_depot2_))
+         (not(pat_truck1_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_depot1_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :effect (and 
+         (pat_truck1_depot2_)
+         (mat_truck1_depot1_)
+         (not(mat_truck1_depot2_))
+         (not(pat_truck1_depot1_))
+     )
+  )
+
+  (:action Drive_truck1_depot2_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :effect (and 
+         (pat_truck1_depot2_)
+         (not(mat_truck1_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot2_)
+         (pclear_crate0_)
+     )
+  )
+
+  (:action Load_hoist2_crate0_truck0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+         (plifting_hoist2_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist2_)
+         (pin_crate0_truck0_)
+         (not(plifting_hoist2_crate0_))
+     )
+  )
+
+  (:action Drive_truck0_distributor2_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :effect (and 
+         (pat_truck0_depot2_)
+         (mat_truck0_distributor2_)
+         (not(mat_truck0_depot2_))
+         (not(pat_truck0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :effect (and 
+         (pat_truck0_depot2_)
+         (mat_truck0_distributor0_)
+         (not(mat_truck0_depot2_))
+         (not(pat_truck0_distributor0_))
+     )
+  )
+
+  (:action Drive_truck0_depot2_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :effect (and 
+         (pat_truck0_depot2_)
+         (not(mat_truck0_depot2_))
+     )
+  )
+
+  (:action Drive_truck0_depot1_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :effect (and 
+         (pat_truck0_depot2_)
+         (mat_truck0_depot1_)
+         (not(mat_truck0_depot2_))
+         (not(pat_truck0_depot1_))
+     )
+  )
+
+  (:action Drive_truck0_depot0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :effect (and 
+         (pat_truck0_depot2_)
+         (mat_truck0_depot0_)
+         (not(mat_truck0_depot2_))
+         (not(pat_truck0_depot0_))
+     )
+  )
+
+  (:action Unload_hoist2_crate0_truck0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+         (pavailable_hoist2_)
+         (pin_crate0_truck0_)
+     )
+     :effect (and 
+         (plifting_hoist2_crate0_)
+         (not(pavailable_hoist2_))
+         (not(pin_crate0_truck0_))
+     )
+  )
+
+  (:action Unload_hoist5_crate0_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (pavailable_hoist5_)
+         (pin_crate0_truck0_)
+     )
+     :effect (and 
+         (plifting_hoist5_crate0_)
+         (not(pavailable_hoist5_))
+         (not(pin_crate0_truck0_))
+     )
+  )
+
+  (:action x__method_precondition_m9_do_lift_crate_crate0_distributor2_hoist5_crate4_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pat_crate0_distributor2_)
+         (pon_crate0_crate4_)
+     )
+  )
+
+  (:action x__method_precondition_m1_do_put_on_crate0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_distributor2_)
+     )
+  )
+
+  (:action x__method_precondition_m9_do_lift_crate_crate0_depot2_hoist2_crate4_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pat_crate0_depot2_)
+         (pon_crate0_crate4_)
+     )
+  )
+
+  (:action x__method_precondition_m1_do_put_on_crate0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot2_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck1_hoist2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pat_truck1_depot2_)
+         (pin_crate0_truck1_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck1_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pat_truck1_distributor2_)
+         (pin_crate0_truck1_)
+     )
+  )
+
+  (:action x__method_precondition_m10_do_load_truck_crate0_pallet1_depot1_hoist1_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot1_)
+         (pon_crate0_pallet1_)
+     )
+  )
+
+  (:action Load_hoist1_crate0_truck1_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+         (plifting_hoist1_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist1_)
+         (pin_crate0_truck1_)
+         (not(plifting_hoist1_crate0_))
+     )
+  )
+
+  (:action Lift_hoist1_crate0_pallet1_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot1_)
+         (pclear_crate0_)
+         (pon_crate0_pallet1_)
+         (pavailable_hoist1_)
+     )
+     :effect (and 
+         (plifting_hoist1_crate0_)
+         (not(pon_crate0_pallet1_))
+         (not(pavailable_hoist1_))
+         (not(pclear_crate0_))
+         (not(pat_crate0_depot1_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_crate0_depot1_)
+         (pclear_crate0_)
+     )
+  )
+
+  (:action Drive_truck1_depot0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :effect (and 
+         (pat_truck1_depot1_)
+         (mat_truck1_depot0_)
+         (not(mat_truck1_depot1_))
+         (not(pat_truck1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_distributor2_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :effect (and 
+         (pat_truck1_depot1_)
+         (mat_truck1_distributor2_)
+         (not(mat_truck1_depot1_))
+         (not(pat_truck1_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :effect (and 
+         (pat_truck1_depot1_)
+         (mat_truck1_distributor0_)
+         (not(mat_truck1_depot1_))
+         (not(pat_truck1_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_depot1_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :effect (and 
+         (pat_truck1_depot1_)
+         (not(mat_truck1_depot1_))
+     )
+  )
+
+  (:action Drive_truck1_depot2_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :effect (and 
+         (pat_truck1_depot1_)
+         (mat_truck1_depot2_)
+         (not(mat_truck1_depot1_))
+         (not(pat_truck1_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate0_crate4_depot2_truck0_hoist2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pat_truck0_depot2_)
+         (pin_crate0_truck0_)
+     )
+  )
+
+  (:action Load_hoist1_crate0_truck0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+         (plifting_hoist1_crate0_)
+     )
+     :effect (and 
+         (pavailable_hoist1_)
+         (pin_crate0_truck0_)
+         (not(plifting_hoist1_crate0_))
+     )
+  )
+
+  (:action Drive_truck0_distributor2_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :effect (and 
+         (pat_truck0_depot1_)
+         (mat_truck0_distributor2_)
+         (not(mat_truck0_depot1_))
+         (not(pat_truck0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :effect (and 
+         (pat_truck0_depot1_)
+         (mat_truck0_distributor0_)
+         (not(mat_truck0_depot1_))
+         (not(pat_truck0_distributor0_))
+     )
+  )
+
+  (:action Drive_truck0_depot2_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :effect (and 
+         (pat_truck0_depot1_)
+         (mat_truck0_depot2_)
+         (not(mat_truck0_depot1_))
+         (not(pat_truck0_depot2_))
+     )
+  )
+
+  (:action Drive_truck0_depot1_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :effect (and 
+         (pat_truck0_depot1_)
+         (not(mat_truck0_depot1_))
+     )
+  )
+
+  (:action Drive_truck0_depot0_depot1_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :effect (and 
+         (pat_truck0_depot1_)
+         (mat_truck0_depot0_)
+         (not(mat_truck0_depot1_))
+         (not(pat_truck0_depot0_))
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate0_crate4_distributor2_truck0_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pat_truck0_distributor2_)
+         (pin_crate0_truck0_)
+     )
+  )
+
+  (:action Drop_hoist5_crate4_pallet5_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pclear_pallet5_)
+         (plifting_hoist5_crate4_)
+     )
+     :effect (and 
+         (pon_crate4_pallet5_)
+         (pclear_crate4_)
+         (mclear_pallet5_)
+         (pat_crate4_distributor2_)
+         (pavailable_hoist5_)
+         (not(mclear_crate4_))
+         (not(pclear_pallet5_))
+         (not(plifting_hoist5_crate4_))
+     )
+  )
+
+  (:action Unload_hoist5_crate4_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (pavailable_hoist5_)
+         (pin_crate4_truck1_)
+     )
+     :effect (and 
+         (plifting_hoist5_crate4_)
+         (not(pavailable_hoist5_))
+         (not(pin_crate4_truck1_))
+     )
+  )
+
+  (:action Load_hoist5_crate4_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (plifting_hoist5_crate4_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate4_truck1_)
+         (not(plifting_hoist5_crate4_))
+     )
+  )
+
+  (:action Lift_hoist5_crate4_pallet5_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pclear_crate4_)
+         (pon_crate4_pallet5_)
+         (pavailable_hoist5_)
+     )
+     :effect (and 
+         (pclear_pallet5_)
+         (mclear_crate4_)
+         (plifting_hoist5_crate4_)
+         (not(pon_crate4_pallet5_))
+         (not(pavailable_hoist5_))
+         (not(pclear_crate4_))
+         (not(mclear_pallet5_))
+         (not(pat_crate4_distributor2_))
+     )
+  )
+
+  (:action Load_hoist5_crate2_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (plifting_hoist5_crate2_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate2_truck1_)
+         (not(plifting_hoist5_crate2_))
+     )
+  )
+
+  (:action Lift_hoist5_crate2_pallet5_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor2_)
+         (pon_crate2_pallet5_)
+         (pclear_crate2_)
+         (pavailable_hoist5_)
+     )
+     :effect (and 
+         (pclear_pallet5_)
+         (mclear_crate2_)
+         (plifting_hoist5_crate2_)
+         (not(pon_crate2_pallet5_))
+         (not(mclear_pallet5_))
+         (not(pavailable_hoist5_))
+         (not(pclear_crate2_))
+         (not(pat_crate2_distributor2_))
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_crate2_distributor2_crate3_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor2_)
+         (pon_crate3_crate2_)
+         (mclear_crate2_)
+     )
+  )
+
+  (:action Load_hoist5_crate3_truck1_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (plifting_hoist5_crate3_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate3_truck1_)
+         (not(plifting_hoist5_crate3_))
+     )
+  )
+
+  (:action Lift_hoist5_crate3_crate2_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_distributor2_)
+         (pclear_crate3_)
+         (pon_crate3_crate2_)
+         (pavailable_hoist5_)
+     )
+     :effect (and 
+         (pclear_crate2_)
+         (plifting_hoist5_crate3_)
+         (not(pon_crate3_crate2_))
+         (not(mclear_crate2_))
+         (not(pavailable_hoist5_))
+         (not(pclear_crate3_))
+         (not(pat_crate3_distributor2_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate3_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_distributor2_)
+         (pclear_crate3_)
+     )
+  )
+
+  (:action Load_hoist5_crate3_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (plifting_hoist5_crate3_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate3_truck0_)
+         (not(plifting_hoist5_crate3_))
+     )
+  )
+
+  (:action Load_hoist5_crate4_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (plifting_hoist5_crate4_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate4_truck0_)
+         (not(plifting_hoist5_crate4_))
+     )
+  )
+
+  (:action Load_hoist5_crate2_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (plifting_hoist5_crate2_)
+     )
+     :effect (and 
+         (pavailable_hoist5_)
+         (pin_crate2_truck0_)
+         (not(plifting_hoist5_crate2_))
+     )
+  )
+
+  (:action Unload_hoist5_crate4_truck0_distributor2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (pavailable_hoist5_)
+         (pin_crate4_truck0_)
+     )
+     :effect (and 
+         (plifting_hoist5_crate4_)
+         (not(pavailable_hoist5_))
+         (not(pin_crate4_truck0_))
+     )
+  )
+
+  (:action x__method_precondition_m9_do_lift_crate_crate4_distributor2_hoist5_pallet5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_distributor2_)
+         (pon_crate4_pallet5_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck1_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+         (pin_crate4_truck1_)
+     )
+  )
+
+  (:action x__method_precondition_m10_do_load_truck_crate4_pallet2_depot2_hoist2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pon_crate4_pallet2_)
+     )
+  )
+
+  (:action Load_hoist2_crate4_truck1_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+         (plifting_hoist2_crate4_)
+     )
+     :effect (and 
+         (pavailable_hoist2_)
+         (pin_crate4_truck1_)
+         (not(plifting_hoist2_crate4_))
+     )
+  )
+
+  (:action Lift_hoist2_crate4_pallet2_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_crate4_depot2_)
+         (pclear_crate4_)
+         (pon_crate4_pallet2_)
+         (pavailable_hoist2_)
+     )
+     :effect (and 
+         (mclear_crate4_)
+         (plifting_hoist2_crate4_)
+         (not(pon_crate4_pallet2_))
+         (not(pavailable_hoist2_))
+         (not(pclear_crate4_))
+         (not(pat_crate4_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate4_pallet5_distributor2_truck0_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+         (pin_crate4_truck0_)
+     )
+  )
+
+  (:action Load_hoist2_crate4_truck0_depot2_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+         (plifting_hoist2_crate4_)
+     )
+     :effect (and 
+         (pavailable_hoist2_)
+         (pin_crate4_truck0_)
+         (not(plifting_hoist2_crate4_))
+     )
+  )
+
+  (:action Drop_hoist3_crate2_pallet3_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pclear_pallet3_)
+         (plifting_hoist3_crate2_)
+     )
+     :effect (and 
+         (pon_crate2_pallet3_)
+         (mclear_pallet3_)
+         (pclear_crate2_)
+         (pat_crate2_distributor0_)
+         (pavailable_hoist3_)
+         (not(mclear_crate2_))
+         (not(pclear_pallet3_))
+         (not(plifting_hoist3_crate2_))
+     )
+  )
+
+  (:action Unload_hoist3_crate2_truck1_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+         (pavailable_hoist3_)
+         (pin_crate2_truck1_)
+     )
+     :effect (and 
+         (plifting_hoist3_crate2_)
+         (not(pavailable_hoist3_))
+         (not(pin_crate2_truck1_))
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_pallet3_distributor0_crate2_hoist3_
+     :parameters ()
+     :precondition (and 
+         (pon_crate2_pallet3_)
+         (mclear_pallet3_)
+     )
+  )
+
+  (:action Load_hoist3_crate2_truck1_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+         (plifting_hoist3_crate2_)
+     )
+     :effect (and 
+         (pavailable_hoist3_)
+         (pin_crate2_truck1_)
+         (not(plifting_hoist3_crate2_))
+     )
+  )
+
+  (:action Lift_hoist3_crate2_pallet3_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor0_)
+         (pclear_crate2_)
+         (pon_crate2_pallet3_)
+         (pavailable_hoist3_)
+     )
+     :effect (and 
+         (pclear_pallet3_)
+         (mclear_crate2_)
+         (plifting_hoist3_crate2_)
+         (not(pon_crate2_pallet3_))
+         (not(mclear_pallet3_))
+         (not(pavailable_hoist3_))
+         (not(pclear_crate2_))
+         (not(pat_crate2_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_distributor2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :effect (and 
+         (pat_truck1_distributor0_)
+         (mat_truck1_distributor2_)
+         (not(mat_truck1_distributor0_))
+         (not(pat_truck1_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :effect (and 
+         (pat_truck1_distributor0_)
+         (not(mat_truck1_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_depot1_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :effect (and 
+         (pat_truck1_distributor0_)
+         (mat_truck1_depot1_)
+         (not(mat_truck1_distributor0_))
+         (not(pat_truck1_depot1_))
+     )
+  )
+
+  (:action Drive_truck1_depot0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :effect (and 
+         (pat_truck1_distributor0_)
+         (mat_truck1_depot0_)
+         (not(mat_truck1_distributor0_))
+         (not(pat_truck1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_depot2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :effect (and 
+         (pat_truck1_distributor0_)
+         (mat_truck1_depot2_)
+         (not(mat_truck1_distributor0_))
+         (not(pat_truck1_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor0_)
+         (pclear_crate2_)
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_pallet3_distributor0_crate5_hoist3_
+     :parameters ()
+     :precondition (and 
+         (pon_crate5_pallet3_)
+         (mclear_pallet3_)
+     )
+  )
+
+  (:action Load_hoist3_crate5_truck1_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+         (plifting_hoist3_crate5_)
+     )
+     :effect (and 
+         (pavailable_hoist3_)
+         (not(plifting_hoist3_crate5_))
+     )
+  )
+
+  (:action Lift_hoist3_crate5_pallet3_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate5_distributor0_)
+         (pclear_crate5_)
+         (pon_crate5_pallet3_)
+         (pavailable_hoist3_)
+     )
+     :effect (and 
+         (pclear_pallet3_)
+         (plifting_hoist3_crate5_)
+         (not(mclear_pallet3_))
+         (not(pon_crate5_pallet3_))
+         (not(pavailable_hoist3_))
+         (not(pclear_crate5_))
+         (not(pat_crate5_distributor0_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate5_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate5_distributor0_)
+         (pclear_crate5_)
+     )
+  )
+
+  (:action Load_hoist3_crate2_truck0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+         (plifting_hoist3_crate2_)
+     )
+     :effect (and 
+         (pavailable_hoist3_)
+         (pin_crate2_truck0_)
+         (not(plifting_hoist3_crate2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :effect (and 
+         (pat_truck0_distributor0_)
+         (mat_truck0_distributor2_)
+         (not(mat_truck0_distributor0_))
+         (not(pat_truck0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :effect (and 
+         (pat_truck0_distributor0_)
+         (not(mat_truck0_distributor0_))
+     )
+  )
+
+  (:action Drive_truck0_depot2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :effect (and 
+         (pat_truck0_distributor0_)
+         (mat_truck0_depot2_)
+         (not(mat_truck0_distributor0_))
+         (not(pat_truck0_depot2_))
+     )
+  )
+
+  (:action Drive_truck0_depot0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :effect (and 
+         (pat_truck0_distributor0_)
+         (mat_truck0_depot0_)
+         (not(mat_truck0_distributor0_))
+         (not(pat_truck0_depot0_))
+     )
+  )
+
+  (:action Drive_truck0_depot1_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :effect (and 
+         (pat_truck0_distributor0_)
+         (mat_truck0_depot1_)
+         (not(mat_truck0_distributor0_))
+         (not(pat_truck0_depot1_))
+     )
+  )
+
+  (:action Load_hoist3_crate5_truck0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+         (plifting_hoist3_crate5_)
+     )
+     :effect (and 
+         (pavailable_hoist3_)
+         (not(plifting_hoist3_crate5_))
+     )
+  )
+
+  (:action Unload_hoist3_crate2_truck0_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+         (pavailable_hoist3_)
+         (pin_crate2_truck0_)
+     )
+     :effect (and 
+         (plifting_hoist3_crate2_)
+         (not(pavailable_hoist3_))
+         (not(pin_crate2_truck0_))
+     )
+  )
+
+  (:action x__method_precondition_m9_do_lift_crate_crate2_distributor0_hoist3_pallet3_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor0_)
+         (pon_crate2_pallet3_)
+     )
+  )
+
+  (:action x__method_precondition_m1_do_put_on_crate2_distributor0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor0_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck1_hoist3_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+         (pin_crate2_truck1_)
+     )
+  )
+
+  (:action x__method_precondition_m10_do_load_truck_crate2_pallet5_distributor2_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor2_)
+         (pon_crate2_pallet5_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate2_pallet3_distributor0_truck0_hoist3_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+         (pin_crate2_truck0_)
+     )
+  )
+
+  (:action Drop_hoist0_crate3_pallet0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pclear_pallet0_)
+         (plifting_hoist0_crate3_)
+     )
+     :effect (and 
+         (pclear_crate3_)
+         (pat_crate3_depot0_)
+         (pon_crate3_pallet0_)
+         (mclear_pallet0_)
+         (pavailable_hoist0_)
+         (not(pclear_pallet0_))
+         (not(plifting_hoist0_crate3_))
+     )
+  )
+
+  (:action Unload_hoist0_crate3_truck1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+         (pavailable_hoist0_)
+         (pin_crate3_truck1_)
+     )
+     :effect (and 
+         (plifting_hoist0_crate3_)
+         (not(pavailable_hoist0_))
+         (not(pin_crate3_truck1_))
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_pallet0_depot0_crate1_hoist0_
+     :parameters ()
+     :precondition (and 
+         (pon_crate1_pallet0_)
+         (mclear_pallet0_)
+     )
+  )
+
+  (:action Load_hoist0_crate1_truck1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+         (plifting_hoist0_crate1_)
+     )
+     :effect (and 
+         (pavailable_hoist0_)
+         (not(plifting_hoist0_crate1_))
+     )
+  )
+
+  (:action Lift_hoist0_crate1_pallet0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate1_depot0_)
+         (pclear_crate1_)
+         (pon_crate1_pallet0_)
+         (pavailable_hoist0_)
+     )
+     :effect (and 
+         (pclear_pallet0_)
+         (plifting_hoist0_crate1_)
+         (not(pon_crate1_pallet0_))
+         (not(mclear_pallet0_))
+         (not(pavailable_hoist0_))
+         (not(pclear_crate1_))
+         (not(pat_crate1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_depot0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+     )
+     :effect (and 
+         (pat_truck1_depot0_)
+         (not(mat_truck1_depot0_))
+     )
+  )
+
+  (:action Drive_truck1_distributor2_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor2_)
+     )
+     :effect (and 
+         (pat_truck1_depot0_)
+         (mat_truck1_distributor2_)
+         (not(mat_truck1_depot0_))
+         (not(pat_truck1_distributor2_))
+     )
+  )
+
+  (:action Drive_truck1_distributor0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_distributor0_)
+     )
+     :effect (and 
+         (pat_truck1_depot0_)
+         (mat_truck1_distributor0_)
+         (not(mat_truck1_depot0_))
+         (not(pat_truck1_distributor0_))
+     )
+  )
+
+  (:action Drive_truck1_depot1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot1_)
+     )
+     :effect (and 
+         (pat_truck1_depot0_)
+         (mat_truck1_depot1_)
+         (not(mat_truck1_depot0_))
+         (not(pat_truck1_depot1_))
+     )
+  )
+
+  (:action Drive_truck1_depot2_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot2_)
+     )
+     :effect (and 
+         (pat_truck1_depot0_)
+         (mat_truck1_depot2_)
+         (not(mat_truck1_depot0_))
+         (not(pat_truck1_depot2_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate1_depot0_)
+         (pclear_crate1_)
+     )
+  )
+
+  (:action x__method_precondition_m5_do_clear_pallet0_depot0_crate3_hoist0_
+     :parameters ()
+     :precondition (and 
+         (pon_crate3_pallet0_)
+         (mclear_pallet0_)
+     )
+  )
+
+  (:action Load_hoist0_crate3_truck1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+         (plifting_hoist0_crate3_)
+     )
+     :effect (and 
+         (pavailable_hoist0_)
+         (pin_crate3_truck1_)
+         (not(plifting_hoist0_crate3_))
+     )
+  )
+
+  (:action Lift_hoist0_crate3_pallet0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_depot0_)
+         (pclear_crate3_)
+         (pon_crate3_pallet0_)
+         (pavailable_hoist0_)
+     )
+     :effect (and 
+         (pclear_pallet0_)
+         (plifting_hoist0_crate3_)
+         (not(pon_crate3_pallet0_))
+         (not(mclear_pallet0_))
+         (not(pavailable_hoist0_))
+         (not(pclear_crate3_))
+         (not(pat_crate3_depot0_))
+     )
+  )
+
+  (:action x__method_precondition_m4_do_clear_crate3_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_depot0_)
+         (pclear_crate3_)
+     )
+  )
+
+  (:action Load_hoist0_crate1_truck0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+         (plifting_hoist0_crate1_)
+     )
+     :effect (and 
+         (pavailable_hoist0_)
+         (not(plifting_hoist0_crate1_))
+     )
+  )
+
+  (:action Drive_truck0_distributor2_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor2_)
+     )
+     :effect (and 
+         (pat_truck0_depot0_)
+         (mat_truck0_distributor2_)
+         (not(mat_truck0_depot0_))
+         (not(pat_truck0_distributor2_))
+     )
+  )
+
+  (:action Drive_truck0_distributor0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_distributor0_)
+     )
+     :effect (and 
+         (pat_truck0_depot0_)
+         (mat_truck0_distributor0_)
+         (not(mat_truck0_depot0_))
+         (not(pat_truck0_distributor0_))
+     )
+  )
+
+  (:action Drive_truck0_depot2_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot2_)
+     )
+     :effect (and 
+         (pat_truck0_depot0_)
+         (mat_truck0_depot2_)
+         (not(mat_truck0_depot0_))
+         (not(pat_truck0_depot2_))
+     )
+  )
+
+  (:action Drive_truck0_depot1_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot1_)
+     )
+     :effect (and 
+         (pat_truck0_depot0_)
+         (mat_truck0_depot1_)
+         (not(mat_truck0_depot0_))
+         (not(pat_truck0_depot1_))
+     )
+  )
+
+  (:action Drive_truck0_depot0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+     )
+     :effect (and 
+         (pat_truck0_depot0_)
+         (not(mat_truck0_depot0_))
+     )
+  )
+
+  (:action Load_hoist0_crate3_truck0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+         (plifting_hoist0_crate3_)
+     )
+     :effect (and 
+         (pavailable_hoist0_)
+         (pin_crate3_truck0_)
+         (not(plifting_hoist0_crate3_))
+     )
+  )
+
+  (:action Unload_hoist0_crate3_truck0_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+         (pavailable_hoist0_)
+         (pin_crate3_truck0_)
+     )
+     :effect (and 
+         (plifting_hoist0_crate3_)
+         (not(pavailable_hoist0_))
+         (not(pin_crate3_truck0_))
+     )
+  )
+
+  (:action x__method_precondition_m9_do_lift_crate_crate3_depot0_hoist0_pallet0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_depot0_)
+         (pon_crate3_pallet0_)
+     )
+  )
+
+  (:action x__method_precondition_m1_do_put_on_crate3_depot0_
+     :parameters ()
+     :precondition (and 
+         (pat_crate3_depot0_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck1_hoist0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck1_depot0_)
+         (pin_crate3_truck1_)
+     )
+  )
+
+  (:action x__method_precondition_m10_do_load_truck_crate3_crate2_distributor2_hoist5_
+     :parameters ()
+     :precondition (and 
+         (pat_crate2_distributor2_)
+         (pat_crate3_distributor2_)
+         (pon_crate3_crate2_)
+     )
+  )
+
+  (:action x__method_precondition_m11_do_unload_truck_crate3_pallet0_depot0_truck0_hoist0_
+     :parameters ()
+     :precondition (and 
+         (pat_truck0_depot0_)
+         (pin_crate3_truck0_)
+     )
+  )
+)

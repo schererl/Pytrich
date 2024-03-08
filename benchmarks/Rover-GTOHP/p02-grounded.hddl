@@ -1,0 +1,23 @@
+(define (problem p)
+   (:domain rc)
+   (:htn :parameters ()
+      :subtasks (and
+         (x__top__)
+      )
+   )
+   (:init
+      (mvisited_waypoint3_)
+      (mvisited_waypoint2_)
+      (mvisited_waypoint0_)
+      (pempty_rover0store_)
+      (pat_rover0_waypoint3_)
+      (mvisited_waypoint1_)
+      (pat_rock_sample_waypoint3_)
+      (pat_soil_sample_waypoint2_)
+   )
+   (:goal (and
+      (pcommunicated_soil_data_waypoint2_)
+      (pcommunicated_rock_data_waypoint3_)
+      (pcommunicated_image_data_objective1_high_res_)
+   ))
+)
