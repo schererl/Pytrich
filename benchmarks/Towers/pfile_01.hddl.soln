@@ -1,6 +1,0 @@
-(shifttower t1 t2 t3)
-(selectdirection r1 t1 t2 t3)
-(rotatetower t1 t3 t2)
-(move_abstract t1 t3)
-(move r1 t1 t1 t3 t3)
-(exchange t1 t3 t2)
