@@ -13,7 +13,7 @@ from pyperplan.grounder.pandaGround import pandaGrounder
 
 
 FOLDER_LOCATION = 'benchmarks/' 
-DOMAINS = [ 'Blocksworld-GTOHP', 'Depots', 'Transport', 'Barman-BDI', 'Towers', 'Barman', 'Satellite-GTOHP', 'Rover-GTOHP', 'Rover', 'Factories-simple','Robot',  'Lamps','Minecraft-Regular' ]
+DOMAINS = ['Hiking',   'Blocksworld-GTOHP', 'Rover-GTOHP', 'AssemblyHierarchical', 'Snake', 'Robot', 'Transport', 'Factories-simple', 'Childsnack', 'Multiarm-Blocksworld', 'Logistics-Learned-ECAI-16', 'Depots', 'Freecell-Learned-ECAI-16', 'Satellite-GTOHP',  'Towers',  'Barman-BDI', 'Barman',  'Blocksworld-HPDDL', 'Minecraft-Regular' ]
 
 from pyperplan.planner import (
     SEARCHES,
@@ -33,8 +33,8 @@ def format_data(domain_name, problem_file, grounder_status, grounder_elapsed_tim
     common_columns = f'{domain_name}\t{os.path.basename(problem_file)}\t{grounder_status}\t{grounder_elapsed_time:.2f}s'
     states = '\t'.join(d['status'] for d in results.values())
     plan_length = '\t'.join(str(d['s_size']) for d in results.values())
-    exp_nodes = '\t'.join(f"{d['nodes_expanded']}n" for d in results.values())
-    elapsed_time = '\t'.join(f"{d['elapsed_time']:.2f}s" for d in results.values())
+    exp_nodes = '\t'.join(f"{d['nodes_expanded']}" for d in results.values())
+    elapsed_time = '\t'.join(f"{d['elapsed_time']:.2f}" for d in results.values())
     init_h = '\t'.join(f"{d['h_init']}hi" for d in results.values())
     avg_h = '\t'.join(f"{d['h_avg']:.2f}ha" for d in results.values())
     return f"{common_columns}\t{states}\t{plan_length}\t{exp_nodes}\t{elapsed_time}\t{init_h}\t{avg_h}\n"
@@ -73,7 +73,7 @@ def create_header(heuristics):
     return f"{first_line}\n{second_line}\n"
 
 def run_benchmarks( pandaOpt=False):
-    heuristics = ['TaskDecompositionPlus', 'TaskDecomposition']
+    heuristics = ['TaskDecomposition']
     with open('run_bench_results.txt', 'a') as file:
         file.write(create_header(heuristics))
     print(create_header(heuristics))
@@ -82,7 +82,7 @@ def run_benchmarks( pandaOpt=False):
         domain_path = os.path.abspath(os.path.join(FOLDER_LOCATION, domain_name))
         domain_file = os.path.join(domain_path, 'domain.hddl')
         problems = get_problems(domain_path)
-        for problem_file in problems[:]:
+        for problem_file in sorted(problems[:]):
             done = True
             results = {}
             logging.info(f'Starting {domain_name}: {problem_file}')
@@ -121,16 +121,16 @@ def run_benchmarks( pandaOpt=False):
             for heuristic in heuristics:
                 logging.info(f'Starting search with {heuristic}')
                 # search    
-                data = SEARCHES['blind'](model, HEURISTICS[heuristic])
+                data = SEARCHES['Astar'](model, HEURISTICS[heuristic])
                 results[heuristic] = data
                 
-                # if data['status'] != 'GOAL' and heuristic == 'Blind':
+                # if data['status'] != 'GOAL' and heuristic == 'TaskDecompositionPlus':
                 #     done = False
                 #     logging.info(f'Search with {heuristic} failed')
                 #     #file.write(format_data_blind_failed(domain_name, problem_file, grounder_status, grounder_elapsed_time, data, len(heuristics)))
                 #     break
                 # logging.info(f'Goal reached with {heuristic}')
-            if True: #done
+            if True:
                 with open('run_bench_results.txt', 'a') as file:
                     file.write(format_data(domain_name, problem_file, grounder_status, grounder_elapsed_time, results))
                 

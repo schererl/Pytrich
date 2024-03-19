@@ -20,6 +20,7 @@ class HTNNode:
         self.g_value = g_value
         self.f_value = h_val + g_value
 
+        self.ref_idx = 0
         # NOTE: only use if we search considering visited nodes -high computational cost
         self.hash_node = hash((self.state, tuple(task_network)))
     
@@ -66,9 +67,6 @@ class HTNNode:
             f"\n{memory_info}"
         )
 
-class BlindNode(HTNNode):
-    def __lt__(self, other):
-        return self.seq_num < other.seq_num
 
 #NOTE: Trying to figure out why using self.seq_num '<' other.seq_num instead of '>' increases 2x nodes/sec
 class AstarNode(HTNNode):

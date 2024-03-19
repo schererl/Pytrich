@@ -25,32 +25,35 @@ import time
 
 
 
-from . import search, tools
+from . import tools
 #from .pddl.parser import Parser
 from .parser.parser import Parser
 
 from .grounder.full_grounding import FullGround
 from .grounder.TDG_grounding import TDGGround
 from .grounder.pandaGround import pandaGrounder
+from .heuristics import blind_heuristic, delete_eff_heuristic, fact_count_heuristic, task_count_heuristic, task_decomposition_heuristic, tdg_plus_heuristic
 
+from .search.astar_search import search as astar_search
+from .search.blind_search import search as blind_search
+from .search.partial_refinment_search import search as partial_refinment_search
 
 SEARCHES = {
-    "blind": search.blind_search
+    "Blind": blind_search,
+    "Astar": astar_search,
+    "Pref": partial_refinment_search
 }
 
 HEURISTICS = {
-    "TaskCount": search.heuristic.TaskCountHeuristic,
-    "FactCount": search.heuristic.FactCountHeuristic,
-    "Blind"    : search.heuristic.BlindHeuristic,
-    "MaxCount" : search.heuristic.MaxCountHeuristic,
-    "DoubleCount": search.heuristic.DoubleCountHeuristic,
-    "DellEff": search.heuristic.DellEffHeuristic,
-    "TaskDecomposition": search.heuristic.TaskDecompositionHeuristic
+    "TaskCount": task_count_heuristic,
+    "FactCount": fact_count_heuristic,
+    "Blind"    : blind_heuristic,
+    "DellEff"  : delete_eff_heuristic,
+    "TaskDecomposition": task_decomposition_heuristic,
+    "TaskDecompositionPlus": tdg_plus_heuristic
 }
 
-
 NUMBER = re.compile(r"\d+")
-
 
 def validator_available():
     return tools.command_available(["validate", "-h"])

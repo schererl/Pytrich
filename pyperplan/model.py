@@ -128,6 +128,8 @@ class AbstractTask:
         self.decompositions = []
         self.h_val = 0
 
+        self.op_reach = set() #TaskDecompositionPlus
+
     def __eq__(self, other):
         return self.name == other.name
     
@@ -159,6 +161,8 @@ class Decomposition:
         self.task_network = task_network
         self.pos_precons_bitwise = 0
         self.neg_precons_bitwise = 0
+
+        self.tsn_hval = 0
 
     def applicable_bitwise(self, state_bitwise):
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \

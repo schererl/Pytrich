@@ -15,4 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 
-from .blind_search import blind_search
+from .blind_search import search as blind_search
+from .astar_search import search as astar_search
+from .partial_refinment_search import search as partial_refinment_search

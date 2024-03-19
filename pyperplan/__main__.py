@@ -22,7 +22,7 @@ def main():
     argparser.add_argument("domain", nargs="?", help="Path to the domain file. Optional if running benchmarks.")
     argparser.add_argument("problem", nargs="?", help="Path to the problem file. Required unless running benchmarks.")
     argparser.add_argument("-l", "--loglevel", choices=log_levels, default="info")
-    argparser.add_argument("-s", "--search", choices=SEARCHES.keys(), default="blind")
+    argparser.add_argument("-s", "--search", choices=SEARCHES.keys(), default="Blind")
     argparser.add_argument("-H", "--heuristic", choices=HEURISTICS.keys(), default="Blind")
     argparser.add_argument("-rb", "--runBenchmark", action='store_true', help="Flag to run benchmarks. If set, domain and problem arguments are ignored.")
     argparser.add_argument("-po", "--pandaOpt", action='store_true', help="Use the pandaGrounder for parsing an already grounded problem.")
@@ -40,7 +40,7 @@ def main():
         args.problem = os.path.abspath(args.problem) if args.problem else None
         args.domain = os.path.abspath(args.domain) if args.domain else None
 
-        search = SEARCHES[args.search]
+        search = SEARCHES['pref'] #SEARCHES[args.search]
         heuristic = HEURISTICS[args.heuristic]
         logging.info(f"Using search: {search.__name__}")
         logging.info(f"Using heuristic: {heuristic.__name__}")

@@ -213,10 +213,10 @@ def del_relax_rechability(model):
     changed=True
     while changed:
         changed=False
-        used_operators, positive_facts = _rechable_operators(model, model.initial_state)
+        used_operators, positive_facts = _reachable_operators(model, model.initial_state)
         
         #print(model.print_binary_state_info(positive_facts))    
-        htn_rechable_operators = set()
+        htn_reachable_operators = set()
         removed_operators |= set(model.operators) - used_operators
 
         
@@ -250,12 +250,12 @@ def del_relax_rechability(model):
                 rechable_decompositions.add(d)
                 for subt in d.task_network:
                     if isinstance(subt, Operator) and not subt in removed_operators:
-                        htn_rechable_operators.add(subt)
+                        htn_reachable_operators.add(subt)
                     
         rechable_tasks = set(model.abstract_tasks) -  removed_tasks
-        logging.info(f" op ({len(model.operators)}=>{len(htn_rechable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(rechable_tasks)})|decompo ({len(model.decompositions)}=>{len(rechable_decompositions)})")
-        if len(rechable_tasks) != len(model.abstract_tasks) or len(htn_rechable_operators) != len(model.operators) or len(model.decompositions) != len(rechable_decompositions):
-            model.operators = list(htn_rechable_operators)  
+        logging.info(f" op ({len(model.operators)}=>{len(htn_reachable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(rechable_tasks)})|decompo ({len(model.decompositions)}=>{len(rechable_decompositions)})")
+        if len(rechable_tasks) != len(model.abstract_tasks) or len(htn_reachable_operators) != len(model.operators) or len(model.decompositions) != len(rechable_decompositions):
+            model.operators = list(htn_reachable_operators)  
             model.decompositions = list(rechable_decompositions)
             model.abstract_tasks = list(rechable_tasks) 
             changed=True
@@ -268,7 +268,7 @@ def del_relax_rechability(model):
     logging.info(f"DELETE RECHABILITY (operators, decompositions, tasks) ({count_op_before},{count_decomp_before},{count_abs_task_before}) ==> ({count_op_after}, {count_decomp_after}, {count_abs_task_after})")
     correctness_check(model)
                 
-def _rechable_operators(model, initial_facts):
+def _reachable_operators(model, initial_facts):
     reachable_operators = set()
     reachable_facts = initial_facts
     changed = True
