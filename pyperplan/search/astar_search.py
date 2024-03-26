@@ -20,7 +20,9 @@ def search(model, heuristic_type, node_type=AstarNode):
     print('Staring solver')
     print(model)
     time.sleep(1)
+    print(heuristic_type)
     h = heuristic_type()
+    
     
     start_time   = time.time()  
     control_time = start_time

@@ -32,7 +32,13 @@ from .parser.parser import Parser
 from .grounder.full_grounding import FullGround
 from .grounder.TDG_grounding import TDGGround
 from .grounder.pandaGround import pandaGrounder
-from .heuristics import blind_heuristic, delete_eff_heuristic, fact_count_heuristic, task_count_heuristic, task_decomposition_heuristic, tdg_plus_heuristic
+from .heuristics.tdg_plus_heuristic import TaskDecompositionPlusHeuristic
+from .heuristics.task_decomposition_heuristic import TaskDecompositionHeuristic
+from .heuristics.delete_eff_heuristic import DellEffHeuristic
+from .heuristics.blind_heuristic import BlindHeuristic
+from .heuristics.fact_count_heuristic import FactCountHeuristic
+from .heuristics.task_count_heuristic import TaskCountHeuristic
+
 
 from .search.astar_search import search as astar_search
 from .search.blind_search import search as blind_search
@@ -45,12 +51,12 @@ SEARCHES = {
 }
 
 HEURISTICS = {
-    "TaskCount": task_count_heuristic,
-    "FactCount": fact_count_heuristic,
-    "Blind"    : blind_heuristic,
-    "DellEff"  : delete_eff_heuristic,
-    "TaskDecomposition": task_decomposition_heuristic,
-    "TaskDecompositionPlus": tdg_plus_heuristic
+    "TaskCount": TaskCountHeuristic,
+    "FactCount": FactCountHeuristic,
+    "Blind"    : BlindHeuristic,
+    "DellEff"  : DellEffHeuristic,
+    "TaskDecomposition": TaskDecompositionHeuristic,
+    "TaskDecompositionPlus": TaskDecompositionPlusHeuristic
 }
 
 NUMBER = re.compile(r"\d+")
@@ -98,7 +104,7 @@ def _search(task, search, heuristic):
 def write_solution(solution, filename):
     assert solution is not None
     with open(filename, "w") as file:
-        for op in solution:
+        for op in solution: 
             print(op.name, file=file)
 
 

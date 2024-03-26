@@ -1,10 +1,13 @@
 from .heuristic import Heuristic
 from ..model import Operator, AbstractTask
 from ..utils import UNSOLVABLE
+from .landmarks.and_or_graphs import AndOrGraph
+
 class TaskDecompositionPlusHeuristic(Heuristic):
     def __init__(self):
         super().__init__()
         self.visited = set()
+        self.andor_graph = None
         
     def _compute_tdg_values(self, task):
         if task in self.visited:
@@ -90,15 +93,24 @@ class TaskDecompositionPlusHeuristic(Heuristic):
             return UNSOLVABLE
         return sum_h
     
+    # def compute_heuristic(self, model, parent_node, task, state, task_network):
+    #     if parent_node:
+    #         return self.del_relax_count(model, task_network, state)
+    #     else:
+    #         h_sum = sum([self._compute_tdg_values(t) for t in model.initial_tn])
+    #         self.visited.clear()
+    #         for t in model.initial_tn:
+    #             self._compute_opreach(t)
+    #         self.visited.clear()
+    #         return h_sum
+        
     def compute_heuristic(self, model, parent_node, task, state, task_network):
         if parent_node:
-            return self.del_relax_count(model, task_network, state)
+            self.andor_graph.clear()
+            self.andor_graph.update_init(state, task_network)
+            return sum([self._compute_tdg_values(t) for t in model.initial_tn]) + self.andor_graph.check_rechability()
         else:
             h_sum = sum([self._compute_tdg_values(t) for t in model.initial_tn])
             self.visited.clear()
-            for t in model.initial_tn:
-                self._compute_opreach(t)
-            
-
-            self.visited.clear()
+            self.andor_graph = AndOrGraph(model)
             return h_sum

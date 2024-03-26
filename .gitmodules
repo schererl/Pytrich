@@ -1,3 +1,6 @@
 [submodule "benchmarks"]
 	path = benchmarks
 	url = https://github.com/schererl/htn-benchmarks
+[submodule "htn-benchmarks"]
+	path = htn-benchmarks
+	url = https://github.com/schererl/htn-benchmarks

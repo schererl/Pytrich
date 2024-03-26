@@ -259,8 +259,8 @@ class Model:
         # goal count heuristic
         self.goal_facts_count = 0
         self.goal_tasks_count = 0
-        #self._process_goal_task_count()       #NOTE: before converting into bit representation, add task counts into grounded tasks
-        self._process_goal_facts_count()      #NOTE: before converting into bit representation, add facts counts into operators
+        #self._process_goal_task_count()   #NOTE: before converting into bit representation, add task counts into grounded tasks
+        self._process_goal_facts_count()   #NOTE: before converting into bit representation, add facts counts into operators
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []

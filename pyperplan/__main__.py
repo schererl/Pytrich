@@ -12,6 +12,7 @@ from pyperplan.planner import (
 )
 
 from run_benchmarks import run_benchmarks
+# running example: python3 pyperplan/__main__.py -H TaskDecompositionPlus -s 'Astar' htn-benchmarks/Blocksworld-GTOHP/domain.hddl htn-benchmarks/Blocksworld-GTOHP/p01.hddl  ─╯
 
 def main():
     sys.setrecursionlimit(2000)
@@ -40,7 +41,7 @@ def main():
         args.problem = os.path.abspath(args.problem) if args.problem else None
         args.domain = os.path.abspath(args.domain) if args.domain else None
 
-        search = SEARCHES['pref'] #SEARCHES[args.search]
+        search = SEARCHES[args.search]
         heuristic = HEURISTICS[args.heuristic]
         logging.info(f"Using search: {search.__name__}")
         logging.info(f"Using heuristic: {heuristic.__name__}")
