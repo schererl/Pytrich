@@ -122,6 +122,7 @@ def search(model, heuristic_type, node_type=AstarNode):
         logging.info(f"Goal reached!\nElapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}, Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
         #graph_dot.to_graphviz()
         solution, operators = node.extract_solution()
+        print(solution)
         return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
     elif STATUS =='OUT OF MEMORY' or STATUS == 'TIMEOUT':
         logging.info(f"{STATUS} \nElapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
