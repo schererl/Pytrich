@@ -38,6 +38,7 @@ from .heuristics.delete_eff_heuristic import DellEffHeuristic
 from .heuristics.blind_heuristic import BlindHeuristic
 from .heuristics.fact_count_heuristic import FactCountHeuristic
 from .heuristics.task_count_heuristic import TaskCountHeuristic
+from .heuristics.dof_search_heuristic import DofSearchHeuristic
 
 
 from .search.astar_search import search as astar_search
@@ -55,6 +56,7 @@ HEURISTICS = {
     "FactCount": FactCountHeuristic,
     "Blind"    : BlindHeuristic,
     "DellEff"  : DellEffHeuristic,
+    "DofSearch"  : DofSearchHeuristic,
     "TaskDecomposition": TaskDecompositionHeuristic,
     "TaskDecompositionPlus": TaskDecompositionPlusHeuristic
 }

@@ -12,9 +12,8 @@ from pyperplan.grounder.TDG_grounding import TDGGround
 from pyperplan.grounder.pandaGround import pandaGrounder
 
 
-FOLDER_LOCATION = 'benchmarks/' 
-DOMAINS = ['Hiking',   'Blocksworld-GTOHP', 'Rover-GTOHP', 'AssemblyHierarchical', 'Snake', 'Robot', 'Transport', 'Factories-simple', 'Childsnack', 'Multiarm-Blocksworld', 'Logistics-Learned-ECAI-16', 'Depots', 'Freecell-Learned-ECAI-16', 'Satellite-GTOHP',  'Towers',  'Barman-BDI', 'Barman',  'Blocksworld-HPDDL', 'Minecraft-Regular' ]
-
+FOLDER_LOCATION = 'htn-benchmarks/' 
+DOMAINS = ['Blocksworld-GTOHP','Barman-BDI', 'AssemblyHierarchical', 'Rover-GTOHP',  'Hiking', 'Snake', 'Robot', 'Transport', 'Factories-simple', 'Childsnack', 'Multiarm-Blocksworld', 'Logistics-Learned-ECAI-16', 'Depots', 'Freecell-Learned-ECAI-16', 'Satellite-GTOHP',  'Towers',  'Barman',  'Blocksworld-HPDDL', 'Minecraft-Regular' ]
 from pyperplan.planner import (
     SEARCHES,
     HEURISTICS
@@ -73,7 +72,7 @@ def create_header(heuristics):
     return f"{first_line}\n{second_line}\n"
 
 def run_benchmarks( pandaOpt=False):
-    heuristics = ['TaskDecomposition']
+    heuristics = ['DellEff', 'DofSearch']
     with open('run_bench_results.txt', 'a') as file:
         file.write(create_header(heuristics))
     print(create_header(heuristics))

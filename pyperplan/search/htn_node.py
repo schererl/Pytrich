@@ -77,3 +77,17 @@ class AstarNode(HTNNode):
             return self.h_val < other.h_val
         return self.f_value < other.f_value
     
+class DofNode(HTNNode):
+    def __init__(self, parent, action, state, task_network, seq_num, g_value, h_val):
+        super().__init__(parent, action, state, task_network, seq_num, g_value, h_val)
+        self.task_basket = task_network[:]
+        self.reinsertions = 0
+    def __lt__(self, other):
+        if self.f_value ==  other.f_value:
+            if self.h_val == other.h_val:
+                if self.reinsertions == other.reinsertions:
+                    return self.seq_num < other.seq_num
+                return self.reinsertions < other.reinsertions
+            return self.h_val < other.h_val
+        return self.f_value < other.f_value
+    

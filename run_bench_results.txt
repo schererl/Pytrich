@@ -1,4 +1,0 @@
-				STATUS	 PLAN LENGTH	 EXP. NODES	 TIME	 INIT-H	 AVG-H	
-DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition
-				STATUS	 PLAN LENGTH	 EXP. NODES	 TIME	 INIT-H	 AVG-H	
-DOMAIN	PROBLEM	GROUNDER STATUS	GROUNDER TIME	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition	TaskDecomposition
