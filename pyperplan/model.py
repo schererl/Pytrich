@@ -16,7 +16,7 @@
 #
 import logging
 import sys
-from functools import lru_cache
+
 """
 Classes for representing a STRIPS planning task
 """

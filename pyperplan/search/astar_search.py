@@ -16,7 +16,7 @@ from ..DOT_output import DotOutput
 from .htn_node import AstarNode
 
 def search(model, heuristic_type, node_type=AstarNode):
-    #graph_dot = DotOutput()
+    graph_dot = DotOutput()
     print('Staring solver')
     print(model)
     time.sleep(1)
@@ -35,7 +35,7 @@ def search(model, heuristic_type, node_type=AstarNode):
     node  = node_type(None, None, model.initial_state, model.initial_tn, seq_num, 0, h.compute_heuristic(model, None, None, model.initial_state, model.initial_tn))
     h_sum = node.h_val
     initial_heuristic_value=node.h_val
-    #graph_dot.add_node(node, model)
+    graph_dot.add_node(node, model)
     
     STATUS = ''
     pq = []
@@ -45,12 +45,12 @@ def search(model, heuristic_type, node_type=AstarNode):
         current_time = time.time()      
         
         node = heapq.heappop(pq)
-        #graph_dot.open(node)
+        graph_dot.open(node)
         h_sum+=node.h_val
         try_get_node_g_val = closed_list.get(hash(node))
         if try_get_node_g_val and try_get_node_g_val <= node.g_value:
             count_revisits+=1
-            #graph_dot.already_visited("")
+            graph_dot.already_visited("")
             continue 
         
         # time and memory control
@@ -82,7 +82,7 @@ def search(model, heuristic_type, node_type=AstarNode):
         # check if task is primitive
         if type(task) is Operator:
             if not model.applicable(task, node.state):
-                #graph_dot.not_applicable(":APPLY:"+str(task.name))
+                graph_dot.not_applicable(":APPLY:"+str(task.name))
                 continue
             
             seq_num += 1
@@ -92,8 +92,8 @@ def search(model, heuristic_type, node_type=AstarNode):
             
             if new_node.h_val >= UNSOLVABLE:
                 continue
-            #graph_dot.add_node(new_node, model)
-            #graph_dot.add_relation(new_node, ":APPLY:"+str(task.name))
+            graph_dot.add_node(new_node, model)
+            graph_dot.add_relation(new_node, ":APPLY:"+str(task.name))
             heapq.heappush(pq, new_node)
             
             
@@ -101,7 +101,7 @@ def search(model, heuristic_type, node_type=AstarNode):
         else:
             for method in model.methods(task):
                 if not model.applicable(method, node.state):
-                    #graph_dot.not_applicable(":DECOMPOSE:"+str(method.name))
+                    graph_dot.not_applicable(":DECOMPOSE:"+str(method.name))
                     continue
 
                 seq_num += 1
@@ -109,18 +109,18 @@ def search(model, heuristic_type, node_type=AstarNode):
                 new_node          = node_type(node, task, node.state, new_task_network, seq_num, node.g_value+1, h.compute_heuristic(model, node, task, node.state, new_task_network))
                 if new_node.h_val >= UNSOLVABLE:
                     continue
-                #graph_dot.add_node(new_node, model)
-                #graph_dot.add_relation(new_node, ":DECOMPOSE:"+str(method.name)+str(model.count_positive_binary_facts(method.pos_precons_bitwise)))
+                graph_dot.add_node(new_node, model)
+                graph_dot.add_relation(new_node, ":DECOMPOSE:"+str(method.name)+str(model.count_positive_binary_facts(method.pos_precons_bitwise)))
                 heapq.heappush(pq, new_node)
                 
-        #graph_dot.close()
+        graph_dot.close()
         closed_list[hash(node)]=node.g_value
     
     if STATUS == 'GOAL':
         nodes_second = iteration/float(current_time - start_time)
         h_avg        = h_sum/iteration
         logging.info(f"Goal reached!\nElapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}, Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
-        #graph_dot.to_graphviz()
+        graph_dot.to_graphviz()
         solution, operators = node.extract_solution()
         print(solution)
         return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
@@ -129,6 +129,6 @@ def search(model, heuristic_type, node_type=AstarNode):
         return create_result_dict(STATUS, iteration, -1, -1, start_time, current_time, memory_usage, -1, -1)
     else:
         logging.info("No operators left. Task unsolvable.")
-        #graph_dot.to_graphviz()
+        graph_dot.to_graphviz()
         return create_result_dict('UNSOLVABLE', iteration, initial_heuristic_value, h_sum, start_time, current_time, psutil.virtual_memory().percent, -1, -1)
 
