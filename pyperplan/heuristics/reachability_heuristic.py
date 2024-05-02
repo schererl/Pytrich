@@ -25,6 +25,7 @@ class ReachabilityHeuristic(Heuristic):
     def check_reachability(self):
         reachable_nodes = deque()
         reachable_nodes.append(self.andor_graph.init_node)
+        
         while reachable_nodes:
             node = reachable_nodes.pop(0)
             if node.forced_true:

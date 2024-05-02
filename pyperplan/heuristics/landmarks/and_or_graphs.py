@@ -34,7 +34,7 @@ class AndOrGraphNode:
         
         
     def __str__(self):
-        return "Node " + self.label + " " + ("T" if self.num_forced_predecessor else "F") + "("+str(len(self.predecessor))+","+str(len(self.successor))+")"
+        return "Node " + self.label + " " + ("T" if self.num_forced_predecessors else "F") + "("+str(len(self.predecessors))+","+str(len(self.successors))+")"
     def __repr__(self) -> str:
         return f"<Node {self.label}>"
     
