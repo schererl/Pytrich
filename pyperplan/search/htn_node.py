@@ -10,15 +10,17 @@ define the __lt__ function, without creating new __init__ functions and 'super()
 calls...
 '''
 class HTNNode:
-    def __init__(self, parent, action, state, task_network, seq_num, g_value, h_val):
+    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
         self.state = state
         self.parent = parent
-        self.action = action
+        self.task = task
+        self.decomposition = decomposition
         self.task_network = task_network
         self.seq_num = seq_num
-        self.h_val = h_val
+        
         self.g_value = g_value
-        self.f_value = h_val + g_value
+        self.f_value = 0
+        self.h_value = 0
 
         self.ref_idx = 0
         # NOTE: only use if we search considering visited nodes -high computational cost
@@ -32,9 +34,11 @@ class HTNNode:
         solution = []
         operators = []
         while self.parent is not None:
-            if isinstance(self.action, Operator) and not "method_precondition" in self.action.name :
-                operators.append(self.action)
-            solution.append(self.action)
+            if isinstance(self.task, Operator) and not "method_precondition" in self.task.name :
+                operators.append(self.task)
+            else:
+                solution.append(self.decomposition)
+            solution.append(self.task)
             self = self.parent
         solution.reverse()
         return solution, operators
@@ -68,26 +72,25 @@ class HTNNode:
         )
 
 
-#NOTE: Trying to figure out why using self.seq_num '<' other.seq_num instead of '>' increases 2x nodes/sec
 class AstarNode(HTNNode):
     def __lt__(self, other):
+        
         if self.f_value ==  other.f_value:
-            if self.h_val == other.h_val:
+            if self.h_value == other.h_value:
                 return self.seq_num < other.seq_num
-            return self.h_val < other.h_val
+            return self.h_value < other.h_value
         return self.f_value < other.f_value
     
-class DofNode(HTNNode):
-    def __init__(self, parent, action, state, task_network, seq_num, g_value, h_val):
-        super().__init__(parent, action, state, task_network, seq_num, g_value, h_val)
-        self.task_basket = task_network[:]
-        self.reinsertions = 0
+class AstarLMNode(HTNNode):
+    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
+        super().__init__(parent, task, decomposition, state, task_network, seq_num, g_value)
+        self.lm_node = None
+
     def __lt__(self, other):
+        
         if self.f_value ==  other.f_value:
-            if self.h_val == other.h_val:
-                if self.reinsertions == other.reinsertions:
-                    return self.seq_num < other.seq_num
-                return self.reinsertions < other.reinsertions
-            return self.h_val < other.h_val
+            if self.h_value == other.h_value:
+                return self.seq_num < other.seq_num
+            return self.h_value < other.h_value
         return self.f_value < other.f_value
     

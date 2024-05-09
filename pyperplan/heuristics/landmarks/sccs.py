@@ -5,8 +5,7 @@ class SCCDetection:
         self.graph = graph
         self.index = 0
         self.stack = []
-        nodes = graph.fact_nodes + graph.task_nodes + graph.operator_nodes + graph.decomposition_nodes + [graph.init_node] + [graph.goal_node]
-        num_nodes =  len(nodes) #initial and end nodes
+        num_nodes =  len(graph.nodes) #initial and end nodes
         self.indices   = [-1] * num_nodes 
         self.low_links = [-1] * num_nodes
         self.on_stack  = [False] * num_nodes
@@ -15,9 +14,11 @@ class SCCDetection:
         self.node_to_scc = [-1] * num_nodes
 
         # Start the Tarjan's algorithm from each node if not already visited
-        for node in nodes:
+        for node in graph.nodes:
             if self.indices[node.ID] == -1:
                 self._tarjan(node)
+        
+        self._initialize_reachability_structures()
         
     def _tarjan(self, v):
         # Set the depth index for 'v' to the smallest unused index
@@ -28,7 +29,7 @@ class SCCDetection:
         self.on_stack[v.ID] = True
 
         # Consider successors of 'v'
-        for w in v.successor:
+        for w in v.successors:
             if self.indices[w.ID] == -1:
                 # Successor 'w' has not been visited; recurse on it
                 self._tarjan(w)
@@ -50,7 +51,7 @@ class SCCDetection:
                 
             self.sccs.append(current_scc)
 
-    def initialize_reachability_structures(self):
+    def _initialize_reachability_structures(self):
         # structures for SCC and reachability
         self.scc2reachablenodes = [set() for _ in range(len(self.sccs))]
         self.finished = [False] * len(self.sccs)
@@ -59,7 +60,7 @@ class SCCDetection:
         # initialize sccs reachability
         for i, scc in enumerate(self.sccs):
             for node in scc:
-                self.scc2reachablenodes[i].update([n.ID for n in node.successor])
+                self.scc2reachablenodes[i].update([n.ID for n in node.successors])
 
         # for node in self.init_node.successor:
         #     scc_index = self.scc.node_to_scc[node.ID]
@@ -76,7 +77,7 @@ class SCCDetection:
         max_depth = 0
 
         for node_id in reachable_nodes:
-            node_scc_index = self.scc.node_to_scc[node_id]
+            node_scc_index = self.node_to_scc[node_id]
             if node_scc_index != scc_index and not self.finished[node_scc_index]:
                 self.transitive_reachability(node_scc_index)
             

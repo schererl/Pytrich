@@ -4,5 +4,5 @@ class BlindHeuristic(Heuristic):
     def __init__(self):
         super().__init__()
     
-    def compute_heuristic(self, model, parent_node, task, state, task_network):
+    def compute_heuristic(self, model, parent_node, node):
         return 0

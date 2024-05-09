@@ -44,6 +44,7 @@ class Operator:
         self.add_effects = add_effects
         self.del_effects = del_effects
 
+        self.global_id = -1
         self.pos_precons_bitwise = 0
         self.neg_precons_bitwise = 0
         self.del_effects_bitwise = 0
@@ -128,6 +129,7 @@ class AbstractTask:
         self.decompositions = []
         self.h_val = 0
 
+        self.global_id = -1
         self.op_reach = set() #TaskDecompositionPlus
 
     def __eq__(self, other):
@@ -159,6 +161,8 @@ class Decomposition:
         self.pos_precons = frozenset(pos_precons)
         self.neg_precons = frozenset(neg_precons)
         self.task_network = task_network
+
+        self.global_id = -1
         self.pos_precons_bitwise = 0
         self.neg_precons_bitwise = 0
 
@@ -187,7 +191,7 @@ class Decomposition:
         return self.hash_name
     
     def __repr__(self):
-        return f"<D {self.name} {self.compound_task}>"
+        return f"<D {self.name} >"
     
     def __str__(self):
         s = f"DECOMPOSISITION {self.name}\n"
@@ -264,7 +268,23 @@ class Model:
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []
+        self._assign_global_ids() # important for defining a global id for identifying facts, operators, abstract tasks, and decompositions
         
+    def _assign_global_ids(self):
+        #for simplification facts already have their global ids being the same as their state positions
+        next_id = len(self.facts)
+        for o in self.operators:
+            o.global_id = next_id
+            next_id+=1
+        
+        for ab_t in self.abstract_tasks:
+            ab_t.global_id = next_id
+            next_id+=1
+        
+        for d in self.decompositions:
+            d.global_id = next_id
+            next_id+=1
+    
     def _process_goal_facts_count(self):
         self.goal_facts_count = len(self.goals)
     
