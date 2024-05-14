@@ -100,7 +100,6 @@ class Landmarks:
             
             # not sure if this terminates
             if  new_landmarks != self.landmarks[node.ID]:
-                print(f'New lms: {node.label}\n\t{[self.and_or_graph.nodes[id].label for id in self.landmarks[node.ID]]}')
                 dot_existinglms = self.landmarks[node.ID]
                 dot_newlms = new_landmarks - self.landmarks[node.ID]
                 self.landmarks[node.ID] = new_landmarks

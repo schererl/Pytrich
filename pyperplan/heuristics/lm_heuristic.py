@@ -38,7 +38,6 @@ class LandmarkHeuristic(Heuristic):
                 if model.goals & (1 << fact_pos):
                     node.lm_node.update_lms(self.landmarks.landmarks[fact_pos])
             
-
             # mark already reached facts - 'mark_lm()' only mark facts that are indeed lms
             for fact_pos in range(min(len(bin(node.state))-2, len(bin(model.goals))-2)): 
                 if node.state & (1 << fact_pos):
@@ -46,37 +45,41 @@ class LandmarkHeuristic(Heuristic):
             
             for t in node.task_network:
                 node.lm_node.update_lms(self.landmarks.landmarks[t.global_id])
+                node.lm_node.update_lms(self.landmarks2.landmarks[t.global_id])
             
-            binary_representation = bin(node.lm_node.lms)[2:][::-1]
-            for lm_id, lm_val in enumerate(binary_representation):
-                if lm_val == '1':
-                    andor_node = self.andor_graph.nodes[lm_id]
-                    if andor_node.content_type == ContentType.OPERATOR or andor_node.content_type == ContentType.FACT:
-                        #print(f'node {andor_node}\n\tadding lms {[self.andor_graph.nodes[lm] for lm in self.landmarks2.landmarks[lm_id]]}')
-                        #node.lm_node.update_lms(self.landmarks2.landmarks[lm_id])
-                        pass
+            # binary_representation = bin(node.lm_node.lms)[2:][::-1]
+            # for lm_id, lm_val in enumerate(binary_representation):
+            #     if lm_val == '1':
+            #         andor_node = self.andor_graph.nodes[lm_id]
+                    
                         
-            print(f'landmarks:\n {node.lm_node}')
-            binary_representation = bin(node.lm_node.lms)[2:][::-1]
-            for lm_id, lm_val in enumerate(binary_representation):
-                if lm_val == '1':
-                    print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            # print(f'landmarks:\n {node.lm_node}')
+            # binary_representation = bin(node.lm_node.lms)[2:][::-1]
+            # for lm_id, lm_val in enumerate(binary_representation):
+            #     if lm_val == '1':
+            #         print(f'lm: {self.andor_graph.nodes[lm_id]}')
 
-            print(f'\nSTACK b1 b2 top-down landmarks:')
-            for lm_id in self.landmarks2.landmarks[39]:
-                print(f'lm: {self.andor_graph.nodes[lm_id]}')
-            
-            print(f'\nm4_do_move_22 landmarks:')
-            for lm_id in self.landmarks.landmarks[84]:
-                print(f'lm: {self.andor_graph.nodes[lm_id]}')
-            
-            print(f'\npickmup_b1_ landmarks:')
-            for lm_id in self.landmarks2.landmarks[47]:
-                print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            # print(f'\nSTACK b3 b1 top-down landmarks:')
+            # for lm_id in self.landmarks2.landmarks[38]:
+            #     print(f'lm: {self.andor_graph.nodes[lm_id]}')
+                
+            # print(f'\n m1_do_put_on_2 top-down landmarks:')
+            # for lm_id in self.landmarks2.landmarks[94]:
+            #     print(f'lm: {self.andor_graph.nodes[lm_id]}')
 
-            
-            
+            # print(f'\n m1_do_put_on_2 bottom-up landmarks:')
+            # for lm_id in self.landmarks.landmarks[94]:
+            #     print(f'lm: {self.andor_graph.nodes[lm_id]}')
 
+            # print(f'\n do_on_table b1 bottom-up landmarks:')
+            # for lm_id in self.landmarks.landmarks[55]:
+            #     print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            
+            # print(f'\n do_on_table b1 top-down landmarks:')
+            # for lm_id in self.landmarks2.landmarks[55]:
+            #     print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            
+            
         else:
             node.lm_node = LM_Node(len(self.andor_graph.nodes), parent=parent_node.lm_node)
             # mark last reached task (also add decomposition here)
@@ -93,6 +96,30 @@ class LandmarkHeuristic(Heuristic):
         #exit()
         return node.lm_node.lm_value()
     
+    def bidirectional_lms(self):
+        landmarks = set()
+        visited = set()
+        queue = deque()
+        '''
+        precompute landmarks for initial task network (top-down and bottom-up)
+        this is necessary because we have x_method which is not the actual initia task network
+        and leads to an error, otherwise the algorithm suppose to wrok withou this step
+        '''
+
+        while queue:
+            node_id = queue.popleft()
+            visited.add(node_id)
+            landmarks.add(node_id)
+            node = self.andor_graph.nodes[node_id]
+            if node.content_type == ContentType.OPERATOR:
+                for lm_id in self.landmarks2.landmarks:
+                    if not lm_id in visited:
+                        queue.append(lm_id)
+            elif node.content_type == ContentType.METHOD:
+                for lm_id in self.landmarks.landmarks:
+                    if not lm_id in visited:
+                        queue.append(lm_id)
+                
     #debug stuff
     def testing_landmark(self):
         self.andor_graph2 = AndOrGraph(None, top_down=True, debug=True)

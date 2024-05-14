@@ -12,5 +12,5 @@ Reading input from domain-p01.psas.
 - Instance has unique paths: yes
 - Instance is parallel sequences: yes
 Calculating preconditions and effects of compound tasks... 
-- Inference time 0 seconds 
+- Inference time 0.001 seconds 
 writing input problem to file
