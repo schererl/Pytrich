@@ -1,7 +1,7 @@
 from .heuristic import Heuristic
 from ..model import Operator, AbstractTask
 from ..utils import UNSOLVABLE
-from .landmarks.and_or_graphs import AndOrGraph, NodeType
+from .landmarks.and_or_graphs import AndOrGraph, NodeType, ContentType
 from .landmarks.sccs import SCCDetection
 from .landmarks.landmark import Landmarks, LM_Node
 from ..search.htn_node import AstarLMNode
@@ -20,16 +20,19 @@ class LandmarkHeuristic(Heuristic):
         self.exit_count = 0
         self.exit_limit = 1
         
-    def compute_heuristic(self, model, parent_node, node):
+    def compute_heuristic(self, model, parent_node, node, debug=False):
         assert type(node) == AstarLMNode
-        
+        if debug:
+            self.testing_landmark()
         if not parent_node:
-            self.andor_graph = AndOrGraph(model)
-            #self.sccs = SCCDetection(AndOrGraph(model, use_landmarks=False))
+            self.landmarks2   = Landmarks(AndOrGraph(model, top_down=True))
+            self.landmarks2.top_down_lms()
+            
+            self.andor_graph = AndOrGraph(model, top_down=False)
             node.lm_node     = LM_Node(len(self.andor_graph.nodes))
             self.landmarks   = Landmarks(self.andor_graph)
             self.landmarks.generate_lms()
-            
+
             # initialize goal fact lms
             for fact_pos in range(len(bin(model.goals))-2):
                 if model.goals & (1 << fact_pos):
@@ -44,11 +47,35 @@ class LandmarkHeuristic(Heuristic):
             for t in node.task_network:
                 node.lm_node.update_lms(self.landmarks.landmarks[t.global_id])
             
-            # print(f'landmarks:\n {node.lm_node}')
-            # binary_representation = bin(node.lm_node.lms)[2:][::-1]
-            # for lm_id, lm_val in enumerate(binary_representation):
-            #     if lm_val == '1':
-            #         print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            binary_representation = bin(node.lm_node.lms)[2:][::-1]
+            for lm_id, lm_val in enumerate(binary_representation):
+                if lm_val == '1':
+                    andor_node = self.andor_graph.nodes[lm_id]
+                    if andor_node.content_type == ContentType.OPERATOR or andor_node.content_type == ContentType.FACT:
+                        #print(f'node {andor_node}\n\tadding lms {[self.andor_graph.nodes[lm] for lm in self.landmarks2.landmarks[lm_id]]}')
+                        #node.lm_node.update_lms(self.landmarks2.landmarks[lm_id])
+                        pass
+                        
+            print(f'landmarks:\n {node.lm_node}')
+            binary_representation = bin(node.lm_node.lms)[2:][::-1]
+            for lm_id, lm_val in enumerate(binary_representation):
+                if lm_val == '1':
+                    print(f'lm: {self.andor_graph.nodes[lm_id]}')
+
+            print(f'\nSTACK b1 b2 top-down landmarks:')
+            for lm_id in self.landmarks2.landmarks[39]:
+                print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            
+            print(f'\nm4_do_move_22 landmarks:')
+            for lm_id in self.landmarks.landmarks[84]:
+                print(f'lm: {self.andor_graph.nodes[lm_id]}')
+            
+            print(f'\npickmup_b1_ landmarks:')
+            for lm_id in self.landmarks2.landmarks[47]:
+                print(f'lm: {self.andor_graph.nodes[lm_id]}')
+
+            
+            
 
         else:
             node.lm_node = LM_Node(len(self.andor_graph.nodes), parent=parent_node.lm_node)
@@ -56,24 +83,50 @@ class LandmarkHeuristic(Heuristic):
             node.lm_node.mark_lm(node.task.global_id)
             # in case there is a change in the state:
             if type(node.task) is Operator:
-                for fact_pos in range(len(bin(node.state))-2):
+                for fact_pos in range(len(bin(node.task.add_effects_bitwise))-2):
                     if node.state & (1 << fact_pos) and ~parent_node.state & (1 << fact_pos):
                         node.lm_node.mark_lm(fact_pos)
             else: #otherwise mark the decomposition
                 node.lm_node.mark_lm(node.decomposition.global_id)
 
-        
+        #print(node.lm_node)
+        #exit()
         return node.lm_node.lm_value()
     
+    #debug stuff
+    def testing_landmark(self):
+        self.andor_graph2 = AndOrGraph(None, top_down=True, debug=True)
+        self.landmarks2   = Landmarks(self.andor_graph2)
+        self.landmarks2.top_down_lms()
+        
+        self.andor_graph = AndOrGraph(None, top_down=False, debug=True)
+        self.landmarks   = Landmarks(self.andor_graph)
+        self.landmarks.generate_lms()
+        
+        print(f'here')
+        for node in self.andor_graph.nodes:
+            node_id = node.ID
+            print(f'{self.andor_graph.nodes[node_id]}')
+            lms = self.landmarks.landmarks[node_id]
+            inv_lms = self.landmarks2.landmarks[node_id]
+            for lm_id in lms:
+                print(f'\tlm {self.andor_graph.nodes[lm_id]}')
+            for invlm_id in inv_lms:
+                print(f'\tINV lm {self.andor_graph.nodes[invlm_id]}')
+        exit()
+
+
+
+
     # debug stuff
     def print_lm_pred(self, node):
         print(f'node: {self.andor_graph.nodes[node.ID]}({node.ID})')
         for lm_id in self.landmarks.landmarks[node.ID]:
             print(f'\t{self.andor_graph.nodes[lm_id]}')
-            # for succ in node.predecessors:
-            #     print(f'\t\t succ {succ}')
-            #     for lm_id in self.landmarks.landmarks[succ.ID]:
-            #         print(f'\t\t\t{self.andor_graph.nodes[lm_id]}')
+            for succ in node.predecessors:
+                print(f'\t\t succ {succ}')
+                for lm_id in self.landmarks.landmarks[succ.ID]:
+                    print(f'\t\t\t{self.andor_graph.nodes[lm_id]}')
 
     # def check_reachability(self):
     #     reachable_nodes = deque()

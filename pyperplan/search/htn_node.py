@@ -4,10 +4,6 @@ from ..model import Operator
 NOTE: Im using Strategy pattern because I observe there is a significant difference
 for searching time when we avoid 'if then else' selections, which in our case
 was the '__lt__' function that changes when we are using a_star or not.
-
-Moreover, also makes a considerable difference when we avoid function calls, so we only
-define the __lt__ function, without creating new __init__ functions and 'super()'
-calls...
 '''
 class HTNNode:
     def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
@@ -74,7 +70,6 @@ class HTNNode:
 
 class AstarNode(HTNNode):
     def __lt__(self, other):
-        
         if self.f_value ==  other.f_value:
             if self.h_value == other.h_value:
                 return self.seq_num < other.seq_num
