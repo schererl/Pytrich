@@ -32,10 +32,8 @@ from .parser.parser import Parser
 from .grounder.full_grounding import FullGround
 from .grounder.TDG_grounding import TDGGround
 from .grounder.pandaGround import pandaGrounder
-from .heuristics.task_decomposition_heuristic import TaskDecompositionHeuristic
+from .heuristics.tdg_heuristic import TaskDecompositionHeuristic
 from .heuristics.blind_heuristic import BlindHeuristic
-from .heuristics.fact_count_heuristic import FactCountHeuristic
-from .heuristics.task_count_heuristic import TaskCountHeuristic
 from .heuristics.lm_heuristic import LandmarkHeuristic
 
 
@@ -50,8 +48,6 @@ SEARCHES = {
 }
 
 HEURISTICS = {
-    "TaskCount": TaskCountHeuristic,
-    "FactCount": FactCountHeuristic,
     "Blind"    : BlindHeuristic,
     "TaskDecomposition": TaskDecompositionHeuristic,
     "Landmarks": LandmarkHeuristic

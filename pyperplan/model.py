@@ -86,7 +86,7 @@ class Operator:
         return  self.hash_name
 
     def __str__(self):
-        return "OP( %s )" % self.name
+        return f"OP({self.name} {bin(self.pos_precons_bitwise)} {bin(self.neg_precons_bitwise)})"
         s = "OPERATOR %s: " % self.name
         #s+= "pre: %s" % self.preconditions
         
@@ -268,10 +268,27 @@ class Model:
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []
-        self._assign_global_ids() # important for defining a global id for identifying facts, operators, abstract tasks, and decompositions
+        #self._assign_global_ids() # important for defining a global id for identifying facts, operators, abstract tasks, and decompositions
         
-    def _assign_global_ids(self):
         #for simplification facts already have their global ids being the same as their state positions
+        self._fix_initial_task_network()
+    
+    # TODO: CHANGE GAMBIARRA
+    def _fix_initial_task_network(self):
+        self.initial_tn = self.initial_tn [0].decompositions[0].task_network #specific for panda grounder
+        for d in self.decompositions:
+            if "x__top_method_0" in d.name:
+                self.decompositions.remove(d)
+                break
+        for t in self.abstract_tasks:
+            if "x__top__" in t.name:
+                self.abstract_tasks.remove(t)
+                break
+        
+        
+        
+
+    def assign_global_ids(self):
         next_id = len(self.facts)
         for o in self.operators:
             o.global_id = next_id

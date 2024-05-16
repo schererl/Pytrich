@@ -1,13 +1,13 @@
 Random seed: 42
 Time limit: 1800 seconds
-Reading input from domain-p01.psas.
-- State has 30 bits divided into 30 mutex groups.
-- Domain contains 44 actions.
-- Domain contains 59 tasks.
-- Domain contains 34 methods.
-- The initial state contains 14 set bits.
+Reading input from domain-p04.psas.
+- State has 45 bits divided into 45 mutex groups.
+- Domain contains 103 actions.
+- Domain contains 154 tasks.
+- Domain contains 153 methods.
+- The initial state contains 12 set bits.
 - The initial task is "__top[]".
-- State-based goal contains 2 bits.
+- State-based goal contains 7 bits.
 - Instance is totally-ordered: yes
 - Instance has unique paths: yes
 - Instance is parallel sequences: yes

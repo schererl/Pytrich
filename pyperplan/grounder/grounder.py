@@ -29,7 +29,7 @@ from ..utils import LogicalOperator
 
 
 from ..model import Operator, Model, AbstractTask, Decomposition
-from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_rechability,pullup, correctness_check
+from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup, correctness_check
 
 # controls mass log output
 verbose_logging = False
@@ -102,10 +102,10 @@ class Grounder:
         # convert facts representation to bitwise
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
-        
         pullup(model)
-        del_relax_rechability(model) #NOTE: works only using bitwise representation
         
+        del_relax_reachability(model) #NOTE: works only using bitwise representation
+        model.assign_global_ids()
         return model
 
     def _create_type_map(self, objects):

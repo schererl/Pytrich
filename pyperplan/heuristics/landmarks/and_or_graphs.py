@@ -18,7 +18,7 @@ class ContentType(Enum):
 
 class AndOrGraphNode:
     def __init__(self, ID, node_type, content_type=ContentType.Nan, content="", weight=0, label=''):
-        self.ID = ID # equal to model's global id
+        self.ID = ID   # equal to model's global id
         self.type      = node_type
         self.weight    = weight
         self.successors   = []
@@ -28,7 +28,7 @@ class AndOrGraphNode:
         self.label = label
 
         self.content_type = content_type
-        self.content = content # equal to position into model's type of content
+        self.content = content  # equal to position into model's type of content
         
         
     def __str__(self):
@@ -37,15 +37,14 @@ class AndOrGraphNode:
         return f"<Node {self.ID} {self.label}>"
     
 class AndOrGraph:
-    # and_or nodes
     nodes = []
-    fact_nodes=[] #useful for using as starting point in landmarks
+    fact_nodes=[] #useful for using as landmark extraction starting point
     
     # graph variables
     init_node = None
     goal_node = None
     init_tn   = []
-    scc = None
+    scc = None # not working
     reachable_operators=[]
 
     i_node_set = set()
@@ -56,10 +55,7 @@ class AndOrGraph:
             self.initialize(model, top_down=top_down)
         else:
             self._and_or_test1(top_down)
-        #self.generate_cycle_blockworld_p0()
-        #exit()
-        #self.dot_output()
-    
+        
     def initialize(self, model, top_down=True):
         self.nodes = [None] * (len(model.facts) + len(model.operators) + len(model.abstract_tasks) + len(model.decompositions) + 2)
         self.init_node  = AndOrGraphNode(len(self.nodes)-2, NodeType.AND, label='INIT')
@@ -82,9 +78,10 @@ class AndOrGraph:
         for t_i, t in enumerate(model.abstract_tasks):
             task_node = AndOrGraphNode(t.global_id, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, content=t_i, weight=1, label='task: '+t.name)
             self.nodes[t.global_id]=task_node
+            
 
-        for task in model.initial_tn:
-            self.i_node_set.add(task.global_id)
+        # for task in model.initial_tn:
+        #     self.i_node_set.add(task.global_id)
 
         # set primitive tasks -operators
         for op_i, op in enumerate(model.operators):  
@@ -93,9 +90,6 @@ class AndOrGraph:
             
             for fact_pos in range(number_facts):
                 if op.pos_precons_bitwise & (1 << fact_pos):
-                    var_node = self.fact_nodes[fact_pos]
-                    self.add_edge(var_node, operator_node)
-                elif op.neg_precons_bitwise & (1 << fact_pos):
                     var_node = self.fact_nodes[fact_pos]
                     self.add_edge(var_node, operator_node)
                 
@@ -125,19 +119,15 @@ class AndOrGraph:
                 if d.pos_precons_bitwise & (1 << fact_pos):
                     fact_node = self.fact_nodes[fact_pos]
                     self.add_edge(fact_node, decomposition_node)
-                elif d.neg_precons_bitwise & (1 << fact_pos):
-                    fact_node = self.fact_nodes[fact_pos]
-                    self.add_edge(fact_node, decomposition_node)
+                
             
-        # erase predecessors from initial facts (they are already achieved predecessors lms doesen't matter)
-        #if top_down:
+
+        # erase predecessors from initial facts
         for i_node in self.i_node_set:
             node = self.nodes[i_node]
-            for pred in node.predecessors:
+            for pred in node.predecessors[:]: #NOTE: use the '[:]' to avoid changing the list while iterating it
                 self.remove_edge(pred, node)
                 
-        
-        self.dot_output()
             
     def add_edge(self, nodeA, nodeB):
         nodeA.successors.append(nodeB)
@@ -147,18 +137,25 @@ class AndOrGraph:
         nodeA.successors.remove(nodeB)
         nodeB.predecessors.remove(nodeA)
     
+    # utils function
+    def search_node_id(self, string_label):
+        for n in self.nodes:
+            if string_label in n.label:
+                return n.ID
+        return -1
+    
     #debug function
     def dot_output(self):
         import graphviz
 
         dot = graphviz.Digraph('AndOrGraph', format='svg')
-        dot.attr(rankdir='LR')  # Left to Right, instead of Top to Bottom
-        dot.attr(splines='polyline')  # This makes edges straight and less overlapping
+        dot.attr(rankdir='LR')  
+        dot.attr(splines='polyline')
 
         for node in self.nodes:
             if node is None:
                 continue
-            shape = 'circle' if node.type == NodeType.OR else 'box'  # 'box' is used instead of 'square'
+            shape = 'circle' if node.type == NodeType.OR else 'box' 
             dot.node(str(node.ID), label=node.label, shape=shape)
 
         for node in self.nodes:
@@ -167,37 +164,47 @@ class AndOrGraph:
             for succ in node.successors:
                 dot.edge(str(node.ID), str(succ.ID))
 
-        dot.render('andorgraph', cleanup=True)  # Save and render the graph as SVG
+        dot.render('andorgraph', cleanup=True)  
         print("Graph image saved as andorgraph.svg")
 
-    
-    def generate_cycle_blockworld_p0(self):
+    # useful when cycle seems problematic
+    def generate_cycle_blockworld_p2(self):
         import graphviz
-        m7_do_clear = self.search_node_id("m7_do_clear")
-        m4_do_move_3 = self.search_node_id("m4_do_move_3")
-        m5_do_move_4 = self.search_node_id("m5_do_move_4")
-        unstack_b1_b2 = self.search_node_id("unstack_b1_b2")
-
-        p1, p1_nodes       = self.find_path(m7_do_clear, m4_do_move_3)
-        revp1, revp1_nodes = self.find_path(m4_do_move_3, m7_do_clear)
-        p2, p2_nodes = self.find_path(m7_do_clear, m5_do_move_4)
-        revp2, revp2_nodes = self.find_path(m5_do_move_4, m7_do_clear)
-        p3, p3_nodes = self.find_path(unstack_b1_b2, m7_do_clear)
-        revp3, revp3_nodes = self.find_path(m7_do_clear, unstack_b1_b2)
-        p4, p4_nodes = self.find_path(unstack_b1_b2, m5_do_move_4)
-        revp4, revp4_nodes = self.find_path(m5_do_move_4, unstack_b1_b2)
-
-        print(p1)
-        print(revp1)
-        print(p2)
-        print(revp2)
+        stack_b7_b4_ = self.search_node_id("op: stack_b7_b4_")
+        putmdown_b4_ = self.search_node_id("putmdown_b4_")
+        do_put_on_b7_b4_ = self.search_node_id("do_put_on_b7_b4_")
+        pholding_b4_     = self.search_node_id("pholding_b4_")
+        pclear_b4_       = self.search_node_id("pclear_b4_")
         
+        src_dest_lst =  [
+            (putmdown_b4_, do_put_on_b7_b4_),
+            (stack_b7_b4_, do_put_on_b7_b4_),
+            (stack_b7_b4_, putmdown_b4_),
+            (putmdown_b4_, stack_b7_b4_),
+            (do_put_on_b7_b4_, pholding_b4_),
+            (pholding_b4_, do_put_on_b7_b4_),
+            (putmdown_b4_, pholding_b4_),
+            (pholding_b4_, putmdown_b4_),
+            (pclear_b4_, stack_b7_b4_),
+            (stack_b7_b4_, pclear_b4_)
+        ]
 
-        dot = graphviz.Digraph('CyclePathBlocks00', format='svg')
+        path_results = []
+        for src, dest in src_dest_lst:
+            path_results.append(self.find_path(src, dest))
+
+
+        nodes_set = set()
+        edges_set = set()
+        for path, nodes in path_results:
+            nodes_set.update(set(nodes))
+            edges_set.update(set(path))
+        
+        dot = graphviz.Digraph('CyclePathBlocks02', format='svg')
         dot.attr(rankdir='LR')  
         dot.attr(splines='polyline')
         
-        nodes_set = set(p1_nodes+revp1_nodes+p2_nodes+revp2_nodes+p3_nodes+revp3_nodes+p4_nodes+revp4_nodes)
+        
         for node_id in nodes_set:
             node = self.nodes[node_id]
             if node is None:
@@ -205,19 +212,20 @@ class AndOrGraph:
             shape = 'circle' if node.type == NodeType.OR else 'box'
             dot.node(str(node.ID), label=node.label, shape=shape)
 
-        set_edges = set(p1+revp1+p2+revp2+p3+revp3+p4+revp4)
-        for edges in set_edges:
+        
+        for edges in edges_set:
             dot.edge(str(edges[0]), str(edges[1]))
-        dot.render('Cycle/CyclePathBlocks00', cleanup=True)
+        dot.render('Cycle/CyclePathBlocks02', cleanup=True)
         print("Graph image saved as andorgraph.svg")
-    
+
+    # useful to find shortes paths
     def find_path(self, from_node_id, to_node_id):
         queue = deque()
         queue.append(self.nodes[from_node_id])
         visited = set()
         
         parent = [None] * len(self.nodes)
-        #print(f'{self.nodes[from_node_id]} ==> {self.nodes[to_node_id]}')
+        print(f'{self.nodes[from_node_id]} ==> {self.nodes[to_node_id]}')
         while queue:
             node = queue.popleft()
             visited.add(node)
@@ -236,9 +244,10 @@ class AndOrGraph:
                     return path, path_nodes
                 queue.append(succ)
                 parent[succ.ID] = node.ID
-        print('not found it')
+        print(f'PATH NOT FOUND FROM {from_node_id} to {to_node_id}')
         return [], []
 
+    # graphviz visualization to debug landmark extraction
     def dot_output_step(self, current_node=None, successors=None, visited=None, new_landmarks=None, existing_landmarks=None):
         import graphviz
         self.counter +=1
@@ -269,7 +278,6 @@ class AndOrGraph:
             dot.node(str(node.ID), label=node.label, shape=shape, style=style, fillcolor=color)
 
             
-        
         for node in self.nodes:
             if node is None or not node.successors:
                 continue
@@ -279,15 +287,6 @@ class AndOrGraph:
         filename = f'bottomupoutputs3/graph_{self.counter}'
         dot.render(filename, cleanup=True)
         print(f"Graph image saved as {filename}.svg")
-
-    
-    
-    # utils function
-    def search_node_id(self, string_label):
-        for n in self.nodes:
-            if string_label in n.label:
-                return n.ID
-        return -1
 
     def _and_or_test2(self, use_landmarks):
         '''

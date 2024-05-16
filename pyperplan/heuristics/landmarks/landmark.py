@@ -41,7 +41,7 @@ class LM_Node:
 class Landmarks:
     def __init__(self, and_or_graph):
         self.and_or_graph = and_or_graph
-        self.landmarks = [set()] * len(self.and_or_graph.nodes)
+        self.landmarks    = [set()] * len(self.and_or_graph.nodes)
         
     # generate landmarks starting ate free facts
     # stop when no landmarks can be created
@@ -66,16 +66,14 @@ class Landmarks:
 
     def top_down_lms(self):
         queue = deque([self.and_or_graph.nodes[node_id] for node_id in self.and_or_graph.i_node_set])
-        print(queue)
-        
         dot_visited = set()
         while queue:
             node = queue.popleft()
-            new_landmarks= set()
-            dot_visited |= {node.ID}
-            dot_successors = {succ.ID for succ in node.successors}
-            dot_newlms = {}
-            dot_existinglms = {}
+            new_landmarks   = set()
+            dot_visited    |= {node.ID}
+            # dot_successors  = {succ.ID for succ in node.successors}
+            # dot_newlms      = {}
+            # dot_existinglms = {}
             
             if node.content_type == ContentType.OPERATOR and node.predecessors:
                 possible_method_landmarks = []
@@ -89,8 +87,6 @@ class Landmarks:
                 if possible_method_landmarks:
                     new_landmarks = set.intersection(*(i for i in possible_method_landmarks)) 
                     
-                #new_landmarks|= forced_landmarks
-
             elif node.type == NodeType.OR and node.predecessors:
                 new_landmarks = set.intersection(*(self.landmarks[pred.ID] for pred in node.predecessors))
             elif node.type == NodeType.AND and node.predecessors:
@@ -98,13 +94,12 @@ class Landmarks:
             
             new_landmarks|= {node.ID}
             
-            # not sure if this terminates
+            # NOTE: need proof on termination
             if  new_landmarks != self.landmarks[node.ID]:
-                dot_existinglms = self.landmarks[node.ID]
-                dot_newlms = new_landmarks - self.landmarks[node.ID]
                 self.landmarks[node.ID] = new_landmarks
 
-                #if "m7_do_clear_8" in node.label or "op:stack_b1_b2" in node.label or "m5_do_move_4" in node.label or "m4_do_move_3" in node.label:
+                #dot_existinglms = self.landmarks[node.ID]
+                #dot_newlms = new_landmarks - self.landmarks[node.ID]
                 # self.and_or_graph.dot_output_step(
                 #     current_node=node.ID, 
                 #     successors=dot_successors, 
@@ -116,12 +111,17 @@ class Landmarks:
                 for succ in node.successors:
                     if all(len(self.landmarks[pred.ID])!=None for pred in succ.predecessors):
                         queue.append(succ)
-        
-if __name__ == '__main__':
-    graph = AndOrGraph(None, debug=True)  # Ensure correct initialization
-    lm = Landmarks(graph)
-    lm.generate_lms()
-    for node_id, lms in enumerate(lm.landmarks):
-        print(f"node{node_id} {lm.nodes[node_id]}")
-        for lm_id in lms:
-            print(f"\tlm {lm.nodes[lm_id]}")
+    # UTILITARY
+    def print_landmarks(self, node_id):
+        print(f'SPECIFIC landmarks of {self.and_or_graph.nodes[node_id]}')
+        for lm in self.landmarks[node_id]:
+            print(f'\tlm: {self.and_or_graph.nodes[lm]}')
+
+# if __name__ == '__main__':
+#     graph = AndOrGraph(None, debug=True)  # Ensure correct initialization
+#     lm = Landmarks(graph)
+#     lm.generate_lms()
+#     for node_id, lms in enumerate(lm.landmarks):
+#         print(f"node{node_id} {lm.nodes[node_id]}")
+#         for lm_id in lms:
+#             print(f"\tlm {lm.nodes[lm_id]}")

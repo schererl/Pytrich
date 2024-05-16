@@ -29,7 +29,7 @@ def clean_tdg(
     """
     Compresses the model representation to optimize memory usage and performance.
 
-    simple TDG cleaning: It filters out unachivabçe operators and decompositions based on the initial task network,
+    simple TDG cleaning: It filters out unachieved operators and decompositions based on the initial task network,
     and updates the model with only the necessary elements.
     It also logs the memory usage before and after the compression for profiling purposes.
     """
@@ -194,95 +194,78 @@ def convert_bitwise_repr(model):
         d.neg_precons = frozenset()
 
 #TODO:  fixing it 
-def del_relax_rechability(model):
+def del_relax_reachability(model):
     """
     Performs delete relaxation to identify reachable operators, tasks, and decompositions.
-    It iteratively prunes elements not rechable from the TDG.
+    It iteratively prunes elements not reachable from the task decomposition graph.
 
-    **UNDER DEVELOPMENT**
     Args:
         model (Model): The planning model to optimize.
     """
-    count_op_before     = len(model.operators)
-    count_decomp_before = len(model.decompositions)
-    count_abs_task_before = len(model.abstract_tasks)
+    initial_op_len = len(model.operators)
+    initial_decomp_len = len(model.decompositions)
+    initial_task_len = len(model.abstract_tasks)
 
-    removed_tasks = set()
+    removed_tasks     = set()
     removed_operators = set()
+    initial_operators = {op for op in model.initial_tn if isinstance(op, Operator)} #in case there are operators into the initial task network
     # TODO: problem here is to updated used_operators based on TDG, it generates invalid plans
     changed=True
     while changed:
         changed=False
-        used_operators, positive_facts = _reachable_operators(model, model.initial_state)
+        reachable_ops, positive_facts = _reachable_operators(model, model.initial_state)
         
-        #print(model.print_binary_state_info(positive_facts))    
-        htn_reachable_operators = set()
-        removed_operators |= set(model.operators) - used_operators
-
-        
-        for t in model.abstract_tasks:
+        htn_reachable_operators = set(initial_operators)
+        removed_operators |= set(model.operators) - reachable_ops
+        for t in model.abstract_tasks[:]:
             if t in removed_tasks:
                 continue
-            d_removal = False
+
             
-            # decompositions can be pruned due to not satisfying positive preconditions and some subtask removed
+            # NOTE: remove decompositions: (1) not applicable (2) containing removed subtask
+            d_removal = False  # indicate if at least one decomposition 'd' was removed from task 't' 
             for d in t.decompositions:
-                if not model.applicable(d, positive_facts):
+                if not model.applicable(d, positive_facts) or any(subtask in removed_operators or subtask in removed_tasks for subtask in d.task_network):
+                # if not model.applicable(d, positive_facts):
                    t.decompositions.remove(d)
                    d_removal=True
-                   continue 
-                
-                for subt in d.task_network:
-                    # if subtask was removed, removed the decomposition from the task
-                    if subt in removed_operators or subt in removed_tasks:
-                        t.decompositions.remove(d)
-                        d_removal=True
-                        break  # decomposition removed, there is no d anymore
+            
             if d_removal and len(t.decompositions) == 0:
                 removed_tasks.add(t)
                 model.abstract_tasks.remove(t)
             
-        rechable_decompositions = set()
+        reachable_decompositions = set()
         for t in model.abstract_tasks:
             if t in removed_tasks:
                continue
             for d in t.decompositions:
-                rechable_decompositions.add(d)
+                reachable_decompositions.add(d)
                 for subt in d.task_network:
                     if isinstance(subt, Operator) and not subt in removed_operators:
                         htn_reachable_operators.add(subt)
                     
-        rechable_tasks = set(model.abstract_tasks) -  removed_tasks
-        logging.info(f" op ({len(model.operators)}=>{len(htn_reachable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(rechable_tasks)})|decompo ({len(model.decompositions)}=>{len(rechable_decompositions)})")
-        if len(rechable_tasks) != len(model.abstract_tasks) or len(htn_reachable_operators) != len(model.operators) or len(model.decompositions) != len(rechable_decompositions):
+        reachable_tasks = set(model.abstract_tasks) -  removed_tasks
+        logging.info(f" op ({len(model.operators)}=>{len(htn_reachable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(reachable_tasks)})|decompo ({len(model.decompositions)}=>{len(reachable_decompositions)})")
+        if len(reachable_tasks) != len(model.abstract_tasks) or len(htn_reachable_operators) != len(model.operators) or len(model.decompositions) != len(reachable_decompositions):
             model.operators = list(htn_reachable_operators)  
-            model.decompositions = list(rechable_decompositions)
-            model.abstract_tasks = list(rechable_tasks) 
+            model.decompositions = list(reachable_decompositions)
+            model.abstract_tasks = list(reachable_tasks) 
             changed=True
             
-        
-    count_op_after     = len(model.operators)
-    count_decomp_after = len(model.decompositions)
-    count_abs_task_after = len(model.abstract_tasks)
-
-    logging.info(f"DELETE RECHABILITY (operators, decompositions, tasks) ({count_op_before},{count_decomp_before},{count_abs_task_before}) ==> ({count_op_after}, {count_decomp_after}, {count_abs_task_after})")
-    correctness_check(model)
+    logging.info(f"Delete Relaxation Reachability: Operators {initial_op_len} to {len(model.operators)}, Decompositions {initial_decomp_len} to {len(model.decompositions)}, Tasks {initial_task_len} to {len(model.abstract_tasks)}")    #correctness_check(model)
                 
 def _reachable_operators(model, initial_facts):
     reachable_operators = set()
     reachable_facts = initial_facts
     changed = True
-
     while changed:
         changed = False
         valid_operators = set(model.operators) - reachable_operators
         for op in valid_operators:
-        # for op in model.operators:
             if not op in reachable_operators and model.applicable(op, reachable_facts):
                 reachable_operators.add(op)
                 reachable_facts = op.relaxed_apply_bitwise(reachable_facts)
                 changed = True
-                
     return reachable_operators, reachable_facts
 
 
@@ -374,47 +357,5 @@ def pullup(model):
             changed=True    
         logging.info(f"it ({iterations}) Pullup Op {count_op_pus} Pullup Methods {count_m_pus} Pullup Tasks {count_t_pus}")
     logging.info(f'Pullup ended')
-
-
-def ascend_first_task_precons(model):
-    #index_op_ascended = [0 for i in range len()]
-    import time
-    for d in model.decompositions:
-        #if True:
-        if len(d.task_network) == 0:
-            continue
-        
-        first_task = d.task_network[0]
-        precons_intersection = 0
-        if type(first_task) is Operator:
-            precons_intersection = first_task.pos_precons_bitwise - (d.pos_precons_bitwise & first_task.pos_precons_bitwise)
-            d.pos_precons_bitwise |= first_task.pos_precons_bitwise
-            if precons_intersection > 0:
-                print(f'Some refinement at {d.name} with {first_task.name} \n\t {bin(precons_intersection)}')
-        else:
-            abstract_task_intersecions = first_task.decompositions[0].pos_precons_bitwise
-            for d2 in first_task.decompositions:
-                abstract_task_intersecions = abstract_task_intersecions & d2.pos_precons_bitwise
-            
-            #d.pos_precons_bitwise |= abstract_task_intersecions
-            if abstract_task_intersecions > 1:
-                print(f'Some refinement at {d.name} with {first_task.name} \n\t {bin(abstract_task_intersecions)}')
-
-        if precons_intersection == 0 or len(d.task_network)<=1:
-            continue
-
-        second_task = d.task_network[1]
-        if type(first_task) is Operator and type(second_task) is Operator:
-            unsolved_precons = second_task.pos_precons_bitwise & ~(second_task.pos_precons_bitwise & first_task.add_effects_bitwise)
-            second_task_intersec = unsolved_precons & ~(d.pos_precons_bitwise & unsolved_precons)
-            #d.pos_precons_bitwise |= second_task.pos_precons_bitwise
-            if second_task_intersec > 0:
-                print(f'\t\t\t\tMore refinement at {d.name} with {first_task.name} \n\t {bin(second_task_intersec)}')
-                time.sleep(5)
-        
-
-        
-
-    
     
         
