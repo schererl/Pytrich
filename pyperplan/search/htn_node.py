@@ -30,7 +30,7 @@ class HTNNode:
         solution = []
         operators = []
         while self.parent is not None:
-            if isinstance(self.task, Operator) and not "method_precondition" in self.task.name :
+            if isinstance(self.task, Operator):
                 operators.append(self.task)
             else:
                 solution.append(self.decomposition)
