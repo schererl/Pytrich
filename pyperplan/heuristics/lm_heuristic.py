@@ -14,27 +14,22 @@ import time
 class LandmarkHeuristic(Heuristic):
     def __init__(self):
         super().__init__()
-        self.andor_graph = None
-        self.sccs = None # not working
         self.landmarks = None
-        self.exit_count = 0
-        self.exit_limit = 1
+        self.sccs = None # not working
         
     def compute_heuristic(self, model, parent_node, node, debug=False):
         assert type(node) == AstarLMNode
         # if debug:
         #     self.testing_landmark()
         if not parent_node:
-            self.andor_graph = AndOrGraph(model, top_down=False)
-            node.lm_node     = LM_Node(len(self.andor_graph.nodes))
-            self.landmarks   = Landmarks(self.andor_graph)
-            self.landmarks.generate_lms()
-            
-            self.landmarks2   = Landmarks(AndOrGraph(model, top_down=True))
-            self.landmarks2.top_down_lms()
-            node.lm_node.update_lms(self.bidirectional_lms(model, node.state, node.task_network))
+            #self.andor_graph = AndOrGraph(model, top_down=False)
+            self.landmarks   = Landmarks(model)
+            node.lm_node     = LM_Node(self.landmarks.len_landmarks)
+            self.landmarks.bottom_up_lms()
+            self.landmarks.top_down_lms()
+            node.lm_node.update_lms(self._bidirectional_lms(model, node.state, node.task_network))
         else:
-            node.lm_node = LM_Node(len(self.andor_graph.nodes), parent=parent_node.lm_node)
+            node.lm_node = LM_Node(self.landmarks.len_landmarks, parent=parent_node.lm_node)
             # mark last reached task (also add decomposition here)
             node.lm_node.mark_lm(node.task.global_id)
             
@@ -45,12 +40,22 @@ class LandmarkHeuristic(Heuristic):
                         node.lm_node.mark_lm(fact_pos)
             else: #otherwise mark the decomposition
                 node.lm_node.mark_lm(node.decomposition.global_id)
+        
+        # print(f'lms not fullyfilled:\n {node.lm_node}')
+        # str_binlms = bin(node.lm_node.lms)[2:][::-1]
+        # str_binreachlms = bin(node.lm_node.mark)[2:][::-1]
+        # for lm_pos, lm_val in enumerate(str_binlms):
+        #     if lm_val == '1':
+        #         print(f"lm: {lm_val} {str_binreachlms[lm_pos] if len(str_binreachlms) > lm_pos else '0'} {self.andor_graph.nodes[lm_pos]}")
+        
         return node.lm_node.lm_value()
     
-    def bidirectional_lms(self, model, state, task_network):
+    def _bidirectional_lms(self, model, state, task_network):
         """
-        Precompute bidirectional landmarks for initial task network considering both top-down and bottom-up approaches.
-
+        Combination of bottom-up landmarks w/ top-down landmarks:
+            - refine operators found by bottom-up landmarks using top-down landmarks
+            - refine methods found by top-down landmarks using bottom-up landamrks
+            - repeat until exausting every possible refinment 
         Args:
             model (Model): The planning model.
             state (int): Bitwise representation of the current state.
@@ -59,32 +64,32 @@ class LandmarkHeuristic(Heuristic):
         Returns:
             set: Set of computed landmarks.
         """
-        landmarks = set()
+        bid_landmarks = set()
         visited   = set()
         queue     = deque()
         # Precompute landmarks based on the initial state and goal conditions
         for fact_pos in range(len(bin(model.goals))-2):
             if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
-                for lm in self.landmarks.landmarks[fact_pos]:
-                    landmarks.add(lm)
+                for lm in self.landmarks.bu_landmarks[fact_pos]:
+                    bid_landmarks.add(lm)
             if state & (1 << fact_pos):
-                landmarks.add(fact_pos)
+                bid_landmarks.add(fact_pos)
+        
         # Add landmarks related to each task in the task network
         for t in task_network:
-            self.landmarks.print_landmarks(t.global_id)
-            for lm in self.landmarks.landmarks[t.global_id]:
-                landmarks.add(lm)
+            for lm in self.landmarks.bu_landmarks[t.global_id]:
+                bid_landmarks.add(lm)
         
-        for lm in landmarks:
-            node = self.andor_graph.nodes[lm]
+        for lm in bid_landmarks:
+            node = self.landmarks.bu_AND_OR.nodes[lm]
             if node.content_type == ContentType.OPERATOR:
                 queue.append(node.ID)
             else:
                 visited.add(node.ID)
         
-        # print(f'\n\nbottom-up landmarks')
-        # for lm in landmarks:
-        #     print(self.andor_graph.nodes[lm])
+        # print(f'\n\nbottom-up landmarks {len(bid_landmarks)}')
+        # for lm in bid_landmarks:
+        #     print(self.landmarks.bu_AND_OR.nodes[lm])
         
         while queue:
             node_id = queue.popleft()
@@ -92,19 +97,20 @@ class LandmarkHeuristic(Heuristic):
                 continue
             
             visited.add(node_id)
-            landmarks.add(node_id)
-            node = self.andor_graph.nodes[node_id]
+            bid_landmarks.add(node_id)
+            node = self.landmarks.bu_AND_OR.nodes[node_id]
             if node.content_type == ContentType.OPERATOR:
-                for lm_id in self.landmarks2.landmarks[node.ID]:
+                for lm_id in self.landmarks.td_landmarks[node.ID]:
                     if not lm_id in visited:
                         queue.append(lm_id)
             elif node.content_type == ContentType.METHOD:
-                for lm_id in self.landmarks.landmarks[node.ID]:
+                for lm_id in self.landmarks.bu_landmarks[node.ID]:
                     if not lm_id in visited:
                         queue.append(lm_id)
 
-        # print(f'\n\nbidirectional landmarks:')
-        # for lm in landmarks:
-        #     print(self.andor_graph.nodes[lm])
-        return landmarks
+        # print(f'\n\nbidirectional landmarks {len(bid_landmarks)}')
+        # for lm in bid_landmarks:
+        #     print(self.landmarks.bu_AND_OR.nodes[lm])
+        
+        return bid_landmarks
     
