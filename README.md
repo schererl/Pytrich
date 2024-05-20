@@ -1,74 +1,69 @@
-# ABOUT HTN PYPERPLAN
-extension of pyperplan for htn under development
+# About HTN Pyperplan
+This is an ongoing project for HTN planning. The project is inspired by Pyperplan base code, currently unnamed and under development.
 
-## DEBUG FEATURES
+**Contact:** scherer.victor98@gmail.com
 
-* There is a graphviz generator using the DOT_output.py (by now remove the comment '#' form dot call at the blind_search.py)
+## Execution Instructions
+Update and run the extension using the following commands:
 
-* Is possible to output the grounding instance in grounder.py, call function export_elements_to_txt
-
-* NO automated tests available yet
 
 ## Execution
-pip install --editable .
+> git submodule update
+> python3 -po <domain> <plan>
 
-python3 pyperplan/__main__.py benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
-
-
-# TODOS
-## UTILS TODOS
-- [x] (**ADD**)  GraphViz Visualization -jan24
-- [ ] (**ADD**)  Auto check plan validity with IPC23 results
-- [x] (**ADD**)  more IPC domains -feb26
-- [ ] (**ADD**)  Compute branching factor
-- [ ] (**ADD**) models's mem consumption
-- [ ] (**ADD**) flags - set heuristics type
-- [ ] (**ADD**) flags - set grounder type
-- [ ] (**ADD**) flags - set specific or all problems
-- [ ] (**ADD**) flags - set timeout grounder and solver
-
-## Heuristic TODOS
-- [ ] (**ADD**) IP/LP Heuristic
-- [ ] (**ADD**) TDG heursitic - panda
-- [ ] (**ADD**) HTN Landmarks - from Elkawkagy
-- [x] (**ADD**) TDG heuristic - simple -jan24
-- [x] (**ADD**) Goal count heuristics simple (fact and task) -jan24
-- [x] (**ADD**) Delete Relaxation heuristic -jan24
-
-## Parser TODOS
-- [ ] (**ADD**) ORDERINGS
-- [ ] (**ADD**) FORALL
-- [x] (**ADD**) CONSTANTS -feb26
-- [ ] (**MEMORY**) Variables from Methods and Actions paramaters should be unique and share addresses with effects, subtasks instances etc.
-- [ ] Improve parser (too confusing maybe change it completely)
+Example:
+    python3 pyperplan/__main__.py -po benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
 
 
-## Grounder TODOS
-- [x] (**ADD**) grounder's memory usage limit (only for TDG grounder) -feb26
-- [ ] (**OPT**) Type specialization
-- [x] (**OPT**) Pullup 04-fev
-- [ ] (**FIX**) TDG Grounder RecursionError exception for deep domains
-- [ ] (**MEMORY**) Remove lifted structures already grounded
-- [ ] (**MEMORY**) (**MODEL CHANGE**) Test if change Decomposition and AbstractTask, instead of pointing to objects in theirs subtasks and compound task, have the index to get into Model. The same for nodes with tasknetworks.
-- [x] (**MEMORY**) TDG Grounder
-- [x] (**EFFICIENCY**) Grounder post-processing TDG Rechability -jan24
-- [x] (**EFFICIENCY**) Grounder post-processing Delete Relaxation simpler version -feb12
-- [x] (**CORRECTNESS**) Grounder post-processing remove negative preconditions -jan24
-- [x] (**MEMORY**) Grounder post-processing convert facts into bitwise representation -jan24
+### Key Flags
+- **`-po`**: Use the PANDA grounder. The native parser and grounder have some software engineering problems, requiring a complete substitution.
+- **`-rb`**: Run benchmarks (`run_benchmarks.py`). Stability is uncertain; troubleshooting and potential fixes are encouraged if issues arise.
 
-## Domain TODOS
-- [ ] (**FIX**) Childsnack is not working, invalid solutions
-- [ ] (**ADD**) Woodworking: constants
-- [ ] (**ADD**) Freecell: ordering
-- [ ] (**ADD**) Snake: '=' sign without 'not', and forall
-- [ ] (**ADD**) Assembly Hierarchichal: ordering
-- [ ] (**ADD**) Blocksworld-HPDDL: forall
-- [ ] (**MODIF**) Check why Childsnack domain is not getting solutions
-- [ ] (**MODIF**) Remove the need for declaring explicitly parent types (e.j original Barman/Barman-BDI domains)
-- [ ] (**MODIF**) Some subtasks are in a different formula format, they doesn't have the 'key' only the subtask names (e.j Factories, Factories-simple)
-- [ ] (**COMPARE**) Transport domain with panda, why is it too hard for htn-pyperplan?
+## User Guidance
+Currently, the most effective heuristic is 'TaskDecomposition'. Development is underway for landmark extraction, which may soon provide additional heuristic options.
+
+## User advise
+
+Currently, the most effective heuristic is 'TaskDecomposition'. Development is underway for landmark extraction, which may soon provide more powerful heuristic options.
+
+- Be aware: landmarks is not admissible, so don't use it for optimal planning.
+- Benchmarks are a submodule from: https://github.com/schererl/htn-benchmarks
+- At the moment only **total order** planning works
+
+**Blind Search:** 
+```
+    python3 pyperplan/__main__.py -po -s Astar -H Blind benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+```
+
+**TaskDecomposition:** 
+```
+python3 pyperplan/__main__.py -po -s Astar -H TaskDecomposition benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+```
+
+**Landmarks:** 
+```
+python3 pyperplan/__main__.py -po -s Astar -H Landmarks benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+```
 
 
-* The problem with Factories was the empty subtasks. I changed the grounded to check if the subtasks contains None element, For now it works but latter it should create an empty list of subtasks only.
-* **TRANSPORT** almost impossible to solve (only the first problem solved)
 
+### About Grounder
+Grounding instantiates tasks, actions, and methods with constants, respecting type hierarchies for search applicability. 
+The PANDA grounder, 'pandaGround.py', is currently utilized alongside ongoing optimizations in 'optimize_model.py'. 
+There is significant potential for further enhancement in these optimizations.
+
+As mentioned before, the native parser and grounder is not working by now, and it has a poor software engineering, so Im not using it.
+
+# To-Do List
+### Parser/Grounder
+- [ ] (**FIX**) Develop a new HTN parser, possibly consulting Meneguzzi for an example. -Valid contribution
+- [ ] (**ADD**) Enhance grounding techniques and their post-processing. -Valid contribution
+
+### Search Improvements
+- [ ] (**ADD**) Implement loop detection and dead-end identification, see Maugnauano and Conny Olz's work. -Valid contribution
+
+### Heuristic Development
+- [ ] (**ADD**) Integrate IP/LP heuristic approaches (work in progress).
+- [ ] (**ADD**) Develop a TDG heuristic tailored for PANDA (work in progress).
+- [ ] (**ADD**) Explore HTN landmark heuristics, potentially adapting from Elkawkagy’s work (work in progress).
+- [ ] (**ADD**) Research and apply RC compilation strategies. -Valid contribution
