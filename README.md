@@ -8,9 +8,11 @@ Update and run the extension using the following commands:
 
 
 ## Execution
-> git submodule update
-> python3 -po <domain> <plan>
+```
+git submodule update
 
+python3 -po <domain> <problem>
+```
 Example:
     python3 pyperplan/__main__.py -po benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
 
@@ -22,17 +24,13 @@ Example:
 ## User Guidance
 Currently, the most effective heuristic is 'TaskDecomposition'. Development is underway for landmark extraction, which may soon provide additional heuristic options.
 
-## User advise
-
-Currently, the most effective heuristic is 'TaskDecomposition'. Development is underway for landmark extraction, which may soon provide more powerful heuristic options.
-
 - Be aware: landmarks is not admissible, so don't use it for optimal planning.
 - Benchmarks are a submodule from: https://github.com/schererl/htn-benchmarks
 - At the moment only **total order** planning works
 
 **Blind Search:** 
 ```
-    python3 pyperplan/__main__.py -po -s Astar -H Blind benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
+python3 pyperplan/__main__.py -po -s Astar -H Blind benchmarks/Blocksworld-GTOHP/domain.hddl benchmarks/Blocksworld-GTOHP/p10.hddl
 ```
 
 **TaskDecomposition:** 
