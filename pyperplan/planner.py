@@ -39,12 +39,10 @@ from .heuristics.lm_heuristic import LandmarkHeuristic
 
 from .search.astar_search import search as astar_search
 from .search.blind_search import search as blind_search
-from .search.partial_refinment_search import search as partial_refinment_search
 
 SEARCHES = {
     "Blind": blind_search,
-    "Astar": astar_search,
-    "Pref": partial_refinment_search
+    "Astar": astar_search
 }
 
 HEURISTICS = {

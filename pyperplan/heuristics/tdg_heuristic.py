@@ -2,8 +2,8 @@ from .heuristic import Heuristic
 from ..model import Operator
 
 class TaskDecompositionHeuristic(Heuristic):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, model):
+        super().__init__(model)
         self.visited = set()
 
     def _compute_tdg_values(self, task):
@@ -26,10 +26,10 @@ class TaskDecompositionHeuristic(Heuristic):
         task.h_val = heuristic_value
         return heuristic_value
 
-    def compute_heuristic(self, model, parent_node, node):
+    def compute_heuristic(self, parent_node, node):
         if parent_node:
             return sum([t.h_val for t in node.task_network])
         else:
-            h_sum = sum([self._compute_tdg_values(t) for t in model.initial_tn])
+            h_sum = sum([self._compute_tdg_values(t) for t in self.model.initial_tn])
             self.visited.clear()
             return h_sum

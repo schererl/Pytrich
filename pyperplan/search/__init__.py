@@ -17,4 +17,3 @@
 
 from .blind_search import search as blind_search
 from .astar_search import search as astar_search
-from .partial_refinment_search import search as partial_refinment_search

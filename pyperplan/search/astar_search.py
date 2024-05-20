@@ -13,16 +13,12 @@ import psutil
 from ..utils import UNSOLVABLE
 from .utils import create_result_dict
 from ..DOT_output import DotOutput
-from .htn_node import AstarNode, AstarLMNode
+from .htn_node import AstarNode
 
-def search(model, heuristic_type, node_type=AstarLMNode):
+def search(model, heuristic_type, node_type=AstarNode):
     graph_dot = DotOutput()
     print('Staring solver')
-    print(model)
-    time.sleep(1)
-    print(heuristic_type)
-    h = heuristic_type()
-    
+    h = heuristic_type(model)
     
     start_time   = time.time()  
     control_time = start_time
@@ -32,12 +28,10 @@ def search(model, heuristic_type, node_type=AstarLMNode):
     seq_num        = 0
     
     closed_list = {}
-    node  = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
-    node.h_value = h.compute_heuristic(model, None, node)
-    node.f_value = node.g_value + node.h_value
-
+    node  = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, h)
     h_sum = node.h_value
     initial_heuristic_value=node.h_value
+    
     #graph_dot.add_node(node, model)
     
     STATUS = ''
@@ -91,10 +85,8 @@ def search(model, heuristic_type, node_type=AstarLMNode):
             seq_num += 1
             new_state        = model.apply(task, node.state)
             new_task_network = node.task_network[1:]
-            new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1)
-            new_node.h_value = h.compute_heuristic(model, node, new_node)
-            new_node.f_value = new_node.g_value + new_node.h_value
-
+            new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1, h)
+            
             #graph_dot.add_node(new_node, model)
             #graph_dot.add_relation(new_node, ":APPLY:"+str(task.name))
             heapq.heappush(pq, new_node)
@@ -109,13 +101,12 @@ def search(model, heuristic_type, node_type=AstarLMNode):
 
                 seq_num += 1
                 new_task_network  = model.decompose(method)+node.task_network[1:]
-                new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value+1)
-                new_node.h_value  = h.compute_heuristic(model, node, new_node)
-                new_node.f_value  = new_node.g_value + new_node.h_value
-                
+                new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value+1, h)
+                heapq.heappush(pq, new_node)
+
                 #graph_dot.add_node(new_node, model)
                 #graph_dot.add_relation(new_node, ":DECOMPOSE:"+str(method.name)+str(model.count_positive_binary_facts(method.pos_precons_bitwise)))
-                heapq.heappush(pq, new_node)
+                
                 
         #graph_dot.close()
         closed_list[hash(node)]=node.g_value

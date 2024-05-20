@@ -4,7 +4,6 @@ from ..utils import UNSOLVABLE
 from .landmarks.and_or_graphs import AndOrGraph, NodeType, ContentType
 from .landmarks.sccs import SCCDetection
 from .landmarks.landmark import Landmarks, LM_Node
-from ..search.htn_node import AstarLMNode
 from collections import deque 
 import time
 '''
@@ -12,22 +11,21 @@ import time
     Check if goal node is reachable (set of facts)
 '''
 class LandmarkHeuristic(Heuristic):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, model):
+        super().__init__(model)
         self.landmarks = None
         self.sccs = None # not working
         
-    def compute_heuristic(self, model, parent_node, node, debug=False):
-        assert type(node) == AstarLMNode
+    def compute_heuristic(self, parent_node, node, debug=False):
         # if debug:
         #     self.testing_landmark()
         if not parent_node:
             #self.andor_graph = AndOrGraph(model, top_down=False)
-            self.landmarks   = Landmarks(model)
+            self.landmarks   = Landmarks(self.model)
             node.lm_node     = LM_Node(self.landmarks.len_landmarks)
             self.landmarks.bottom_up_lms()
             self.landmarks.top_down_lms()
-            node.lm_node.update_lms(self._bidirectional_lms(model, node.state, node.task_network))
+            node.lm_node.update_lms(self._bidirectional_lms(self.model, node.state, node.task_network))
         else:
             node.lm_node = LM_Node(self.landmarks.len_landmarks, parent=parent_node.lm_node)
             # mark last reached task (also add decomposition here)

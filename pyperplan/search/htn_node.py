@@ -6,19 +6,21 @@ for searching time when we avoid 'if then else' selections, which in our case
 was the '__lt__' function that changes when we are using a_star or not.
 '''
 class HTNNode:
-    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
+    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value, heuristic):
         self.state = state
         self.parent = parent
         self.task = task
         self.decomposition = decomposition
         self.task_network = task_network
         self.seq_num = seq_num
+        self.lm_node = None # for landmarks
         
-        self.g_value = g_value
-        self.f_value = 0
         self.h_value = 0
-
+        self.f_value = g_value
+        self.g_value = g_value 
         self.ref_idx = 0
+        
+        
         # NOTE: only use if we search considering visited nodes -high computational cost
         self.hash_node = hash((self.state, tuple(task_network)))
     
@@ -69,20 +71,12 @@ class HTNNode:
 
 
 class AstarNode(HTNNode):
-    def __lt__(self, other):
-        if self.f_value ==  other.f_value:
-            if self.h_value == other.h_value:
-                return self.seq_num < other.seq_num
-            return self.h_value < other.h_value
-        return self.f_value < other.f_value
-    
-class AstarLMNode(HTNNode):
-    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
-        super().__init__(parent, task, decomposition, state, task_network, seq_num, g_value)
-        self.lm_node = None
+    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value, heuristic):
+        super().__init__(parent, task, decomposition, state, task_network, seq_num, g_value, None)
+        self.h_value = heuristic.compute_heuristic(parent, self)
+        self.f_value = self.h_value + self.g_value
 
     def __lt__(self, other):
-        
         if self.f_value ==  other.f_value:
             if self.h_value == other.h_value:
                 return self.seq_num < other.seq_num
