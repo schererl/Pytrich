@@ -252,8 +252,8 @@ class Model:
         self.facts = facts
         self.initial_state = initial_state
         self.goals = goals
-        self.operators = operators
         self.initial_tn = initial_tn
+        self.operators = operators
         self.decompositions = decompositions
         self.abstract_tasks = abstract_tasks
         self.states = {}
@@ -263,7 +263,6 @@ class Model:
         # goal count heuristic
         self.goal_facts_count = 0
         self.goal_tasks_count = 0
-        #self._process_goal_task_count()   #NOTE: before converting into bit representation, add task counts into grounded tasks
         self._process_goal_facts_count()   #NOTE: before converting into bit representation, add facts counts into operators
         self._explicit_to_int = {}
         self._int_to_explicit = {}
@@ -285,9 +284,6 @@ class Model:
                 self.abstract_tasks.remove(t)
                 break
         
-        
-        
-
     def assign_global_ids(self):
         next_id = len(self.facts)
         for o in self.operators:
@@ -301,7 +297,7 @@ class Model:
         for d in self.decompositions:
             d.global_id = next_id
             next_id+=1
-    
+
     def _process_goal_facts_count(self):
         self.goal_facts_count = len(self.goals)
     

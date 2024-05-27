@@ -6,20 +6,23 @@ for searching time when we avoid 'if then else' selections, which in our case
 was the '__lt__' function that changes when we are using a_star or not.
 '''
 class HTNNode:
-    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value, heuristic):
-        self.state = state
+    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
+        # HTN info
+        self.state  = state
         self.parent = parent
-        self.task = task
+        self.task   = task
         self.decomposition = decomposition
-        self.task_network = task_network
-        self.seq_num = seq_num
-        self.lm_node = None # for landmarks
+        self.task_network  = task_network
         
+        # Astar info
+        self.seq_num = seq_num
         self.h_value = 0
         self.f_value = g_value
         self.g_value = g_value 
-        self.ref_idx = 0
-        
+
+        # Heursitics info
+        self.lm_node = None # for landmarks
+        self.lp_vars = None # for TDGLm
         
         # NOTE: only use if we search considering visited nodes -high computational cost
         self.hash_node = hash((self.state, tuple(task_network)))
@@ -55,27 +58,22 @@ class HTNNode:
         else:    
             state_str = '[\n\t\t' + '\n\t\t'.join(self.state)
         state_str=f'--- {self.seq_num}'
-        memory_info = (
-            f"\n\tMemory Usage:"
-            f"\n\t\tState: {sys.getsizeof(self.state)} bytes"
-            f"\n\t\tParent: {sys.getsizeof(self.parent)} bytes"
-            f"\n\t\tAction: {sys.getsizeof(self.action)} bytes"
-            f"\n\t\tTask Network: {sys.getsizeof(self.task_network)} bytes"
-        )
+        # memory_info = (
+        #     f"\n\tMemory Usage:"
+        #     f"\n\t\tState: {sys.getsizeof(self.state)} bytes"
+        #     f"\n\t\tParent: {sys.getsizeof(self.parent)} bytes"
+        #     f"\n\t\tAction: {sys.getsizeof(self.action)} bytes"
+        #     f"\n\t\tTask Network: {sys.getsizeof(self.task_network)} bytes"
+        #)
         return (
             f"HTNNode: \n\tState: {{{state_str}}}"
             # f"\n\tAction: {self.action}"
             f"\n\tTaskNetwork: {self.task_network[0:min(5, len(self.task_network))]}"
-            f"\n{memory_info}"
+            #f"\n{memory_info}"
         )
 
 
 class AstarNode(HTNNode):
-    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value, heuristic):
-        super().__init__(parent, task, decomposition, state, task_network, seq_num, g_value, None)
-        self.h_value = heuristic.compute_heuristic(parent, self)
-        self.f_value = self.h_value + self.g_value
-
     def __lt__(self, other):
         if self.f_value ==  other.f_value:
             if self.h_value == other.h_value:

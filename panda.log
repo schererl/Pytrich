@@ -1,16 +1,16 @@
 Random seed: 42
 Time limit: 1800 seconds
-Reading input from domain-p10.psas.
-- State has 153 bits divided into 153 mutex groups.
-- Domain contains 250 actions.
-- Domain contains 333 tasks.
-- Domain contains 218 methods.
-- The initial state contains 68 set bits.
+Reading input from domain-p01.psas.
+- State has 30 bits divided into 30 mutex groups.
+- Domain contains 44 actions.
+- Domain contains 59 tasks.
+- Domain contains 34 methods.
+- The initial state contains 14 set bits.
 - The initial task is "__top[]".
-- State-based goal contains 19 bits.
+- State-based goal contains 2 bits.
 - Instance is totally-ordered: yes
 - Instance has unique paths: yes
 - Instance is parallel sequences: yes
 Calculating preconditions and effects of compound tasks... 
-- Inference time 0.005 seconds 
+- Inference time 0 seconds 
 writing input problem to file

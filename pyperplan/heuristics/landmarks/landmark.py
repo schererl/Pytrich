@@ -15,21 +15,22 @@ class LM_Node:
             self.mark = 0
             self.number_lms   = 0   # total number of lms
             self.achieved_lms = 0   # total achieved lms
+            
 
     # mark as 'achieved' if node is a lm
     def mark_lm(self, node_id):
         if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
             self.mark |= 1 << node_id
             self.achieved_lms+=1
+        
             
     # add new lms
     def update_lms(self, new_lms):
         for lm_id in new_lms:
-            if (~self.lms & (1 << lm_id)):
+            if ~self.lms & (1 << lm_id):
                 self.lms |= (1 << lm_id)
                 self.number_lms+=1
-            
-    
+        
     def lm_value(self):
         return self.number_lms - self.achieved_lms
     
@@ -78,7 +79,8 @@ class Landmarks:
             (3) extract landmarks using this graph.
     '''
     def top_down_lms(self):
-        queue = deque([self.td_AND_OR.nodes[node_id] for node_id in self.td_AND_OR.i_node_set])
+        #queue = deque([self.td_AND_OR.nodes[node_id] for node_id in self.td_AND_OR.i_node_set])
+        queue = deque([node for node in self.td_AND_OR.nodes if len(node.predecessors) == 0])
         dot_visited = set()
         while queue:
             node = queue.popleft()
@@ -124,6 +126,61 @@ class Landmarks:
                 for succ in node.successors:
                     if all(len(self.td_landmarks[pred.ID])!=None for pred in succ.predecessors):
                         queue.append(succ)
+        
+    def bidirectional_lms(self, model, state, task_network):
+        """
+        Combination of bottom-up landmarks w/ top-down landmarks:
+            - refine operators found by bottom-up landmarks using top-down landmarks
+            - refine methods found by top-down landmarks using bottom-up landamrks
+            - repeat until exausting every possible refinment 
+        Args:
+            model (Model): The planning model.
+            state (int): Bitwise representation of the current state.
+            task_network (list): List of tasks in the task network.
+
+        Returns:
+            set: Set of computed landmarks.
+        """
+        bid_landmarks = set()
+        visited   = set()
+        queue     = deque()
+        # Precompute landmarks based on the initial state and goal conditions
+        for fact_pos in range(len(bin(model.goals))-2):
+            if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
+                for lm in self.bu_landmarks[fact_pos]:
+                    bid_landmarks.add(lm)
+            if state & (1 << fact_pos):
+                bid_landmarks.add(fact_pos)
+        
+        # Add landmarks related to each task in the task network
+        for t in task_network:
+            for lm in self.bu_landmarks[t.global_id]:
+                bid_landmarks.add(lm)
+        
+        for lm_id in bid_landmarks:
+            node = self.bu_AND_OR.nodes[lm_id]
+            if node.content_type == ContentType.OPERATOR:
+                queue.append(node.ID)
+            elif node.content_type == ContentType.FACT and ~state & (1 << lm_id):
+                queue.append(node.ID)
+            else:
+                visited.add(node.ID)
+        
+        while queue:
+            node_id = queue.popleft()
+            visited.add(node_id)
+            bid_landmarks.add(node_id)
+            node = self.bu_AND_OR.nodes[node_id]
+            
+            for lm_id in self.td_landmarks[node.ID]:
+                if not lm_id in visited:
+                    queue.append(lm_id)
+            
+            for lm_id in self.bu_landmarks[node.ID]:
+                if not lm_id in visited:
+                    queue.append(lm_id)
+        return bid_landmarks
+
     # UTILITARY
     # def print_landmarks(self, node_id):
     #     print(f'SPECIFIC landmarks of {self.and_or_graph.nodes[node_id]}')

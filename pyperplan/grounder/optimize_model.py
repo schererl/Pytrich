@@ -126,12 +126,13 @@ def remove_negative_precons(model):
             new_initial_state.add('(not_' + fact[1:])
         new_initial_state.update(model.initial_state)
         model.initial_state = frozenset(new_initial_state)
-        
+    
     #clear all negative precons
     for o in model.operators:
         o.neg_precons=frozenset()
     for d in model.decompositions:
         d.neg_precons=frozenset()
+    
 
 def convert_bitwise_repr(model):
     def map_explicit_to_int(model):

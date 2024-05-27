@@ -23,8 +23,6 @@ import subprocess
 import sys
 import time
 
-
-
 from . import tools
 #from .pddl.parser import Parser
 from .parser.parser import Parser
@@ -32,9 +30,11 @@ from .parser.parser import Parser
 from .grounder.full_grounding import FullGround
 from .grounder.TDG_grounding import TDGGround
 from .grounder.pandaGround import pandaGrounder
-from .heuristics.tdg_heuristic import TaskDecompositionHeuristic
+
 from .heuristics.blind_heuristic import BlindHeuristic
+from .heuristics.tdg_heuristic import TaskDecompositionHeuristic
 from .heuristics.lm_heuristic import LandmarkHeuristic
+from .heuristics.tdglm_heuristic import TDGLmHeuristic
 
 
 from .search.astar_search import search as astar_search
@@ -47,8 +47,9 @@ SEARCHES = {
 
 HEURISTICS = {
     "Blind"    : BlindHeuristic,
-    "TaskDecomposition": TaskDecompositionHeuristic,
-    "Landmarks": LandmarkHeuristic
+    "Landmarks": LandmarkHeuristic,
+    "TDG": TaskDecompositionHeuristic,
+    "TDGLM": TDGLmHeuristic
 }
 
 NUMBER = re.compile(r"\d+")
@@ -122,8 +123,6 @@ def search_plan(
     else:
         pandaInstance = pandaGrounder(domain_file, problem_file)
         task = pandaInstance.groundify()
-    
-        
     
     search_start_time = time.process_time()
     result = _search(task, search, heuristic)
