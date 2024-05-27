@@ -7,8 +7,6 @@ import time
 
 from pyperplan.parser.parser import Parser
 from pyperplan.planner import search_plan
-from pyperplan.grounder.full_grounding import FullGround
-from pyperplan.grounder.TDG_grounding import TDGGround
 from pyperplan.grounder.pandaGround import pandaGrounder
 
 
@@ -72,7 +70,7 @@ def create_header(heuristics):
     return f"{first_line}\n{second_line}\n"
 
 def run_benchmarks( pandaOpt=False):
-    heuristics = ['DellEff', 'DofSearch']
+    heuristics = ['Blind', 'TDG', 'Landmarks']
     with open('run_bench_results.txt', 'a') as file:
         file.write(create_header(heuristics))
     print(create_header(heuristics))
@@ -94,20 +92,8 @@ def run_benchmarks( pandaOpt=False):
                 grounder = pandaGrounder(domain_file, problem_file)
                 grounder_status = 'SUCCESS' #TODO: change it
             else:
-                # run parser
-                logging.info('Starting parser')
-                parser = Parser(domain_file, problem_file)
-                domain = parser.parse_domain()
-                problem = parser.parse_problem(domain)
-                logging.info('Parser finished')
-                logging.info('Starting grounder')
-                ground_start_time = time.time()
-                grounder_type = TDGGround
-                grounder = grounder_type(
-                    problem
-                )
-                grounder_status = grounder.status
-            
+                print(f'Panda grounder (only grounder available) not found')
+                exit()
             model = grounder.groundify()
             grounder_elapsed_time = time.time() - ground_start_time
             

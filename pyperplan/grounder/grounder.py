@@ -25,11 +25,10 @@ from copy import deepcopy
 import itertools
 import logging
 import re
-from ..utils import LogicalOperator
-
 
 from ..model import Operator, Model, AbstractTask, Decomposition
-from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup, correctness_check
+from ..parser.hddl import Problem
+from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup
 
 # controls mass log output
 verbose_logging = False
@@ -39,8 +38,8 @@ class Grounder:
         problem, have_lifted=True
     ):
         """
-        This is the main method that grounds the PDDL task and returns an
-        instance of the task.Task class.
+        This is the main method that grounds the HDDL task and returns an
+        instance of the model.Model class.
 
         @note Assumption: only HDDL problems with types at the moment.
 
@@ -52,10 +51,10 @@ class Grounder:
         Overview of variable names in hddl.py, grounding.py and task.py:
         Problem.initial_state       -> init                 -> Model.initial_state
         Problem.goal                -> goal                 -> Model.goal
-        Problem.htn                 -> initial task network -> Model.goal
+        Problem.htn                 -> initial task network -> Model.initial_tn
         Problem.domain.actions      -> operators            -> Model.operators
-        Problem.domain.methods      -> decompositions       -> Model.operators
-        Problem.domain.tasks        -> groundedTasks        -> Model.operators
+        Problem.domain.methods      -> decompositions       -> Model.decompositions
+        Problem.domain.tasks        -> abstractTasks        -> Model.abstractTasks
         Problem.domain.predicates   -> variables            -> Model.facts
         """
         self.problem_name = None
@@ -67,9 +66,10 @@ class Grounder:
         self.grounded_methods = {}
         self.grounded_tasks   = {}
 
-        # in case we are dealing with a lifted format (not already grounded from another planner)
+        # in case we are dealing with a lifted format (not already grounded from another planner, like PandaGround)
         if have_lifted:
-            self.problem  = problem
+            assert type(self.problem) == Problem
+            self.problem      = problem
             self.problem_name = problem.name
             self.domain   = problem.domain
             self.objects  = self.problem.objects
@@ -77,11 +77,13 @@ class Grounder:
             self.lifted_actions = {action.name: action for action in self.domain.actions.values()}        
             self.lifted_tasks   = {task.name: task for task in self.domain.tasks.values()}        
             self.lifted_methods =  self.domain.methods.values()
-            self.lifted_itn     = self.problem.htn                      
-            self.type_map       = self._create_type_map(self.objects)
+            self.lifted_itn     =  self.problem.htn                      
+            self.type_map       =  self._create_type_map(self.objects) #NOTE: this will be important for grounding
         
-         
     def groundify(self):
+        '''
+            post-processing stuff: instance model, remove negative preconditions, optimize, convert states to bitwise
+        '''
         self.grounded_actions = [a for a in self.grounded_actions]
         self.grounded_methods = [a for a in self.grounded_methods]
         self.grounded_tasks   = [a for a in self.grounded_tasks]

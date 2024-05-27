@@ -324,14 +324,14 @@ class pandaGrounder(Grounder):
             raise Exception('Malformed expression')
         return sections[0]
     
-if __name__ == "__main__":
-    import os
-    #file_path = os.path.abspath("./domain-p01.psas.d.hddl")
-    domain_file_path = os.path.abspath("./domain-p20.psas.d.hddl")
-    problem_file_path = os.path.abspath("./domain-p20.psas.p.hddl")
-    print(problem_file_path)
-    print(domain_file_path)
-    groundedParser = pandaGroundedParser(domain_file_path, problem_file_path)
-    groundedParser.parse_grounded_domain()
-    groundedParser.parse_grounded_problem()
-    groundedParser.groundify()
+# if __name__ == "__main__":
+#     import os
+#     #file_path = os.path.abspath("./domain-p01.psas.d.hddl")
+#     domain_file_path = os.path.abspath("./domain-p20.psas.d.hddl")
+#     problem_file_path = os.path.abspath("./domain-p20.psas.p.hddl")
+#     print(problem_file_path)
+#     print(domain_file_path)
+#     groundedParser = pandaGroundedParser(domain_file_path, problem_file_path)
+#     groundedParser.parse_grounded_domain()
+#     groundedParser.parse_grounded_problem()
+#     groundedParser.groundify()

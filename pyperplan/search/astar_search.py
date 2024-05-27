@@ -12,7 +12,6 @@ import heapq
 #!/usr/bin/env python
 import psutil
 
-from ..utils import UNSOLVABLE
 from .utils import create_result_dict
 from ..DOT_output import DotOutput
 from .htn_node import AstarNode

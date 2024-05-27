@@ -1,7 +1,6 @@
 
 from .heuristic import Heuristic
 from ..model import Operator, AbstractTask
-from ..utils import UNSOLVABLE
 from .landmarks.and_or_graphs import AndOrGraph, NodeType, ContentType
 from .landmarks.sccs import SCCDetection
 from .landmarks.landmark import Landmarks, LM_Node
