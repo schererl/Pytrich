@@ -1,6 +1,5 @@
 """
-This module contains data structures needed to represent a HDDL domain and
-possibly a model.
+This module contains data structures needed to represent a HDDL domain.
 """
 class Type:
     def __init__(self, name, parent):
@@ -135,7 +134,7 @@ class Problem:
         """
         name: The name of the problem
         domain: The domain in which the problem has to be solved
-        objects: A dict name->type of objects that are used in the problem
+        objects: A dict KEY:object name, VALUE:type
         init: A list of predicates describing the initial state
         goal: A list of predicates describing the goal state
         """
