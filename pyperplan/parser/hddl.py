@@ -1,6 +1,8 @@
 """
 This module contains data structures needed to represent a HDDL domain.
 """
+
+
 class Type:
     def __init__(self, name, parent):
         self.name = name.lower()
@@ -11,6 +13,7 @@ class Type:
 
     def __str__(self):
         pass
+
 
 class Predicate:
     def __init__(self, name, signature):
@@ -28,6 +31,7 @@ class Predicate:
     def __str__(self):
         pass
 
+
 class Effect:
     def __init__(self):
         """
@@ -36,9 +40,10 @@ class Effect:
         """
         self.addlist = set()
         self.dellist = set()
-    
+
     def __str__(self):
         pass
+
 
 class Precondition:
     def __init__(self):
@@ -48,8 +53,10 @@ class Precondition:
         """
         self.poslist = set()
         self.neglist = set()
+
     def __str__(self):
         pass
+
 
 class Action:
     def __init__(self, name, signature, precondition, effect):
@@ -65,7 +72,7 @@ class Action:
         self.name = name
         self.precondition = precondition
         self.effect = effect
-    
+
     def __str__(self):
         pass
 
@@ -86,10 +93,13 @@ class Method:
         self.precondition = precondition
         self.task_head    = task_head 
         self.ordered_subtasks = ordered_subtasks
+
     def __str__(self):
         pass
+
     def __repr__(self) -> str:
         pass
+
 
 class AbstractTask:
     def __init__(self, name, signature):
@@ -100,12 +110,14 @@ class AbstractTask:
         '''
         self.name = name
         self.signature = signature
-        
+
     def __str__(self):
         pass
+
     def __repr__(self) -> str:
         pass
-    
+
+
 class Domain:
     def __init__(self, name, types, predicates, tasks, actions, methods, constants={}):
         """
@@ -144,7 +156,7 @@ class Problem:
         self.htn        = htn
         self.goal_state = goal
         self.initial_state = init
-        
+
     def __repr__(self):
         pass
 

@@ -4,10 +4,11 @@ from .grounder import Grounder
 import subprocess
 import os
 
+
 class pandaGrounder(Grounder):
     def __init__(self, grounded_domain_file, grounded_problem_file):
         super().__init__(None, have_lifted=False)
-        
+
         self.grounded_domain_file = ""
         self.grounded_problem_file = ""
         self.operator      = {} #helper
@@ -17,7 +18,7 @@ class pandaGrounder(Grounder):
         self.run_panda_grounding(grounded_domain_file, grounded_problem_file)
         self.parse_grounded_domain()
         self.parse_grounded_problem()
-        
+
     def run_panda_grounding(self, domain_file_path, problem_file_path):
         script_dir = os.path.dirname(__file__) 
         pandaPIparser_path = os.path.join(script_dir, "../../pandaOpt/pandaPIparser")
@@ -26,7 +27,7 @@ class pandaGrounder(Grounder):
 
         domain_base = os.path.splitext(os.path.basename(domain_file_path))[0]
         problem_base = os.path.splitext(os.path.basename(problem_file_path))[0]
-        
+
         print(f'reading\n\tdomain: {domain_file_path}\n\tproblem: {problem_file_path}')
         parsed_output = "temp.parsed"
         subprocess.run([pandaPIparser_path, domain_file_path, problem_file_path, parsed_output], check=True)
@@ -50,7 +51,7 @@ class pandaGrounder(Grounder):
         panda_log = "panda.log"
         subprocess.run([pandaPIengine_path, "--writeInputToHDDL", psas_output], stdout=open(panda_log, "w"), check=True)
         os.remove(psas_output)
-        
+
         grounded_domain_output = domain_file_path[:-5]+'-grounded.hddl'
         grounded_problem_output = problem_file_path[:-5]+'-grounded.hddl'
         # Rename the output files to the desired names
@@ -89,7 +90,7 @@ class pandaGrounder(Grounder):
 
         self.grounded_init  = set(initial_state_lst)
         self.grounded_goals = set(goal_lst)
-    
+
     def _parse_htn_tag(self, params):
         initial_tn_helper = []
         while params:
@@ -106,10 +107,9 @@ class pandaGrounder(Grounder):
                     raise NotImplementedError("Constraints on Problem Initiation is not supported")
             else:
                 raise TypeError("Unknown keyword {}".format(lead))
-            
+
         for t_str in initial_tn_helper:
             self.grounded_itn.append(self.abstract_task[t_str])
-
 
     def _parse_facts(self, params, facts_lst):
         while not params == []:
@@ -126,7 +126,7 @@ class pandaGrounder(Grounder):
 
     def parse_grounded_domain(self):
         tokens = self._scan_tokens(self.grounded_domain_file)
-        
+
         decomposition_dict = {}
         operator_dict = {}
         tasks_dict = {}
@@ -152,12 +152,12 @@ class pandaGrounder(Grounder):
                     fact_lst = self._parse_predicates(group)
                 else:
                     raise AttributeError("Unknown tag; {}".format(lead))
-        
+
         # fetch compound tasks and subtasks
         for d in decomposition_dict.values():
             d.compound_task = tasks_dict[c_task_helper[d.name]]
             d.compound_task.decompositions.append(d)
-            
+
             for t_str in subt_helper[d.name]:
                 if t_str in tasks_dict:
                     d.task_network.append(tasks_dict[t_str])
@@ -165,19 +165,18 @@ class pandaGrounder(Grounder):
                     d.task_network.append(operator_dict[t_str])
                 else:
                     raise SyntaxError("Task (abstract or primitive) not instantiated {}".format(t_str))
-        
+
         self.grounded_facts  = set(fact_lst)
         self.operator        = operator_dict
         self.decomposition   = decomposition_dict
         self.abstract_task   = tasks_dict
-        
 
     def _parse_action(self, params):
         i = 0
         l = len(params)
         action_name= None
         pos_precons, neg_precons, add_eff, del_eff = set(), set(), set(), set()
-        
+
         while i < l:
             if i == 0:
                 action_name = params[i]
@@ -236,7 +235,7 @@ class pandaGrounder(Grounder):
             keyword = param
             if not type(keyword) == str:
                 keyword = keyword[0]
-            
+
             if keyword == 'and':
                 self._parse_subtasks(params, subtasks)
                 params = []
@@ -246,20 +245,19 @@ class pandaGrounder(Grounder):
                 raise SyntaxError('command undentified {}'.format(keyword))
         return subtasks
 
-
     def _parse_formula(self, params, pos_param, neg_param, negated=False, t = ''):
         def __extract_effect_values(p, pos_param, neg_param, negated):
             if negated:
                 neg_param.add('('+p+')')
             else:
                 pos_param.add('('+p+')')
-        
+
         while not params == []:
             param= params.pop(0) #NOTE: maybe we are going to have a problem in case there is inner 'ands'
             keyword = param
             if not type(keyword) == str:
                 keyword = keyword[0]
-            
+
             if keyword == 'and':
                 self._parse_formula(params, pos_param, neg_param, negated, '\t'+t)
                 params = []
@@ -270,7 +268,7 @@ class pandaGrounder(Grounder):
                 __extract_effect_values(keyword, pos_param, neg_param, negated)
             else:
                 raise SyntaxError('command undentified {}'.format(keyword))
-            
+
     def _parse_task(self, params):
         i = 0
         l = len(params)
@@ -286,15 +284,14 @@ class pandaGrounder(Grounder):
                 raise TypeError
             i += 1
         return AbstractTask(task_name)
-        
-      
+
     def _parse_predicates(self, params):
         predicate_lst = []
         for i in params:
             predicate_name = '('+i[0]+')'
             predicate_lst.append(predicate_name)
         return predicate_lst
-    
+
     def _scan_tokens(self, file_path):
         import re
         """ Taken with permission from:
@@ -323,7 +320,7 @@ class pandaGrounder(Grounder):
         if len(sections) != 1:
             raise Exception('Malformed expression')
         return sections[0]
-    
+
 # if __name__ == "__main__":
 #     import os
 #     #file_path = os.path.abspath("./domain-p01.psas.d.hddl")
