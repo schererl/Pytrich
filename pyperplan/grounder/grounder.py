@@ -33,6 +33,7 @@ from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_
 # controls mass log output
 verbose_logging = False
 
+
 class Grounder:
     def __init__(self,
         problem, have_lifted=True
@@ -79,7 +80,7 @@ class Grounder:
             self.lifted_methods =  self.domain.methods.values()
             self.lifted_itn     =  self.problem.htn                      
             self.type_map       =  self._create_type_map(self.objects) #NOTE: this will be important for grounding
-        
+
     def groundify(self):
         '''
             post-processing stuff: instance model, remove negative preconditions, optimize, convert states to bitwise
@@ -87,16 +88,16 @@ class Grounder:
         self.grounded_actions = [a for a in self.grounded_actions]
         self.grounded_methods = [a for a in self.grounded_methods]
         self.grounded_tasks   = [a for a in self.grounded_tasks]
-        
+
         for t in self.grounded_tasks:
             t.decompositions.sort(key=lambda x: x.name, reverse=True)
-        
+
         self.grounded_methods.sort(key=lambda x: x.name, reverse=True) 
         self.grounded_actions.sort(key=lambda x: x.name, reverse=True) 
         self.grounded_tasks.sort(key=lambda x: x.name, reverse=True) 
-        
+
         model = Model(self.problem_name, self.grounded_facts, self.grounded_init, self.grounded_itn, self.grounded_goals, self.grounded_actions, self.grounded_methods, self.grounded_tasks)
-        
+
         # remove operators and tasks not achievable from initial task network
         clean_tdg(model)
         # remove negative preconditions converting it into negated facts 'not_<literal>'
@@ -105,7 +106,7 @@ class Grounder:
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
         pullup(model)
-        
+
         del_relax_reachability(model) #NOTE: works only using bitwise representation
         model.assign_global_ids()
         return model

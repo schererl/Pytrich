@@ -58,7 +58,7 @@ def search_plan(
                             interface
     @return A list of actions that solve the problem
     """
-    model=None
+    model = None
     if issubclass(grounder, pandaGrounder):
         grounder_instance = grounder(domain_file, problem_file)
     else:
@@ -66,7 +66,7 @@ def search_plan(
         #parser = Parser(domain_file, problem_file)
         #grounder_instance = grounder(parser.lifted_problem)
      
-    model= grounder_instance.groundify()
+    model = grounder_instance.groundify()
 
     search_start_time = time.process_time()
     result = _search(model, search, heuristic)

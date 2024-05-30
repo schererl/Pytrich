@@ -13,6 +13,7 @@ from pyperplan.planner import (
 from run_benchmarks import run_benchmarks
 # running example: python3 pyperplan/__main__.py -H TaskDecompositionPlus -s 'Astar' htn-benchmarks/Blocksworld-GTOHP/domain.hddl htn-benchmarks/Blocksworld-GTOHP/p01.hddl
 
+
 def main():
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error"]
