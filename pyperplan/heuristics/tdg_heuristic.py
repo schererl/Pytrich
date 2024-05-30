@@ -10,7 +10,7 @@ class TaskDecompositionHeuristic(Heuristic):
             self._compute_tdg_values(t) 
         self.visited = None  # clear memory
 
-        initial_node.h_value = sum([t.h_val for t in initial_node.task_network]) 
+        initial_node.h_value = sum([t.h_val for t in initial_node.task_network])
         initial_node.f_value = initial_node.h_value + initial_node.g_value
 
     def _compute_tdg_values(self, task):
