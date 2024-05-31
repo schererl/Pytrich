@@ -5,7 +5,7 @@ from ..parser.hddl import Problem
 
 class FullGrounder(Grounder):
     """Full grounder. 
-    Key contribution from WenBo, based on the paper:
+    Key contribution from Wenbo, based on the paper:
     https://ojs.aaai.org/index.php/AAAI/article/view/6529
 
     Args:

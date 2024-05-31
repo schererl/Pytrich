@@ -5,7 +5,7 @@ import re
 
 class Parser:
     """Simplafy-based parser class for HDDL. Incomplete
-    WenBo to finalize this.
+    Wenbo to finalize this.
     """
 
     def parse_domain(self, domain_filename) -> hddl.Domain:
