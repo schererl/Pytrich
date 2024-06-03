@@ -158,13 +158,14 @@ class pandaGrounder(Grounder):
             d.compound_task = tasks_dict[c_task_helper[d.name]]
             d.compound_task.decompositions.append(d)
             
+            print(subt_helper[d.name])
             for t_str in subt_helper[d.name]:
                 if t_str in tasks_dict:
                     d.task_network.append(tasks_dict[t_str])
                 elif t_str in operator_dict:
                     d.task_network.append(operator_dict[t_str])
                 else:
-                    raise SyntaxError("Task (abstract or primitive) not instantiated {}".format(t_str))
+                    raise SyntaxError("Method error {}: subtask (abstract or primitive) not instantiated {}".format(d.name, t_str))
         
         self.grounded_facts  = set(fact_lst)
         self.operator        = operator_dict
@@ -236,7 +237,10 @@ class pandaGrounder(Grounder):
             keyword = param
             if not type(keyword) == str:
                 keyword = keyword[0]
-            
+                # panda grounder sometimes add task namming in the subtasks
+                if 'task' in keyword and len(param)==2:
+                    keyword = param[1][0]
+
             if keyword == 'and':
                 self._parse_subtasks(params, subtasks)
                 params = []
