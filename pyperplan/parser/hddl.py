@@ -7,10 +7,21 @@ class Type:
         self.parent = parent
 
     def __repr__(self):
-        pass
+        if self.parent:
+            return f'Type(name: {self.name}, parent: {self.parent})'
+        else:
+            return self.name
 
     def __str__(self):
-        pass
+        return self.name
+
+    def __eq__(self, other):
+        if not isinstance(other, Type):
+            return False
+        return self.name == other.name and self.parent == other.parent
+    
+    def __hash__(self):
+        return hash((self.name, self.parent))
 
 class Predicate:
     def __init__(self, name, signature):
@@ -23,33 +34,81 @@ class Predicate:
         self.signature = signature
 
     def __repr__(self):
-        pass
+        return f'{self.name}({self.signature})'
 
     def __str__(self):
-        pass
+        return f'{self.name}({self.signature})'
+    
+    def __eq__(self, other):
+        if self.name != other.name:
+            # check for different names
+            return False
+        elif len(self.signature) != len(other.signature):
+            # check for different number of parameters
+            return False
+        size_variables = len(self.signature)
+        # check for type mismatch
+        for i in range(size_variables):
+            if not self.signature[i][1] == other.signature[i][1]:
+                return False
+        return True
+
+    def __hash__(self):
+        return hash((self.name, tuple((param, tuple(types) if isinstance(types, list) else (types,)) for param, types in self.signature)))
 
 class Effect:
-    def __init__(self):
+    def __init__(self, addlist, dellist):
         """
         addlist: Set of predicates that have to be true after the action
         dellist: Set of predicates that have to be false after the action
         """
-        self.addlist = set()
-        self.dellist = set()
+        self.addlist = addlist
+        self.dellist = dellist
     
     def __str__(self):
-        pass
+        add_str = ''
+        del_str = ''
+        for p in self.addlist:
+            add_str += '+' + str(p) + ' '
+        for p in self.dellist:
+            del_str += '-' + str(p) + ' '
+        return add_str + del_str
+
+    def __hash__(self):
+        return hash((tuple(self.addlist), tuple(self.dellist)))
+
+    def __eq__(self, other):
+        if not isinstance(other, Effect):
+            return False
+        return self.addlist == other.addlist and self.dellist == other.dellist
+
 
 class Precondition:
-    def __init__(self):
+    def __init__(self, poslist, neglist):
         """
-        addlist: Set of predicates that have to be true for the precondition
-        dellist: Set of predicates that have to be false for the precondition
+        poslist: Set of predicates that have to be true for the precondition
+        neglist: Set of predicates that have to be false for the precondition
         """
-        self.poslist = set()
-        self.neglist = set()
+        self.poslist = poslist
+        self.neglist = neglist
+    
     def __str__(self):
-        pass
+        pos_str = ''
+        neg_str = ''
+        for p in self.poslist:
+            pos_str += '+' + str(p) + ' '
+        for p in self.neglist:
+            neg_str += '-' + str(p) + ' '
+        return pos_str + neg_str
+
+    def __hash__(self):
+        return hash((tuple(self.poslist), tuple(self.neglist)))
+    
+    def __eq__(self, other):
+        if not isinstance(other, Precondition):
+            return False
+        return self.poslist == other.poslist and self.neglist == other.neglist
+
 
 class Action:
     def __init__(self, name, signature, precondition, effect):
@@ -67,8 +126,18 @@ class Action:
         self.effect = effect
     
     def __str__(self):
-        pass
+        return f'Action({self.name} {str([f"{tp[0]}-{tp[1].name}" for tp in self.signature])})'
 
+    def __hash__(self):
+        return hash((self.name, tuple(self.signature), self.precondition, self.effect))
+
+    def __eq__(self, other):
+        if not isinstance(other, Action):
+            return False
+        return (self.name == other.name and
+                self.signature == other.signature and
+                self.precondition == other.precondition and
+                self.effect == other.effect)
 
 class Method:
     def __init__(self, name, signature, precondition, task_head, ordered_subtasks):
@@ -79,17 +148,36 @@ class Method:
         precondition: A list of predicates that have to be true before the
                       action can be applied
         decomposed_task: Task which the method is decomposed into
-        ordered_subtasks: contains the OrderedSubtasks instance
+        ordered_subtasks: contains a list of tasks (abstract or operators)
         """
         self.signature    = signature
         self.name         = name
         self.precondition = precondition
         self.task_head    = task_head 
         self.ordered_subtasks = ordered_subtasks
-    def __str__(self):
-        pass
-    def __repr__(self) -> str:
-        pass
+    
+    def __repr__(self):
+        return self.__str__()
+
+    def __eq__(self, other):
+        if not isinstance(other, Method):
+            return False
+        
+        if not len(self.ordered_subtasks) == len(other.ordered_subtasks):
+            return False
+        
+        for i in range(len(self.ordered_subtasks)):
+            if self.ordered_subtasks[i] != other.ordered_subtasks[i]:
+                return False
+        
+        return (self.name == other.name and
+                self.signature == other.signature and
+                self.precondition == other.precondition and
+                self.task_head == other.task_head
+                )
+
+    def __hash__(self):
+        return hash((self.name, tuple(self.signature), self.precondition, self.task_head, tuple(self.ordered_subtasks)))
 
 class AbstractTask:
     def __init__(self, name, signature):
@@ -101,10 +189,16 @@ class AbstractTask:
         self.name = name
         self.signature = signature
         
-    def __str__(self):
-        pass
-    def __repr__(self) -> str:
-        pass
+    def __repr__(self):
+        return self.__str__()
+
+    def __eq__(self, other):
+        if not isinstance(other, AbstractTask):
+            return False
+        return self.name == other.name and self.signature == other.signature
+
+    def __hash__(self):
+        return hash((self.name, tuple(self.signature)))
     
 class Domain:
     def __init__(self, name, types, predicates, tasks, actions, methods, constants={}):
