@@ -1,8 +1,8 @@
-import time
-from ..model import Model, Operator, Decomposition, AbstractTask
-from .grounder import Grounder
 import subprocess
 import os
+
+from pyperplan.model import Operator, Decomposition, AbstractTask
+from pyperplan.grounder.grounder import Grounder
 
 class pandaGrounder(Grounder):
     def __init__(self, grounded_domain_file, grounded_problem_file):
@@ -30,25 +30,28 @@ class pandaGrounder(Grounder):
         print(f'reading\n\tdomain: {domain_file_path}\n\tproblem: {problem_file_path}')
         parsed_output = "temp.parsed"
         subprocess.run([pandaPIparser_path, domain_file_path, problem_file_path, parsed_output], check=True)
+        
         if not os.path.exists(parsed_output):
             print("Parsing failed.")
-            exit()
-        else:
-            print("Parsing ended")
+            self.grounder_status = 'FAILED'
+            return
+        
+        print("Parsing ended")
 
         psas_output = f"{domain_base}-{problem_base}.psas"
         subprocess.run([pandaPIgrounder_path, "-q", parsed_output, psas_output], check=True)
         os.remove(parsed_output)
         if not os.path.exists(psas_output):
             print("Grounding failed.")
-            exit()
-        else:
-            print("Grounder ended")
+            self.grounder_status = 'FAILED'
+            return
+        
+        print("Grounder ended")
 
 
         # Run the planner engine and write its output to a log file
         panda_log = "panda.log"
-        subprocess.run([pandaPIengine_path, "--writeInputToHDDL", psas_output], stdout=open(panda_log, "w"), check=True)
+        subprocess.run([pandaPIengine_path, "--writeInputToHDDL", psas_output], stdout=open(panda_log, "w", encoding='utf-8'), check=True)
         os.remove(psas_output)
         
         grounded_domain_output = domain_file_path[:-5]+'-grounded.hddl'
@@ -59,6 +62,7 @@ class pandaGrounder(Grounder):
         print(f"Grounding completed: \n\tdomain:{grounded_domain_output}\n\tproblem:{grounded_problem_output}")
         self.grounded_domain_file = grounded_domain_output
         self.grounded_problem_file = grounded_problem_output
+        self.grounder_status = 'SUCCESS'
 
     def groundify(self):
         self.grounded_actions = [o for o in self.operator.values()]
@@ -158,7 +162,6 @@ class pandaGrounder(Grounder):
             d.compound_task = tasks_dict[c_task_helper[d.name]]
             d.compound_task.decompositions.append(d)
             
-            print(subt_helper[d.name])
             for t_str in subt_helper[d.name]:
                 if t_str in tasks_dict:
                     d.task_network.append(tasks_dict[t_str])

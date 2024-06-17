@@ -2,11 +2,9 @@ import logging
 import re
 import time
 
-
-from .parser.parser import Parser
 # grounding
 from .grounder.full_grounder import FullGrounder
-from .grounder.pandaGround import pandaGrounder
+from .grounder.panda_ground import pandaGrounder
 # heursitic
 from .heuristics.blind_heuristic import BlindHeuristic
 from .heuristics.tdg_heuristic import TaskDecompositionHeuristic
@@ -36,9 +34,9 @@ GROUNDERS = {
 NUMBER = re.compile(r"\d+")
 
 def _search(model, search, heuristic):
-    logging.info(f"Search start: {model.name}")
+    logging.info('Search start: %s', model.name)
     solution = search(model, heuristic)
-    logging.info(f"Search end: {model.name}")
+    logging.info('Search end: %s', model.name)
     return solution
 
 
@@ -71,5 +69,5 @@ def search_plan(
     search_start_time = time.process_time()
     result = _search(model, search, heuristic)
     search_time = time.process_time() - search_start_time
-    logging.info("Search time: {:.2f} seconds".format(search_time))
+    logging.info('Search time: %.2f seconds', search_time)
     return result

@@ -1,28 +1,21 @@
-from collections import deque
 import logging
-
-from pyperplan.heuristics.lm_heuristic import LandmarkHeuristic
-
-from . import htn_node
-from ..model import Operator
 import time
-
 import heapq
-
-#!/usr/bin/env python
 import psutil
 
-from .utils import create_result_dict
-from ..DOT_output import DotOutput
-from .htn_node import AstarNode
 
-from ..heuristics.tdglm_heuristic import TDGLmHeuristic
+from pyperplan.model import Operator
+from pyperplan.search.utils import create_result_dict
+from pyperplan.search.htn_node import AstarNode
+from pyperplan.heuristics.blind_heuristic import BlindHeuristic
+#from pyperplan.DOT_output import DotOutput
 
-def search(model, heuristic_type, node_type=AstarNode):
-    graph_dot = DotOutput()
+
+def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
+    #graph_dot = DotOutput()
 
     print('Staring solver')
-    start_time   = time.time()  
+    start_time   = time.time()
     control_time = start_time
 
     iteration      = 0
@@ -43,32 +36,32 @@ def search(model, heuristic_type, node_type=AstarNode):
     heapq.heappush(pq, node)
     while pq:
         iteration += 1
-        current_time = time.time()      
+        current_time = time.time() 
         
         node = heapq.heappop(pq)
         #graph_dot.open(node)
         h_sum+=node.h_value
-        try_get_node_g_val = closed_list.get(hash(node))
-        if try_get_node_g_val and try_get_node_g_val <= node.g_value:
+        
+        if closed_list.get(hash(node), float('inf')) <= node.g_value:
             count_revisits+=1
             #graph_dot.already_visited("")
-            continue 
+            continue
         
         # time and memory control
-        if current_time - control_time > 1:
-            control_time = time.time()
-            memory_usage = psutil.virtual_memory().percent
-            elapsed_time = current_time - start_time
-            nodes_second = iteration/float(current_time - start_time)
-            h_avg        = h_sum/iteration
-            print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
-            psutil.cpu_percent()
-            if psutil.virtual_memory().percent > 85:
-                STATUS = 'OUT OF MEMORY'
-                break
-            elif current_time - start_time > 300:
-                STATUS = 'TIMEOUT'
-                break
+        # if current_time - control_time > 1:
+        #     control_time = time.time()
+        #     memory_usage = psutil.virtual_memory().percent
+        #     elapsed_time = current_time - start_time
+        #     nodes_second = iteration/float(current_time - start_time)
+        #     h_avg        = h_sum/iteration
+        #     print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
+        #    psutil.cpu_percent()
+        #     if psutil.virtual_memory().percent > 85:
+        #         STATUS = 'OUT OF MEMORY'
+        #         break
+        #     elif current_time - start_time > 300:
+        #         STATUS = 'TIMEOUT'
+        #         break
                 
         if model.goal_reached(node.state, node.task_network):
             psutil.cpu_percent()
@@ -81,7 +74,7 @@ def search(model, heuristic_type, node_type=AstarNode):
         task = node.task_network[0]
         
         # check if task is primitive
-        if type(task) is Operator:
+        if isinstance(task, Operator):
             if not model.applicable(task, node.state):
                 #graph_dot.not_applicable(":APPLY:"+str(task.name))
                 continue
@@ -107,12 +100,6 @@ def search(model, heuristic_type, node_type=AstarNode):
                 new_task_network  = model.decompose(method)+node.task_network[1:]
                 new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value+1)
                 h.compute_heuristic(node, new_node)
-                
-                #if result != new_node.h_value:
-                #    test.print_variables_and_constraints()
-                #    print(method.task_network)
-                #    print(new_node.task_network)
-                #    exit()
                 heapq.heappush(pq, new_node)
 
                 #graph_dot.add_node(new_node, model)
@@ -125,16 +112,30 @@ def search(model, heuristic_type, node_type=AstarNode):
     if STATUS == 'GOAL':
         nodes_second = iteration/float(current_time - start_time)
         h_avg        = h_sum/iteration
-        logging.info(f"Goal reached!\n\tElapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}, Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
+        logging.info(
+            "Goal reached!\n\tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
+            "Solution size: %d, Expanded Nodes: %d, Revists Avoided: %d, Used Memory: %s\n"
+            "h-init: %.2f, h-avg %.2f, h_val type: %s",
+            elapsed_time, nodes_second, node.g_value, iteration, count_revisits, memory_usage,
+            initial_heuristic_value, h_avg, heuristic_type
+        )
         #graph_dot.to_graphviz()
         solution, operators = node.extract_solution()
-        #print(solution)
         return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
     elif STATUS =='OUT OF MEMORY' or STATUS == 'TIMEOUT':
-        logging.info(f"{STATUS} \nElapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, Expanded Nodes: {iteration}. Revists Avoided: {count_revisits}, Used Memory: {memory_usage}\nh-init: {initial_heuristic_value}, h-avg {h_avg:.2f}, h_val type: {heuristic_type}")
+        logging.info(
+            "%s \nElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
+            "Expanded Nodes: %d. Revists Avoided: %d, Used Memory: %s\n"
+            "h-init: %.2f, h-avg %.2f, h_val type: %s",
+            STATUS, elapsed_time, nodes_second, iteration, count_revisits, memory_usage,
+            initial_heuristic_value, h_avg, heuristic_type
+        )
         return create_result_dict(STATUS, iteration, -1, -1, start_time, current_time, memory_usage, -1, -1)
     else:
         logging.info("No operators left. Task unsolvable.")
         #graph_dot.to_graphviz()
-        return create_result_dict('UNSOLVABLE', iteration, initial_heuristic_value, h_sum, start_time, current_time, psutil.virtual_memory().percent, -1, -1)
-
+        return create_result_dict(
+            'UNSOLVABLE', iteration, initial_heuristic_value, 
+            h_sum, start_time, current_time, 
+            psutil.virtual_memory().percent, -1, -1
+        )

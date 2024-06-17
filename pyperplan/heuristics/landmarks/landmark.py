@@ -1,10 +1,14 @@
 from collections import deque
 from copy import deepcopy
-from .and_or_graphs import AndOrGraph, NodeType, ContentType  # Ensure this is correctly imported
-from .sccs import SCCDetection
+import gc
+
+from pyperplan.heuristics.landmarks.and_or_graphs import AndOrGraph
+from pyperplan.heuristics.landmarks.and_or_graphs import NodeType
+from pyperplan.heuristics.landmarks.and_or_graphs import ContentType
+
 # store landmarks, needed when landmarks are updated for each new node
 class LM_Node:
-    def __init__(self, len_nodes, parent=None):
+    def __init__(self, parent=None):
         if parent:
             self.lms = parent.lms
             self.mark = parent.mark
@@ -16,14 +20,12 @@ class LM_Node:
             self.number_lms   = 0   # total number of lms
             self.achieved_lms = 0   # total achieved lms
             
-
     # mark as 'achieved' if node is a lm
     def mark_lm(self, node_id):
         if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
             self.mark |= 1 << node_id
             self.achieved_lms+=1
         
-            
     # add new lms
     def update_lms(self, new_lms):
         for lm_id in new_lms:
@@ -35,25 +37,26 @@ class LM_Node:
         return self.number_lms - self.achieved_lms
     
     def __str__(self):
-        #lms_bin = format(self.lms, '0{}b'.format(len(str(bin(self.lms)))-2))[::-1]  # -2 to remove '0b'
-        #achieved_bin = format(self.mark, '0{}b'.format(len(str(bin(self.mark)))-2))[::-1]
         return f"Lms (value={self.lm_value()}): \n\tlms:      {bin(self.lms)}\n\tachieved: {bin(self.mark)}"
 
 class Landmarks:
-    def __init__(self, model):
-        self.bu_AND_OR = AndOrGraph(model, top_down=False) # bottom-up and or graph
-        self.td_AND_OR = AndOrGraph(model, top_down=True)  # top-down and or graph
-        
+    def __init__(self, model, bidirectional=True):
+        self.bidirectional=bidirectional
+        self.bu_AND_OR     = AndOrGraph(model, top_down=False) # bottom-up and or graph
         self.len_landmarks = len(self.bu_AND_OR.nodes)
-        self.bu_landmarks    = [set()] * self.len_landmarks # bottom-up landmarks
-        self.td_landmarks    = [set()] * self.len_landmarks # top-down landamarks
+        self.bu_landmarks  = [set()] * self.len_landmarks # bottom-up landmarks
         
-    '''
+        if bidirectional:
+            self.td_AND_OR = AndOrGraph(model, top_down=True)  # top-down and or graph
+            self.td_landmarks    = [set()] * self.len_landmarks # top-down landamarks
+        
+    
+    def bottom_up_lms(self):
+        """
         Original landmark extraction:
           We refer to it as 'bottom-up landmarks' because it captures the HTN hierarchy this way
           see: Höller, D., & Bercher, P. (2021). Landmark Generation in HTN Planning. Proceedings of the AAAI Conference on Artificial Intelligence
-    '''
-    def bottom_up_lms(self):
+        """
         queue = deque([node for node in self.bu_AND_OR.nodes if len(node.predecessors) == 0])
         while queue:
             node = queue.popleft()
@@ -66,30 +69,26 @@ class Landmarks:
                 new_landmarks = set.union(*(self.bu_landmarks[pred.ID] for pred in node.predecessors))
                 
             new_landmarks = new_landmarks | {node.ID}
-            if  new_landmarks > self.bu_landmarks[node.ID]:
+            if  new_landmarks != self.bu_landmarks[node.ID]:
                 self.bu_landmarks[node.ID] = new_landmarks
                 for succ in node.successors:
                     if all(len(self.bu_landmarks[pred.ID])!=None for pred in succ.predecessors):
                         queue.append(succ)
 
-    '''
+    def top_down_lms(self):
+        """
         top-down landmarks extraction, our proposed works:
             (1) use a AND OR graph with inverted arcs at tasks and methods -operators and facts are the same
             (2) considering 'Operator' nodes as a sort of a hybrid node: for facts its 'AND' node, for methods its an 'OR' node.
             (3) extract landmarks using this graph.
-    '''
-    def top_down_lms(self):
-        #queue = deque([self.td_AND_OR.nodes[node_id] for node_id in self.td_AND_OR.i_node_set])
+        """
+        if not self.bidirectional:
+            raise ValueError("Bidirectional flag set to false, top-down landmarks not allowed")
         queue = deque([node for node in self.td_AND_OR.nodes if len(node.predecessors) == 0])
-        dot_visited = set()
+        
         while queue:
             node = queue.popleft()
             new_landmarks   = set()
-            dot_visited    |= {node.ID}
-            # dot_successors  = {succ.ID for succ in node.successors}
-            # dot_newlms      = {}
-            # dot_existinglms = {}
-            
             if node.content_type == ContentType.OPERATOR and node.predecessors:
                 possible_method_landmarks = []
                 forced_landmarks = set()
@@ -112,17 +111,6 @@ class Landmarks:
             # NOTE: need proof on termination
             if  new_landmarks != self.td_landmarks[node.ID]:
                 self.td_landmarks[node.ID] = new_landmarks
-
-                #dot_existinglms = self.landmarks[node.ID]
-                #dot_newlms = new_landmarks - self.landmarks[node.ID]
-                # self.and_or_graph.dot_output_step(
-                #     current_node=node.ID, 
-                #     successors=dot_successors, 
-                #     new_landmarks=dot_newlms, 
-                #     visited= dot_visited,
-                #     existing_landmarks=dot_existinglms
-                # )
-
                 for succ in node.successors:
                     if all(len(self.td_landmarks[pred.ID])!=None for pred in succ.predecessors):
                         queue.append(succ)
@@ -141,6 +129,9 @@ class Landmarks:
         Returns:
             set: Set of computed landmarks.
         """
+        if not self.bidirectional:
+            raise ValueError("Bidirectional flag set to false, bidirectional landmark extraction not allowed")
+        
         bid_landmarks = set()
         visited   = set()
         queue     = deque()
@@ -149,8 +140,8 @@ class Landmarks:
             if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
                 for lm in self.bu_landmarks[fact_pos]:
                     bid_landmarks.add(lm)
-            if state & (1 << fact_pos):
-                bid_landmarks.add(fact_pos)
+            #if state & (1 << fact_pos):
+            #    bid_landmarks.add(fact_pos)
         
         # Add landmarks related to each task in the task network
         for t in task_network:
@@ -159,13 +150,8 @@ class Landmarks:
         
         for lm_id in bid_landmarks:
             node = self.bu_AND_OR.nodes[lm_id]
-            if node.content_type == ContentType.OPERATOR:
-                queue.append(node.ID)
-            elif node.content_type == ContentType.FACT and ~state & (1 << lm_id):
-                queue.append(node.ID)
-            else:
-                visited.add(node.ID)
-        
+            queue.append(node.ID)
+            
         while queue:
             node_id = queue.popleft()
             visited.add(node_id)
@@ -179,7 +165,34 @@ class Landmarks:
             for lm_id in self.bu_landmarks[node.ID]:
                 if not lm_id in visited:
                     queue.append(lm_id)
+
+        # for now, removing fact landmarks
+        for lm_id in deepcopy(bid_landmarks):
+            if self.bu_AND_OR.nodes[lm_id].content_type == ContentType.FACT:
+                bid_landmarks.remove(lm_id)
+
         return bid_landmarks
+    
+    def classical_lms(self, model, state, task_network):
+        landmarks = set()
+        # compute landmarks based on the initial state and goal conditions
+        for fact_pos in range(len(bin(model.goals))-2):
+            if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
+                for lm in self.bu_landmarks[fact_pos]:
+                    landmarks.add(lm)
+            
+        for t in task_network:
+            for lm in self.bu_landmarks[t.global_id]:
+                landmarks.add(lm)
+        
+        return landmarks
+
+    def clear_structures(self):
+        self.bu_AND_OR = None
+        self.td_AND_OR = None
+        self.bu_landmarks = None
+        self.td_landmarks = None
+        gc.collect()
 
     # UTILITARY
     # def print_landmarks(self, node_id):

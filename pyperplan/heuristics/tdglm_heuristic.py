@@ -1,9 +1,12 @@
 from copy import deepcopy
-from .heuristic import Heuristic
-from .landmarks.landmark import Landmarks
 import pulp 
 
-'''
+from pyperplan.heuristics.heuristic import Heuristic
+from pyperplan.heuristics.landmarks.landmark import Landmarks
+from pyperplan.search.htn_node import AstarNode
+
+class TDGLmHeuristic(Heuristic):
+    """
     TDG Count use an IP formulation to compute the minimal number of tasks to clear the task network
     which completes all landmarks extracting using the 'bidirectional landmarks'.
     - Each new node should 'know' the number of pending landmarks
@@ -11,121 +14,161 @@ import pulp
      (1) We have to update the counting on TNI variables, 
         this indicates the number of times each task appears into the current task network
      (2) Each node should update variable bounds according to the pending landmarks
-
-'''
-class TDGLmHeuristic(Heuristic):
-    def __init__(self, model, initial_node):
+    """
+    def __init__(self, model, initial_node, use_landmarks=True, use_bid = True):
         super().__init__(model, initial_node)
         # auxiliar: maps each subtask to each corresponding method that uses it (can appear more than once)
-        self.mst = {n.global_id: [] for n in self.model.operators + self.model.abstract_tasks} 
+        self.mst = {n.global_id: [] for n in self.model.operators + self.model.abstract_tasks}
 
         # generate bidirectional landmarks
         self.landmarks = Landmarks(self.model)
         self.landmarks.bottom_up_lms()
-        self.landmarks.top_down_lms()
-        self.lm_set = self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
+        self.lm_set = set()
+        if use_landmarks and use_bid:
+            self.landmarks.top_down_lms()
+            self.lm_set = self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
+        elif use_landmarks:
+            self.lm_set = self.landmarks.classical_lms(self.model, initial_node.state, initial_node.task_network)
+        # after getting lm_set, clear memory
+        # self.landmarks.clear_structures()
         
         # IP/LP model variables
-        self.ua_vars = {}
+        self.uan_vars = {}
         self.mm_vars = {}
         self.tni_constants = {}
+        self.lm_vars = {}
 
         # Preare IP/LP model
         self.ipmodel = pulp.LpProblem("TaskDecomposition", pulp.LpMinimize)
         self._build_ip_model()
 
         # Compute initial node
+        initial_node.lm_node = deepcopy(self.lm_set)
         initial_node.h_value = self._solve_ip()
         initial_node.f_value = initial_node.h_value
-        initial_node.lp_vars = self._store_lpvars()
-         
+        #self.test_model(initial_node)
+
+    def test_model(self, initial_node):
+        print(initial_node)
+        do_put_on = initial_node.task_network[0]
+        self.print_variables_and_constraints()
+        print(initial_node.lm_node)
+        print(f'h: {initial_node.h_value}')
+        
+        # m1 child
+        method_m1 = do_put_on.decompositions[0]
+        m1_child_node = AstarNode(initial_node, do_put_on, method_m1, initial_node.state, method_m1.task_network, 0, 0)
+        print(m1_child_node)
+        self.compute_heuristic(initial_node, m1_child_node)
+        self.print_variables_and_constraints()
+        print(m1_child_node.lm_node)
+        print(f'h: {m1_child_node.h_value}')
+        
+
+        method_m2 = do_put_on.decompositions[1]
+        m2_child_node = AstarNode(initial_node, do_put_on, method_m2, initial_node.state, method_m2.task_network, 0, 0)
+        print(m2_child_node)
+        self.compute_heuristic(initial_node, m2_child_node)
+        self.print_variables_and_constraints()
+        print(m2_child_node.lm_node)
+        print(f'h: {m2_child_node.h_value}')
+        
+        do_clear = m1_child_node.task_network[0]
+        method_m7 = do_clear.decompositions[0]
+        m3_child_node = AstarNode(m1_child_node, do_clear, method_m7, m1_child_node.state, method_m7.task_network+m1_child_node.task_network[1:], 0, 0)
+        self.compute_heuristic(m1_child_node, m3_child_node)
+        self.print_variables_and_constraints()
+        print(m2_child_node.lm_node)
+        print(f'h: {m3_child_node.h_value}')
+        exit()
+
     def compute_heuristic(self, parent_node, node):
-        self._retrieve_ipmodel(parent_node.lp_vars)
-        self._update_ipmodel(self.ipmodel.variablesDict(), node.task, node.decomposition)
+        unachieved_landmarks = deepcopy(parent_node.lm_node)
+        #print(f'{node.task.name} ==> {node.decomposition.name} ({node.decomposition.global_id})')
+        if node.task.global_id in unachieved_landmarks:
+            unachieved_landmarks.remove(node.task.global_id)
+        if node.decomposition and node.decomposition.global_id in unachieved_landmarks:
+            unachieved_landmarks.remove(node.decomposition.global_id)
+        node.lm_node = unachieved_landmarks
+        #print(node.lm_node)
+
+        # reset uan variables
+        for var in self.uan_vars.values():
+            var.lowBound= 0
+            var.upBound = None
+        # reset mm variables
+        for var in self.mm_vars.values():
+            var.lowBound = 0
+            var.upBound = None
+        # update landmarks
+        for lm_id in node.lm_node:
+            var = self.lm_vars[lm_id]
+            var.lowBound=1
+
+        # reset and update tni constants
+        for tni_const in self.tni_constants.values():
+            tni_const.lowBound = 0
+            tni_const.upBound = 0
+        for task in node.task_network:
+            tv = self.tni_constants[task.global_id]
+            tv.lowBound+=1
+            tv.upBound+=1
+
         node.h_value = self._solve_ip()
         node.f_value = node.h_value + node.g_value
-        node.lp_vars = self._store_lpvars()
-        
-    def _store_lpvars(self):
-        # make a copy of each variable's bound and current objective value
-        lp_var_cpy = {}
-        for name, var in self.ipmodel.variablesDict().items():
-            var_info = (var.lowBound, var.upBound, var.varValue)
-            lp_var_cpy[name] = var_info
-        return lp_var_cpy
-
-    def _retrieve_ipmodel(self, ipnode_vars):
-        # get variable values from parent node
-        for name, info in ipnode_vars.items():
-            model_var = self.ipmodel.variablesDict()[name]
-            model_var.lowBound, model_var.upBound, var_varValue = info
-            model_var.setInitialValue(var_varValue)
-
-    def _update_ipmodel(self, ipmodel_vars, executed_task, executed_method):
-        # update tni variables (TNI is an array of task nodes)
-        var_name = f"TNC_{executed_task.name}"
-        if executed_task.global_id in self.lm_set:
-            ipmodel_var = ipmodel_vars[var_name]
-            ipmodel_var.lowBound = ipmodel_var.lowBound - 1
-            ipmodel_var.upBound  = ipmodel_var.upBound  - 1
-            
-        # remove landmark bound if the executed task is a landmark
-        # var_name = f"UN_{executed_task.name}"
-        # if executed_task.global_id in self.lm_set:
-        #     ipmodel_var = ipmodel_vars[var_name]
-        #     ipmodel_var.lowBound = 0
-            
-        if not executed_method:
-            return
-        
-        # update tni variables (add new tasks from method's task network)
-        for task in executed_method.task_network:
-            var_name = f"TNC_{task.name}"
-            ipmodel_var = ipmodel_vars[var_name]
-            ipmodel_var.lowBound = ipmodel_var.lowBound + 1
-            ipmodel_var.upBound  = ipmodel_var.upBound + 1
-
-        # remove landmark bound if the executed method is a landmark
-        # if executed_method.global_id in self.lm_set:
-        #     var_name = f'M_{executed_method.name}'
-        #     ipmodel_var = ipmodel_vars[var_name]
-        #     ipmodel_var.lowBound = 0
         
     def _build_ip_model(self):
         # initialize auxiliary structure
         for d in self.model.decompositions:
             for subt in d.task_network:
                 self.mst[subt.global_id].append(d)
-
-        # initialize variables
-        self.UAn_vars = {n.global_id: pulp.LpVariable(f"UN_{n.name}", lowBound=0, cat='Integer') for n in self.model.abstract_tasks + self.model.operators}
-        self.mm_vars = {m.global_id: pulp.LpVariable(f"M_{m.name}", lowBound=0, cat='Integer') for m in self.model.decompositions}
-        self.tni_constants = {n.global_id: pulp.LpVariable(f"TNC_{n.name}", lowBound=0, upBound=0, cat='Integer') for n in self.model.abstract_tasks + self.model.operators}
         
-        # set landmark bounds
-        # for lm_id in self.lm_set:
-        #     if lm_id in self.UAn_vars:
-        #         self.UAn_vars[lm_id].lowBound=1
-        #     elif lm_id in self.mm_vars:
-        #         self.mm_vars[lm_id].lowBound=1
-
+        # initialize variables
+        self.uan_vars = {
+            n.global_id:
+            pulp.LpVariable(f"UN_{n.name}", lowBound=0, cat='Integer')
+            for n in self.model.abstract_tasks + self.model.operators
+        }
+        self.mm_vars  = {
+            m.global_id: 
+            pulp.LpVariable(f"M_{m.name}", lowBound=0, cat='Integer')
+            for m in self.model.decompositions
+        }
+        self.tni_constants = {
+            n.global_id: 
+            pulp.LpVariable(f"TNC_{n.name}", lowBound=0, upBound=0, cat='Integer')
+            for n in self.model.abstract_tasks + self.model.operators
+        }
+        
+        # set landmarks
+        for lm_id in self.lm_set:
+            # check if is method or task landmarks
+            lm_var = self.uan_vars.get(lm_id, None)
+            if lm_var is None:
+                lm_var = self.mm_vars.get(lm_id, None)
+            lm_var.lowBound=1
+            self.lm_vars[lm_id]=lm_var
+                 
         # set TNI counting
         for t in self.model.initial_tn:
             self.tni_constants[t.global_id].lowBound+=1
             self.tni_constants[t.global_id].upBound+=1
 
         # constraints
-        self.ipmodel += pulp.lpSum([self.UAn_vars[n.global_id] for n in self.model.abstract_tasks] + [self.UAn_vars[n.global_id] for n in self.model.operators])
+        self.ipmodel += pulp.lpSum([self.uan_vars[n.global_id] for n in self.model.abstract_tasks] + [self.uan_vars[n.global_id] for n in self.model.operators])
         for abt in self.model.abstract_tasks:
-            self.ipmodel += self.UAn_vars[abt.global_id] == pulp.lpSum([self.mm_vars[d.global_id] for d in abt.decompositions]), f"Decomposition_{abt.name}"
+            #every abstract task should use a method
+            self.ipmodel += self.uan_vars[abt.global_id] == pulp.lpSum([self.mm_vars[d.global_id] for d in abt.decompositions]), f"Decomposition_{abt.name}"
         for n in self.model.abstract_tasks + self.model.operators:
-            self.ipmodel += self.UAn_vars[n.global_id] == self.tni_constants[n.global_id] + pulp.lpSum([self.mm_vars[m.global_id] for m in self.mst.get(n.global_id, [])]), f"Task_{n.name}"
+            #every task should appear the same number of times it appears into method's subtask plus their initial task network
+            self.ipmodel += self.uan_vars[n.global_id] == self.tni_constants[n.global_id] + pulp.lpSum([self.mm_vars[m.global_id] for m in self.mst.get(n.global_id, [])]), f"Task_{n.name}"
+        return True
     
     def _solve_ip(self):
-        self.ipmodel.solve(pulp.PULP_CBC_CMD(msg=False))        
+        self.ipmodel.solve(pulp.PULP_CBC_CMD(msg=False))      
         objective_value = pulp.value(self.ipmodel.objective)
-        return objective_value 
-      
+        return objective_value
+    
     def print_variables_and_constraints(self):
         print("Variables:")
         for v in self.ipmodel.variables():

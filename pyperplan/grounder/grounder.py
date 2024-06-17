@@ -19,19 +19,10 @@
 Classes and methods for grounding a schematic PDDL task to a STRIPS planning
 task.
 """
-
 from collections import defaultdict
-from copy import deepcopy
-import itertools
-import logging
-import re
-
-from ..model import Operator, Model, AbstractTask, Decomposition
-from ..parser.hddl import Problem
-from .optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup
-
-# controls mass log output
-verbose_logging = False
+from pyperplan.model import Model
+from pyperplan.parser.hddl import Problem
+from pyperplan.grounder.optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup
 
 class Grounder:
     def __init__(self,
@@ -45,9 +36,7 @@ class Grounder:
 
         @param problem A hddl.Problem instance describing the parsed problem
         @return A model.Model instance with the grounded problem
-        """
-
-        """
+        
         Overview of variable names in hddl.py, grounding.py and task.py:
         Problem.initial_state       -> init                 -> Model.initial_state
         Problem.goal                -> goal                 -> Model.goal
@@ -65,10 +54,11 @@ class Grounder:
         self.grounded_actions = {}
         self.grounded_methods = {}
         self.grounded_tasks   = {}
+        self.grounder_status  = 'FAILED'
 
         # in case we are dealing with a lifted format (not already grounded from another planner, like PandaGround)
         if have_lifted:
-            assert type(self.problem) == Problem
+            assert isinstance(problem, Problem)
             self.problem      = problem
             self.problem_name = problem.name
             self.domain   = problem.domain
@@ -189,7 +179,7 @@ class Grounder:
         #     a.add_effects = set(sorted(list(a.add_effects)))
         #     a.del_effects = set(sorted(list(a.del_effects)))
 
-        with open(filename, 'w') as file:
+        with open(filename, 'w', encoding='utf-8') as file:
             file.write("Actions:\n")
             for action in self.grounded_actions:
                 file.write(f"{action.name}\n")

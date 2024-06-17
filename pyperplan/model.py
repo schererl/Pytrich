@@ -14,12 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-import logging
 import sys
 
-"""
-Classes for representing a STRIPS planning task
-"""
 class Operator:
     """
     Attributes:
@@ -180,9 +176,6 @@ class Decomposition:
 
     def relaxed_applicable(self, state):
         return self.pos_precons <= state
-        
-    def task_network(self, state):
-        return self.task_network
     
     def __eq__(self, other):
         return self.name == other.name
@@ -235,6 +228,9 @@ class Model:
             return modifier.applicable(state)
 
     # TODO: change operators and decompositions to set()
+    # TODO: remove goal counting stuff, not using it anymore
+    # TODO: create a fact class mapping fact names with its correspondent ID
+    # TODO: add a model parameters mapping global IDs with its correspondent structure (fact, operator, abstract task or decomposition)
     def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks, operation_type = BitwiseOP):
         
         """
@@ -272,7 +268,7 @@ class Model:
         #for simplification facts already have their global ids being the same as their state positions
         self._fix_initial_task_network()
     
-    # TODO: CHANGE GAMBIARRA
+    # NOTE: CHANGE GAMBIARRA
     def _fix_initial_task_network(self):
         self.initial_tn = self.initial_tn [0].decompositions[0].task_network #specific for panda grounder
         for d in self.decompositions:
@@ -330,7 +326,6 @@ class Model:
         binary_str = binary_str[::-1]
         count=0
         for i, bit in enumerate(binary_str):
-        
             if int(bit) == 1:
                 count+=1
         return count

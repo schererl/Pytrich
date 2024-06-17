@@ -1,0 +1,31 @@
+{
+    "BENCHMARK_FOLDER_NAME": "htn-benchmarks",
+    "DOMAINS": [
+        "Monroe-Fully-Observable", 
+        "Monroe-Partially-Observable",
+        "Rover-GTOHP", 
+        "Depots", 
+        "Lamps", 
+        "Satellite-GTOHP", 
+        "Towers",
+        "SmartPhone", 
+        "Miconic", 
+        "Gripper_new", 
+        "Hiking",
+        "Multiarm-Blocksworld",
+        "Robot", 
+        "Blocksworld-GTOHP", 
+        "Barman-BDI",
+        "UM-Translog", 
+        "Blocksworld-HPDDL", 
+        "AssemblyHierarchical", 
+        "Minecraft-Regular", 
+        "Childsnack", 
+        "Woodworking", 
+        "Freecell-Learned-ECAI-16", 
+        "Transport",
+        "Factories-simple" 
+    ],
+    "MEMORY_LIMIT": 8589934592,
+    "TIME_LIMIT": 800
+}

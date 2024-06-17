@@ -1,8 +1,5 @@
 from enum import Enum, auto
-from collections import deque, defaultdict
-from .sccs import SCCDetection #not used for now
-import time
-from ...model import Operator, Decomposition
+from collections import deque
 
 class NodeType(Enum):
     AND = auto()
@@ -30,26 +27,24 @@ class AndOrGraphNode:
         self.content_type = content_type
         self.content = content  # equal to position into model's type of content
         
-        
     def __str__(self):
         return F"Node ID={self.ID} label={self.label}"
     def __repr__(self) -> str:
         return f"<Node {self.ID} {self.label}>"
     
 class AndOrGraph:
-    nodes = []
-    fact_nodes=[] #useful for using as landmark extraction starting point
-    
     # graph variables
     init_node = None
     goal_node = None
-    init_tn   = []
     scc = None # not working
-    reachable_operators=[]
-
-    i_node_set = set()
     
+
     def __init__(self, model, top_down=True, debug=False):
+        nodes = []
+        reachable_operators=[]
+        init_tn = []
+        fact_nodes=[] #useful for using as landmark extraction starting point
+        self.i_node_set = set()
         self.counter = 0
         if not debug:
             self.initialize(model, top_down=top_down)
@@ -68,24 +63,23 @@ class AndOrGraph:
         self.fact_nodes=[None]*number_facts
         # set facts
         for fact_pos in range(number_facts):
-            fact_node = AndOrGraphNode(fact_pos, NodeType.OR, content_type=ContentType.FACT, content=fact_pos, label=f'fact: {model._int_to_explicit[fact_pos]}')
+            fact_node = AndOrGraphNode(fact_pos, NodeType.OR, content_type=ContentType.FACT, content=fact_pos, label=f'{model._int_to_explicit[fact_pos]}')
             self.nodes[fact_pos]      = fact_node
             self.fact_nodes[fact_pos] = fact_node
             if model.initial_state & (1 << fact_pos):
                 self.i_node_set.add(fact_pos)
-
         # set abstract task
         for t_i, t in enumerate(model.abstract_tasks):
-            task_node = AndOrGraphNode(t.global_id, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, content=t_i, weight=1, label='task: '+t.name)
+            task_node = AndOrGraphNode(t.global_id, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, content=t_i, weight=1, label=t.name)
             self.nodes[t.global_id]=task_node
             
-
-        # for task in model.initial_tn:
-        #     self.i_node_set.add(task.global_id)
+        # still not sure what are the implicatons of it
+        for task in model.initial_tn:
+            self.i_node_set.add(task.global_id)
 
         # set primitive tasks -operators
         for op_i, op in enumerate(model.operators):  
-            operator_node = AndOrGraphNode(op.global_id, NodeType.AND, content_type=ContentType.OPERATOR, content=op_i, weight=1, label='op: '+op.name)
+            operator_node = AndOrGraphNode(op.global_id, NodeType.AND, content_type=ContentType.OPERATOR, content=op_i, weight=1, label=op.name)
             self.nodes[op.global_id] = operator_node
             
             for fact_pos in range(number_facts):
@@ -99,7 +93,7 @@ class AndOrGraph:
 
         # set methods
         for d_i, d in enumerate(model.decompositions):
-            decomposition_node = AndOrGraphNode(d.global_id, NodeType.AND, content_type=ContentType.METHOD, content=d_i, label='decomp: '+d.name)
+            decomposition_node = AndOrGraphNode(d.global_id, NodeType.AND, content_type=ContentType.METHOD, content=d_i, label=d.name)
             self.nodes[d.global_id] = decomposition_node
             task_head_id = d.compound_task.global_id
             if top_down:
@@ -119,14 +113,18 @@ class AndOrGraph:
                 if d.pos_precons_bitwise & (1 << fact_pos):
                     fact_node = self.fact_nodes[fact_pos]
                     self.add_edge(fact_node, decomposition_node)
-                
-            
-
+        
         # erase predecessors from initial facts
         for i_node in self.i_node_set:
             node = self.nodes[i_node]
-            for pred in node.predecessors[:]: #NOTE: use the '[:]' to avoid changing the list while iterating it
-                self.remove_edge(pred, node)
+            # if is a task, it won't require to be enabled by some decomposition
+            if node.content_type == ContentType.OPERATOR or node.content_type == ContentType.ABSTRACT_TASK:
+                for pred in node.predecessors[:]:
+                    if pred.content_type == ContentType.METHOD:
+                        self.remove_edge(pred, node)
+            else:
+                for pred in node.predecessors[:]: #NOTE: use the '[:]' to avoid changing the list while iterating it
+                    self.remove_edge(pred, node)
                 
             
     def add_edge(self, nodeA, nodeB):

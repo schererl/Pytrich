@@ -2,4 +2,6 @@ __pycache__/
 *.py[cod]
 *.dot
 *.svg
-pand.log
+*.png
+*.csv
+panda.log
