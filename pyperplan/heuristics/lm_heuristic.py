@@ -4,8 +4,7 @@ from pyperplan.heuristics.landmarks.landmark import Landmarks, LM_Node
 
 class LandmarkHeuristic(Heuristic):
     """
-    Use a AndOr graph to perform a reachability analysis into a htn problem.
-    Check if goal node is reachable (set of facts)
+        Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
     """
     def __init__(self, model, initial_node):
         super().__init__(model, initial_node)
@@ -16,13 +15,6 @@ class LandmarkHeuristic(Heuristic):
         initial_node.lm_node = LM_Node()
         self.landmarks.bottom_up_lms()
         self.landmarks.top_down_lms()
-        #test = self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
-        #print([self.landmarks.bu_AND_OR.nodes[id] for id in test])
-        #print([self.landmarks.bu_AND_OR.nodes[id] for id in self.landmarks.bu_landmarks[88]])
-        #print([self.landmarks.td_AND_OR.nodes[id] for id in self.landmarks.td_landmarks[88]])
-        #print([self.landmarks.td_AND_OR.nodes[id] for id in self.landmarks.td_AND_OR.nodes[88].successors])
-        #print(self.landmarks.td_AND_OR.nodes[88].predecessors)
-        #print(self.landmarks.td_AND_OR.nodes[88].successors)
         initial_node.lm_node.update_lms(self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network))
         
         for fact_pos in range(len(bin(initial_node.state))-2):

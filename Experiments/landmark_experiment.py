@@ -105,7 +105,7 @@ def compute_classical_lm(model, dname, pfile):
     total_time = time.time() - start_time
     logging.info('Ended bottom landmark extraction')
     logging.info('Classical landmark procedure ended')
-    return (f'{dname}, {pfile},Classical Landmarks,total={len(bu_lm_set)}, '
+    return (f'{dname},{pfile},Classical Landmarks,total={len(bu_lm_set)}, '
             f'operators={len(bu_lm_operator_set)}, methods={len(bu_lm_methods_set)}, '
             f'tasks={len(bu_lm_tasks_set)}, facts={len(bu_lm_facts_set)}, '
             f'and-or-graph={end_and_or_time:.2f}s, extraction={end_extract_time:.2f}s, total={total_time:.2f}s')

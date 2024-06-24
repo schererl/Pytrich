@@ -101,7 +101,7 @@ def run_experiment(etype):
             if returncode != 0:
                 logging.error('Experiment failed for %s: %s, getting next domain', domain_name, problem_file)
                 logging.error(stderr)
-                #break # next domain
+                break # next domain
             else:
                 logging.info('Experiment ended')
                 

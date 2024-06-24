@@ -36,7 +36,7 @@ def create_header(heuristics):
 
     return f"{first_line}\n{second_line}\n"
 
-HEURISTICS_STR = ['TDGLM', 'TDG']
+HEURISTICS_STR = ['TDGLM']
 def run_experiment(dfile, pfile, dname, results_file):
     logging.info('Starting grounder')
     ground_start_time = time.time()

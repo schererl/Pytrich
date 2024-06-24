@@ -4,6 +4,7 @@ from collections import deque
 class NodeType(Enum):
     AND = auto()
     OR = auto()
+    INIT = auto()
 
 class ContentType(Enum):
     OPERATOR = auto()
@@ -40,10 +41,6 @@ class AndOrGraph:
     
 
     def __init__(self, model, top_down=True, debug=False):
-        nodes = []
-        reachable_operators=[]
-        init_tn = []
-        fact_nodes=[] #useful for using as landmark extraction starting point
         self.i_node_set = set()
         self.counter = 0
         if not debug:
@@ -67,16 +64,13 @@ class AndOrGraph:
             self.nodes[fact_pos]      = fact_node
             self.fact_nodes[fact_pos] = fact_node
             if model.initial_state & (1 << fact_pos):
+                fact_node.type = NodeType.INIT
                 self.i_node_set.add(fact_pos)
         # set abstract task
         for t_i, t in enumerate(model.abstract_tasks):
             task_node = AndOrGraphNode(t.global_id, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, content=t_i, weight=1, label=t.name)
             self.nodes[t.global_id]=task_node
             
-        # still not sure what are the implicatons of it
-        for task in model.initial_tn:
-            self.i_node_set.add(task.global_id)
-
         # set primitive tasks -operators
         for op_i, op in enumerate(model.operators):  
             operator_node = AndOrGraphNode(op.global_id, NodeType.AND, content_type=ContentType.OPERATOR, content=op_i, weight=1, label=op.name)
@@ -113,6 +107,13 @@ class AndOrGraph:
                 if d.pos_precons_bitwise & (1 << fact_pos):
                     fact_node = self.fact_nodes[fact_pos]
                     self.add_edge(fact_node, decomposition_node)
+        
+        # NOTE: still not sure what are the implicatons of it
+        if top_down:
+            for task in model.initial_tn:
+                print(task)
+                self.nodes[task.global_id].type= NodeType.INIT
+                self.i_node_set.add(task.global_id)
         
         # erase predecessors from initial facts
         for i_node in self.i_node_set:

@@ -1,10 +1,10 @@
 Random seed: 42
 Time limit: 1800 seconds
-Reading input from pfile10-p-0017-clear-road-tree-15-tlt-domain-pfile10-p-0017-clear-road-tree-15-tlt.psas.
-- State has 960 bits divided into 960 mutex groups.
-- Domain contains 63748 actions.
-- Domain contains 65086 tasks.
-- Domain contains 52637 methods.
+Reading input from pfile14-p-0017-clear-road-tree-13-domain-pfile14-p-0017-clear-road-tree-13.psas.
+- State has 954 bits divided into 954 mutex groups.
+- Domain contains 63742 actions.
+- Domain contains 65074 tasks.
+- Domain contains 52625 methods.
 - The initial state contains 354 set bits.
 - The initial task is "__top[]".
 - State-based goal contains 1 bits.
@@ -12,5 +12,5 @@ Reading input from pfile10-p-0017-clear-road-tree-15-tlt-domain-pfile10-p-0017-c
 - Instance has unique paths: yes
 - Instance is parallel sequences: yes
 Calculating preconditions and effects of compound tasks... 
-- Inference time 8.37 seconds 
+- Inference time 7.278 seconds 
 writing input problem to file

@@ -44,11 +44,15 @@ class Landmarks:
         self.bidirectional=bidirectional
         self.bu_AND_OR     = AndOrGraph(model, top_down=False) # bottom-up and or graph
         self.len_landmarks = len(self.bu_AND_OR.nodes)
-        self.bu_landmarks  = [set()] * self.len_landmarks # bottom-up landmarks
+        self.bu_landmarks  = [None] * self.len_landmarks # bottom-up landmarks
         
         if bidirectional:
             self.td_AND_OR = AndOrGraph(model, top_down=True)  # top-down and or graph
             self.td_landmarks    = [set()] * self.len_landmarks # top-down landamarks
+
+        self.task_lms = set()
+        self.fact_lms = set()
+        self.method_lms = set()
         
     
     def bottom_up_lms(self):
@@ -60,21 +64,35 @@ class Landmarks:
         queue = deque([node for node in self.bu_AND_OR.nodes if len(node.predecessors) == 0])
         while queue:
             node = queue.popleft()
-            new_landmarks= set()
+            new_landmarks= None
+            pred_lms = []
+            all_lms= False
+            for pred in node.predecessors:
+                lms = self.bu_landmarks[pred.ID]
+                if lms is None:
+                    all_lms=True
+                    continue
+                pred_lms.append(self.bu_landmarks[pred.ID])
             
             if node.type == NodeType.OR and node.predecessors:
-                new_landmarks = set.intersection(*(self.bu_landmarks[pred.ID] for pred in node.predecessors))
+                # in case of some predecessor had all landmarks, just ignore it and apply the interesection of the others
+                if len(pred_lms) >= 1:
+                    new_landmarks = set.intersection(*(pred_lms)) | {node.ID}
                 
             elif node.type == NodeType.AND and node.predecessors:
-                new_landmarks = set.union(*(self.bu_landmarks[pred.ID] for pred in node.predecessors))
-                
-            new_landmarks = new_landmarks | {node.ID}
+                # if some predecessor had all landmarks, consider node containing all landmarks also
+                if not all_lms:
+                    new_landmarks = set.union(*(pred_lms)) | {node.ID}
+            else:
+                new_landmarks = {node.ID}
+            
             if  new_landmarks != self.bu_landmarks[node.ID]:
                 self.bu_landmarks[node.ID] = new_landmarks
                 for succ in node.successors:
-                    if all(len(self.bu_landmarks[pred.ID])!=None for pred in succ.predecessors):
-                        queue.append(succ)
+                    queue.append(succ)
 
+                
+                
     def top_down_lms(self):
         """
         top-down landmarks extraction, our proposed works:
@@ -84,36 +102,65 @@ class Landmarks:
         """
         if not self.bidirectional:
             raise ValueError("Bidirectional flag set to false, top-down landmarks not allowed")
-        queue = deque([node for node in self.td_AND_OR.nodes if len(node.predecessors) == 0])
         
+        queue = deque([node for node in self.td_AND_OR.nodes if len(node.predecessors) == 0])
         while queue:
             node = queue.popleft()
-            new_landmarks   = set()
+            new_landmarks= None
+            # operators are 'and' nodes for facts and 'or' nodes for methods
+            # the landmarks got from the intersection of methods are added to landmarks got from facts.
             if node.content_type == ContentType.OPERATOR and node.predecessors:
-                possible_method_landmarks = []
-                forced_landmarks = set()
+                method_lms = []
+                method_all_lms = False
+                fact_lms = []
+                fact_all_lms = False
                 for pred in node.predecessors:
+                    lms = self.td_landmarks[pred.ID]
                     if pred.content_type == ContentType.METHOD:
-                        possible_method_landmarks.append(self.td_landmarks[pred.ID])
+                        if lms is None:
+                            method_all_lms=True
+                            continue
+                        method_lms.append(self.td_landmarks[pred.ID])
                     else:
-                        forced_landmarks |= self.td_landmarks[pred.ID]
-                
-                if possible_method_landmarks:
-                    new_landmarks = set.intersection(*(i for i in possible_method_landmarks)) 
+                        if lms is None:
+                            fact_all_lms=True
+                            continue
+                        fact_lms.append(self.td_landmarks[pred.ID])
+
+                # if all landmarks are reachable from facts or methods ('none' value), there is nothing to do
+                #TODO: here is a little tricky, maybe improve
+                if fact_all_lms or method_all_lms: # found a predecessor not ready (all lms marked)
+                    new_landmarks=None
+                else:
+                    if len(method_lms) == 0:
+                        method_lms = [set()] # no method has the operator as subtasks -initial task network exclusive
+                    if len(fact_lms) == 0:
+                        fact_lms = [set()]   # no preconditions
+                    new_landmarks = set.intersection(*(method_lms)).union(*(fact_lms)).union({node.ID})
                     
-            elif node.type == NodeType.OR and node.predecessors:
-                new_landmarks = set.intersection(*(self.td_landmarks[pred.ID] for pred in node.predecessors))
-            elif node.type == NodeType.AND and node.predecessors:
-                new_landmarks = set.union(*(self.td_landmarks[pred.ID] for pred in node.predecessors))
+            else: #else behaves normally
+                pred_lms = []
+                all_lms= False
+                for pred in node.predecessors:
+                    lms = self.td_landmarks[pred.ID]
+                    if lms is None:
+                        all_lms=True
+                        continue
+                    pred_lms.append(self.td_landmarks[pred.ID])
+                if node.type == NodeType.OR and node.predecessors:
+                    if len(pred_lms) >= 1:
+                        new_landmarks = set.intersection(*(pred_lms)) | {node.ID}
+                elif node.type == NodeType.AND and node.predecessors:
+                    if not all_lms:
+                        new_landmarks = set.union(*(pred_lms)) | {node.ID}
+                else:
+                    new_landmarks = {node.ID}
             
-            new_landmarks|= {node.ID}
-            
-            # NOTE: need proof on termination
             if  new_landmarks != self.td_landmarks[node.ID]:
                 self.td_landmarks[node.ID] = new_landmarks
                 for succ in node.successors:
-                    if all(len(self.td_landmarks[pred.ID])!=None for pred in succ.predecessors):
-                        queue.append(succ)
+                    queue.append(succ)
+
         
     def bidirectional_lms(self, model, state, task_network):
         """
@@ -131,47 +178,47 @@ class Landmarks:
         """
         if not self.bidirectional:
             raise ValueError("Bidirectional flag set to false, bidirectional landmark extraction not allowed")
-        
-        bid_landmarks = set()
-        visited   = set()
-        queue     = deque()
-        # Precompute landmarks based on the initial state and goal conditions
+        # get classical landmarks for the given problem
+        landmarks = set()
+        # compute landmarks based on the initial state and goal conditions
         for fact_pos in range(len(bin(model.goals))-2):
             if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
                 for lm in self.bu_landmarks[fact_pos]:
-                    bid_landmarks.add(lm)
-            #if state & (1 << fact_pos):
-            #    bid_landmarks.add(fact_pos)
+                    landmarks.add(lm)
+                    
         
-        # Add landmarks related to each task in the task network
+        # compute landmarks based on task network
         for t in task_network:
             for lm in self.bu_landmarks[t.global_id]:
-                bid_landmarks.add(lm)
+                landmarks.add(lm)
         
-        for lm_id in bid_landmarks:
-            node = self.bu_AND_OR.nodes[lm_id]
-            queue.append(node.ID)
-            
+        visited   = set()
+        queue = deque()  # Ensure queue is a deque
+        queue.extend([lm for lm in landmarks])  # Use extend to add elements to the deque
+        
+        # iterate over each landmark and increment with td and bu landmarks while new landarks are discovered
         while queue:
             node_id = queue.popleft()
             visited.add(node_id)
-            bid_landmarks.add(node_id)
-            node = self.bu_AND_OR.nodes[node_id]
-            
-            for lm_id in self.td_landmarks[node.ID]:
+            landmarks.add(node_id)
+            # top-down landmarks
+            for lm_id in self.td_landmarks[node_id]:
+               if not lm_id in visited:
+                   queue.append(lm_id)
+            # bottom-up landmarks
+            for lm_id in self.bu_landmarks[node_id]:
                 if not lm_id in visited:
                     queue.append(lm_id)
-            
-            for lm_id in self.bu_landmarks[node.ID]:
-                if not lm_id in visited:
-                    queue.append(lm_id)
-
-        # for now, removing fact landmarks
-        for lm_id in deepcopy(bid_landmarks):
+        
+        for lm_id in landmarks:
             if self.bu_AND_OR.nodes[lm_id].content_type == ContentType.FACT:
-                bid_landmarks.remove(lm_id)
-
-        return bid_landmarks
+                self.fact_lms.add(lm_id)
+            elif self.bu_AND_OR.nodes[lm_id].content_type == ContentType.METHOD:
+                self.method_lms.add(lm_id)
+            else:
+                self.task_lms.add(lm_id)
+        
+        return landmarks
     
     def classical_lms(self, model, state, task_network):
         landmarks = set()
@@ -180,11 +227,26 @@ class Landmarks:
             if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
                 for lm in self.bu_landmarks[fact_pos]:
                     landmarks.add(lm)
-            
+        # compute landmarks based on task network
         for t in task_network:
             for lm in self.bu_landmarks[t.global_id]:
                 landmarks.add(lm)
         
+        for lm_id in landmarks:
+            if self.bu_AND_OR.nodes[lm_id].content_type == ContentType.FACT:
+                self.fact_lms.add(lm_id)
+            elif self.bu_AND_OR.nodes[lm_id].content_type == ContentType.METHOD:
+                self.method_lms.add(lm_id)
+            else:
+                self.task_lms.add(lm_id)
+
+        return landmarks
+
+    def remove_factlms(self, landmarks):
+        # for now, removing fact landmarks
+        for lm_id in deepcopy(landmarks):
+            if self.bu_AND_OR.nodes[lm_id].content_type == ContentType.FACT:
+                landmarks.remove(lm_id)
         return landmarks
 
     def clear_structures(self):
