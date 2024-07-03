@@ -4,8 +4,9 @@ import sys
 import time
 
 from matplotlib import pyplot as plt
+from itertools import combinations
 import pandas as pd
-
+import seaborn as sns
 from pyperplan.planner import (
     SEARCHES,
     HEURISTICS,
@@ -56,8 +57,37 @@ def run_experiment(dfile, pfile, dname, results_file):
     
             
 
-def plot_comparison(results_file):
-    pass
+def resume_data(results_file):
+    df = pd.read_csv(results_file, sep='\t')
+    
+    goal_data = df[df['STATUS'] == 'GOAL']
+    heuristics = goal_data['HEURISTIC'].unique()
+    heuristic_pairs = list(combinations(heuristics, 2))
+    for h1, h2 in heuristic_pairs:
+        # Filter data for the specific pair of heuristics
+        df_h1 = goal_data[goal_data['HEURISTIC'] == h1][['DOMAIN', 'PROBLEM', 'EXP. NODES']]
+        df_h2 = goal_data[goal_data['HEURISTIC'] == h2][['DOMAIN', 'PROBLEM', 'EXP. NODES']]
+        
+        # Merge data on DOMAIN and PROBLEM
+        df_merge = pd.merge(df_h1, df_h2, on=['DOMAIN', 'PROBLEM'], suffixes=(f'_{h1}', f'_{h2}'))
+        
+        # Plot comparison
+        plt.figure(figsize=(10, 6))
+        sns.scatterplot(x=f'EXP. NODES_{h1}', y=f'EXP. NODES_{h2}', hue='DOMAIN', data=df_merge)
+        plt.title(f'Comparison of Expanded Nodes: {h1} vs {h2}')
+        plt.xlabel(f'Expanded Nodes ({h1})')
+        plt.ylabel(f'Expanded Nodes ({h2})')
+        plt.grid(True)
+        plt.legend(title='Domain')
+        plt.savefig(f'{EXPERIMENT_FOLDER}{h1}_vs_{h2}_comparison.png')
+        plt.show()
+
+    # Create a coverage table for each heuristic
+    coverage = goal_data.groupby(['DOMAIN', 'HEURISTIC']).size().unstack(fill_value=0)
+    print("Coverage Table:")
+    print(coverage)
+    coverage.to_csv(f'{EXPERIMENT_FOLDER}coverage_table.csv')
+    
 
 EXPERIMENT_FOLDER=os.path.abspath('Experiments/Outputs/Search') + '/'
 RESULTS_FILE='search_results.csv'
@@ -80,6 +110,7 @@ if __name__ == "__main__":
     problem_file = sys.argv[2]
     domain_name  = sys.argv[3]
     command_type = sys.argv[4]
+    resume_data(EXPERIMENT_FOLDER + RESULTS_FILE)
     if command_type == 'initialize':
         os.makedirs(EXPERIMENT_FOLDER, exist_ok=True)
         FILE_EXIST = os.path.exists(EXPERIMENT_FOLDER + RESULTS_FILE)
@@ -90,6 +121,6 @@ if __name__ == "__main__":
             else:
                 print('already initialized')
     elif command_type == 'plot':
-        plot_comparison(EXPERIMENT_FOLDER + RESULTS_FILE)
+        resume_data(EXPERIMENT_FOLDER + RESULTS_FILE)
     else:
         run_experiment(domain_file, problem_file, domain_name, EXPERIMENT_FOLDER + RESULTS_FILE)
