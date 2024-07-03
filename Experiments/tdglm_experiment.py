@@ -17,7 +17,7 @@ def compute_classical_tdglm(model, domain_name, problem_file):
     heuristic_value = initial_node.h_value
     total_time = time.time() - start_time
     logging.info('Classical landmark procedure ended')
-    return f'{domain_name},{problem_file},Classical TDGLM, heuristic value={heuristic_value}, landmarks={len(classical_tdglm.lm_set)}, total={total_time:.2f}s'
+    return f'{domain_name},{problem_file},Classical TDGLM, heuristic value={heuristic_value}, landmarks={classical_tdglm.total_lms}, total={total_time:.2f}s'
 
 def compute_bidirectional_tdglm(model, domain_name, problem_file):
     start_time = time.time()
@@ -28,7 +28,7 @@ def compute_bidirectional_tdglm(model, domain_name, problem_file):
     total_time = time.time() - start_time
     logging.info('Bidirectional TDG procedure ended')
     
-    return f'{domain_name},{problem_file},Bidirectional TDGLM, heuristic value={heuristic_value}, landmarks={len(bidirectional_tdglm.lm_set)}, total={total_time:.2f}s'
+    return f'{domain_name},{problem_file},Bidirectional TDGLM, heuristic value={heuristic_value}, landmarks={bidirectional_tdglm.total_lms}, total={total_time:.2f}s'
 
 def compute_tdg(model, domain_name, problem_file):
     start_time = time.time()
@@ -39,7 +39,7 @@ def compute_tdg(model, domain_name, problem_file):
     total_time = time.time() - start_time
     logging.info('TDG procedure ended')
     
-    return f'{domain_name},{problem_file},TDG, heuristic value={heuristic_value}, landmarks={len(tdg_heuristic.lm_set)}, total={total_time:.2f}s'
+    return f'{domain_name},{problem_file},TDG, heuristic value={heuristic_value}, landmarks={tdg_heuristic.total_lms}, total={total_time:.2f}s'
 
 def run_experiment(dfile, pfile, dname, rfile):
     grounder = pandaGrounder(dfile, pfile)

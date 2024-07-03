@@ -1,6 +1,8 @@
-from ..model import Operator, Model, AbstractTask, Decomposition
 import logging
 import sys
+
+from pyperplan.model import Operator, AbstractTask
+
 def clean_tdg(
     model    
 ):
@@ -12,10 +14,6 @@ def clean_tdg(
     It also logs the memory usage before and after the compression for profiling purposes.
     """
     # profilling stuff
-    op_before            = sys.getsizeof(model.operators) 
-    decomp_before        = sys.getsizeof(model.decompositions) 
-    abs_tasks_before     = sys.getsizeof(model.abstract_tasks)
-
     count_op_before     = len(model.operators)
     count_decomp_before = len(model.decompositions)
     count_abs_task_before = len(model.abstract_tasks)
@@ -55,9 +53,6 @@ def clean_tdg(
     model.decompositions = used_decompositions
     model.facts          = used_facts
     model.abstract_tasks = used_abstract_tasks
-    op_after     = sys.getsizeof(model.operators) 
-    decomp_after = sys.getsizeof(model.decompositions)
-    tasks_after  = sys.getsizeof(model.abstract_tasks)
     count_op_after     = len(model.operators)
     count_decomp_after = len(model.decompositions)
     count_abs_task_after = len(model.abstract_tasks)
@@ -66,7 +61,41 @@ def clean_tdg(
     logging.info(f"cleaning operators: before {count_op_before} un ==> after {count_op_after} un")
     logging.info(f"cleaning decompositions: before {count_decomp_before} un ==> after {count_decomp_after} un")
     logging.info(f"cleaning tasks: before {count_abs_task_before} un ==> after {count_abs_task_after} un")
-                
+
+
+
+def _calculate_reachability(model):
+    nodes_reach = {node.global_id:{node.global_id} for node in model.operators + model.decompositions + model.abstract_tasks}
+    changed=True
+    while changed:
+        changed=False
+        for component in [model.decompositions + model.abstract_tasks]:
+            new_reached_set = set()
+            if isinstance(component, AbstractTask):
+                for d in component.decompositions:
+                    new_reached_set |= nodes_reach[d.global_id]
+            else: # is a decomposition
+                for subt in component.task_network:
+                    new_reached_set |= nodes_reach[subt.global_id]
+            
+            #check if changed
+            if new_reached_set != nodes_reach[component.global_id]:
+                changed=True
+                nodes_reach[component.global_id] = new_reached_set
+
+"""
+def _constrain_predec(model):
+    predec = {t.global_id:set() for t in model.abstract_tasks + model.operators}
+    nodes_reachable = _calculate_reachability(model)
+    for d in model.decompositions:
+        for i_task, task in range enumerate(d.task_network):
+            for j_task in range(i_task):
+                pred_it = predec[task.global_id]
+                reachable_jt = nodes_reachable[d.task_network[j_task].global_id]
+                pred_it |= reachable_jt            
+
+"""
+
 def remove_negative_precons(model):
     neg_facts = set()
     # convert negative preconditions into 'neg literals'
@@ -111,6 +140,8 @@ def remove_negative_precons(model):
     for d in model.decompositions:
         d.neg_precons=frozenset()
     
+
+
 
 def convert_bitwise_repr(model):
     def map_explicit_to_int(model):
@@ -246,7 +277,6 @@ def _reachable_operators(model, initial_facts):
                 reachable_facts = op.relaxed_apply_bitwise(reachable_facts)
                 changed = True
     return reachable_operators, reachable_facts
-
 
 def correctness_check(model):
     logging.info('Starting correctness check')

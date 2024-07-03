@@ -3,7 +3,7 @@ import pulp
 
 from pyperplan.heuristics.heuristic import Heuristic
 from pyperplan.heuristics.landmarks.landmark import Landmarks
-from pyperplan.model import Operator
+from pyperplan.model import AbstractTask, Decomposition, Operator
 from pyperplan.search.htn_node import AstarNode
 
 class TDGLmHeuristic(Heuristic):
@@ -23,22 +23,25 @@ class TDGLmHeuristic(Heuristic):
         @param use_landmarks: Flag to toggle landmark usage (default: True).
         @param use_bid: Flag to use bidirectional landmarks (default: True).
     """
-    def __init__(self, model, initial_node, use_landmarks=True, use_bid = True):
-        super().__init__(model, initial_node)
+    def __init__(self, model, initial_node, use_landmarks=True, use_bid = True, compute_reachability = False, name="tdg-ip"):
+        super().__init__(model, initial_node, name=name)
+        self.compute_reachability = compute_reachability
+
         # auxiliar: maps each subtask to each corresponding method that uses it (can appear more than once)
         self.mst = {n.global_id: [] for n in self.model.operators + self.model.abstract_tasks}
         
         # generate bidirectional landmarks
         self.landmarks = Landmarks(self.model)
         self.landmarks.bottom_up_lms()
-        #use_bid=False
+        use_bid=False
         if use_landmarks and use_bid:
             self.landmarks.top_down_lms()
             self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
         elif use_landmarks:
             self.landmarks.classical_lms(self.model, initial_node.state, initial_node.task_network)
         # self.landmarks.clear_structures() # clear memory
-        print(self.landmarks)
+        self.total_lms = len(self.landmarks.task_lms) + len(self.landmarks.method_lms) + len(self.landmarks.fact_lms)
+        
         # IP/LP model variables
         self.uan_vars = {}
         self.mm_vars = {}
@@ -56,13 +59,13 @@ class TDGLmHeuristic(Heuristic):
 
         # Compute initial node
         lm_triple_set = (
-            deepcopy(self.landmarks.task_lms), 
-            deepcopy(self.landmarks.method_lms), 
+            deepcopy(self.landmarks.task_lms),
+            deepcopy(self.landmarks.method_lms),
             deepcopy(self.landmarks.fact_lms)
         )
         initial_node.lm_node = lm_triple_set #TODO: this is not ok, it suppose to get landmarkNode, here Im passing a set(), different purpose
-        initial_node.h_value = self._solve_ip()
-        initial_node.f_value = initial_node.h_value
+        super().set_hvalue(initial_node, self._solve_ip())
+        self.initial_h = initial_node.h_value
         #self.test_model(initial_node)
 
     def compute_heuristic(self, parent_node, node):
@@ -74,57 +77,103 @@ class TDGLmHeuristic(Heuristic):
         """
         # update unachieved landmarks
         unachieved_task_lms, unachieved_method_lms, unachieved_fact_lms = deepcopy(parent_node.lm_node)
-        if node.task.global_id in unachieved_task_lms:
-            unachieved_task_lms.remove(node.task.global_id)
+        
+        # if is an operator, update landmarks but avoid recomputing a new lp    
         if isinstance(node.task, Operator):
+            if node.task.global_id in unachieved_task_lms:
+                unachieved_task_lms.remove(node.task.global_id)
             for fact_lm in unachieved_fact_lms.copy():
                 if node.state & (1 << fact_lm):
                     unachieved_fact_lms.remove(fact_lm)
+            node.lm_node = (unachieved_task_lms, unachieved_method_lms, unachieved_fact_lms)
+            #discount from parent node the operation
+            super().set_hvalue(node, parent_node.h_value-1)
+            return
+        
+        if node.task.global_id in unachieved_task_lms:
+            unachieved_task_lms.remove(node.task.global_id)
         if node.decomposition and node.decomposition.global_id in unachieved_method_lms:
             unachieved_method_lms.remove(node.decomposition.global_id)
         node.lm_node = (unachieved_task_lms, unachieved_method_lms, unachieved_fact_lms)
         
-        # reset uan variables
-        for var in self.uan_vars.values():
-            var.lowBound= 0
-            var.upBound = None
-        # reset mm variables
-        for var in self.mm_vars.values():
-            var.lowBound = 0
-            var.upBound = None
         # reset fact variables
         for var in self.fact_vars.values():
             var.lowBound=0
             var.upBound=0
-        
-        # mark task landmarks
-        for lm_id in node.lm_node[0]:
-            var = self.lm_task_vars[lm_id]
-            var.lowBound=1
-        # mark method landmarks
-        for lm_id in node.lm_node[1]:
-            var = self.lm_method_vars[lm_id]
-            var.lowBound=1
-        # mark fact landmarks for activating disjuncitve action constraints
-        for lm_id in node.lm_node[2]:
-            var = self.fact_vars[lm_id]
-            var.lowBound=1
-            var.upBound=1
-
         # reset and update tni constants
         for tni_const in self.tni_constants.values():
             tni_const.lowBound = 0
             tni_const.upBound = 0
+        # update tni
         for task in node.task_network:
             tv = self.tni_constants[task.global_id]
             tv.lowBound+=1
             tv.upBound+=1
 
-        node.h_value = self._solve_ip()
-        node.f_value = node.h_value + node.g_value
+        if self.compute_reachability:
+            # reset uan variables
+            for var in self.uan_vars.values():
+                var.lowBound= 0
+                var.upBound = 0
+            # reset mm variables
+            for var in self.mm_vars.values():
+                var.lowBound = 0
+                var.upBound = 0
+            for task in node.task_network:
+                self._calculate_reachability(task)
+        else:
+            # reset uan variables
+            for var in self.uan_vars.values():
+                var.lowBound= 0
+                var.upBound = None
+            # reset mm variables
+            for var in self.mm_vars.values():
+                var.lowBound = 0
+                var.upBound = None
+        
+        lm_unreachable=False
+        # mark task landmarks
+        for lm_id in node.lm_node[0]:
+            var = self.lm_task_vars[lm_id]
+            if var.upBound == 0:
+                lm_unreachable = True
+            var.lowBound=1
+        # mark method landmarks
+        for lm_id in node.lm_node[1]:
+            var = self.lm_method_vars[lm_id]
+            if var.upBound == 0:
+                lm_unreachable = True
+            var.lowBound=1
+        # mark fact landmarks for activating disjuncitve action constraints
+        for lm_id in node.lm_node[2]: #NOTE: for now I won't consider fact lm reachability
+            var = self.fact_vars[lm_id]
+            var.lowBound=1
+            var.upBound=1
+        
+        if lm_unreachable:
+            super().set_hvalue(node, 100000000)
+        else:
+            super().set_hvalue(node, self._solve_ip())
+            
         #print([self.landmarks.bu_AND_OR.nodes[idx] for idx in node.lm_node])
+    def _calculate_reachability(self, current_task):
+        task_var = self.uan_vars[current_task.global_id]
+        # check task already visited
+        if task_var.upBound is None:
+            return
+        # mark task as reachable
+        task_var.upBound = None
+        if isinstance(current_task, AbstractTask):
+            for d in current_task.decompositions:
+                method_var = self.mm_vars[d.global_id]
+                method_var.upBound = None
+                for subt in d.task_network:
+                    self._calculate_reachability(subt)
 
     def _calculate_fact_achievers(self):
+        """
+            mark for each fact landmark the operators that make it true (disjuntive action landmarks)
+        """
         for o in self.model.operators:
             for f in self.fact_vars.keys():
                 if o.add_effects_bitwise & (1 << f):
@@ -161,7 +210,7 @@ class TDGLmHeuristic(Heuristic):
         
         self.fact_vars = {
             f_id:
-            pulp.LpVariable(f"F_{self.model._int_to_explicit[f_id]}", lowBound=0, upBound=0, cat='Integer')
+            pulp.LpVariable(f"F_{self.model.get_fact_name(f_id)}", lowBound=0, upBound=0, cat='Integer')
             for f_id in self.landmarks.fact_lms
         }
 
@@ -194,7 +243,8 @@ class TDGLmHeuristic(Heuristic):
             self.tni_constants[t.global_id].upBound+=1
 
         # PREPARE TDG CONSTRAINTS
-        self.ipmodel += pulp.lpSum([self.uan_vars[n.global_id] for n in self.model.abstract_tasks] + [self.uan_vars[n.global_id] for n in self.model.operators])
+        #self.ipmodel += pulp.lpSum([self.uan_vars[n.global_id] for n in self.model.abstract_tasks] + [self.uan_vars[n.global_id] for n in self.model.operators])
+        self.ipmodel += pulp.lpSum([self.uan_vars[n.global_id] for n in self.model.operators])
         for abt in self.model.abstract_tasks:
             #every abstract task should use a method
             mm_lst = [self.mm_vars[d.global_id] for d in abt.decompositions]

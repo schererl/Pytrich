@@ -21,7 +21,7 @@ SEARCHES = {
 
 HEURISTICS = {
     "Blind"    : BlindHeuristic,
-    "Landmarks": LandmarkHeuristic,
+    "LMCOUNT": LandmarkHeuristic,
     "TDG":       TaskDecompositionHeuristic,
     "TDGLM":     TDGLmHeuristic
 }
@@ -35,7 +35,7 @@ NUMBER = re.compile(r"\d+")
 
 def _search(model, search, heuristic):
     logging.info('Search start: %s', model.name)
-    solution = search(model, heuristic)
+    solution = search(model, heuristic_type=heuristic)
     logging.info('Search end: %s', model.name)
     return solution
 

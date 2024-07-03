@@ -22,7 +22,11 @@ task.
 from collections import defaultdict
 from pyperplan.model import Model
 from pyperplan.parser.hddl import Problem
-from pyperplan.grounder.optimize_model import clean_tdg, remove_negative_precons, convert_bitwise_repr, del_relax_reachability,pullup
+from pyperplan.postprocessing_model import clean_tdg
+from pyperplan.postprocessing_model import remove_negative_precons
+from pyperplan.postprocessing_model import convert_bitwise_repr
+from pyperplan.postprocessing_model import del_relax_reachability
+from pyperplan.postprocessing_model import pullup
 
 class Grounder:
     def __init__(self,
@@ -94,7 +98,7 @@ class Grounder:
         # convert facts representation to bitwise
         convert_bitwise_repr(model)
         # remove non delete relaxed tdg operators, tasks and methods
-        #pullup(model)
+        pullup(model)
         
         del_relax_reachability(model) #NOTE: works only using bitwise representation
         model.assign_global_ids()

@@ -3,40 +3,34 @@ import os
 import sys
 import time
 
+from matplotlib import pyplot as plt
+import pandas as pd
+
 from pyperplan.planner import (
     SEARCHES,
     HEURISTICS,
     GROUNDERS
 )
 
+
 def format_data(dname, pfile, grounder_status, grounder_elapsed_time, results):
+    h_name = f"{results['h_name']}"
+    states = f"{results['status']}"
+    plan_length = f"{results['plan_lenght']}"
+    dtg_length = f"{results['dtg_lenght']}"
+    exp_nodes = f"{results['nodes_expanded']}"
+    elapsed_time = f"{results['elapsed_time']:.2f}s"
+    init_h = f"{results['h_init']}hi"
+    avg_h = f"{results['h_avg']:.2f}ha"
+    common_columns = f'{dname}\t{os.path.basename(pfile)}\t{h_name}\t{grounder_status}\t{grounder_elapsed_time:.2f}s'
+    return f"{common_columns}\t{states}\t{plan_length}\t{dtg_length}\t{exp_nodes}\t{elapsed_time}\t{init_h}\t{avg_h}\n"
+
+
+def format_data_grounder_error(dname, pfile, grounder_status, grounder_elapsed_time):
     common_columns = f'{dname}\t{os.path.basename(pfile)}\t{grounder_status}\t{grounder_elapsed_time:.2f}s'
-    states = '\t'.join(d['status'] for d in results.values())
-    plan_length = '\t'.join(str(d['s_size']) for d in results.values())
-    exp_nodes = '\t'.join(f"{d['nodes_expanded']}" for d in results.values())
-    elapsed_time = '\t'.join(f"{d['elapsed_time']:.2f}s" for d in results.values())
-    init_h = '\t'.join(f"{d['h_init']}hi" for d in results.values())
-    avg_h = '\t'.join(f"{d['h_avg']:.2f}ha" for d in results.values())
-    return f"{common_columns}\t{states}\t{plan_length}\t{exp_nodes}\t{elapsed_time}\t{init_h}\t{avg_h}\n"
+    noop = '\t'
+    return f"{common_columns}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\n"
 
-def format_data_grounder_error(dname, pfile, grounder_status, grounder_elapsed_time, number_heuristics):
-    common_columns = f'{dname}\t{os.path.basename(pfile)}\t{grounder_status}\t{grounder_elapsed_time:.2f}s'
-    noop = '\t'.join('-' for _ in range(number_heuristics))
-    return f"{common_columns}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\t{noop}\n"
-
-def create_header(heuristics):
-    """
-    Creates a header that describes the layout of the benchmark results file.
-    """
-    categories = ['STATUS', 'PLAN LENGTH', 'EXP. NODES', 'TIME', 'INIT-H', 'AVG-H']
-    number_spaces = '\t'.join(['' for h in heuristics]) + '\t'
-    first_line = '\t\t\t\t' + ' '.join([c+number_spaces for c in categories])
-    second_line_heuristics = '\t'.join([h for _ in categories for h in heuristics])
-    second_line = f"DOMAIN\tPROBLEM\tGROUNDER STATUS\tGROUNDER TIME\t{second_line_heuristics}"
-
-    return f"{first_line}\n{second_line}\n"
-
-HEURISTICS_STR = ['TDGLM']
 def run_experiment(dfile, pfile, dname, results_file):
     logging.info('Starting grounder')
     ground_start_time = time.time()
@@ -47,45 +41,55 @@ def run_experiment(dfile, pfile, dname, results_file):
     if grounder.grounder_status != 'SUCCESS' or grounder_elapsed_time > 100:
         logging.info('Grounder failed')
         with open(results_file, 'a', encoding='utf-8') as file:
-            file.write(format_data_grounder_error(dname, pfile, grounder.grounder_status, grounder_elapsed_time, len(HEURISTICS)))
+            file.write(dname, pfile, grounder.grounder_status, grounder_elapsed_time)
             return
     logging.info('Grounder ended')
 
     results = {}
-    for heuristic_str in HEURISTICS_STR:
-        logging.info('Starting search with %s', heuristic_str)
-        search_start_time = time.time()
-        data = SEARCHES["Astar"](model, HEURISTICS[heuristic_str])
-        elapsed_time = time.time() - search_start_time
-        if elapsed_time > 300:
-            logging.info('Experiment failed: search with %s aborted due to timeout', heuristic_str)
-            return
+    for heuristic in HEURISTICS_INFO:
+        heuristic_str = heuristic[0]
+        data = SEARCHES["Astar"](model, h_params=heuristic[1], heuristic_type=HEURISTICS[heuristic_str])
         results[heuristic_str] = data
-        logging.info('Search ended')
-        
-    with open(results_file, 'a', encoding='utf-8') as file:
-        file.write(format_data(dname, pfile, grounder.grounder_status, grounder_elapsed_time, results))
+    
+        with open(results_file, 'a', encoding='utf-8') as file:
+            file.write(format_data(dname, pfile, grounder.grounder_status, grounder_elapsed_time, results[heuristic_str]))
+    
+            
+
+def plot_comparison(results_file):
+    pass
 
 EXPERIMENT_FOLDER=os.path.abspath('Experiments/Outputs/Search') + '/'
 RESULTS_FILE='search_results.csv'
+HEURISTICS_INFO = [
+    ['LMCOUNT',"use_bid=True,name=\"LMCOUNT-BID\""],
+    ['LMCOUNT',"use_bid=False,name=\"LMCOUNT-CLASS\""],
+    ['TDG',"name=\"TDG\""]
+]
+HEADER = (
+    'DOMAIN\tPROBLEM\tHEURISTIC\tGROUNDER STATUS\t'
+    'GROUNDER TIME\tSTATUS\tPLAN LENGTH\tDTG LENGTH\t'
+    'EXP. NODES\tTIME\tINIT-H\tAVG-H\n'
+)
 if __name__ == "__main__":
     if len(sys.argv) < 5:
         print("Usage: python3 search_experiment.py <domain_file> <problem_file> <domain_name> <command_type>")
         sys.exit(1)
 
-    domain_file = sys.argv[1]
+    domain_file  = sys.argv[1]
     problem_file = sys.argv[2]
-    domain_name = sys.argv[3]
+    domain_name  = sys.argv[3]
     command_type = sys.argv[4]
-    
     if command_type == 'initialize':
         os.makedirs(EXPERIMENT_FOLDER, exist_ok=True)
         FILE_EXIST = os.path.exists(EXPERIMENT_FOLDER + RESULTS_FILE)
         print(f"Initializing results file at {EXPERIMENT_FOLDER + RESULTS_FILE}")
         with open(EXPERIMENT_FOLDER + RESULTS_FILE, 'a', encoding='utf-8') as result_file:
             if not FILE_EXIST:
-                result_file.write(create_header(HEURISTICS_STR))
+                result_file.write(HEADER)
             else:
                 print('already initialized')
+    elif command_type == 'plot':
+        plot_comparison(EXPERIMENT_FOLDER + RESULTS_FILE)
     else:
         run_experiment(domain_file, problem_file, domain_name, EXPERIMENT_FOLDER + RESULTS_FILE)

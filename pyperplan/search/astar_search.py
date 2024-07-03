@@ -10,8 +10,8 @@ from pyperplan.search.htn_node import AstarNode
 from pyperplan.heuristics.blind_heuristic import BlindHeuristic
 #from pyperplan.DOT_output import DotOutput
 
-
-def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
+from pyperplan.tools import parse_heuristic_params
+def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarNode):
     #graph_dot = DotOutput()
 
     print('Staring solver')
@@ -24,10 +24,12 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
     
     closed_list = {}
     node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
-    h    = heuristic_type(model, node)
+    h = None
+    if not h_params is None:
+        h  = heuristic_type(model, node, **(parse_heuristic_params(h_params)))
+    else:
+        h  = heuristic_type(model, node)
     
-    h_sum = node.h_value
-    initial_heuristic_value=node.h_value
     
     #graph_dot.add_node(node, model)
     
@@ -36,11 +38,10 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
     heapq.heappush(pq, node)
     while pq:
         iteration += 1
-        current_time = time.time() 
+        current_time = time.time()
         
         node = heapq.heappop(pq)
         #graph_dot.open(node)
-        h_sum+=node.h_value
         
         if closed_list.get(hash(node), float('inf')) <= node.g_value:
             count_revisits+=1
@@ -53,9 +54,10 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
         #     memory_usage = psutil.virtual_memory().percent
         #     elapsed_time = current_time - start_time
         #     nodes_second = iteration/float(current_time - start_time)
-        #     h_avg        = h_sum/iteration
-        #     print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
-        #    psutil.cpu_percent()
+        #     h_avg        = h.total_hvalue/h.calls
+        #     h_best       = h.min_hvalue
+        #     print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, h-best {h_best} Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
+        #     psutil.cpu_percent()
         #     if psutil.virtual_memory().percent > 85:
         #         STATUS = 'OUT OF MEMORY'
         #         break
@@ -84,10 +86,11 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
             new_task_network = node.task_network[1:]
             new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1)
             h.compute_heuristic(node, new_node)
+            if new_node.h_value == 100000000:
+                continue
             #graph_dot.add_node(new_node, model)
             #graph_dot.add_relation(new_node, ":APPLY:"+str(task.name))
             heapq.heappush(pq, new_node)
-            
             
         # otherwise its abstract
         else:
@@ -98,8 +101,10 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
 
                 seq_num += 1
                 new_task_network  = model.decompose(method)+node.task_network[1:]
-                new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value+1)
+                new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value)
                 h.compute_heuristic(node, new_node)
+                if new_node.h_value == 100000000:
+                    continue
                 heapq.heappush(pq, new_node)
 
                 #graph_dot.add_node(new_node, model)
@@ -111,31 +116,33 @@ def search(model, heuristic_type=BlindHeuristic, node_type=AstarNode):
     
     if STATUS == 'GOAL':
         nodes_second = iteration/float(current_time - start_time)
-        h_avg        = h_sum/iteration
+        h_avg        = h.total_hvalue/h.calls
+        h_best       = h.min_hvalue
+        h_init        = h.initial_h
         logging.info(
             "Goal reached!\n\tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
             "Solution size: %d, Expanded Nodes: %d, Revists Avoided: %d, Used Memory: %s\n"
             "h-init: %.2f, h-avg %.2f, h_val type: %s",
             elapsed_time, nodes_second, node.g_value, iteration, count_revisits, memory_usage,
-            initial_heuristic_value, h_avg, heuristic_type
+            0, h_avg, heuristic_type
         )
         #graph_dot.to_graphviz()
-        solution, operators = node.extract_solution()
-        return create_result_dict('GOAL', iteration, initial_heuristic_value, h_sum, start_time, current_time, memory_usage, len(solution), len(operators), solution)
+        _, op_sol, goal_dist_sol = node.extract_solution()
+        return create_result_dict(h.name, 'GOAL', iteration, h_init, h_avg, start_time, current_time, memory_usage, len(goal_dist_sol), len(op_sol), None)
     elif STATUS =='OUT OF MEMORY' or STATUS == 'TIMEOUT':
         logging.info(
             "%s \nElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
             "Expanded Nodes: %d. Revists Avoided: %d, Used Memory: %s\n"
             "h-init: %.2f, h-avg %.2f, h_val type: %s",
             STATUS, elapsed_time, nodes_second, iteration, count_revisits, memory_usage,
-            initial_heuristic_value, h_avg, heuristic_type
+            0, h_avg, heuristic_type
         )
-        return create_result_dict(STATUS, iteration, -1, -1, start_time, current_time, memory_usage, -1, -1)
+        return create_result_dict(h.name, STATUS, iteration, -1, -1, start_time, current_time, memory_usage, -1, -1)
     else:
         logging.info("No operators left. Task unsolvable.")
         #graph_dot.to_graphviz()
         return create_result_dict(
-            'UNSOLVABLE', iteration, initial_heuristic_value, 
-            h_sum, start_time, current_time, 
+            h.name, 'UNSOLVABLE', iteration, 0, 
+            h_avg, start_time, current_time, 
             psutil.virtual_memory().percent, -1, -1
         )

@@ -1,38 +1,55 @@
+from collections import deque
 from pyperplan.heuristics.heuristic import Heuristic
-from pyperplan.model import Operator
+from pyperplan.heuristics.landmarks.and_or_graphs import AndOrGraph, ContentType, NodeType
+from pyperplan.heuristics.landmarks.landmark import Landmarks
 
 class TaskDecompositionHeuristic(Heuristic):
-    def __init__(self, model, initial_node):
-        super().__init__(model, initial_node)
-        self.visited = set()
-        for t in self.model.initial_tn:
-            self._compute_tdg_values(t)
-        self.visited = None #clear memory
+    def __init__(self, model, initial_node, name="tdg"):
+        super().__init__(model, initial_node, name=name)
+        self.and_or_graph = AndOrGraph(model, use_top_down=False, use_tdg_only=True)
+        self._compute_tdg()
         
-        initial_node.h_value = sum([t.h_val for t in initial_node.task_network])
-        initial_node.f_value = initial_node.h_value + initial_node.g_value
-    
-    def _compute_tdg_values(self, task):
-        if task in self.visited:
-            return task.h_val
+        super().set_hvalue(initial_node, sum([self.and_or_graph.nodes[t.global_id].value for t in initial_node.task_network]))
+        self.initial_h = initial_node.h_value
         
-        self.visited.add(task)
-        if isinstance(task, Operator):
-            heuristic_value = 1
-        else:
-            heuristic_values = []
-            for decomposition in task.decompositions:
-                h_sum=0
-                for subtask in decomposition.task_network:
-                    self._compute_tdg_values(subtask)
-                    h_sum+=subtask.h_val
-                heuristic_values.append(h_sum)
-            heuristic_value = min(heuristic_values)+1 if heuristic_values else 1 
 
-        task.h_val = heuristic_value
-        return heuristic_value
+    def _compute_tdg(self):
+        starting_nodes = []
+        for node in self.and_or_graph.nodes:
+            if node is None:
+                continue
+            if node.content_type == ContentType.OPERATOR:
+                starting_nodes.append(node)
+                node.weight = 1
+                node.value = 0
+            else:
+                node.weight = 0
+                node.value = 10000000
+
+
+        #queue = deque(starting_nodes)
+        changed=True
+        while changed:
+            changed=False
+            for node in self.and_or_graph.nodes:
+                if node is None:
+                    continue
+            #node = queue.popleft()
+                new_value = node.weight
+                if node.type == NodeType.OR:
+                    new_value += min([n.value for n in node.predecessors])
+                
+                elif node.type == NodeType.AND:
+                    new_value += sum([n.value for n in node.predecessors])
+                    
+                if new_value != node.value:
+                    changed=True
+                    node.value=new_value
+                    
+                     
+                #     for succ in node.successors:
+                #         queue.append(succ)
 
     def compute_heuristic(self, parent_node, node):
-        node.h_value= sum([t.h_val for t in node.task_network])
-        node.f_value=node.h_value+node.g_value
+        super().set_hvalue(node, sum([self.and_or_graph.nodes[t.global_id].value for t in node.task_network]))
        

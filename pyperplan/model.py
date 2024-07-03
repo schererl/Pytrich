@@ -253,7 +253,17 @@ class Model:
         self.decompositions = decompositions
         self.abstract_tasks = abstract_tasks
         self.states = {}
-        
+
+        # global id info
+        self.ifacts_init = 0
+        self.ifacts_end = len(self.facts)-1
+        self.iop_init = self.ifacts_end+1
+        self.iop_end = self.iop_init + len(self.operators)-1
+        self.iabt_init = self.iop_end+1
+        self.iabt_end = self.iabt_init + len(self.abstract_tasks)-1
+        self.idec_init = self.iabt_end+1
+        self.idec_end = self.idec_init + len(self.decompositions)-1
+
         self.operation_type = operation_type
         
         # goal count heuristic
@@ -263,12 +273,19 @@ class Model:
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []
-        #self._assign_global_ids() # important for defining a global id for identifying facts, operators, abstract tasks, and decompositions
-        
-        #for simplification facts already have their global ids being the same as their state positions
         self._fix_initial_task_network()
     
-    # NOTE: CHANGE GAMBIARRA
+    def get_component(self, component_id):
+        if component_id <= self.ifacts_end:
+            return component_id # a fact is an integer
+        if component_id >= self.iop_init and component_id <= self.iop_end:
+            return self.operators[component_id-self.iop_init]
+        if component_id >= self.iabt_end and component_id <= self.iabt_end:
+            return self.abstract_tasks[component_id-self.iop_init]
+        if component_id >= self.idec_init and component_id <= self.idec_end:
+            return self.decompositions[component_id-self.idec_init]
+            
+    #NOTE: PANDA GROUNDER ALERT, remove _top task and method
     def _fix_initial_task_network(self):
         self.initial_tn = self.initial_tn [0].decompositions[0].task_network #specific for panda grounder
         for d in self.decompositions:
@@ -320,6 +337,9 @@ class Model:
 
     def decompose(self, decomposition):
         return decomposition.task_network
+
+    def get_fact_name(self, fact_id):
+        return self._int_to_explicit[fact_id]
 
     def count_positive_binary_facts(self, state):
         binary_str = bin(state)[2:] 

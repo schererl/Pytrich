@@ -33,12 +33,12 @@ def plot_results(output_file):
         if not classical_data.empty and not bidirectional_data.empty:
             plt.figure(figsize=(14, 6))
             plt.subplot(1, 2, 1)
-            plt.scatter(classical_data['Total Landmarks'], 
-                        bidirectional_data['Total Landmarks'], 
+            plt.scatter(classical_data['Total Landmarks'],
+                        bidirectional_data['Total Landmarks'],
                         label=domain)
-            plt.plot([0, max(classical_data['Total Landmarks'].max(), 
-                             bidirectional_data['Total Landmarks'].max())], 
-                    [0, max(classical_data['Total Landmarks'].max(), 
+            plt.plot([0, max(classical_data['Total Landmarks'].max(),
+                             bidirectional_data['Total Landmarks'].max())],
+                    [0, max(classical_data['Total Landmarks'].max(),
                             bidirectional_data['Total Landmarks'].max())], 'k--')
             plt.xlabel('Classical Landmarks')
             plt.ylabel('Bidirectional Landmarks')

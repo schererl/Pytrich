@@ -32,17 +32,22 @@ class HTNNode:
         Returns the list of actions that were applied from the initial node to
         the goal node.
         """
-        solution = []
+        plan_path = []
+        goal_dist = []
         operators = []
         while self.parent is not None:
+            goal_dist.append(self.task)
+            plan_path.append(self.task)
             if isinstance(self.task, Operator):
                 operators.append(self.task)
             else:
-                solution.append(self.decomposition)
-            solution.append(self.task)
+                plan_path.append(self.decomposition)
+
             self = self.parent
-        solution.reverse()
-        return solution, operators
+        plan_path.reverse()
+        goal_dist.reverse()
+        operators.reverse()
+        return plan_path, operators, goal_dist
 
     #TODO: not sure if im doing it right
     def __hash__(self):

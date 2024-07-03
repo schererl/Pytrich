@@ -10,6 +10,7 @@ from pyperplan.planner import (
     GROUNDERS
 )
 
+
 def main():
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error"]
@@ -34,6 +35,10 @@ def main():
     argparser.add_argument(
         "-H", "--heuristic", 
         choices=HEURISTICS.keys(), default="Blind"
+    )
+    argparser.add_argument(
+        "-hp", "--heuristicParams",
+        help="Comma-separated list of heuristic parameters in the format key1=value1,key2=value2"
     )
     argparser.add_argument(
         "-g", "--grounder",

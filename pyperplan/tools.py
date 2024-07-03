@@ -47,3 +47,21 @@ def remove(filename):
         os.remove(filename)
     except OSError:
         pass
+
+def parse_heuristic_params(params_str):
+    """
+    Convert a string of heuristic parameters into a dictionary.
+    Expects parameters in the format: key1=value1, key2=value2, ...
+    """
+    if not params_str:
+        return {}
+    
+    # Remove any whitespace and split into key=value pairs
+    param_pairs = [pair.strip() for pair in params_str.split(',')]
+    param_dict = {}
+    
+    for pair in param_pairs:
+        key, value = pair.split('=')
+        param_dict[key.strip()] = eval(value.strip())
+    
+    return param_dict

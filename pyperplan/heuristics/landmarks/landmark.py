@@ -41,13 +41,14 @@ class LM_Node:
 
 class Landmarks:
     def __init__(self, model, bidirectional=True):
+        self.model=model
         self.bidirectional=bidirectional
-        self.bu_AND_OR     = AndOrGraph(model, top_down=False) # bottom-up and or graph
+        self.bu_AND_OR     = AndOrGraph(model, use_top_down=False) # bottom-up and or graph
         self.len_landmarks = len(self.bu_AND_OR.nodes)
         self.bu_landmarks  = [None] * self.len_landmarks # bottom-up landmarks
         
         if bidirectional:
-            self.td_AND_OR = AndOrGraph(model, top_down=True)  # top-down and or graph
+            self.td_AND_OR = AndOrGraph(model, use_top_down=True)  # top-down and or graph
             self.td_landmarks    = [set()] * self.len_landmarks # top-down landamarks
 
         self.task_lms = set()
@@ -217,7 +218,11 @@ class Landmarks:
                 self.method_lms.add(lm_id)
             else:
                 self.task_lms.add(lm_id)
-        
+        # print(f'bidirectional')
+        # print([self.bu_AND_OR.nodes[id] for id in landmarks])
+        # print(len([self.bu_AND_OR.nodes[id] for id in landmarks]))
+        # self._calculate_fact_achievers(20)
+        # exit()
         return landmarks
     
     def classical_lms(self, model, state, task_network):
@@ -239,8 +244,21 @@ class Landmarks:
                 self.method_lms.add(lm_id)
             else:
                 self.task_lms.add(lm_id)
-
+        # print('classical')
+        # print([self.bu_AND_OR.nodes[id] for id in landmarks])
+        # print(len([self.bu_AND_OR.nodes[id] for id in landmarks]))
+        # exit()
         return landmarks
+
+    # def _calculate_fact_achievers(self, fact_node):
+    #     """
+    #         mark for each fact landmark the operators that make it true (disjuntive action landmarks)
+    #     """
+    #     for o in self.model.operators:
+    #         if o.add_effects_bitwise & (1 << fact_node):
+    #             print(o.name)
+    #             for lm in self.td_landmarks[o.global_id]:
+    #                 print(f'\t{self.td_AND_OR.nodes[lm].label}')
 
     def remove_factlms(self, landmarks):
         # for now, removing fact landmarks
