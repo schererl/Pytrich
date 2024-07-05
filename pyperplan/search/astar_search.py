@@ -12,6 +12,7 @@ from pyperplan.heuristics.blind_heuristic import BlindHeuristic
 
 from pyperplan.tools import parse_heuristic_params
 def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarNode):
+    
     #graph_dot = DotOutput()
 
     print('Staring solver')
@@ -49,21 +50,21 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             continue
         
         # time and memory control
-        # if current_time - control_time > 1:
-        #     control_time = time.time()
-        #     memory_usage = psutil.virtual_memory().percent
-        #     elapsed_time = current_time - start_time
-        #     nodes_second = iteration/float(current_time - start_time)
-        #     h_avg        = h.total_hvalue/h.calls
-        #     h_best       = h.min_hvalue
-        #     print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, h-best {h_best} Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
-        #     psutil.cpu_percent()
-        #     if psutil.virtual_memory().percent > 85:
-        #         STATUS = 'OUT OF MEMORY'
-        #         break
-        #     elif current_time - start_time > 300:
-        #         STATUS = 'TIMEOUT'
-        #         break
+        if current_time - control_time > 1:
+            control_time = time.time()
+            memory_usage = psutil.virtual_memory().percent
+            elapsed_time = current_time - start_time
+            nodes_second = iteration/float(current_time - start_time)
+            h_avg        = h.total_hvalue/h.calls
+            h_best       = h.min_hvalue
+            print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, h-best {h_best} Expanded Nodes: {iteration}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
+            psutil.cpu_percent()
+            if psutil.virtual_memory().percent > 85:
+                STATUS = 'OUT OF MEMORY'
+                break
+            elif current_time - start_time > 30:
+                STATUS = 'TIMEOUT'
+                break
                 
         if model.goal_reached(node.state, node.task_network):
             psutil.cpu_percent()
@@ -119,23 +120,25 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
         h_avg        = h.total_hvalue/h.calls
         h_best       = h.min_hvalue
         h_init        = h.initial_h
+        _, op_sol, goal_dist_sol = node.extract_solution()
         logging.info(
-            "Goal reached!\n\tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
-            "Solution size: %d, Expanded Nodes: %d, Revists Avoided: %d, Used Memory: %s\n"
-            "h-init: %.2f, h-avg %.2f, h_val type: %s",
-            elapsed_time, nodes_second, node.g_value, iteration, count_revisits, memory_usage,
-            0, h_avg, heuristic_type
+            "Goal reached!"
+            "\nstatus info>    \tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s,"
+            "\nheap info>      \tSolution size: %d, Expanded Nodes: %d, Revists Avoided: %d, Used Memory: %s"
+            "\nheuristic info> \tname: %s, initial value: %.2f, average value %.2f",
+            elapsed_time, nodes_second, len(op_sol), node.g_value, count_revisits, memory_usage,
+            h.name, 0, h_avg
         )
         #graph_dot.to_graphviz()
-        _, op_sol, goal_dist_sol = node.extract_solution()
+        
         return create_result_dict(h.name, 'GOAL', iteration, h_init, h_avg, start_time, current_time, memory_usage, len(goal_dist_sol), len(op_sol), None)
     elif STATUS =='OUT OF MEMORY' or STATUS == 'TIMEOUT':
         logging.info(
             "%s \nElapsed Time: %.2f seconds, Nodes/second: %.2f n/s," 
             "Expanded Nodes: %d. Revists Avoided: %d, Used Memory: %s\n"
-            "h-init: %.2f, h-avg %.2f, h_val type: %s",
+            "h-init: %.2f, h-avg %.2f, heuristic name: %s",
             STATUS, elapsed_time, nodes_second, iteration, count_revisits, memory_usage,
-            0, h_avg, heuristic_type
+            0, h_avg, h.name
         )
         return create_result_dict(h.name, STATUS, iteration, -1, -1, start_time, current_time, memory_usage, -1, -1)
     else:

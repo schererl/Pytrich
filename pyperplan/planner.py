@@ -33,15 +33,15 @@ GROUNDERS = {
 
 NUMBER = re.compile(r"\d+")
 
-def _search(model, search, heuristic):
+def _search(model, search, heuristic, h_params):
     logging.info('Search start: %s', model.name)
-    solution = search(model, heuristic_type=heuristic)
+    solution = search(model, heuristic_type=heuristic, h_params=h_params)
     logging.info('Search end: %s', model.name)
     return solution
 
 
 def search_plan(
-    domain_file, problem_file, search, heuristic, grounder
+    domain_file, problem_file, search, heuristic, h_params, grounder
 ):
     """
     Parses the given input files to a specific planner task and then tries to
@@ -54,7 +54,8 @@ def search_plan(
                             search space
     @param heuristic_class  A class implementing the heuristic_base.Heuristic
                             interface
-    @return A list of actions that solve the problem
+    @param h_params         Parameters for specific heuristic configuration
+    @param grounder         Grounder type used
     """
     model=None
     if issubclass(grounder, pandaGrounder):
@@ -65,9 +66,5 @@ def search_plan(
         #grounder_instance = grounder(parser.lifted_problem)
      
     model= grounder_instance.groundify()
-
-    search_start_time = time.process_time()
-    result = _search(model, search, heuristic)
-    search_time = time.process_time() - search_start_time
-    logging.info('Search time: %.2f seconds', search_time)
+    result = _search(model, search, heuristic, h_params)
     return result

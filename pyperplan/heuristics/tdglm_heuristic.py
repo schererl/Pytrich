@@ -5,6 +5,7 @@ from pyperplan.heuristics.heuristic import Heuristic
 from pyperplan.heuristics.landmarks.landmark import Landmarks
 from pyperplan.model import AbstractTask, Decomposition, Operator
 from pyperplan.search.htn_node import AstarNode
+from pyperplan.tools import InvalidArgumentException
 
 class TDGLmHeuristic(Heuristic):
     """
@@ -23,22 +24,29 @@ class TDGLmHeuristic(Heuristic):
         @param use_landmarks: Flag to toggle landmark usage (default: True).
         @param use_bid: Flag to use bidirectional landmarks (default: True).
     """
-    def __init__(self, model, initial_node, use_landmarks=True, use_bid = True, compute_reachability = False, name="tdg-ip"):
+    def __init__(self, model, initial_node, use_landmarks=True, use_bid = True, var_category = "Integer", compute_reachability = False, name="tdg-ip"):
         super().__init__(model, initial_node, name=name)
+        if var_category not in ["Integer", "Continuous"]:
+            raise InvalidArgumentException(f"Invalid variable category '{var_category}', types allowed are Integer or Continuous")
+        self.name = name
+        self.var_category = var_category
         self.compute_reachability = compute_reachability
+        self.use_landmarks = use_landmarks
+        self.use_bid = use_bid
+        self.read_parameters()
 
         # auxiliar: maps each subtask to each corresponding method that uses it (can appear more than once)
         self.mst = {n.global_id: [] for n in self.model.operators + self.model.abstract_tasks}
         
-        # generate bidirectional landmarks
-        self.landmarks = Landmarks(self.model)
-        self.landmarks.bottom_up_lms()
-        use_bid=False
-        if use_landmarks and use_bid:
-            self.landmarks.top_down_lms()
-            self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
-        elif use_landmarks:
+        self.landmarks = None
+        if self.use_landmarks:
+            # generate bidirectional landmarks
+            self.landmarks = Landmarks(self.model)
+            self.landmarks.bottom_up_lms()
             self.landmarks.classical_lms(self.model, initial_node.state, initial_node.task_network)
+            if self.use_bid:
+                self.landmarks.top_down_lms()
+                self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network)
         # self.landmarks.clear_structures() # clear memory
         self.total_lms = len(self.landmarks.task_lms) + len(self.landmarks.method_lms) + len(self.landmarks.fact_lms)
         
@@ -66,7 +74,9 @@ class TDGLmHeuristic(Heuristic):
         initial_node.lm_node = lm_triple_set #TODO: this is not ok, it suppose to get landmarkNode, here Im passing a set(), different purpose
         super().set_hvalue(initial_node, self._solve_ip())
         self.initial_h = initial_node.h_value
-        #self.test_model(initial_node)
+
+    def read_parameters(self):
+        print(f'Heuristic {self.name} set with the following parameters: \n\tvariable category:{self.var_category}\n\tuse landmarks:{self.use_landmarks}\n\tuse bidirectional landmarks:{self.use_bid}\n\tcompute reachability:{self.compute_reachability}')
 
     def compute_heuristic(self, parent_node, node):
         """
@@ -192,25 +202,25 @@ class TDGLmHeuristic(Heuristic):
         # INITIALIZE VARIABLES
         self.uan_vars = {
             n.global_id:
-            pulp.LpVariable(f"UN_{n.name}", lowBound=0, cat='Integer')
+            pulp.LpVariable(f"UN_{n.name}", lowBound=0, cat=self.var_category)
             for n in self.model.abstract_tasks + self.model.operators
         }
         
         self.mm_vars  = {
             m.global_id:
-            pulp.LpVariable(f"M_{m.name}", lowBound=0, cat='Integer')
+            pulp.LpVariable(f"M_{m.name}", lowBound=0, cat=self.var_category)
             for m in self.model.decompositions
         }
 
         self.tni_constants = {
             n.global_id:
-            pulp.LpVariable(f"TNC_{n.name}", lowBound=0, upBound=0, cat='Integer')
+            pulp.LpVariable(f"TNC_{n.name}", lowBound=0, upBound=0, cat=self.var_category)
             for n in self.model.abstract_tasks + self.model.operators
         }
         
         self.fact_vars = {
             f_id:
-            pulp.LpVariable(f"F_{self.model.get_fact_name(f_id)}", lowBound=0, upBound=0, cat='Integer')
+            pulp.LpVariable(f"F_{self.model.get_fact_name(f_id)}", lowBound=0, upBound=0, cat=self.var_category)
             for f_id in self.landmarks.fact_lms
         }
 

@@ -1,17 +1,17 @@
 {
     "BENCHMARK_FOLDER_NAME": "htn-benchmarks",
     "DOMAINS": [
-        "Monroe-Fully-Observable", 
-        "Monroe-Partially-Observable",
-        "Hiking"
+        "Robot",
+        "Blocksworld-HPDDL",
+        "Blocksworld-GTOHP",
+        "Multiarm-Blocksworld"
     ],
     "MEMORY_LIMIT": 8589934592,
-    "TIME_LIMIT": 1200,
+    "TIME_LIMIT": 100,
     "KEFT": [
-        "Robot",
-        "Blocksworld-GTOHP",
-        "Multiarm-Blocksworld",
-        "Blocksworld-HPDDL",
+        "Monroe-Fully-Observable", 
+        "Monroe-Partially-Observable",
+        "Hiking",
         "Satellite-GTOHP",
         "Barman-BDI",
         "Rover-GTOHP",

@@ -83,8 +83,6 @@ def run_experiment(etype):
     returncode, stdout, stderr = run_with_limits(
         initialize_command, config['MEMORY_LIMIT'], config['TIME_LIMIT']
     )
-    print(stdout)
-    print(stderr, file=sys.stderr)
     
     for domain_name in config['DOMAINS']:
         domain_path = os.path.abspath(os.path.join(benchmarks_location, domain_name))

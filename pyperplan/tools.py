@@ -65,3 +65,6 @@ def parse_heuristic_params(params_str):
         param_dict[key.strip()] = eval(value.strip())
     
     return param_dict
+
+class InvalidArgumentException(Exception):
+    pass

@@ -62,12 +62,13 @@ def main():
         search    = SEARCHES[args.search]
         heuristic = HEURISTICS[args.heuristic]
         grounder  = GROUNDERS[args.grounder]
+        h_params  = args.heuristicParams # heuristic parameters
         
         logging.info('Using search: %s', search.__name__)
         logging.info('Using heuristic: %s', heuristic.__name__)
         logging.info('Using grounder: %s', grounder.__name__)
 
-        search_plan(args.domain, args.problem, search, heuristic, grounder)
+        search_plan(args.domain, args.problem, search, heuristic, h_params, grounder)
 
 if __name__ == "__main__":
     main()
