@@ -56,6 +56,11 @@ class TDGLmHeuristic(Heuristic):
         self.tni_constants = {}
         self.fact_vars = {} # only considering fact landmarks
 
+        # last changed bounds
+        self.last_modif_tasks = set()
+        self.last_modif_methods = set()
+        self.last_modif_tni = set()
+
         # LM model variables
         self.lm_method_vars = {}
         self.lm_task_vars = {}
@@ -110,15 +115,21 @@ class TDGLmHeuristic(Heuristic):
         for var in self.fact_vars.values():
             var.lowBound=0
             var.upBound=0
-        # reset and update tni constants
-        for tni_const in self.tni_constants.values():
+        # reset tni
+        for tni_id in self.last_modif_tni:
+            tni_const = self.tni_constants[tni_id]
             tni_const.lowBound = 0
             tni_const.upBound = 0
+        
+        
         # update tni
+        self.last_modif_tni = set()
         for task in node.task_network:
             tv = self.tni_constants[task.global_id]
             tv.lowBound+=1
             tv.upBound+=1
+            self.last_modif_tni.add(task.global_id)
+
 
         if self.compute_reachability:
             # reset uan variables
@@ -132,33 +143,39 @@ class TDGLmHeuristic(Heuristic):
             for task in node.task_network:
                 self._calculate_reachability(task)
         else:
-            # reset uan variables
-            for var in self.uan_vars.values():
-                var.lowBound= 0
-                var.upBound = None
-            # reset mm variables
-            for var in self.mm_vars.values():
+            for var_id in self.last_modif_tasks:
+                var = self.uan_vars[var_id]
                 var.lowBound = 0
                 var.upBound = None
+            for var_id in self.last_modif_methods:
+                var = self.mm_vars[var_id]
+                var.lowBound = 0
+                var.upBound = None
+
         
         lm_unreachable=False
         # mark task landmarks
+        self.last_modif_tasks = set() 
         for lm_id in node.lm_node[0]:
             var = self.lm_task_vars[lm_id]
             if var.upBound == 0:
                 lm_unreachable = True
             var.lowBound=1
+            self.last_modif_tasks.add(lm_id)
         # mark method landmarks
+        self.last_modif_methods = set() 
         for lm_id in node.lm_node[1]:
             var = self.lm_method_vars[lm_id]
             if var.upBound == 0:
                 lm_unreachable = True
             var.lowBound=1
+            self.last_modif_methods.add(lm_id)
         # mark fact landmarks for activating disjuncitve action constraints
         for lm_id in node.lm_node[2]: #NOTE: for now I won't consider fact lm reachability
             var = self.fact_vars[lm_id]
             var.lowBound=1
             var.upBound=1
+            
         
         if lm_unreachable:
             super().set_hvalue(node, 100000000)
@@ -224,17 +241,25 @@ class TDGLmHeuristic(Heuristic):
             for f_id in self.landmarks.fact_lms
         }
 
+        # self.fact_vars = {
+        #     f_id:
+        #     pulp.LpVariable(f"F_{self.model.get_fact_name(f_id)}", lowBound=0, upBound=0, cat=self.var_category)
+        #     for f_id in range(len(self.model.facts))
+        # }
+
         # PREPARE LANDMARK VARIABLES
         # set task landmarks
         for lm_id in self.landmarks.task_lms:
             lm_var = self.uan_vars.get(lm_id)
             lm_var.lowBound=1
             self.lm_task_vars[lm_id]=lm_var
+            self.last_modif_tasks.add(lm_id)
         # set method landmarks
         for lm_id in self.landmarks.method_lms:
             lm_var = self.mm_vars.get(lm_id)
             lm_var.lowBound=1
             self.lm_method_vars[lm_id]=lm_var
+            self.last_modif_methods.add(lm_id)
         # set fact landmark and action disjunction constraints
         self.achiever_fact = {f:[] for f in self.landmarks.fact_lms}
         self._calculate_fact_achievers()
@@ -251,6 +276,7 @@ class TDGLmHeuristic(Heuristic):
         for t in self.model.initial_tn:
             self.tni_constants[t.global_id].lowBound+=1
             self.tni_constants[t.global_id].upBound+=1
+            self.last_modif_tni.add(t.global_id)
 
         # PREPARE TDG CONSTRAINTS
         #self.ipmodel += pulp.lpSum([self.uan_vars[n.global_id] for n in self.model.abstract_tasks] + [self.uan_vars[n.global_id] for n in self.model.operators])

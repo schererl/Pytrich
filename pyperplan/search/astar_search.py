@@ -37,17 +37,20 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
     STATUS = ''
     pq = []
     heapq.heappush(pq, node)
+    current_time = time.time()
     while pq:
         iteration += 1
-        current_time = time.time()
+        if iteration%100 == 0:
+            current_time = time.time()
         
         node = heapq.heappop(pq)
         #graph_dot.open(node)
         
-        if closed_list.get(hash(node), float('inf')) <= node.g_value:
+        try_get_node_g_val = closed_list.get(hash(node))
+        if try_get_node_g_val and try_get_node_g_val <= node.g_value:
             count_revisits+=1
             #graph_dot.already_visited("")
-            continue
+            continue 
         
         # time and memory control
         if current_time - control_time > 1:
@@ -62,7 +65,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             if psutil.virtual_memory().percent > 85:
                 STATUS = 'OUT OF MEMORY'
                 break
-            elif current_time - start_time > 30:
+            elif current_time - start_time > 60:
                 STATUS = 'TIMEOUT'
                 break
                 
@@ -126,7 +129,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             "\nstatus info>    \tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s,"
             "\nheap info>      \tSolution size: %d, Expanded Nodes: %d, Revists Avoided: %d, Used Memory: %s"
             "\nheuristic info> \tname: %s, initial value: %.2f, average value %.2f",
-            elapsed_time, nodes_second, len(op_sol), node.g_value, count_revisits, memory_usage,
+            elapsed_time, nodes_second, len(op_sol), iteration, count_revisits, memory_usage,
             h.name, 0, h_avg
         )
         #graph_dot.to_graphviz()
