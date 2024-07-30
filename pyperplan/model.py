@@ -73,6 +73,25 @@ class Operator:
     def relaxed_apply(self, state):
         return state | self.add_effects
         
+    def get_add_effects_bitfact(self):
+        bitwise_value = self.add_effects_bitwise
+        i = 0
+        while bitwise_value:
+            if bitwise_value & 1:
+                yield i
+            bitwise_value >>= 1
+            i += 1
+
+    def get_precons_bitfact(self):
+        bitwise_value = self.pos_precons_bitwise
+        i = 0
+        while bitwise_value:
+            if bitwise_value & 1:
+                yield i
+            bitwise_value >>= 1
+            i += 1
+
+
     def __eq__(self, other):
         return (
             self.name == other.name
@@ -254,22 +273,22 @@ class Model:
         self.abstract_tasks = abstract_tasks
         self.states = {}
 
-        # global id info
+        
+        # Global ID info
         self.ifacts_init = 0
-        self.ifacts_end = len(self.facts)-1
-        self.iop_init = self.ifacts_end+1
-        self.iop_end = self.iop_init + len(self.operators)-1
-        self.iabt_init = self.iop_end+1
-        self.iabt_end = self.iabt_init + len(self.abstract_tasks)-1
-        self.idec_init = self.iabt_end+1
-        self.idec_end = self.idec_init + len(self.decompositions)-1
+        self.ifacts_end = len(self.facts) - 1
+        
+        self.iop_init = -1
+        self.iop_end = -1
+        self.iabt_init = -1
+        self.iabt_end = -1
+        self.idec_init = -1
+        self.idec_end = -1
+        
+        
 
         self.operation_type = operation_type
         
-        # goal count heuristic
-        self.goal_facts_count = 0
-        self.goal_tasks_count = 0
-        self._process_goal_facts_count()   #NOTE: before converting into bit representation, add facts counts into operators
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []
@@ -279,11 +298,23 @@ class Model:
         if component_id <= self.ifacts_end:
             return component_id # a fact is an integer
         if component_id >= self.iop_init and component_id <= self.iop_end:
-            return self.operators[component_id-self.iop_init]
-        if component_id >= self.iabt_end and component_id <= self.iabt_end:
-            return self.abstract_tasks[component_id-self.iop_init]
+            operator = self.operators[component_id-self.iop_init]
+            if operator.global_id != component_id:
+                print(f'OPERATOR COMPONENT INDEXING FAILED id: {operator.global_id} desired: {component_id}')
+                exit(0)
+            return operator
+        if component_id >= self.iabt_init and component_id <= self.iabt_end:
+            abstract_task = self.abstract_tasks[component_id-self.iabt_init]
+            if abstract_task.global_id != component_id:
+                print(f'ABSTRACT TASK COMPONENT INDEXING FAILED id: {abstract_task.global_id} desired: {component_id}')
+                exit(0)
+            return abstract_task
         if component_id >= self.idec_init and component_id <= self.idec_end:
-            return self.decompositions[component_id-self.idec_init]
+            decomposition = self.decompositions[component_id-self.idec_init]
+            if decomposition.global_id != component_id:
+                print(f'DECOMPOSITION COMPONENT INDEXING FAILED  id: {decomposition.global_id}  desired: {component_id}')
+                exit(0)
+            return decomposition
             
     #NOTE: PANDA GROUNDER ALERT, remove _top task and method
     def _fix_initial_task_network(self):
@@ -299,27 +330,30 @@ class Model:
         
     def assign_global_ids(self):
         next_id = len(self.facts)
+        
         for o in self.operators:
             o.global_id = next_id
             next_id+=1
         
+        self.iop_init = self.operators[0].global_id
+        self.iop_end = self.operators[-1].global_id
+        if self.iop_init in self._int_to_explicit:
+            print(f'operator index overlapped fact index')
+            exit(0)
+
+
         for ab_t in self.abstract_tasks:
             ab_t.global_id = next_id
             next_id+=1
+        self.iabt_init = self.abstract_tasks[0].global_id
+        self.iabt_end = self.abstract_tasks[-1].global_id
         
         for d in self.decompositions:
             d.global_id = next_id
             next_id+=1
+        self.idec_init = self.decompositions[0].global_id
+        self.idec_end = self.decompositions[-1].global_id
 
-    def _process_goal_facts_count(self):
-        self.goal_facts_count = len(self.goals)
-    
-    def _process_goal_task_count(self):
-        self.goal_tasks_count = len(self.initial_tn)
-        for t in self.abstract_tasks:
-            if t in self.initial_tn:
-                t.h_val=1
-            
     def goal_reached(self, state, task_network=[]):
         return self.operation_type.goal_reached(state, self.goals, task_network)
     
@@ -382,5 +416,3 @@ class Model:
     def __repr__(self):
         string = "<Model {0}, vars: {1}, operators: {2}, decompositions: {3}>"
         return string.format(self.name, len(self.facts), len(self.operators), len(self.decompositions))
-
-
