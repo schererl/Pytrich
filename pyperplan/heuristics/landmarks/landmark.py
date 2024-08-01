@@ -14,11 +14,19 @@ class LM_Node:
             self.mark = parent.mark
             self.number_lms = parent.number_lms
             self.achieved_lms = parent.achieved_lms
+            
+            self.disjunctions = deepcopy(parent.disjunctions)
+            self.number_disj   = parent.number_disj
+            self.achieved_disj = parent.achieved_disj
         else:
             self.lms  = 0
             self.mark = 0
             self.number_lms   = 0   # total number of lms
             self.achieved_lms = 0   # total achieved lms
+
+            self.disjunctions = set()
+            self.number_disj   = 0
+            self.achieved_disj = 0
             
     # mark as 'achieved' if node is a lm
     def mark_lm(self, node_id):
@@ -32,12 +40,45 @@ class LM_Node:
             if ~self.lms & (1 << lm_id):
                 self.lms |= (1 << lm_id)
                 self.number_lms+=1
-        
-    def lm_value(self):
-        return self.number_lms - self.achieved_lms
     
+    # add new disjunctions
+    # each disjunction corresponds to a single fact
+    # so each disjunction formula is an integer, instead of a set of ints
+    def update_disjunctions(self, new_disj):
+        for disj in new_disj:
+            bit_disj = 0
+            for lm in disj:
+                bit_disj |=  1 << lm
+            self.disjunctions.add(bit_disj)
+            self.number_disj+=1
+    
+    def mark_disjunction(self, state):
+        """
+        Check if any disjunction is satisfied.
+        A disjunction is satisfied if its bitwise AND with `fact` is non-zero.
+        """
+        to_remove = set()
+        for disj in self.disjunctions:
+            if disj & state != 0:
+                self.achieved_disj += 1
+                to_remove.add(disj)
+                
+        # remove every element from self.disjunctions
+        self.disjunctions = self.disjunctions - to_remove
+
+
+    def lm_value(self):
+        return self.number_lms - self.achieved_lms + self.number_disj - self.achieved_disj
+    
+    def get_unreached_landmarks(self):
+        unreached = []
+        for i in range(len(bin(self.lms))-2):
+            if self.lms & (1 << i) and not self.mark & (1 << i):
+                unreached.append(i)
+        return unreached
+
     def __str__(self):
-        return f"Lms (value={self.lm_value()}): \n\tlms:      {bin(self.lms)}\n\tachieved: {bin(self.mark)}"
+        return f"Lms (value={self.lm_value()}): \n\tlms: {bin(self.lms)}\n\tachieved: {bin(self.mark)}\n{self.achieved_disj}/{self.number_disj}"
 
 class Landmarks:
     def __init__(self, model, bidirectional=True):
@@ -222,7 +263,7 @@ class Landmarks:
         # print([self.bu_AND_OR.nodes[id] for id in landmarks])
         # print(len([self.bu_AND_OR.nodes[id] for id in landmarks]))
         # self._calculate_fact_achievers(20)
-        # exit()
+        
         return landmarks
     
     def classical_lms(self, model, state, task_network):

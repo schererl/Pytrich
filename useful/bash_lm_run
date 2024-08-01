@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Define the path to the domain directories
+domains="./htn-benchmarks/AssemblyHierarchical"
+
+# Loop through each directory in the domains path
+for domain_dir in $domains; do
+    # Check if it is a directory
+    if [ -d "$domain_dir" ]; then
+        # Extract the base name of the domain directory
+        domain_dir_base=$(basename "$domain_dir")
+        
+        # List all .hddl files in the directory, excluding those with '-grounded' or 'domain-' in the name
+        files=$(ls "$domain_dir"/*.hddl 2>/dev/null | grep -v -E '(-grounded|domain-)')
+
+        # Separate domain and problem files
+        domain_files=$(echo "$files" | grep 'domain.hddl')
+        problem_files=$(echo "$files" | grep -v 'domain.hddl')
+
+        # If there are no domain files, skip this directory
+        if [ -z "$domain_files" ]; then
+            echo "No valid domain files found in $domain_dir"
+            continue
+        fi
+
+        # If there are no problem files, skip this directory
+        if [ -z "$problem_files" ]; then
+            echo "No valid problem files found in $domain_dir"
+            continue
+        fi
+
+        # Loop through each domain file
+        for domain_file in $domain_files; do
+            # Loop through each problem file
+            for problem_file in $problem_files; do
+                # Extract the base name of the problem file
+                problem_base=$(basename "$problem_file" .hddl)
+
+                echo "@"
+                ulimit -t 10
+                ulimit -v 2000000
+                echo "Running experiment"
+                echo "domain name: $domain_dir_base"
+                echo "problem name: $problem_base"
+                python3 pyperplan/__main__.py -H LMCOUNT -hp "use_falm=True" "$domain_file" "$problem_file"
+                 # Remove *.psas* files if they exist
+                if ls *.psas* 1> /dev/null 2>&1; then
+                    rm *.psas*
+                fi
+
+                # Remove *.sas files if they exist
+                if ls *.sas 1> /dev/null 2>&1; then
+                    rm *.sas
+                fi
+                echo "@"
+            done
+        done
+    fi
+done

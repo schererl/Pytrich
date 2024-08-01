@@ -9,12 +9,9 @@ from pyperplan.search.utils import create_result_dict
 from pyperplan.search.htn_node import AstarNode
 from pyperplan.heuristics.blind_heuristic import BlindHeuristic
 #from pyperplan.DOT_output import DotOutput
-
 from pyperplan.tools import parse_heuristic_params
 def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarNode):
-    
     #graph_dot = DotOutput()
-
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -74,6 +71,14 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             memory_usage = psutil.virtual_memory().percent
             elapsed_time = current_time - start_time
             STATUS = 'GOAL'
+
+            print(f'check lm value: {node.lm_node.lm_value()}')
+            for lm in node.lm_node.get_unreached_landmarks():
+                component = model.get_component(lm)
+                if isinstance(component, int):
+                    print(f'{model.get_fact_name(component)}')
+                else:
+                    print(component.name)
             break    
         elif len(node.task_network) == 0: #task network empty but goal wasnt achieved
             continue
@@ -124,6 +129,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
         h_best       = h.min_hvalue
         h_init        = h.initial_h
         _, op_sol, goal_dist_sol = node.extract_solution()
+        print(node.lm_node)
         logging.info(
             "Goal reached!"
             "\nstatus info>    \tElapsed Time: %.2f seconds, Nodes/second: %.2f n/s,"
@@ -132,6 +138,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             elapsed_time, nodes_second, len(op_sol), iteration, count_revisits, memory_usage,
             h.name, 0, h_avg
         )
+        
         #graph_dot.to_graphviz()
         
         return create_result_dict(h.name, 'GOAL', iteration, h_init, h_avg, start_time, current_time, memory_usage, len(goal_dist_sol), len(op_sol), None)
