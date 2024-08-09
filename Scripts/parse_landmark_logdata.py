@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Load the log file
-log_file_path = './landmarkgenerationlog.out'
+log_file_path = './lge.out'
 
 # Initialize lists to store the parsed data
 heuristic_names = []
@@ -89,5 +89,38 @@ log_data_df = pd.DataFrame({
 
 
 print(log_data_df)
-# Or save to a CSV file
+
 log_data_df.to_csv('parsed_log_data.csv', index=False)
+
+# Create the first table summarizing total landmarks
+total_landmarks_summary = log_data_df.pivot_table(
+    index='domain', 
+    columns='heuristic name', 
+    values='total landmarks', 
+    aggfunc='sum'
+)
+
+# Create the second table summarizing average elapsed time
+avg_elapsed_time_summary = log_data_df.pivot_table(
+    index='domain', 
+    columns='heuristic name', 
+    values='total elapsed time', 
+    aggfunc='mean'
+)
+
+# Create the third table summarizing the count of problems each heuristic handled
+problem_count_summary = log_data_df.pivot_table(
+    index='domain', 
+    columns='heuristic name', 
+    values='problem', 
+    aggfunc='count'
+)
+
+print(f'COVERAGE:')
+print(problem_count_summary)
+print(f'LANDMARK GENERATION:')
+print(total_landmarks_summary)
+print(f'AVERAGE ELAPSED TIME:')
+print(avg_elapsed_time_summary)
+
+

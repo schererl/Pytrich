@@ -7,9 +7,21 @@ folder_benchmarks="../htn-benchmarks/*"
 TIME_LIMIT=10
 MEM_LIMIT=2000000
 
+# Define the array of domains to be ignored
+ignored_domains=("AssemblyHierarchical" "Childsnack" "Freecell-Learned-ECAI-16" "ipc2020-feature-tests" "Logistics-Learned-ECAI-16" "SCCTEST" "Woodworking")
+
 # Iterate over each domain directory
 for domain_dir in $folder_benchmarks; do
     if [ -d "$domain_dir" ]; then
+        # Extract the domain name from the directory path
+        domain_name=$(basename "$domain_dir")
+        
+        # Check if the domain is in the ignored list
+        if [[ " ${ignored_domains[@]} " =~ " ${domain_name} " ]]; then
+            echo "Skipping ignored domain: $domain_name"
+            continue
+        fi
+        
         echo "Processing domain directory: $domain_dir"
         
         # Find all .hddl files, excluding those with '-grounded' in the name
@@ -37,30 +49,21 @@ for domain_dir in $folder_benchmarks; do
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
                 )
                 echo "@"
                 echo "Running bidirectional landmark experiment for $problem_name:"
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
-                )
-                echo "@"
-                echo "Running minimal disjunction landmark experiment for $problem_name:"
-                (
-                    ulimit -t $TIME_LIMIT
-                    ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Minimal Disjunction Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
                 )
                 
                 # Remove .psas files and panda.log from the current directory
-                # Check and remove .psas files if they exist
                 if ls ./*.psas 1> /dev/null 2>&1; then
                     rm ./*.psas
                 fi
 
-                # Check and remove panda.log if it exists
                 if [ -f ./panda.log ]; then
                     rm ./panda.log
                 fi
@@ -79,29 +82,20 @@ for domain_dir in $folder_benchmarks; do
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
                     )
                     echo "@"
                     echo "Running bidirectional landmark experiment for $problem_name:"
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
-                    )
-                    echo "@"
-                    echo "Running minimal disjunction landmark experiment for $problem_name:"
-                    (
-                        ulimit -t $TIME_LIMIT
-                        ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
                     )
                     
-                    # Check and remove .psas files if they exist
                     if ls ./*.psas 1> /dev/null 2>&1; then
                         rm ./*.psas
                     fi
 
-                    # Check and remove panda.log if it exists
                     if [ -f ./panda.log ]; then
                         rm ./panda.log
                     fi
