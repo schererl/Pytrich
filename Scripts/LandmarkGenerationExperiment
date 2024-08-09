@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# Set the folder containing the benchmarks
+folder_benchmarks="../htn-benchmarks/*"
+
+# Define time and memory limits
+TIME_LIMIT=10
+MEM_LIMIT=2000000
+
+# Iterate over each domain directory
+for domain_dir in $folder_benchmarks; do
+    if [ -d "$domain_dir" ]; then
+        echo "Processing domain directory: $domain_dir"
+        
+        # Find all .hddl files, excluding those with '-grounded' in the name
+        files=($(find "$domain_dir" -maxdepth 1 -type f -name "*.hddl" ! -iname "*-grounded*"))
+        
+        # Separate domain and problem files
+        domain_files=()
+        problem_files=()
+
+        for file in "${files[@]}"; do
+            if [[ "$(basename "$file")" == *domain* ]]; then
+                domain_files+=("$file")
+            else
+                problem_files+=("$file")
+            fi
+        done
+
+        # If there is only one domain file, use it for all problem files
+        if [ ${#domain_files[@]} -eq 1 ]; then
+            domain_file="${domain_files[0]}"
+            for problem_file in "${problem_files[@]}"; do
+                problem_name=$(basename "$problem_file")
+                echo "@"
+                echo "Running classical landmark experiment for $problem_name:"
+                (
+                    ulimit -t $TIME_LIMIT
+                    ulimit -v $MEM_LIMIT
+                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                )
+                echo "@"
+                echo "Running bidirectional landmark experiment for $problem_name:"
+                (
+                    ulimit -t $TIME_LIMIT
+                    ulimit -v $MEM_LIMIT
+                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
+                )
+                echo "@"
+                echo "Running minimal disjunction landmark experiment for $problem_name:"
+                (
+                    ulimit -t $TIME_LIMIT
+                    ulimit -v $MEM_LIMIT
+                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Minimal Disjunction Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                )
+                
+                # Remove .psas files and panda.log from the current directory
+                # Check and remove .psas files if they exist
+                if ls ./*.psas 1> /dev/null 2>&1; then
+                    rm ./*.psas
+                fi
+
+                # Check and remove panda.log if it exists
+                if [ -f ./panda.log ]; then
+                    rm ./panda.log
+                fi
+
+            done
+        else
+            # If there are multiple domain files, pair them with corresponding problem files
+            for domain_file in "${domain_files[@]}"; do
+                base_name="${domain_file%-domain.hddl}"
+                corresponding_problems=($(find "$domain_dir" -maxdepth 1 -type f -name "${base_name}*.hddl" ! -iname "*-grounded*" ! -name "$(basename "$domain_file")"))
+
+                for problem_file in "${corresponding_problems[@]}"; do
+                    problem_name=$(basename "$problem_file")
+                    echo "@"
+                    echo "Running classical landmark experiment for $problem_name:"
+                    (
+                        ulimit -t $TIME_LIMIT
+                        ulimit -v $MEM_LIMIT
+                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                    )
+                    echo "@"
+                    echo "Running bidirectional landmark experiment for $problem_name:"
+                    (
+                        ulimit -t $TIME_LIMIT
+                        ulimit -v $MEM_LIMIT
+                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
+                    )
+                    echo "@"
+                    echo "Running minimal disjunction landmark experiment for $problem_name:"
+                    (
+                        ulimit -t $TIME_LIMIT
+                        ulimit -v $MEM_LIMIT
+                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                    )
+                    
+                    # Check and remove .psas files if they exist
+                    if ls ./*.psas 1> /dev/null 2>&1; then
+                        rm ./*.psas
+                    fi
+
+                    # Check and remove panda.log if it exists
+                    if [ -f ./panda.log ]; then
+                        rm ./panda.log
+                    fi
+
+                done
+            done
+        fi
+    fi
+done

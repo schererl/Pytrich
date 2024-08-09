@@ -34,9 +34,7 @@ GROUNDERS = {
 NUMBER = re.compile(r"\d+")
 
 def _search(model, search, heuristic, h_params):
-    logging.info('Search start: %s', model.name)
     solution = search(model, heuristic_type=heuristic, h_params=h_params)
-    logging.info('Search end: %s', model.name)
     return solution
 
 

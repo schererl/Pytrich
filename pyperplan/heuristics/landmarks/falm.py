@@ -6,17 +6,21 @@ from pyperplan.heuristics.landmarks.landmark import Landmarks
 from pyperplan.model import Operator
 
 class FALM:
-    def __init__(self, model):
+    def __init__(self, model, lms_instance=None):
         self.model=model
         self.ord_to_op = {}
         self.opid_to_ord = {}
         self.fact_to_ord = {}
         self.unique_achievers = []
         
-        self.andor_lm_inst  = Landmarks(self.model)
-        self.andor_lm_inst.bottom_up_lms()
-        self.andor_lm_inst.top_down_lms()
-        self.andor_landmark_set = self.andor_lm_inst.bidirectional_lms(self.model, self.model.initial_state, self.model.initial_tn)
+        if lms_instance:
+            self.andor_lm_inst  = lms_instance
+            self.andor_landmark_set = lms_instance.task_lms | lms_instance.fact_lms | lms_instance.method_lms
+        else:            
+            self.andor_lm_inst  = Landmarks(self.model)
+            self.andor_lm_inst.bottom_up_lms()
+            self.andor_lm_inst.top_down_lms()
+            self.andor_landmark_set = self.andor_lm_inst.bidirectional_lms(self.model, self.model.initial_state, self.model.initial_tn)
 
         self.valid_disjunctions = []
 
@@ -48,6 +52,182 @@ class FALM:
         print(f'gord landmark facts: {count_fact_lms}')
         print(f'gord landmark total: {count_total_lms}')
         print(f'gord landmark disjunctions: {len(self.valid_disjunctions)}')
+
+    def _calculate_reachable(self):
+        """
+        Calculate the reachable set of actions for each task, both primitive and compound.
+        """
+        # Initialize reachable for all tasks
+        self.reachable = {task.global_id: set() for task in self.model.abstract_tasks + self.model.operators}
+        
+        # Initialize reachable for primitive actions
+        for action in self.model.operators:
+            self.reachable[action.global_id] = {action.global_id}
+        
+        # Calculate reachable for compound tasks using DFS
+        for task in self.model.abstract_tasks:
+            reachable_set = set()
+            self._dfs(task, reachable_set, visited=set())
+            self.reachable[task.global_id] = deepcopy(reachable_set)
+            
+
+    def _dfs(self, task, reachable, visited):
+        """
+        Perform a depth-first search to find all reachable tasks for a compound task.
+        
+        Args:
+            task (int): The task ID for which to compute the reachable set.
+            visited (set): Set of visited tasks to prevent cycles.
+        """
+        if task in visited:
+            return
+        
+        visited.add(task)
+
+        if self.reachable[task.global_id]:
+            reachable.update(self.reachable[task.global_id])
+        
+        for decomposition in task.decompositions:
+            for subtask in decomposition.task_network:
+                if subtask in self.model.operators:  # If subtask is a primitive action
+                    reachable.add(subtask.global_id)
+                else:  # If subtask is a compound task
+                    self._dfs(subtask, reachable, visited)
+
+    def _output_reachable(self):
+        for task in self.model.abstract_tasks:
+            print(f'{task.name} A {len(self.reachable[task.global_id])}.')
+            for r in self.reachable[task.global_id]:
+               print(f'\t{self.model.get_component(r).name}')
+
+    def _calculate_predecessors(self):
+        """
+        Calculate the predecessor actions for each action in the set of actions A.
+        
+        Modifies:
+            self.predecessors: A dictionary where keys are action indices, and values are sets of predecessor actions.
+        """
+        self.predecessors = {a.global_id: set() for a in self.model.operators}
+        
+        # Iterate through each method
+        for decomposition in self.model.decompositions:
+            subtasks = decomposition.task_network
+            
+            for i in range(len(subtasks)):
+                task_i = subtasks[i].global_id
+                for action_id in self.reachable[task_i]:
+                    for j in range(i - 1, -1, -1):
+                        task_j = subtasks[j].global_id
+                        self.predecessors[action_id].update(self.reachable[task_j])
+        
+        # Iterate through task network
+        subtasks = self.model.initial_tn
+        for i in range(len(subtasks)):
+            task_i = subtasks[i].global_id
+            for action_id in self.reachable[task_i]:
+                for j in range(i - 1, -1, -1):
+                    task_j = subtasks[j].global_id
+                    self.predecessors[action_id].update(self.reachable[task_j])
+
+    def _check_oplms_achievers(self):
+        for lm_id in self.andor_landmark_set:
+            component = self.model.get_component(lm_id)
+            if isinstance(component, Operator):
+                print(f'landmark refinable: ')
+                self._check_predecessor_achievers(lm_id)
+
+    def _check_all_hierachy_achievers(self):
+        for operator in self.model.operators:
+            self._check_predecessor_achievers(operator.global_id)
+
+    def _compute_precon_intesection(self, achievers, fact_set):
+            disjunctive_landmarks = [set(self.model.get_component(op_id).get_precons_bitfact()) for op_id in achievers]
+            # Get the intersection of disjunctive landmarks
+            if disjunctive_landmarks:
+                interesection_lms = set.intersection(*disjunctive_landmarks)
+                fact_set.update(interesection_lms)
+
+    def _compute_andor_intesection(self, achievers, lm_set):
+            disjunctive_landmarks = [set(self.andor_lm_inst.bu_landmarks[op_id]) for op_id in achievers]
+            # Get the intersection of disjunctive landmarks
+            if disjunctive_landmarks:
+                interesection_lms = set.intersection(*disjunctive_landmarks)
+                lm_set.update(interesection_lms)
+            
+                    
+
+    def _check_predecessor_achievers(self, operator_id):
+        """
+        Check if the achievers of an operator by their predecessors
+        are smaller than the overall predecessor collection.
+        """
+        
+        operator = self.model.get_component(operator_id)
+        preconditions = operator.get_precons_bitfact()
+        if operator.relaxed_applicable_bitwise(self.model.initial_state):
+            #print(f'\n{operator.name} trivially reachable')
+            return set()
+        
+        # Overall achievers: operators that have effects matching the preconditions
+        overall_achievers = set()
+        for precon in preconditions:
+            overall_achievers.update(
+                o.global_id for o in self.model.operators if o.add_effects_bitwise & (1 << precon) != 0
+            )
+        
+        # Predecessor achievers: operators that are predecessors and achieve the preconditions
+        predecessor_achievers = set()
+        preconditions = operator.get_precons_bitfact()
+        for precon in preconditions:
+            predecessor_achievers.update(
+                o_id for o_id in self.predecessors[operator_id] if ((self.model.get_component(o_id).add_effects_bitwise) & (1 << precon) != 0)
+            )
+
+        # Check if the predecessor achievers are smaller
+        if len(predecessor_achievers) < len(overall_achievers):
+            print(f"\nOperator {operator.name}: {len(predecessor_achievers)}/{len(overall_achievers)}")
+            #if len(predecessor_achievers) == 0:
+            #    print(f"\nOperator {operator.global_id}:  {len(predecessor_achievers)}/{len(overall_achievers)}")
+                #print(f"Predecessor Achievers: {len([self.model.get_component(o_id).name for o_id in predecessor_achievers])}")
+                #print(f"Overall Achievers: {len([self.model.get_component(o_id).name for o_id in overall_achievers])}")
+        
+            if not self._test_applicable(predecessor_achievers, operator):
+                print(f'operator not applicable {operator.name}')
+            
+
+        
+        # compute the intersection of facts of overral_achievers
+        overall_precons = set()
+        self._compute_andor_intesection(overall_achievers, overall_precons)
+        # compute the intersection of facts of predecessors_achievers
+        predec_precons = set()
+        # check if the intersection of prededc achievers is higher
+        self._compute_andor_intesection(predecessor_achievers, predec_precons)
+        if predec_precons - overall_precons:
+            #print(overall_precons)
+            #print(predec_precons)
+            for lm in predec_precons - overall_precons:
+                if not lm in self.andor_lm_inst.bu_landmarks[operator_id]:
+                    component = self.model.get_component(lm)
+                    if isinstance(component, int):
+                        print(f'{self.model.get_fact_name(lm)}')
+                    else:
+                        print(component.name)
+        return predecessor_achievers
+
+
+    def _test_applicable(self, achievers, op):
+        s = self.model.initial_state
+        for a in achievers:
+            a_o = self.model.get_component(a)
+            s = a_o.relaxed_apply_bitwise(s)
+        return op.applicable_bitwise(s)
+
+    def _output_predecessors(self):
+        for o in self.model.operators:
+            print(f'{o.name} A {len(self.predecessors[o.global_id])}.')
+            #for p in self.predecessors[o.global_id]:
+            #   print(f'\t{self.model.get_component(p).name}')
 
     # greedy-necessary before landmarks
     def _compute_gnb_landmarks(self):
@@ -87,18 +267,9 @@ class FALM:
                     self.unique_achievers.append(possibly_achievers)
                     self._compute_intersection(lm_queue, possibly_achievers, all_achievers_count)
                     
-                        
-
-        #print(f'greedy lms: {sorted(self.landmark_set)}')
-        #print(f'andor lms: {sorted(self.andor_landmark_set)}')
-        # new_landmarks = set(self.landmark_set)-set(self.andor_landmark_set)
-        # if new_landmarks:
-        #     print(f'new lms {new_landmarks}')
         self._log_andor_landmarks()
         self._log_gord_landmarks()
-        #exit()
 
-        
     def _compute_intersection(self, lm_queue, operators_disjunction, all_achievers_count):
         if len(operators_disjunction) == 1:
             # new operator
@@ -130,49 +301,13 @@ class FALM:
                         if isinstance(self.model.get_component(lm), int):
                             #print(f'NL {self.model.get_fact_name(lm)}')
                             lm_queue.append(lm)
-            else:
-                minimal_disj = self._compute_minimal_fact_disjunction(operators_disjunction, disjunctive_landmarks)
-                if minimal_disj not in self.valid_disjunctions:
-                    self.valid_disjunctions.append(minimal_disj)
-        
         # OPTION 2: get landmarks of each operator disjunction
-        td_landmarks = [set(self.andor_lm_inst.td_landmarks[op_id]) for op_id in operators_disjunction]
+        td_landmarks = [set(self.andor_lm_inst.bu_landmarks[op_id]) for op_id in operators_disjunction]
         if td_landmarks:
             interesection_lms = set.intersection(*td_landmarks)
             for lm in interesection_lms:
                 if lm not in self.andor_landmark_set:
                     self.landmark_set |= self.andor_lm_inst.bu_landmarks[lm]  | self.andor_lm_inst.td_landmarks[lm]
-
-    def _compute_minimal_fact_disjunction(self, disj_operators, disj_precons):
-        """
-        This function finds a minimal set of fact preconditions that covers all operators in the disjunction.
-        """
-        minimal_facts = set()
-        all_facts = set.union(*disj_precons)
-        
-        fact_coverage = {fact: set() for fact in all_facts}
-        for op_disj_i, op in enumerate(disj_operators):
-            for fact in disj_precons[op_disj_i]:
-                fact_coverage[fact].add(op)
-        # keep track of covered operators
-        covered_operators = set()
-        num_operators = len(disj_operators)
-        # greedy approach: select facts that cover the most uncovered operators
-        # NOTE: I think it is not optimal
-        while len(covered_operators) < num_operators:
-            # find the fact that covers the most uncovered operators
-            best_fact = max(fact_coverage, key=lambda f: len(fact_coverage[f] - covered_operators))
-            best_coverage = fact_coverage[best_fact] - covered_operators
-            # add this fact to the minimal set
-            minimal_facts.add(best_fact)
-            # mark these operators as covered
-            covered_operators.update(best_coverage)
-            # remove the best fact from future consideration
-            del fact_coverage[best_fact]
-        
-        
-        
-        return minimal_facts
 
     # operators applicable possibly-before B
     def _compute_pb_achievers(self, lm_fact):

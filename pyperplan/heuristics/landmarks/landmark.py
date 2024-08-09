@@ -95,8 +95,64 @@ class Landmarks:
         self.task_lms = set()
         self.fact_lms = set()
         self.method_lms = set()
+        self.valid_disjunctions = []
         
+    def _compute_minimal_fact_disjunction(self, disj_operators, disj_precons, TA):
+        """
+        This function finds a minimal set of fact preconditions that covers all operators in the disjunction.
+        """
+        minimal_facts = set()
+        all_facts = set.union(*disj_precons)
+        
+        fact_coverage = {fact: set() for fact in all_facts}
+        for op_disj_i, op in enumerate(disj_operators):
+            for fact in disj_precons[op_disj_i]:
+                fact_coverage[fact].add(op)
+        # keep track of covered operators
+        covered_operators = set()
+        # greedy approach: select facts that cover the most uncovered operators
+        while len(covered_operators) < TA and fact_coverage:
+            # find the fact that covers the most uncovered operators
+            best_fact = max(fact_coverage, key=lambda f: len(fact_coverage[f] - covered_operators))
+            best_coverage = fact_coverage[best_fact] - covered_operators
+            # add this fact to the minimal set
+            minimal_facts.add(best_fact)
+            # mark these operators as covered
+            covered_operators.update(best_coverage)
+            # remove the best fact from future consideration
+            del fact_coverage[best_fact]
+        
+        # if it is not possible cover all return set()
+        if len(covered_operators) < TA:
+            return set()
+
+        # remove facts used into minimal facts from each disjunction 
+        for i, precon_set in enumerate(disj_precons):
+            disj_precons[i] = precon_set - minimal_facts
+        return minimal_facts
     
+    def _compute_minimal_disjunctions(self):
+        for lm_fact in self.fact_lms:
+            o_achievers = set()
+            for o_a in self.model.operators:
+                if  o_a.add_effects_bitwise & (1 << lm_fact) != 0:
+                    o_achievers.add(o_a)
+            # OPTION 1: fact preconditions for operator disjunction
+            disjunctive_preconitions = [set(o_a.get_precons_bitfact()) for o_a in o_achievers]
+            # Get the intersection of disjunctive landmarks
+            if disjunctive_preconitions:
+                interesection_lms = set.intersection(*disjunctive_preconitions)
+                if not interesection_lms:
+                    
+                    # compute maximal minimal disjunctions
+                    total_achievers = len(o_achievers)
+                    while disjunctive_preconitions:
+                        minimal_disj = self._compute_minimal_fact_disjunction(o_achievers, disjunctive_preconitions, total_achievers)
+                        if not minimal_disj or len(minimal_disj) > 4:
+                            break
+                        if  minimal_disj not in self.valid_disjunctions:
+                            self.valid_disjunctions.append(minimal_disj)
+                            
     def bottom_up_lms(self):
         """
         Original landmark extraction:

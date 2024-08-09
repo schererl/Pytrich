@@ -3,7 +3,7 @@ import os
 
 from pyperplan.model import Operator, Decomposition, AbstractTask
 from pyperplan.grounder.grounder import Grounder
-
+import pyperplan.FLAGS as FLAGS
 class pandaGrounder(Grounder):
     def __init__(self, grounded_domain_file, grounded_problem_file):
         super().__init__(None, have_lifted=False)
@@ -27,7 +27,9 @@ class pandaGrounder(Grounder):
         domain_base = os.path.splitext(os.path.basename(domain_file_path))[0]
         problem_base = os.path.splitext(os.path.basename(problem_file_path))[0]
         
-        print(f'reading\n\tdomain: {domain_file_path}\n\tproblem: {problem_file_path}')
+        if FLAGS.LOG_GROUNDER:
+            print(f'reading\n\tdomain: {domain_file_path}\n\tproblem: {problem_file_path}')
+
         parsed_output = "temp.parsed"
         subprocess.run([pandaPIparser_path, domain_file_path, problem_file_path, parsed_output], check=True)
         
@@ -36,17 +38,20 @@ class pandaGrounder(Grounder):
             self.grounder_status = 'FAILED'
             return
         
-        print("Parsing ended")
+        if FLAGS.LOG_GROUNDER:
+            print("Parsing ended")
 
         psas_output = f"{domain_base}-{problem_base}.psas"
         subprocess.run([pandaPIgrounder_path, "-q", parsed_output, psas_output], check=True)
         os.remove(parsed_output)
         if not os.path.exists(psas_output):
-            print("Grounding failed.")
+            if FLAGS.LOG_GROUNDER:
+                print("Grounding failed.")
             self.grounder_status = 'FAILED'
             return
         
-        print("Grounder ended")
+        if FLAGS.LOG_GROUNDER:
+            print("Grounder ended") 
 
 
         # Run the planner engine and write its output to a log file
@@ -59,7 +64,8 @@ class pandaGrounder(Grounder):
         # Rename the output files to the desired names
         os.rename(f"{psas_output}.d.hddl", grounded_domain_output)
         os.rename(f"{psas_output}.p.hddl", grounded_problem_output)
-        print(f"Grounding completed: \n\tdomain:{grounded_domain_output}\n\tproblem:{grounded_problem_output}")
+        if FLAGS.LOG_GROUNDER:
+            print(f"Grounding completed: \n\tdomain:{grounded_domain_output}\n\tproblem:{grounded_problem_output}")
         self.grounded_domain_file = grounded_domain_output
         self.grounded_problem_file = grounded_problem_output
         self.grounder_status = 'SUCCESS'

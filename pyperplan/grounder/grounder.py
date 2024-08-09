@@ -27,7 +27,7 @@ from pyperplan.postprocessing_model import remove_negative_precons
 from pyperplan.postprocessing_model import convert_bitwise_repr
 from pyperplan.postprocessing_model import del_relax_reachability
 from pyperplan.postprocessing_model import pullup
-
+import pyperplan.FLAGS as FLAGS
 class Grounder:
     def __init__(self,
         problem, have_lifted=True

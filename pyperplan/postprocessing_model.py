@@ -1,7 +1,10 @@
+from copy import deepcopy
 import logging
 import sys
 
 from pyperplan.model import Operator, AbstractTask
+import pyperplan.FLAGS as FLAGS
+
 
 def clean_tdg(
     model    
@@ -56,11 +59,12 @@ def clean_tdg(
     count_op_after     = len(model.operators)
     count_decomp_after = len(model.decompositions)
     count_abs_task_after = len(model.abstract_tasks)
-
-    logging.info(f"used facts: {len(used_facts)}")
-    logging.info(f"cleaning operators: before {count_op_before} un ==> after {count_op_after} un")
-    logging.info(f"cleaning decompositions: before {count_decomp_before} un ==> after {count_decomp_after} un")
-    logging.info(f"cleaning tasks: before {count_abs_task_before} un ==> after {count_abs_task_after} un")
+    
+    if FLAGS.LOG_GROUNDER:
+        print(f"used facts: {len(used_facts)}")
+        print(f"cleaning operators: before {count_op_before} un ==> after {count_op_after} un")
+        print(f"cleaning decompositions: before {count_decomp_before} un ==> after {count_decomp_after} un")
+        print(f"cleaning tasks: before {count_abs_task_before} un ==> after {count_abs_task_after} un")
 
 
 
@@ -203,6 +207,94 @@ def convert_bitwise_repr(model):
         d.pos_precons = frozenset()
         d.neg_precons = frozenset()
 
+def _calculate_TO_achievers(model, reachable, operators):
+    """
+    Calculate the achievers for each action.
+    The achievers are those that came before the action using Total-Order constraint
+    """
+    predecessors = {a.global_id: set() for a in model.operators}
+    
+    for decomposition in model.decompositions:
+        subtasks = decomposition.task_network
+        
+        for i in range(len(subtasks)):
+            task_i = subtasks[i].global_id
+            for action_id in reachable[task_i]:
+                for j in range(i - 1, -1, -1):
+                    task_j = subtasks[j].global_id
+                    predecessors[action_id].update(reachable[task_j])
+    
+    subtasks = model.initial_tn
+    for i in range(len(subtasks)):
+        task_i = subtasks[i].global_id
+        for action_id in reachable[task_i]:
+            for j in range(i - 1, -1, -1):
+                task_j = subtasks[j].global_id
+                predecessors[action_id].update(reachable[task_j])
+
+    achivers = {}
+    for o in operators:
+        preconditions = o.get_precons_bitfact()
+        achievers = set()
+        for precon in preconditions:
+            achievers.update(
+                o_id for o_id in predecessors[o.global_id] if ((o.add_effects_bitwise) & (1 << precon) != 0)
+            )
+        
+        
+    return predecessors 
+
+def _calculate_TO_reachable(model, operators):
+    """
+    Calculate the reachable set of actions for each task, both primitive and compound.
+    """
+    
+    reachable = {task.global_id: set() for task in model.abstract_tasks + operators}
+    for action in operators:
+        reachable[action.global_id] = {action.global_id}
+    
+    for task in model.abstract_tasks:
+        reachable_set = set()
+        _dfs(task, reachable_set, visited=set())
+        reachable[task.global_id] = deepcopy(reachable_set)
+    return reachable
+        
+
+def _dfs(model, task, reachable, visited):
+    """
+    Perform a depth-first search to find all reachable tasks for a compound task.
+    
+    Args:
+        task (int): The task ID for which to compute the reachable set.
+        visited (set): Set of visited tasks to prevent cycles.
+    """
+    if task in visited:
+        return
+    
+    visited.add(task)
+
+    if reachable[task.global_id]:
+        reachable.update(reachable[task.global_id])
+    
+    for decomposition in task.decompositions:
+        for subtask in decomposition.task_network:
+            if subtask in model.operators:  # If subtask is a primitive action
+                reachable.add(subtask.global_id)
+            else:  # If subtask is a compound task
+                _dfs(model, subtask, reachable, visited)
+
+def _remove_TO_unreachable(model, operators):
+    '''
+        Based on the available operators, get TO achievers and remove those that cannot be TO achievable.
+    '''
+    reachable =  _calculate_TO_reachable(model, operators)
+    predec = _calculate_TO_achievers(model, operators)
+    for o in operators[:]:
+        if len(predec.global_id) == 0 and not o.relaxed_applicable_bitwise(model.initial_state):
+            operators.remove(o)
+    return operators
+    
+
 #TODO:  fixing it 
 def del_relax_reachability(model):
     """
@@ -224,7 +316,7 @@ def del_relax_reachability(model):
     while changed:
         changed=False
         reachable_ops, positive_facts = _reachable_operators(model, model.initial_state)
-        
+
         htn_reachable_operators = set(initial_operators)
         removed_operators |= set(model.operators) - reachable_ops
         for t in model.abstract_tasks[:]:
@@ -255,22 +347,28 @@ def del_relax_reachability(model):
                         htn_reachable_operators.add(subt)
                     
         reachable_tasks = set(model.abstract_tasks) -  removed_tasks
-        logging.info(f" op ({len(model.operators)}=>{len(htn_reachable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(reachable_tasks)})|decompo ({len(model.decompositions)}=>{len(reachable_decompositions)})")
+        if FLAGS.LOG_GROUNDER:
+            print(f" op ({len(model.operators)}=>{len(htn_reachable_operators)})|tsks ({len(model.abstract_tasks)}=>{len(reachable_tasks)})|decompo ({len(model.decompositions)}=>{len(reachable_decompositions)})")
         if len(reachable_tasks) != len(model.abstract_tasks) or len(htn_reachable_operators) != len(model.operators) or len(model.decompositions) != len(reachable_decompositions):
             model.operators = list(htn_reachable_operators)  
             model.decompositions = list(reachable_decompositions)
             model.abstract_tasks = list(reachable_tasks) 
             changed=True
-            
-    logging.info(f"Delete Relaxation Reachability: Operators {initial_op_len} to {len(model.operators)}, Decompositions {initial_decomp_len} to {len(model.decompositions)}, Tasks {initial_task_len} to {len(model.abstract_tasks)}")    #correctness_check(model)
-                
+    
+    if FLAGS.LOG_GROUNDER:   
+        print(f"Delete Relaxation Reachability: Operators {initial_op_len} to {len(model.operators)}, Decompositions {initial_decomp_len} to {len(model.decompositions)}, Tasks {initial_task_len} to {len(model.abstract_tasks)}")    #correctness_check(model)
+
+
 def _reachable_operators(model, initial_facts):
     reachable_operators = set()
     reachable_facts = initial_facts
+    
+    
+
     changed = True
     while changed:
         changed = False
-        valid_operators = set(model.operators) - reachable_operators
+        valid_operators =  set(model.operators) - reachable_operators #_remove_TO_unreachable(model, set(model.operators) - reachable_operators)
         for op in valid_operators:
             if not op in reachable_operators and model.applicable(op, reachable_facts):
                 reachable_operators.add(op)
@@ -279,7 +377,6 @@ def _reachable_operators(model, initial_facts):
     return reachable_operators, reachable_facts
 
 def correctness_check(model):
-    logging.info('Starting correctness check')
     ab_set = set(model.abstract_tasks)
     op_set = set(model.operators)
 
@@ -295,10 +392,11 @@ def correctness_check(model):
         print("MODEL INCONSISTENCIES FOUND")
         print(tn_errors)
         exit(0)
-    logging.info('Correctness check over')
+    
 
 def pullup(model):
-    logging.info('initializing pullup')
+    if FLAGS.LOG_GROUNDER:
+        print('initializing pullup')
     ctask_map = {} # map each decomposition to its compound task
     for abtask_idx, ab_task in enumerate(model.abstract_tasks):
         for decomp in ab_task.decompositions:
@@ -364,7 +462,10 @@ def pullup(model):
                 if task_progression[ctask_idx] >= len(compound_task.decompositions):
                     task_done[ctask_idx] = True
             changed=True    
-        logging.info(f"it ({iterations}) Pullup Op {count_op_pus} Pullup Methods {count_m_pus} Pullup Tasks {count_t_pus}")
-    logging.info(f'Pullup ended')
+        if FLAGS.LOG_GROUNDER:
+            print(f"it ({iterations}) Pullup Op {count_op_pus} Pullup Methods {count_m_pus} Pullup Tasks {count_t_pus}")
+    
+    if FLAGS.LOG_GROUNDER:
+        print(f'Pullup ended')
     
         
