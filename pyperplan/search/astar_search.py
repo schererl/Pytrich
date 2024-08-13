@@ -25,6 +25,8 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
     h = None
     if not h_params is None:
         h  = heuristic_type(model, node, **(parse_heuristic_params(h_params)))
+        if FLAGS.LOG_HEURISTIC:
+            print(h.__output__())
     else:
         h  = heuristic_type(model, node)
     
@@ -99,14 +101,9 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
     if STATUS == 'GOAL':
         nodes_second = iteration/float(current_time - start_time)
         _, op_sol, goal_dist_sol = node.extract_solution()
-        if FLAGS.LOG_HEURISTIC:
-            print(h.__output__())
         if FLAGS.LOG_SEARCH:
-            logging.info(
-                "\nstatus info>    \t%s, Elapsed Time: %.2f seconds, Nodes/second: %.2f n/s,"
-                "\nheap info>      \tSolution size: %d, Expanded Nodes: %d, Revisits Avoided: %d, Used Memory: %s",
-                STATUS, elapsed_time, nodes_second, len(op_sol), iteration, count_revisits, memory_usage
-            )
+            print( "Status: {}\nElapsed Time: {:.2f} seconds\nNodes/second: {:.2f} n/s\nSolution size: {}\nExpanded Nodes: {}\nRevisits Avoided: {}\nUsed Memory: {}".format(STATUS, elapsed_time, nodes_second, len(op_sol), iteration, count_revisits, memory_usage) )
+
         #graph_dot.to_graphviz()
         return create_result_dict(h.name, 'GOAL', iteration, 0, 0, start_time, current_time, memory_usage, len(goal_dist_sol), len(op_sol), None)
     elif STATUS =='OUT OF MEMORY' or STATUS == 'TIMEOUT':

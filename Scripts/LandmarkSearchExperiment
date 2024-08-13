@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Set the folder containing the benchmarks
-folder_benchmarks="../htn-benchmarks/Monroe-Fully-Observable"
+#folder_benchmarks="../htn-benchmarks/Monroe-Fully-Observable"
+folder_benchmarks="../htn-benchmarks/*"
 
 # Define time and memory limits
-TIME_LIMIT=300
+TIME_LIMIT=20
 MEM_LIMIT=4000000
 
 # Define the array of domains to be ignored
@@ -48,14 +49,14 @@ for domain_dir in $folder_benchmarks; do
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                    python3 ../pyperplan/__main__.py  -ml -H LMCOUNT -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
                 )
                 echo "@"
                 echo "Running bidirectional landmark experiment for $problem_name:"
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
+                    python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "name=\"Bidirectional Landmarks\", use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
                 )
                 
                 # Remove .psas files and panda.log from the current directory
@@ -85,14 +86,14 @@ for domain_dir in $folder_benchmarks; do
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                        python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
                     )
                     echo "@"
                     echo "Running bidirectional landmark experiment for $problem_name:"
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
+                        python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
                     )
                     
                     # Clean up generated files

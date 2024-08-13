@@ -27,6 +27,7 @@ from pyperplan.postprocessing_model import remove_negative_precons
 from pyperplan.postprocessing_model import convert_bitwise_repr
 from pyperplan.postprocessing_model import del_relax_reachability
 from pyperplan.postprocessing_model import pullup
+from pyperplan.postprocessing_model import TO_relax_reachability
 import pyperplan.FLAGS as FLAGS
 class Grounder:
     def __init__(self,
@@ -102,6 +103,8 @@ class Grounder:
         
         del_relax_reachability(model) #NOTE: works only using bitwise representation
         model.assign_global_ids()
+        #TO_relax_reachability(model)
+
         return model
 
     def _create_type_map(self, objects):
