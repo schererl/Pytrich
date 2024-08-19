@@ -37,6 +37,12 @@ for log_file_path in log_files:
         for line in file:
             if "heuristic name:" in line:
                 heuristic_name = line.split(": ")[1].strip()
+            elif "heuristic params:" and heuristic_name == "lmcount":
+                params = line.split(": ")[1].strip()
+                if "B" in params:
+                    heuristic_name = "Bidirectional Landmarks"
+                elif "C" in params:
+                    heuristic_name = "Classical Landmarks"
             elif "Domain:" in line:
                 domain = line.split(": ")[1].strip()
             elif "Problem:" in line:
@@ -114,7 +120,6 @@ print(log_data_df)
 
 log_data_df.to_csv('parsed_log_data.csv', index=False)
 
-log_data_df.to_csv('parsed_log_data.csv', index=False)
 
 # Create the first table summarizing total landmarks
 total_landmarks_summary = log_data_df.pivot_table(
@@ -158,23 +163,26 @@ coverage_df = log_data_df.pivot_table(
 
 ## INTERSECTION ##
 # Keep only the problems where both heuristics have results
-valid_problems = coverage_df.dropna().reset_index()[['domain', 'problem']]
-# Filter the original DataFrame to keep only valid problems
-filtered_log_data_df = pd.merge(log_data_df, valid_problems, on=['domain', 'problem'])
-print(filtered_log_data_df)
-filtered_log_data_df.to_csv('filtered_parsed_log_data.csv', index=False)
+# Keep only the problems where both heuristics have results
+intersection_problems = coverage_df.dropna().index
+# Filter the original DataFrame to keep only the rows corresponding to the intersection problems
+log_data_df_intersection = log_data_df[log_data_df.set_index(['domain', 'problem']).index.isin(intersection_problems)].reset_index(drop=True)
+print(log_data_df_intersection)
+
+
 # Create the first table summarizing total landmarks
-total_landmarks_summary = filtered_log_data_df.pivot_table(
+total_landmarks_summary = log_data_df_intersection.pivot_table(
     index='domain', 
     columns='heuristic name', 
     values='total landmarks', 
     aggfunc='sum'
 )
+
 print(f'LANDMARK GENERATION (INTERSECTION COVERAGE):')
 print(total_landmarks_summary)
 
 # Create the table summarizing fact landmarks
-fact_landmarks_summary = filtered_log_data_df.pivot_table(
+fact_landmarks_summary = log_data_df_intersection.pivot_table(
     index='domain', 
     columns='heuristic name', 
     values='fact landmarks', 
@@ -184,7 +192,7 @@ print(f'FACT LANDMARKS (INTERSECTION COVERAGE):')
 print(fact_landmarks_summary)
 
 # Create the table summarizing task landmarks
-task_landmarks_summary = filtered_log_data_df.pivot_table(
+task_landmarks_summary = log_data_df_intersection.pivot_table(
     index='domain', 
     columns='heuristic name', 
     values='task landmarks', 
@@ -194,7 +202,7 @@ print(f'TASK LANDMARKS (INTERSECTION COVERAGE):')
 print(task_landmarks_summary)
 
 # Create the table summarizing method landmarks
-method_landmarks_summary = filtered_log_data_df.pivot_table(
+method_landmarks_summary = log_data_df_intersection.pivot_table(
     index='domain', 
     columns='heuristic name', 
     values='method landmarks', 
@@ -213,3 +221,20 @@ disjunctions_summary = classical_landmarks_df.pivot_table(
 )
 print(f'NUMBER OF DISJUNCTIONS (Classical Landmarks):')
 print(disjunctions_summary)
+
+# Step 4: Further filter where both heuristics had expanded nodes > 0
+expanded_nodes_df = log_data_df_intersection.pivot_table(
+    index=['domain', 'problem'], 
+    columns='heuristic name', 
+    values='expanded nodes', 
+    aggfunc='min'
+)
+
+# Identify problems where both heuristics had expanded nodes > 0
+intersection_expanded_nodes = expanded_nodes_df[expanded_nodes_df > 0].dropna().index
+# Step 5: Filter log_data_df_intersection for this new intersection
+log_data_df_final_intersection = log_data_df_intersection[log_data_df_intersection.set_index(['domain', 'problem']).index.isin(intersection_expanded_nodes)].reset_index(drop=True)
+# Save the filtered DataFrame to a CSV file
+log_data_df_final_intersection.to_csv('filtered_expnodes.csv', index=False)
+
+#print(log_data_df_final_intersection)

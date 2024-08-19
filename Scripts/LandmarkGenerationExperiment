@@ -4,7 +4,7 @@
 folder_benchmarks="../htn-benchmarks/Monroe-Fully-Observable"
 
 # Define time and memory limits
-TIME_LIMIT=300
+TIME_LIMIT=600
 MEM_LIMIT=4000000
 
 # Define the array of domains to be ignored
