@@ -136,16 +136,16 @@ class LandmarkHeuristic(Heuristic):
         
     # when verbose
     def __output__(self):
-        out_str = f'heuristic name: {self.name}\n'
-        out_str += f'heuristic params: {self.param_str}\n'
-        out_str += f'initial h: {self.initial_h}\n'
-        out_str += f'average h: {self.total_hvalue / max(1, self.calls)}\n'
-        out_str += f'number of total AND/OR landmarks: {self.total_andor_lms}\n'
-        out_str += f'number of task AND/OR landmarks: {self.task_andor_lms}\n'
-        out_str += f'number of methods AND/OR landmarks: {self.methods_andor_lms}\n'
-        out_str += f'number of fact AND/OR landmarks: {self.fact_andor_lms}\n'
-        out_str += f'number of min-cov disjunctions: {self.mc_disj_lms}\n'
+        out_str = f'Heuristic Info:\n\theuristic name: {self.name}\n'
+        out_str += f'\theuristic params: {self.param_str}\n'
+        out_str += f'\tinitial h: {self.initial_h}\n'
+        out_str += f'\taverage h: {self.total_hvalue / max(1, self.calls)}\n'
+        out_str += f'\tnumber of total AND/OR landmarks: {self.total_andor_lms}\n'
+        out_str += f'\tnumber of task AND/OR landmarks: {self.task_andor_lms}\n'
+        out_str += f'\tnumber of methods AND/OR landmarks: {self.methods_andor_lms}\n'
+        out_str += f'\tnumber of fact AND/OR landmarks: {self.fact_andor_lms}\n'
+        out_str += f'\tnumber of min-cov disjunctions: {self.mc_disj_lms}\n'
         if FLAGS.MONITOR_LM_TIME:
-            out_str += f'Elapsed time for AND/OR landmarks: {self.elapsed_andor_time:.4f} seconds\n'
-            out_str += f'Elapsed time for minimal disjunctions: {self.elapsed_mcdisj_time:.4f} seconds\n'
+            out_str += f'\tElapsed time for AND/OR landmarks: {self.elapsed_andor_time:.4f} seconds\n'
+            out_str += f'\tElapsed time for minimal disjunctions: {self.elapsed_mcdisj_time:.4f} seconds\n'
         return out_str

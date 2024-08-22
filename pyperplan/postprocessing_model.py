@@ -1,6 +1,7 @@
 from copy import deepcopy
 import logging
 import sys
+import time
 
 from pyperplan.model import Operator, AbstractTask
 import pyperplan.FLAGS as FLAGS
@@ -174,7 +175,7 @@ def convert_bitwise_repr(model):
         d.pos_precons = frozenset()
         d.neg_precons = frozenset()
 
-def _calculate_TO_achievers(model, operators, reachable):
+def _calculate_TO_achievers(model, reachable):
     """
     Calculate the achievers for each action.
     The achievers are those that came before the action using Total-Order constraint
@@ -198,7 +199,7 @@ def _calculate_TO_achievers(model, operators, reachable):
                 predecessors[action_id].update(reachable[task_j])
 
     achivers_set = {a.global_id: set() for a in model.operators}
-    for o in operators:
+    for o in model.operators:
         if o.relaxed_applicable_bitwise(model.initial_state):
             achivers_set[o.global_id] = {-1}
             continue
@@ -213,13 +214,13 @@ def _calculate_TO_achievers(model, operators, reachable):
         
     return achivers_set
 
-def _calculate_TO_reachable(model, operators):
+def _calculate_TO_reachable(model):
     """
     Calculate the reachable set of actions for each task, both primitive and compound.
     """
     
     reachable = {task.global_id: set() for task in model.abstract_tasks}
-    for action in operators:
+    for action in model.operators:
         reachable[action.global_id] = {action.global_id}
     
     for task in model.abstract_tasks:
@@ -243,8 +244,9 @@ def _dfs(model, task, R, r, visited):
     visited.add(task)
 
     # if reachable set of a given task was already computed, use it
-    if task.global_id in R:
-        r.update(R[task.global_id])
+    r_task = R.get(task.global_id)
+    if r_task:
+        r.update(r_task)
     
     for decomposition in task.decompositions:
         for subtask in decomposition.task_network:
@@ -253,12 +255,12 @@ def _dfs(model, task, R, r, visited):
             else:
                 _dfs(model, subtask, R, r, visited)
 
-def _compute_TO_achievable(model, operators):
+def _TOreachable_operators(model, operators):
     '''
         Based on the available operators, get TO achievers and remove those that cannot be TO achievable.
     '''
-    reachable =  _calculate_TO_reachable(model, operators)
-    achievers =  _calculate_TO_achievers(model, operators, reachable)
+    reachable =  _calculate_TO_reachable(model)
+    achievers =  _calculate_TO_achievers(model, reachable)
     achievable_op = set()
     
     for o in operators:
@@ -272,50 +274,123 @@ def _compute_TO_achievable(model, operators):
             achievable_op.add(o) # achievable
         
     
-    num_applicables = len(operators)
-    num_achievables = len(achievable_op)
-    print(f'TO reachability removed {num_applicables-num_achievables} operators.')
-    print(f'{[o.name for o in operators-achievable_op]}')
-    return achievable_op
     
+    return list(achievable_op)
+
+
+def _Dreachable_operators(initial_task_network):
+    def _dfs_reachable(task_node, R, visited):
+        visited.add(task_node)
+        for d in task_node.decompositions:
+            for t in d.task_network:
+                if isinstance(t, Operator):
+                    R.add(t)
+                else:
+                    if t not in visited:
+                        _dfs_reachable(t, R, visited)
+                
+    visited = set()
+    tdg_reachable_operators = set()
+    for t in initial_task_network:
+        if isinstance(t, Operator):
+            tdg_reachable_operators.add(t)
+            continue
+        _dfs_reachable(t, tdg_reachable_operators, visited)
+
+    return tdg_reachable_operators
+
+def _Ereachable_operators(operators, initial_state):
+    reachable_operators = []
+    reachable_facts = initial_state
+    
+    changed = True
+    while changed:
+        changed = False
+        remove_op = set()
+        for op in operators:
+            if not op in reachable_operators and op.applicable_bitwise(reachable_facts):
+                reachable_operators.append(op)
+                reachable_facts = op.relaxed_apply_bitwise(reachable_facts)
+                remove_op.add(op)
+                changed = True
+        operators-=remove_op
+    return reachable_operators, reachable_facts
 
 def TO_relax_reachability(model):
+    start_time   = time.time()
     # TODO: already assigned IDs
     changed=True
-
-    while changed:
+    i=0
+    number_o_before   = len(model.operators)
+    number_abt_before = len(model.abstract_tasks)
+    number_m_before   = len(model.decompositions)
+    while True:
+        i+=1
         changed=False
-        number_o_before   = len(model.operators)
-        number_abt_before = len(model.abstract_tasks)
-        number_m_before   = len(model.methods)
-        DEL_reachable_ops, reachable_facts = _applicable_operators(model, model.initial_state)
-        TO_applicable_ops = _compute_TO_achievable(model, DEL_reachable_ops)
+        count_curr_O   = len(model.operators)
+        D_Rops_set = _Dreachable_operators(model.initial_tn) # operators reachable by decomposition space
+        count_DRops_set = len(D_Rops_set)
+        E_Rops, reachable_facts = _Ereachable_operators(D_Rops_set, model.initial_state) # operators reachable by executability space
+        count_ERops = len(E_Rops)
+        TO_Rops = _TOreachable_operators(model, E_Rops) # operators reachable by total-order constraints
+        count_TORops = len(TO_Rops)
         
-        decompositions = []
-        for d in model.decompositions:
-            valid=True
-            for t in d.task_network:
-                if t not in TO_applicable_ops:
+        if FLAGS.LOG_GROUNDER:   
+            print(f'OPERATORS: {len(model.operators)}')
+            print(f'\tDecomposition Space removed {number_o_before-count_DRops_set} operators.')
+            print(f'\tExecutability Space removed {count_DRops_set-count_ERops} operators.')
+            print(f'\tTO Ordering Constraints removed {count_ERops-count_TORops} operators.')
+            print(f'Result: {len(TO_Rops)}')
+
+        if count_curr_O - count_TORops == 0:
+            break    
+
+        # Clean TDG
+        cleaned=True
+        while cleaned:
+            cleaned = False
+            decompositions = []
+            for d in model.decompositions:
+                valid=True
+                if not d.applicable_bitwise(reachable_facts):
                     valid=False
-                    break
-            if valid:
-                decompositions.append(d)
-            else:
-                d.compound_task.remove(d)
-        
-        abstract_tasks = []
-        for abt in model.abstract_tasks:
-            if len(abt.decompositions) > 0:
-                abstract_tasks.append(abt)
+                else:
+                    for t in d.task_network:
+                        if isinstance(t, Operator) and t not in TO_Rops:
+                            #print(f'TP {t.global_id} not found, D {d.global_id} will be removed')
+                            valid=False
+                            break
+                        elif isinstance(t, AbstractTask) and t not in model.abstract_tasks:
+                            #print(f'TA {t.global_id} not found, D {d.global_id} will be removed')
+                            valid=False
+                            break
+
+                if valid:
+                    decompositions.append(d)
+                else:
+                    #print(f'removing D {d.global_id} from TA {d.compound_task.global_id}')
+                    d.compound_task.decompositions.remove(d)
+                    cleaned=True
             
+            abstract_tasks = []
+            for abt in model.abstract_tasks:
+                if len(abt.decompositions) > 0:
+                    abstract_tasks.append(abt)
+                else:
+                    cleaned=True
+                    #print(f'removing TA {abt.global_id} D empty')
+            model.decompositions = decompositions
+            model.abstract_tasks = abstract_tasks    
 
-        model.operators      = DEL_reachable_ops
-        model.decompositions = decompositions
-        model.abstract_tasks = abstract_tasks
+        model.operators      = TO_Rops
         model.assign_global_ids()
-
-        exit(0)
-
+    
+    if FLAGS.LOG_GROUNDER:   
+        print(f'number of abstract tasks removed {number_abt_before - len(model.abstract_tasks)} of {number_abt_before}')
+        print(f'number of operators removed: {number_o_before - len(model.operators)} of {number_o_before}')
+        print(f'number of methods removed: {number_m_before-len(model.decompositions)} of {number_m_before}')
+    
+    print(f'TO reachability elapsed time: {time.time()-start_time:.4f} s')
 
 #TODO:  fixing it 
 def del_relax_reachability(model):

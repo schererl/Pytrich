@@ -16,7 +16,7 @@ class Heuristic:
         if self.min_hvalue > h_value:
             self.min_hvalue = h_value
         node.h_value = h_value
-        node.f_value = h_value  # node.g_value + h_value 
+        node.f_value =  node.g_value + h_value 
     
     # when verbose
     def __output__(self):

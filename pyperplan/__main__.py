@@ -12,6 +12,7 @@ from pyperplan.planner import (
 
 import pyperplan.FLAGS as FLAGS
 import SingleExperiments.landmark_experiment as lge
+import SingleExperiments.TOreachability_experiment as tore
 
 def main():
     # Commandline parsing
@@ -53,10 +54,17 @@ def main():
         "-re", "--runExperiment", 
         choices=['tdglm', 'search', 'landmark', 'none'], default='none'
     )
+    
     experiment_group.add_argument(
         "-lge", "--landmarkGenerationExperiment", 
         action="store_true", 
-        help="If set, runs a landmark generation experiment"
+        help="Run landmark generation experiment"
+    )
+
+    experiment_group.add_argument(
+        "-tore", "--TOReachabilityExperiment", 
+        action="store_true", 
+        help="Run Total-Order reachability experiment"
     )
 
     argparser.add_argument(
@@ -87,6 +95,12 @@ def main():
         help="If set, enables monitoring time during landmark generation"
     )
 
+    argparser.add_argument(
+        "-tor", "--totalorderreachability", 
+        action="store_true", 
+        help="Use total-order reachability analysis during grounding post-processing"
+    )
+
     args = argparser.parse_args()
 
     FLAGS.LOG_GROUNDER = args.loggrounder
@@ -94,6 +108,7 @@ def main():
     FLAGS.LOG_HEURISTIC = args.logheuristic  
     FLAGS.MONITOR_SEARCH_RESOURCES = args.monitorsearch
     FLAGS.MONITOR_LM_TIME = args.monitorlandmarks
+    FLAGS.USE_TO_REACHABILITY = args.totalorderreachability
 
     domain_name = os.path.basename(os.path.dirname(os.path.abspath(args.domain)))
     problem_name = os.path.splitext(os.path.basename(args.problem))[0]
@@ -120,6 +135,10 @@ def main():
             grounder     = GROUNDERS[args.grounder]
             h_params     = args.heuristicParams
             lge.run_experiment(args.domain, args.problem, heuristic, h_params, grounder)
+        elif args.TOReachabilityExperiment:
+            grounder     = GROUNDERS[args.grounder]
+            h_params     = args.heuristicParams
+            lge.run_experiment(args.domain, args.problem, grounder)
         else:
             search       = SEARCHES[args.search]
             heuristic    = HEURISTICS[args.heuristic]

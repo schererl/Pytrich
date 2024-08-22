@@ -22,7 +22,7 @@ df_merged = pd.merge(
 )
 
 # Exclude specific domains
-excluded_domains = ['hiking', 'minecraft', 'rover', 'snake', 'towers']
+excluded_domains = ['Transport', 'Hiking', 'Minecraft-Regular', 'Rover-GTOHP', 'Snake', 'Towers']
 df_merged = df_merged[~df_merged['domain'].isin(excluded_domains)]
 
 # Calculate min and max for a correct diagonal line in log scale

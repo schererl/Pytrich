@@ -1,4 +1,5 @@
 from collections import deque
+import time
 from pyperplan.heuristics.heuristic import Heuristic
 from pyperplan.heuristics.landmarks.and_or_graphs import AndOrGraph, ContentType, NodeType
 from pyperplan.heuristics.landmarks.landmark import Landmarks
@@ -7,7 +8,10 @@ class TaskDecompositionHeuristic(Heuristic):
     def __init__(self, model, initial_node, name="tdg"):
         super().__init__(model, initial_node, name=name)
         self.and_or_graph = AndOrGraph(model, use_top_down=False, use_tdg_only=True)
+        self.iterations = 0
+        init_time = time.time()
         self._compute_tdg()
+        self.preprocessing_time = time.time() - init_time
         
         super().set_hvalue(initial_node, sum([self.and_or_graph.nodes[t.global_id].value for t in initial_node.task_network]))
         self.initial_h = initial_node.h_value
@@ -27,14 +31,13 @@ class TaskDecompositionHeuristic(Heuristic):
                 node.value = 10000000
 
 
-        #queue = deque(starting_nodes)
         changed=True
         while changed:
+            self.iterations+=1
             changed=False
             for node in self.and_or_graph.nodes:
                 if node is None:
                     continue
-            #node = queue.popleft()
                 new_value = node.weight
                 if node.type == NodeType.OR:
                     new_value += min([n.value for n in node.predecessors])
@@ -47,9 +50,11 @@ class TaskDecompositionHeuristic(Heuristic):
                     node.value=new_value
                     
                      
-                #     for succ in node.successors:
-                #         queue.append(succ)
+
 
     def compute_heuristic(self, parent_node, node):
         super().set_hvalue(node, sum([self.and_or_graph.nodes[t.global_id].value for t in node.task_network]))
-       
+    
+    def __output__(self):
+        str_output = f'Heuristic info:\n\tGraph size: {len(self.and_or_graph.nodes)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'
+        return str_output

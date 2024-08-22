@@ -103,8 +103,11 @@ class Grounder:
         
         del_relax_reachability(model) #NOTE: works only using bitwise representation
         model.assign_global_ids()
-        #TO_relax_reachability(model)
-
+        if FLAGS.USE_TO_REACHABILITY:
+            TO_relax_reachability(model)
+        
+        print(model.problem_info())
+        
         return model
 
     def _create_type_map(self, objects):

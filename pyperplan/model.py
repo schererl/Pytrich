@@ -398,6 +398,16 @@ class Model:
         facts_str += ']'
         return facts_str, s
       
+    def problem_info(self):
+        model_info = (
+            f"Model info:"
+            f"\n\tFacts: {len(self.facts)}"
+            f"\n\tAbstract Tasks: {len(self.abstract_tasks)}"
+            f"\n\tOperators: {len(self.operators)}"
+            f"\n\tDecompositions: {len(self.decompositions)}"
+        )
+        return model_info
+    
     def __str__(self):
         memory_info = (
             f"\nMemory Usage:"
@@ -409,10 +419,5 @@ class Model:
             f"\n\tInitial Task Network: {sys.getsizeof(self.initial_tn)} bytes"
             f"\n\tDecompositions: {sys.getsizeof(self.decompositions)} bytes"
         )
-        #s = f"Model {self.name}\n  Vars:  {', '.join(self.facts)}\n  Init:  {', '.join(self.initial_state)}\n  Goals: {self.goals}{memory_info}"
-        #s = f"Model {self.name}\n Goals: {self.goals}{memory_info}"
         return memory_info
-
-    def __repr__(self):
-        string = "<Model {0}, vars: {1}, operators: {2}, decompositions: {3}>"
-        return string.format(self.name, len(self.facts), len(self.operators), len(self.decompositions))
+    
