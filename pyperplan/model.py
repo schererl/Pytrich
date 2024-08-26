@@ -129,7 +129,7 @@ class Operator:
         return s
 
     def __repr__(self):
-        return "<Op %s>" % self.name
+        return f"<Op {self.global_id}:{self.name} >"
 
 class AbstractTask:
     """

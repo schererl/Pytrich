@@ -10,10 +10,17 @@ class TaskDecompositionHeuristic(Heuristic):
         self.and_or_graph = AndOrGraph(model, use_top_down=False, use_tdg_only=True)
         self.iterations = 0
         init_time = time.time()
+        self.tdg_values = {}
         self._compute_tdg()
-        self.preprocessing_time = time.time() - init_time
+        for n in self.and_or_graph.nodes:
+            if n is None:
+                continue
+            if n != None and n.content_type == ContentType.OPERATOR or n.content_type == ContentType.ABSTRACT_TASK:
+                self.tdg_values[n.ID] = n.value
         
-        super().set_hvalue(initial_node, sum([self.and_or_graph.nodes[t.global_id].value for t in initial_node.task_network]))
+        self.preprocessing_time = time.time() - init_time
+        self.and_or_graph = None # remove and_or_graph for memory
+        super().set_hvalue(initial_node, sum([self.tdg_values[t.global_id] for t in initial_node.task_network]))
         self.initial_h = initial_node.h_value
         
 
@@ -50,11 +57,9 @@ class TaskDecompositionHeuristic(Heuristic):
                     node.value=new_value
                     
                      
-
-
     def compute_heuristic(self, parent_node, node):
-        super().set_hvalue(node, sum([self.and_or_graph.nodes[t.global_id].value for t in node.task_network]))
+        super().set_hvalue(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
     
     def __output__(self):
-        str_output = f'Heuristic info:\n\tGraph size: {len(self.and_or_graph.nodes)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'
+        str_output = f'Heuristic info:\n\tGraph size: {len(self.tdg_values)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'
         return str_output

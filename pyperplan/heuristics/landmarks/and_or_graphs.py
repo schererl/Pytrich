@@ -91,6 +91,7 @@ class AndOrGraph:
                         var_node = self.fact_nodes[fact_pos]
                         self.add_edge(operator_node, var_node)
 
+        
         # set methods
         for d_i, d in enumerate(model.decompositions):
             decomposition_node = AndOrGraphNode(d.global_id, NodeType.AND, content_type=ContentType.METHOD, content=d_i, label=d.name)
@@ -100,14 +101,16 @@ class AndOrGraph:
                 self.add_edge(self.nodes[task_head_id], decomposition_node)
             else:
                 self.add_edge(decomposition_node, self.nodes[task_head_id])
-                
+            
+            
             for subt in d.task_network:
                 subt_node = self.nodes[subt.global_id]
+            
                 if self.use_top_down:
                     self.add_edge(decomposition_node, subt_node)
                 else:
                     self.add_edge(subt_node, decomposition_node)
-                    
+                
             if not self.use_tdg_only:
                 for fact_pos in range(number_facts):
                     if d.pos_precons_bitwise & (1 << fact_pos):

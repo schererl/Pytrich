@@ -305,7 +305,10 @@ def _Dreachable_operators(initial_task_network):
 def _Ereachable_operators(operators, initial_state):
     reachable_operators = []
     reachable_facts = initial_state
-    O = deepcopy(operators)
+    #O = deepcopy(operators)
+    O = set()
+    for o in operators:
+        O.add(o)
     changed = True
     while changed:
         changed = False
@@ -349,7 +352,6 @@ def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachabl
             if valid:
                 decompositions.append(d)
             else:
-                #print(f'removing D {d.global_id} from TA {d.compound_task.global_id}')
                 d.compound_task.decompositions.remove(d)
                 cleaned=True
             
@@ -370,44 +372,67 @@ def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachabl
 
 def TO_relax_reachability(model):
     start_time   = time.time()
-    
-    
-    
     number_o_before   = len(model.operators)
     number_abt_before = len(model.abstract_tasks)
     number_m_before   = len(model.decompositions)
-    R_abstract_tasks = deepcopy(model.abstract_tasks)
-    R_operators      = deepcopy(model.operators)
-    R_decompositions = deepcopy(model.decompositions)
-    print(f'calculating achievers')
+
+    R_abstract_tasks = model.abstract_tasks[:]
+    R_operators      = model.operators[:]
+    R_decompositions = model.decompositions[:]
+    
+    
+    start_achievers = time.time()
     achiever_set = _compute_achievers_set(model)
+    elapsed_achievers = time.time() - start_achievers
+    if FLAGS.LOG_GROUNDER:   
+        print(f'TO achievers after {elapsed_achievers:.2f} seconds.')
+    
     i=0
-    print(f'starting removal')
+    print(f'Starting Removal')
     while True:
-        i+=1
+        i=i+1
         count_curr_O   = len(R_operators)
-        D_Rops_set = _Dreachable_operators(model.initial_tn) # operators reachable by decomposition space
-        print(f'ended decomposition reachability')
-        E_Rops, reachable_facts = _Ereachable_operators(D_Rops_set, model.initial_state) # operators reachable by executability space
-        print(f'ended executability reachability')
-        R_operators = _TOreachable_operators(model, E_Rops, achiever_set) # operators reachable by total-order constraints
-        print(f'ended to constraints reachability')
+        
+        # Measure time for _Dreachable_operators
+        start_D_reachable = time.time()
+        D_Rops_set = _Dreachable_operators(model.initial_tn)  # operators reachable by decomposition space
+        elapsed_D_reachable = time.time() - start_D_reachable
+        if FLAGS.LOG_GROUNDER:   
+            print(f'\t({i}) Decomposition reachability after {elapsed_D_reachable:.2f} seconds.')
+
+        # Measure time for _Ereachable_operators
+        start_E_reachable = time.time()
+        E_Rops, reachable_facts = _Ereachable_operators(D_Rops_set, model.initial_state)  # operators reachable by executability space
+        elapsed_E_reachable = time.time() - start_E_reachable
+        if FLAGS.LOG_GROUNDER:   
+            print(f'\t({i}) Executability reachability after {elapsed_E_reachable:.2f} seconds.')
+
+        # Measure time for _TOreachable_operators
+        start_TO_reachable = time.time()
+        R_operators = _TOreachable_operators(model, E_Rops, achiever_set)  # operators reachable by total-order constraints
+        elapsed_TO_reachable = time.time() - start_TO_reachable
+        if FLAGS.LOG_GROUNDER:   
+            print(f'\t({i}) TO constraints reachability after {elapsed_TO_reachable:.2f} seconds.')
+
+
         count_DRops_set = len(D_Rops_set)
         count_ERops     = len(E_Rops)
         count_TORops    = len(R_operators)
         if count_curr_O - count_TORops == 0:
             break    
-        if FLAGS.LOG_GROUNDER:   
-            print(f'OPERATORS: {len(model.operators)}')
-            print(f'\tDecomposition Space removed {count_curr_O-count_DRops_set} operators.')
-            print(f'\tExecutability Space removed {count_DRops_set-count_ERops} operators.')
-            print(f'\tTO Ordering Constraints removed {count_ERops-count_TORops} operators.')
-            print(f'Result: {len(R_operators)}')
-        
+          
+        start_bur = time.time()                    
         _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachable_facts)
-            
+        elapsed_bur = time.time() - start_bur
+        if FLAGS.LOG_GROUNDER:   
+            count_burRops = len(R_operators)
+            print(f'\t({i}) Bottom up removal after {elapsed_bur:.2f} seconds.')
+            print(f'\t\t({i}) Decomposition Space removed {count_curr_O-count_DRops_set} operators.')
+            print(f'\t\t({i}) Executability Space removed {count_DRops_set-count_ERops} operators.')
+            print(f'\t\t({i}) TO Ordering Constraints removed {count_ERops-count_TORops} operators.')
+            print(f'\t\t({i}) Bottom up removed {count_TORops-count_burRops} operators.')
+    
     model.decompositions = R_decompositions
-    #print(f'FINAL {[d.global_id for d in R_decompositions]}')
     model.abstract_tasks = R_abstract_tasks
     model.operators      = R_operators
     model.assign_global_ids()
@@ -416,8 +441,9 @@ def TO_relax_reachability(model):
         print(f'number of abstract tasks removed {number_abt_before - len(model.abstract_tasks)} of {number_abt_before}')
         print(f'number of operators removed: {number_o_before - len(model.operators)} of {number_o_before}')
         print(f'number of methods removed: {number_m_before-len(model.decompositions)} of {number_m_before}')
-    
+        
     print(f'TO reachability elapsed time: {time.time()-start_time:.4f} s')
+    print(f'\n\n')
 
 #TODO:  fixing it 
 def del_relax_reachability(model):
