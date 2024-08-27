@@ -95,10 +95,8 @@ class LandmarkHeuristic(Heuristic):
 
         super().set_hvalue(initial_node, initial_node.lm_node.lm_value())
         self.initial_h = initial_node.h_value
-        
-        
     
-    def compute_heuristic(self, parent_node, node, debug=False):
+    def __call__(self, parent_node, node):
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         # mark last reached task (also add decomposition here)
         node.lm_node.mark_lm(node.task.global_id)

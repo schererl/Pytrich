@@ -78,7 +78,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                 count_revisits+=1
             else:
-                h.compute_heuristic(node, new_node)
+                h(node, new_node)
                 heapq.heappush(pq, new_node)
             
         # otherwise its abstract
@@ -95,7 +95,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
                 if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                     count_revisits+=1
                 else:
-                    h.compute_heuristic(node, new_node)
+                    h(node, new_node)
                     heapq.heappush(pq, new_node)
 
     current_time = time.time()

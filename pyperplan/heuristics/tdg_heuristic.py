@@ -57,7 +57,7 @@ class TaskDecompositionHeuristic(Heuristic):
                     node.value=new_value
                     
                      
-    def compute_heuristic(self, parent_node, node):
+    def __call__(self, parent_node, node):
         super().set_hvalue(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
     
     def __output__(self):

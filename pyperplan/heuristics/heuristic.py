@@ -7,9 +7,7 @@ class Heuristic:
         self.initial_h = 0
         self.name = name
     
-    def compute_heuristic(self, parent_node, node):
-        pass
-
+    
     def set_hvalue(self, node, h_value):
         self.calls+=1
         self.total_hvalue+=h_value
@@ -17,6 +15,9 @@ class Heuristic:
             self.min_hvalue = h_value
         node.h_value = h_value
         node.f_value =  node.g_value + h_value 
+    
+    def __call__(self, parent_node, node):
+        pass
     
     # when verbose
     def __output__(self):

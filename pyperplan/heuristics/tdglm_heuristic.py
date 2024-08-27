@@ -84,7 +84,7 @@ class TDGLmHeuristic(Heuristic):
     def read_parameters(self):
         print(f'Heuristic {self.name} set with the following parameters: \n\tvariable category:{self.var_category}\n\tuse landmarks:{self.use_landmarks}\n\tuse bidirectional landmarks:{self.use_bid}\n\tcompute reachability:{self.compute_reachability}')
 
-    def compute_heuristic(self, parent_node, node):
+    def __call__(self, parent_node, node):
         """
         Update model:
             - Check and update node's unachieved landmarks.
@@ -355,7 +355,7 @@ class TDGLmHeuristic(Heuristic):
         method_m1 = do_put_on.decompositions[0]
         m1_child_node = AstarNode(initial_node, do_put_on, method_m1, initial_node.state, method_m1.task_network, 0, 0)
         print(m1_child_node)
-        self.compute_heuristic(initial_node, m1_child_node)
+        self(initial_node, m1_child_node)
         self.print_variables_and_constraints()
         print(m1_child_node.lm_node)
         print(f'h: {m1_child_node.h_value}')
@@ -364,7 +364,7 @@ class TDGLmHeuristic(Heuristic):
         method_m2 = do_put_on.decompositions[1]
         m2_child_node = AstarNode(initial_node, do_put_on, method_m2, initial_node.state, method_m2.task_network, 0, 0)
         print(m2_child_node)
-        self.compute_heuristic(initial_node, m2_child_node)
+        self(initial_node, m2_child_node)
         self.print_variables_and_constraints()
         print(m2_child_node.lm_node)
         print(f'h: {m2_child_node.h_value}')
@@ -372,7 +372,7 @@ class TDGLmHeuristic(Heuristic):
         do_clear = m1_child_node.task_network[0]
         method_m7 = do_clear.decompositions[0]
         m3_child_node = AstarNode(m1_child_node, do_clear, method_m7, m1_child_node.state, method_m7.task_network+m1_child_node.task_network[1:], 0, 0)
-        self.compute_heuristic(m1_child_node, m3_child_node)
+        self(m1_child_node, m3_child_node)
         self.print_variables_and_constraints()
         print(m2_child_node.lm_node)
         print(f'h: {m3_child_node.h_value}')

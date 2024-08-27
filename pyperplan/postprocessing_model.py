@@ -1,4 +1,4 @@
-from copy import deepcopy
+from copy import copy, deepcopy
 import logging
 import sys
 import time
@@ -177,106 +177,157 @@ def convert_bitwise_repr(model):
 
 def _calculate_TO_achievers(model, reachable):
     """
-    Calculate the achievers for each action.
-    The achievers are those that came before the action using Total-Order constraint
+    Calculate the achievers for each operator.
+    The achievers are those that came before (predecessors) based on Total-Order reachability
+        and enable an operator (have at least one of its preconditions as effect).
+
+    NOTE: shift_offset_id (int): The offset used to map global task IDs to local task IDs.
+    NOTE: predecessors (List[Set[int]]): A list where each index corresponds to a local operator ID, 
+        and each element is a set of local IDs that can achieve the operator based on TO constraints.
+    NOTE: achivers_group (Dict[int, Set[int]]): A dictionary mapping each operator's global ID to a set of 
+        global IDs of operators that can achieve it.
+
     """
-    predecessors = {a.global_id: set() for a in model.operators}
+        
+    shift_offset_id = model.ifacts_end+1
+    predecessors = [set() for _ in range(len(model.operators))]
+    # compute predecessors mapping global->local ids
     for decomposition in model.decompositions:
         subtasks = decomposition.task_network
-        for i in range(len(subtasks)):
-            task_i = subtasks[i].global_id
-            for action_id in reachable[task_i]:
-                for j in range(i - 1, -1, -1):
-                    task_j = subtasks[j].global_id
-                    predecessors[action_id].update(reachable[task_j])
+        for sub_i, subtask in enumerate(subtasks, start=1):
+            taski_id = subtask.global_id
+            taski_local_id = taski_id - shift_offset_id # shift left: global->local
+                             
+            for operator_local_id in reachable[taski_local_id]:
+                for j in range(sub_i - 1, -1, -1):
+                    taskj_id = subtasks[j].global_id
+                    taskj_local_id = taskj_id - shift_offset_id # shift left: global->local
+                    r = reachable[taskj_local_id]
+                    predecessors[operator_local_id].update(r)
     
     subtasks = model.initial_tn
-    for i in range(len(subtasks)):
-        task_i = subtasks[i].global_id
-        for action_id in reachable[task_i]:
-            for j in range(i - 1, -1, -1):
-                task_j = subtasks[j].global_id
-                predecessors[action_id].update(reachable[task_j])
+    for sub_i, subtask in enumerate(subtasks):
+        taski_id = subtask.global_id
+        taski_local_id = taski_id - shift_offset_id # shift left: global->local
+                             
+        for operator_local_id in reachable[taski_local_id]:
+            for j in range(sub_i - 1, -1, -1):
+                taskj_id = subtasks[j].global_id
+                taskj_local_id = taskj_id - shift_offset_id # shift left: global->local
+                predecessors[operator_local_id].update(reachable[taskj_local_id])
 
-    achivers_set = {a.global_id: set() for a in model.operators}
+    # compute achievers mappping local->global ids
+    achivers_group = {a.global_id: set() for a in model.operators}
     for o in model.operators:
         if o.relaxed_applicable_bitwise(model.initial_state):
-            achivers_set[o.global_id] = {-1}
+            achivers_group[o.global_id] = {-1} # mark trivial applicable operators
             continue
         
-        preconditions = o.get_precons_bitfact()
         o_achievers = set()
-        for pre in preconditions:
-            o_achievers.update(
-                o_id for o_id in predecessors[o.global_id] if ((model.get_component(o_id).add_effects_bitwise) & (1 << pre) != 0)
-            )
-        achivers_set[o.global_id] = o_achievers
+        o_local_id = o.global_id - shift_offset_id
+        o_predecessors = predecessors[o_local_id]
+        for pred_loc_id in o_predecessors:
+            pred_global_id = pred_loc_id + shift_offset_id # shift RIGHT: local -> global
+            pred_instance = model.get_component(pred_global_id)
+            if pred_instance.add_effects_bitwise & o.pos_precons_bitwise != 0:
+                o_achievers.add(pred_global_id)
+        achivers_group[o.global_id] = o_achievers
         
-    return achivers_set
+    return achivers_group
 
 def _calculate_TO_reachable(model):
     """
-    Calculate the reachable set of actions for each task, both primitive and compound.
+    Calculate the reachable set of operators for each task.
+
+    NOTE: R_set (List[Set[int]]): A list where each index corresponds to a task's local ID, 
+         and each element is a set of reachable task local IDs.
+    NOTE: visited (List[int]): A list to track which tasks have been 
+        visited during the depth-first search (DFS).
+    NOTE: v_it (int): A visit marker that increments with each DFS 
+        run to avoid resetting the `visited` list.
+    NOTE: shift_offset_ids (int): The offset used to map global task IDs to local task IDs.
+    
+    TODO: Use Dijkstra for updating nodes instead of dfs not sure if compensate
     """
     
-    reachable = {task.global_id: set() for task in model.abstract_tasks}
-    for action in model.operators:
-        reachable[action.global_id] = {action.global_id}
+    len_operators      = len(model.operators)
+    len_abstract_tasks = len(model.abstract_tasks)
+    shift_offset_ids = model.ifacts_end+1
     
+    R_set = [set() for _ in range(len_operators + len_abstract_tasks)]
+    visited = [0] * (len_operators + len_abstract_tasks)
+    v_it = 1
+
     for task in model.abstract_tasks:
         r_task = set()
-        _dfs(model, task, reachable, r_task, visited=set())
-        reachable[task.global_id] = deepcopy(r_task)
-    return reachable
+        _dfs_iterative(model, task, R_set, r_task, v_it, visited, shift_offset_ids)
+        
+        # shift left to get task local ids
+        task_local_id = task.global_id - shift_offset_ids
+        R_set[task_local_id] = r_task
+        v_it += 1
+
+    return R_set
         
 
-def _dfs(model, task, R, r, visited):
-    """
-    Perform a depth-first search to find all reachable tasks for a compound task.
+def _dfs_iterative(model, task, R, r, v_it, visited, soid):
+    stack = [task]
     
-    Args:
-        task (int): The task ID for which to compute the reachable set.
-        visited (set): Set of visited tasks to prevent cycles.
-    """
-    if task in visited:
-        return
-    
-    visited.add(task)
+    while stack:
+        current_task = stack.pop()
+        task_id = current_task.global_id
+        
+        # shift left to get task local ids
+        task_local_id = task_id - soid
+        
+        if visited[task_local_id] == v_it:
+            continue
+        
+        visited[task_local_id] = v_it
+        r_task = R[task_local_id]
+        if r_task:
+            r.update(r_task)
 
-    # if reachable set of a given task was already computed, use it
-    r_task = R.get(task.global_id)
-    if r_task:
-        r.update(r_task)
-    
-    for decomposition in task.decompositions:
-        for subtask in decomposition.task_network:
-            if subtask in model.operators:
-                r.add(subtask.global_id)
-            else:
-                _dfs(model, subtask, R, r, visited)
+        for decomposition in current_task.decompositions:
+            for subtask in decomposition.task_network:
+                if subtask in model.operators:
+                    r.add(subtask.global_id - soid) # use local id
+                else:
+                    stack.append(subtask)
+
 
 def _TOreachable_operators(model, O, achievers):
-    '''
-        Based on the available operators, get TO achievers and remove those that cannot be TO achievable.
-    '''
+    """
+        Get Total-Order achievers and remove those that cannot be reachable (not available).
+        @param model: Model class
+        @param O: Set of operators available
+        @param achivers: Dict(key:operator_id, value:Set(operator_id))
+        NOTE: shift_offset_id maps global ids to local ids, for indexing them into an array.
+        NOTE: Instead of checking wheter an operator is in 'achivers' set, we verify in the 'available' set.
+    """
     achievable_op = set()
+    available = [0] * len(model.operators)
+    shift_left_id = len(model.facts)
     for o in O:
-        # check if operator is applicable
+        available[o.global_id-len(model.facts)] = 1 #shift left operators IDS
+
+    # check if operator is applicable (achievers satisfy all operator preconditions)  
+    for o in O:
         achiever_state  = model.initial_state
         removed_achievers = set()
         op_achievers = achievers[o.global_id]
         for a_id in op_achievers:
             if a_id == -1:
                 continue
-            o_a = model.get_component(a_id)
-            if o_a not in O: # if achiever is not anymore in operator set, remove it
+            if available[a_id-shift_left_id] == 0:
                 removed_achievers.add(a_id)
                 continue
+            o_a = model.get_component(a_id)
             achiever_state = o_a.relaxed_apply_bitwise(achiever_state)
-        op_achievers = op_achievers - removed_achievers
         
+        op_achievers = op_achievers - removed_achievers
         if o.applicable_bitwise(achiever_state):
-            achievable_op.add(o) # achievable
+            achievable_op.add(o) # operator achievable
         
     return list(achievable_op)
 
@@ -305,7 +356,6 @@ def _Dreachable_operators(initial_task_network):
 def _Ereachable_operators(operators, initial_state):
     reachable_operators = []
     reachable_facts = initial_state
-    #O = deepcopy(operators)
     O = set()
     for o in operators:
         O.add(o)
@@ -328,6 +378,24 @@ def _compute_achievers_set(model):
     return achievers
 
 def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachable_facts):
+    """
+    Performs a bottom-up removal process on the reachable decompositions, operators, and abstract tasks
+    to eliminate those that cannot be achieved or are invalid due to the absence of their required components.
+
+    Decompositions are removed:
+        (1) not applicable based on the current set of delete-relaxed reachable facts
+        (2) some subtask (operator or abstract) was pruned
+    
+    Abstract tasks are removed when no longer have valid decompositions.
+
+    The process repeats until any decomposition or task is removed.
+    
+    @param R_decompositions (List[Decomposition]): List of decompositions to be pruned.
+    @param R_operators (List[Operator]): List of operators to be pruned.
+    @param R_abstract_tasks (List[AbstractTask]): List of abstract tasks to be pruned.
+    @param reachable_facts (Set[Fact]): Set of facts that are currently reachable.
+    """
+    
     cleaned=True
     #print(f'BEGIN {[d.global_id for d in R_decompositions]}')
     while cleaned:
@@ -445,7 +513,7 @@ def TO_relax_reachability(model):
     print(f'TO reachability elapsed time: {time.time()-start_time:.4f} s')
     print(f'\n\n')
 
-#TODO:  fixing it 
+#TODO:  Need code refactoring for efficiency and readability
 def del_relax_reachability(model):
     """
     Performs delete relaxation to identify reachable operators, tasks, and decompositions.
