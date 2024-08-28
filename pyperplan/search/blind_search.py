@@ -4,8 +4,6 @@ import time
 import psutil
 
 from ..model import Operator
-from ..DOT_output import DotOutput
-
 from .htn_node import HTNNode
 from .utils import create_result_dict
 

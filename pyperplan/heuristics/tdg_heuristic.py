@@ -61,5 +61,5 @@ class TaskDecompositionHeuristic(Heuristic):
         super().set_hvalue(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
     
     def __output__(self):
-        str_output = f'Heuristic info:\n\tGraph size: {len(self.tdg_values)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'
+        str_output = f'Heuristic info:\n\theuristic name: {self.name}\n\tGraph size: {len(self.tdg_values)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'
         return str_output
