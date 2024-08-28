@@ -194,10 +194,10 @@ def _calculate_TO_achievers(model, reachable):
     # compute predecessors mapping global->local ids
     for decomposition in model.decompositions:
         subtasks = decomposition.task_network
+        
         for sub_i, subtask in enumerate(subtasks, start=1):
             taski_id = subtask.global_id
             taski_local_id = taski_id - shift_offset_id # shift left: global->local
-                             
             for operator_local_id in reachable[taski_local_id]:
                 for j in range(sub_i - 1, -1, -1):
                     taskj_id = subtasks[j].global_id
@@ -205,17 +205,18 @@ def _calculate_TO_achievers(model, reachable):
                     r = reachable[taskj_local_id]
                     predecessors[operator_local_id].update(r)
     
+          
     subtasks = model.initial_tn
     for sub_i, subtask in enumerate(subtasks):
         taski_id = subtask.global_id
         taski_local_id = taski_id - shift_offset_id # shift left: global->local
-                             
         for operator_local_id in reachable[taski_local_id]:
             for j in range(sub_i - 1, -1, -1):
                 taskj_id = subtasks[j].global_id
                 taskj_local_id = taskj_id - shift_offset_id # shift left: global->local
                 predecessors[operator_local_id].update(reachable[taskj_local_id])
-
+                
+    
     # compute achievers mappping local->global ids
     achivers_group = {a.global_id: set() for a in model.operators}
     for o in model.operators:
@@ -226,6 +227,7 @@ def _calculate_TO_achievers(model, reachable):
         o_achievers = set()
         o_local_id = o.global_id - shift_offset_id
         o_predecessors = predecessors[o_local_id]
+        
         for pred_loc_id in o_predecessors:
             pred_global_id = pred_loc_id + shift_offset_id # shift RIGHT: local -> global
             pred_instance = model.get_component(pred_global_id)
@@ -257,6 +259,10 @@ def _calculate_TO_reachable(model):
     R_set = [set() for _ in range(len_operators + len_abstract_tasks)]
     visited = [0] * (len_operators + len_abstract_tasks)
     v_it = 1
+
+    # operators are trivially reachable
+    for i in range(len_operators):
+        R_set[i] = {i}
 
     for task in model.abstract_tasks:
         r_task = set()
@@ -330,7 +336,6 @@ def _TOreachable_operators(model, O, achievers):
         if o.applicable_bitwise(achiever_state): #NOTE: lets start simple
             achievable_op.add(o) # operator achievable
         
-    
     return list(achievable_op)
 
 
@@ -408,15 +413,16 @@ def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachabl
         for d in R_decompositions:
             valid=True
             if not d.applicable_bitwise(reachable_facts):
+                #print(f'D {d.global_id} cannot have preconditions satisfied, will be removed from C {d.compound_task.global_id}')
                 valid=False
             else:
                 for t in d.task_network:
                     if isinstance(t, Operator) and t not in R_operators:
-                        #print(f'TP {t.global_id} not found, D {d.global_id} will be removed')
+                        #print(f'TP {t.global_id} not found, D {d.global_id} will be removed from C {d.compound_task.global_id}')
                         valid=False
                         break
                     elif isinstance(t, AbstractTask) and t not in R_abstract_tasks:
-                        #print(f'TA {t.global_id} not found, D {d.global_id} will be removed')
+                        #print(f'TA {t.global_id} not found, D {d.global_id} will be removed C {d.compound_task.global_id}')
                         valid=False
                         break
             if valid:
@@ -441,6 +447,7 @@ def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachabl
     #print(f'END {[d.global_id for d in R_decompositions]}')
 
 def TO_relax_reachability(model):
+    print(f'Starting TO reachability.')
     start_time   = time.time()
     number_o_before   = len(model.operators)
     number_abt_before = len(model.abstract_tasks)
@@ -450,15 +457,15 @@ def TO_relax_reachability(model):
     R_operators      = model.operators[:]
     R_decompositions = model.decompositions[:]
     
-    
     start_achievers = time.time()
     achiever_set = _compute_achievers_set(model)
     elapsed_achievers = time.time() - start_achievers
+
     if FLAGS.LOG_GROUNDER:   
         print(f'TO achievers after {elapsed_achievers:.2f} seconds.')
     
     i=0
-    print(f'Starting Removal')
+    
     while True:
         i=i+1
         count_curr_O   = len(R_operators)
@@ -502,20 +509,18 @@ def TO_relax_reachability(model):
             print(f'\t\t({i}) TO Ordering Constraints removed {count_ERops-count_TORops} operators.')
             print(f'\t\t({i}) Bottom up removed {count_TORops-count_burRops} operators.')
         break
+    
     model.decompositions = R_decompositions
     model.abstract_tasks = R_abstract_tasks
     model.operators      = R_operators
-    
-    
     if FLAGS.LOG_GROUNDER:   
         print(f'number of abstract tasks removed {number_abt_before - len(model.abstract_tasks)} of {number_abt_before}')
         print(f'number of operators removed: {number_o_before - len(model.operators)} of {number_o_before}')
         print(f'number of methods removed: {number_m_before-len(model.decompositions)} of {number_m_before}')
     
-    model.assign_global_ids()    
-    
+    model.assign_global_ids()
     print(f'TO reachability elapsed time: {time.time()-start_time:.4f} s')
-    print(f'\n\n')
+    
 
 #TODO:  Need code refactoring for efficiency and readability
 def del_relax_reachability(model):
