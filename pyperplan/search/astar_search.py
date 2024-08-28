@@ -29,11 +29,14 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
     
 
     pq = []
+    
     heapq.heappush(pq, node)
+    memory_usage = psutil.virtual_memory().percent
     current_time = time.time()
     while pq:
         expansions += 1
         node = heapq.heappop(pq)
+        
         closed_list[hash(node)]=node.g_value
         
         # time and memory control

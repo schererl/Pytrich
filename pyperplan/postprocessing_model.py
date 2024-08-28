@@ -232,7 +232,7 @@ def _calculate_TO_achievers(model, reachable):
             if pred_instance.add_effects_bitwise & o.pos_precons_bitwise != 0:
                 o_achievers.add(pred_global_id)
         achivers_group[o.global_id] = o_achievers
-        
+
     return achivers_group
 
 def _calculate_TO_reachable(model):
@@ -307,28 +307,30 @@ def _TOreachable_operators(model, O, achievers):
     """
     achievable_op = set()
     available = [0] * len(model.operators)
-    shift_left_id = len(model.facts)
+    shift_offset_id = len(model.facts)
     for o in O:
-        available[o.global_id-len(model.facts)] = 1 #shift left operators IDS
+        available[o.global_id-shift_offset_id] = 1 #shift left operators IDS
 
     # check if operator is applicable (achievers satisfy all operator preconditions)  
     for o in O:
         achiever_state  = model.initial_state
         removed_achievers = set()
         op_achievers = achievers[o.global_id]
+        
         for a_id in op_achievers:
             if a_id == -1:
                 continue
-            if available[a_id-shift_left_id] == 0:
+            if available[a_id-shift_offset_id] == 0:
                 removed_achievers.add(a_id)
                 continue
             o_a = model.get_component(a_id)
             achiever_state = o_a.relaxed_apply_bitwise(achiever_state)
         
         op_achievers = op_achievers - removed_achievers
-        if o.applicable_bitwise(achiever_state):
+        if o.applicable_bitwise(achiever_state): #NOTE: lets start simple
             achievable_op.add(o) # operator achievable
         
+    
     return list(achievable_op)
 
 
@@ -429,7 +431,7 @@ def _bottom_up_removal(R_decompositions, R_operators, R_abstract_tasks, reachabl
                 abstract_tasks.append(abt)
             else:
                 cleaned=True
-                #print(f'removing TA {abt.global_id} D empty')'
+                #print(f'removing TA {abt.global_id} D empty')
         
         R_decompositions.clear()
         R_decompositions.extend(decompositions)
@@ -482,7 +484,7 @@ def TO_relax_reachability(model):
         if FLAGS.LOG_GROUNDER:   
             print(f'\t({i}) TO constraints reachability after {elapsed_TO_reachable:.2f} seconds.')
 
-
+        
         count_DRops_set = len(D_Rops_set)
         count_ERops     = len(E_Rops)
         count_TORops    = len(R_operators)
@@ -499,17 +501,19 @@ def TO_relax_reachability(model):
             print(f'\t\t({i}) Executability Space removed {count_DRops_set-count_ERops} operators.')
             print(f'\t\t({i}) TO Ordering Constraints removed {count_ERops-count_TORops} operators.')
             print(f'\t\t({i}) Bottom up removed {count_TORops-count_burRops} operators.')
-    
+        break
     model.decompositions = R_decompositions
     model.abstract_tasks = R_abstract_tasks
     model.operators      = R_operators
-    model.assign_global_ids()
+    
     
     if FLAGS.LOG_GROUNDER:   
         print(f'number of abstract tasks removed {number_abt_before - len(model.abstract_tasks)} of {number_abt_before}')
         print(f'number of operators removed: {number_o_before - len(model.operators)} of {number_o_before}')
         print(f'number of methods removed: {number_m_before-len(model.decompositions)} of {number_m_before}')
-        
+    
+    model.assign_global_ids()    
+    
     print(f'TO reachability elapsed time: {time.time()-start_time:.4f} s')
     print(f'\n\n')
 

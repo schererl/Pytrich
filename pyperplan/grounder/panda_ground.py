@@ -42,7 +42,7 @@ class pandaGrounder(Grounder):
             print("Parsing ended")
 
         psas_output = f"{domain_base}-{problem_base}.psas"
-        subprocess.run([pandaPIgrounder_path, "-q", parsed_output, psas_output], check=True)
+        subprocess.run([pandaPIgrounder_path, "-q", "-D", "-e", parsed_output, psas_output], check=True)
         os.remove(parsed_output)
         if not os.path.exists(psas_output):
             if FLAGS.LOG_GROUNDER:
