@@ -1,36 +1,21 @@
 import sys
+from typing import List, Union
 
 class Operator:
-    """
-    Attributes:
-        @param name: The name of the operator.
-        @param hash_name: hashed name for saving computation when hash is needed.
-        @param pos_precons: Set of positive preconditions that must be true for the operator to be applicable.
-        @param neg_precons: ---
-        @param add_effects: Set of effects representing the facts that this operator makes true.
-        @param del_effects: A set of effects representing the facts that this operator makes false.
-        @param pos_precons_bitwise: Bitwise representation of positive preconditions for efficient computation.
-        @param neg_precons_bitwise: ---
-        @param add_effects_bitwise: ---
-        @param del_effects_bitwise: ---
-        @param h_goal_val: Heuristic value related to goal task count heuristics (always 0, necessary for consistency)
-    """
-
     def __init__(self, name, pos_precons, neg_precons, add_effects, del_effects):
         self.name = name
         self.hash_name = hash(name)
+        self.global_id:int = -1
+
         self.pos_precons = frozenset(pos_precons)
         self.neg_precons = frozenset(neg_precons)
         self.add_effects = add_effects
         self.del_effects = del_effects
 
-        self.global_id = -1
-        self.pos_precons_bitwise = 0
-        self.neg_precons_bitwise = 0
-        self.del_effects_bitwise = 0
-        self.add_effects_bitwise = 0
-
-        self.h_val = 0
+        self.pos_precons_bitwise:int = 0
+        self.neg_precons_bitwise:int = 0
+        self.del_effects_bitwise:int = 0
+        self.add_effects_bitwise:int = 0
 
     def applicable_bitwise(self, state_bitwise):
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
@@ -86,51 +71,17 @@ class Operator:
 
     def __str__(self):
         return f"OP({self.name} {bin(self.pos_precons_bitwise)} {bin(self.neg_precons_bitwise)})"
-        s = "OPERATOR %s: " % self.name
-        #s+= "pre: %s" % self.preconditions
         
-        s+= f"\n  Precons: "
-        for pos_pre in self.pos_precons:
-            s += f"{pos_pre} "
-        for neg_pre in self.neg_precons:
-            s += f"not{neg_pre} "
-
-        s+= f"\n  Effects: "
-        for add_eff in self.pos_precons:
-            s += f"{add_eff} "
-        for del_eff in self.neg_precons:
-            s += f"not{del_eff} "
-        
-        s+='\n'
-        # for group, facts in [
-        #     ("POS_PRE", self.pos_precons),
-        #     ("NEG_PRE", self.neg_precons),
-        #     ("ADD", self.add_effects),
-        #     ("DEL", self.del_effects),
-        # ]:
-        #     for fact in facts:
-        #         s += f"  {group}: {fact}\n"
-        return s
-
     def __repr__(self):
         return f"<Op {self.global_id}:{self.name} >"
 
 class AbstractTask:
-    """
-        HTN Grounded task, different from Task descibed for the goal
-    """ 
     def __init__(self, name):
-        """
-        @param name of the task containing parameters
-        """
         self.name = name
         self.hash_name = hash(name)
-        self.decompositions = []
-        self.h_val = 0
-
-        self.global_id = -1
-        self.op_reach = set() #TaskDecompositionPlus
-
+        self.decompositions: List[Decomposition] = []
+        self.global_id:int = -1
+        
     def __eq__(self, other):
         return self.name == other.name
     
@@ -143,29 +94,17 @@ class AbstractTask:
 
 class Decomposition:
     def __init__(self, name, pos_precons, neg_precons, compound_task, task_network):
-        '''
-            @param name:                grounded name of the method, includes the literals used into the method
-            @param hash_name:           hashed name for saving computation when hash is needed
-            @param compound_task:     grounded task which the decomposition can be decomposed into
-            @param pos_precons:         literals using string version. - higher memory usage, more readable
-            @param neg_precons:         ----
-            @param pos_precons_bitwise: bitwise representatioon - lower memory, faster
-            @param neg_precons_bitwise: ----
-            @param task_network:        list of subtasks to decompose into, 
-                                        points to operators instances (primitives) or tasks instances(abstract)
-        '''
         self.name = name
         self.hash_name = hash(name)
-        self.compound_task = compound_task
+        self.global_id:int = -1
+
         self.pos_precons = frozenset(pos_precons)
         self.neg_precons = frozenset(neg_precons)
-        self.task_network = task_network
-
-        self.global_id = -1
-        self.pos_precons_bitwise = 0
-        self.neg_precons_bitwise = 0
-
-        self.tsn_hval = 0
+        
+        self.compound_task:AbstractTask = compound_task
+        self.task_network:List[Union[Operator, AbstractTask]] = task_network
+        self.pos_precons_bitwise:int = 0
+        self.neg_precons_bitwise:int = 0
 
     def applicable_bitwise(self, state_bitwise):
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
@@ -191,21 +130,16 @@ class Decomposition:
     
     def __str__(self):
         s = f"DECOMPOSISITION {self.name}\n"
-        #s+= f"  Preconditions: {self.preconditions}\n"
-        s+= f"  Precons: "
-        for pos_pre in self.pos_precons:
-            s += f"{pos_pre} "
-        for neg_pre in self.neg_precons:
-            s += f"not{neg_pre} "
-        
-        s += f"\n  Decomposed Task: {self.compound_task}\n"
-        s += f"  Task Network: {self.task_network[0:min(5, len(self.task_network))]}\n"
+        s += f"\tDecomposed Task: {self.compound_task}\n"
+        s += f"\tTask Network: {self.task_network[0:min(5, len(self.task_network))]}\n"
         return s
     
     
 
 class Model:
-    def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks):
+    def __init__(self, name: str, facts: set, initial_state: set, initial_tn: List[Union[Operator, AbstractTask]],
+                 goals: set, operators: List[Operator], decompositions: List[Decomposition], 
+                 abstract_tasks: List[AbstractTask]):
         self.name = name
         self.facts = facts
         self.initial_state = initial_state
@@ -214,20 +148,16 @@ class Model:
         self.operators = operators
         self.decompositions = decompositions
         self.abstract_tasks = abstract_tasks
-        self.states = {}
-
         
-        # Global ID info
-        self.ifacts_init = 0
-        self.ifacts_end = len(self.facts) - 1
-        
+        # Global ID info: initial (init) and final (end) global indixes for facts, operators, abstract_tasks, and decompositions
+        self.ifacts_init = 0 
+        self.ifacts_end = len(self.facts) - 1 
         self.iop_init = -1
-        self.iop_end = -1
+        self.iop_end = -1 
         self.iabt_init = -1
         self.iabt_end = -1
         self.idec_init = -1
         self.idec_end = -1
-        
         
         self._explicit_to_int = {}
         self._int_to_explicit = {}
@@ -320,9 +250,7 @@ class Model:
     def goal_reached(self, state, task_network=[]):
         return self.goals <= state and len(task_network) == 0
     
-    def relaxed_goal_reached(self, state, task_network=[]):
-        return (state & self.goals) == self.goals and len(task_network) == 0
-
+    
     def apply(self, operator, state):
         return operator.apply_bitwise(state)
        

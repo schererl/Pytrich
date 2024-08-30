@@ -1,18 +1,21 @@
-from Pyperplan.model import Operator
+from typing import List, Optional, Union
+from Pyperplan.model import AbstractTask, Decomposition, Operator
 class HTNNode:
-    def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
+    def __init__(self, parent: Optional['HTNNode'], task: Union[Operator, AbstractTask],
+                 decomposition: Optional[Decomposition], state: Union[int, set],
+                 task_network: List[Union[Operator, AbstractTask]], seq_num: int, g_value: int):
         # HTN info
-        self.state  = state
+        self.state = state
         self.parent = parent
-        self.task   = task
+        self.task = task
         self.decomposition = decomposition
-        self.task_network  = task_network
+        self.task_network: List[Union[Operator, AbstractTask]] = task_network
         
         # Astar info
         self.seq_num = seq_num
         self.h_value = 0
         self.f_value = g_value
-        self.g_value = g_value 
+        self.g_value = g_value
 
         # Heursitics info
         self.lm_node = None # for landmarks

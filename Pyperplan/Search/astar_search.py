@@ -1,12 +1,17 @@
+from typing import Optional, Type, Union, List, Dict
 import time
 import heapq
 import psutil
-from Pyperplan.model import Operator
-from Pyperplan.Search.htn_node import AstarNode
+from Pyperplan.model import Operator, AbstractTask, Model
+from Pyperplan.Search.htn_node import AstarNode, HTNNode
 from Pyperplan.Heuristics.blind_heuristic import BlindHeuristic
 from Pyperplan.tools import parse_heuristic_params
 import Pyperplan.FLAGS as FLAGS
-def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarNode):
+
+def search(model: Model, 
+           h_params: Optional[Dict] = None, 
+           heuristic_type: Type[BlindHeuristic] = BlindHeuristic, 
+           node_type: Type[AstarNode] = AstarNode) -> None:
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -34,7 +39,7 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
     current_time = time.time()
     while pq:
         expansions += 1
-        node = heapq.heappop(pq)
+        node:HTNNode = heapq.heappop(pq)
         
         closed_list[hash(node)]=node.g_value
         
@@ -65,10 +70,10 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             break    
         elif len(node.task_network) == 0: #task network empty but goal wasnt achieved
             continue
-        task = node.task_network[0]
+        task:Union[AbstractTask, Operator] = node.task_network[0]
         # check if task is primitive
         if isinstance(task, Operator):
-            if not model.applicable(task, node.state):
+            if not task.applicable_bitwise(node.state):
                 continue
             
             seq_num += 1
@@ -85,8 +90,8 @@ def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarN
             
         # otherwise its abstract
         else:
-            for method in model.methods(task):
-                if not model.applicable(method, node.state):
+            for method in task.decompositions:
+                if not method.applicable_bitwise(node.state):
                     continue
 
                 seq_num += 1
