@@ -1,9 +1,9 @@
 import time
-from pyperplan.heuristics.heuristic import Heuristic
-from pyperplan.model import Operator
-from pyperplan.heuristics.landmarks.landmark import Landmarks, LM_Node
-from pyperplan.heuristics.landmarks.falm import FALM
-import pyperplan.FLAGS as FLAGS
+from Pyperplan.Heuristics.heuristic import Heuristic
+from Pyperplan.model import Operator
+from Pyperplan.Heuristics.Landmarks.landmark import Landmarks, LM_Node
+from Pyperplan.Heuristics.Landmarks.falm import FALM
+import Pyperplan.FLAGS as FLAGS
 class LandmarkHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)

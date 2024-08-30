@@ -3,16 +3,16 @@ import re
 import time
 
 # grounding
-from .grounder.full_grounder import FullGrounder
-from .grounder.panda_ground import pandaGrounder
+from .Grounder.full_grounder import FullGrounder
+from .Grounder.panda_ground import pandaGrounder
 # heursitic
-from .heuristics.blind_heuristic import BlindHeuristic
-from .heuristics.tdg_heuristic import TaskDecompositionHeuristic
-from .heuristics.lm_heuristic import LandmarkHeuristic
-from .heuristics.tdglm_heuristic import TDGLmHeuristic
+from .Heuristics.blind_heuristic import BlindHeuristic
+from .Heuristics.tdg_heuristic import TaskDecompositionHeuristic
+from .Heuristics.lm_heuristic import LandmarkHeuristic
+from .Heuristics.tdglm_heuristic import TDGLmHeuristic
 # search
-from .search.astar_search import search as astar_search
-from .search.blind_search import search as blind_search
+from .Search.astar_search import search as astar_search
+from .Search.blind_search import search as blind_search
 
 SEARCHES = {
     "Blind": blind_search,

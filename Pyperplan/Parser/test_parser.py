@@ -1,4 +1,4 @@
-from pyperplan.parser.hddl import Domain, Problem, Precondition, Predicate, AbstractTask, Action, Method, Effect, Type
+from Pyperplan.Parser.hddl import Domain, Problem, Precondition, Predicate, AbstractTask, Action, Method, Effect, Type
 
 BLOCKSWORLD_PREDICATE_LIST =  [
     ':predicates', 

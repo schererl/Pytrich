@@ -2,9 +2,9 @@ from collections import deque
 from copy import deepcopy
 import gc
 
-from pyperplan.heuristics.landmarks.and_or_graphs import AndOrGraph
-from pyperplan.heuristics.landmarks.and_or_graphs import NodeType
-from pyperplan.heuristics.landmarks.and_or_graphs import ContentType
+from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph
+from Pyperplan.ProblemRepresentation.and_or_graphs import NodeType
+from Pyperplan.ProblemRepresentation.and_or_graphs import ContentType
 
 # store landmarks, needed when landmarks are updated for each new node
 class LM_Node:
@@ -345,23 +345,6 @@ class Landmarks:
         # print([self.bu_AND_OR.nodes[id] for id in landmarks])
         # print(len([self.bu_AND_OR.nodes[id] for id in landmarks]))
         # exit()
-        return landmarks
-
-    # def _calculate_fact_achievers(self, fact_node):
-    #     """
-    #         mark for each fact landmark the operators that make it true (disjuntive action landmarks)
-    #     """
-    #     for o in self.model.operators:
-    #         if o.add_effects_bitwise & (1 << fact_node):
-    #             print(o.name)
-    #             for lm in self.td_landmarks[o.global_id]:
-    #                 print(f'\t{self.td_AND_OR.nodes[lm].label}')
-
-    def remove_factlms(self, landmarks):
-        # for now, removing fact landmarks
-        for lm_id in deepcopy(landmarks):
-            if self.bu_AND_OR.nodes[lm_id].content_type == ContentType.FACT:
-                landmarks.remove(lm_id)
         return landmarks
 
     def clear_structures(self):

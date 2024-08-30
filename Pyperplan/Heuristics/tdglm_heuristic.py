@@ -1,11 +1,11 @@
 from copy import deepcopy
 import pulp 
 
-from pyperplan.heuristics.heuristic import Heuristic
-from pyperplan.heuristics.landmarks.landmark import Landmarks
-from pyperplan.model import AbstractTask, Decomposition, Operator
-from pyperplan.search.htn_node import AstarNode
-from pyperplan.tools import InvalidArgumentException
+from Pyperplan.Heuristics.heuristic import Heuristic
+from Pyperplan.Heuristics.Landmarks.landmark import Landmarks
+from Pyperplan.model import AbstractTask, Decomposition, Operator
+from Pyperplan.Search.htn_node import AstarNode
+from Pyperplan.tools import InvalidArgumentException
 
 class TDGLmHeuristic(Heuristic):
     """

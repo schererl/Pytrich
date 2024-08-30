@@ -1,34 +1,13 @@
-#
-# This file is part of pyperplan.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>
-#
-
-"""
-Classes and methods for grounding a schematic PDDL task to a STRIPS planning
-task.
-"""
 from collections import defaultdict
-from pyperplan.model import Model
-from pyperplan.parser.hddl import Problem
-from pyperplan.postprocessing_model import clean_tdg
-from pyperplan.postprocessing_model import remove_negative_precons
-from pyperplan.postprocessing_model import convert_bitwise_repr
-from pyperplan.postprocessing_model import del_relax_reachability
-from pyperplan.postprocessing_model import pullup
-from pyperplan.postprocessing_model import TO_relax_reachability
-import pyperplan.FLAGS as FLAGS
+from Pyperplan.model import Model
+from Pyperplan.Parser.hddl import Problem
+from Pyperplan.PostProcessing.postprocessing_model import clean_tdg
+from Pyperplan.PostProcessing.postprocessing_model import remove_negative_precons
+from Pyperplan.PostProcessing.postprocessing_model import convert_bitwise_repr
+from Pyperplan.PostProcessing.postprocessing_model import del_relax_reachability
+from Pyperplan.PostProcessing.postprocessing_model import pullup
+from Pyperplan.PostProcessing.total_order_reachability import TO_relax_reachability
+import Pyperplan.FLAGS as FLAGS
 class Grounder:
     def __init__(self,
         problem, have_lifted=True

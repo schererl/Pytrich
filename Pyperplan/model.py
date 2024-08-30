@@ -205,48 +205,7 @@ class Decomposition:
     
 
 class Model:
-    """
-    A STRIPS planning task
-    """
-    # OP classes for diferetiating literal representation with string and int
-    class BitwiseOP():
-        @staticmethod
-        def goal_reached(state, goals, task_network):
-            return (state & goals) == goals and len(task_network) == 0
-        @staticmethod
-        def apply(operator, state):
-            return operator.apply_bitwise(state)
-        @staticmethod
-        def applicable(modifier, state):
-            return modifier.applicable_bitwise(state)
-    class StringOP():
-        @staticmethod
-        def goal_reached(state, goals, task_network):
-            return goals <= state and len(task_network) == 0
-        @staticmethod
-        def apply(operator, state):
-            return operator.apply(state)
-        @staticmethod
-        def applicable(modifier, state):
-            return modifier.applicable(state)
-
-    # TODO: change operators and decompositions to set()
-    # TODO: remove goal counting stuff, not using it anymore
-    # TODO: create a fact class mapping fact names with its correspondent ID
-    # TODO: add a model parameters mapping global IDs with its correspondent structure (fact, operator, abstract task or decomposition)
-    def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks, operation_type = BitwiseOP):
-        
-        """
-        Initializes a planning model with its properties.
-        @param name: The name of the planning task.
-        @param facts: A set of all fact names in the domain.
-        @param initial_state: The initial state of the planning task.
-        @param goals: The goal state(s) of the planning task.
-        @param operators: A set of operator instances for the domain.
-        @param initial_tn: The initial task network for HTN planning.
-        @param decompositions: A set of decomposition instances for HTN planning.
-        @param operation_type: Type of operations we are using for representing literals (string or int)
-        """
+    def __init__(self, name, facts, initial_state, initial_tn, goals, operators, decompositions, abstract_tasks):
         self.name = name
         self.facts = facts
         self.initial_state = initial_state
@@ -270,38 +229,41 @@ class Model:
         self.idec_end = -1
         
         
-
-        self.operation_type = operation_type
-        
         self._explicit_to_int = {}
         self._int_to_explicit = {}
         self._goal_bit_pos    = []
-        self._fix_initial_task_network()
+        self._remove_panda_top()
     
     def get_component(self, component_id):
         if component_id <= self.ifacts_end:
-            return component_id # a fact is an integer
+            return component_id  # a fact is an integer
+        
         if component_id >= self.iop_init and component_id <= self.iop_end:
-            operator = self.operators[component_id-self.iop_init]
-            if operator.global_id != component_id:
-                print(f'OPERATOR COMPONENT INDEXING FAILED id: {operator.global_id} desired: {component_id}')
-                exit(0)
+            operator = self.operators[component_id - self.iop_init]
+            assert operator.global_id == component_id, (
+                f'OPERATOR COMPONENT INDEXING FAILED: expected {component_id}, got {operator.global_id}'
+            )
             return operator
+        
         if component_id >= self.iabt_init and component_id <= self.iabt_end:
-            abstract_task = self.abstract_tasks[component_id-self.iabt_init]
-            if abstract_task.global_id != component_id:
-                print(f'ABSTRACT TASK COMPONENT INDEXING FAILED id: {abstract_task.global_id} desired: {component_id}')
-                exit(0)
+            abstract_task = self.abstract_tasks[component_id - self.iabt_init]
+            assert abstract_task.global_id == component_id, (
+                f'ABSTRACT TASK COMPONENT INDEXING FAILED: expected {component_id}, got {abstract_task.global_id}'
+            )
             return abstract_task
+        
         if component_id >= self.idec_init and component_id <= self.idec_end:
-            decomposition = self.decompositions[component_id-self.idec_init]
-            if decomposition.global_id != component_id:
-                print(f'DECOMPOSITION COMPONENT INDEXING FAILED  id: {decomposition.global_id}  desired: {component_id}')
-                exit(0)
+            decomposition = self.decompositions[component_id - self.idec_init]
+            assert decomposition.global_id == component_id, (
+                f'DECOMPOSITION COMPONENT INDEXING FAILED: expected {component_id}, got {decomposition.global_id}'
+            )
             return decomposition
+
+        raise ValueError(f'Invalid component_id: {component_id}')
+
             
-    #NOTE: PANDA GROUNDER ALERT, remove _top task and method
-    def _fix_initial_task_network(self):
+    #NOTE: remove artificial _top task and method added by panda 
+    def _remove_panda_top(self):
         self.initial_tn = self.initial_tn [0].decompositions[0].task_network #specific for panda grounder
         for d in self.decompositions:
             if "x__top_method_0" in d.name:
@@ -315,43 +277,60 @@ class Model:
     def assign_global_ids(self):
         next_id = len(self.facts)
         
+        # Assign global IDs to operators
         for o in self.operators:
             o.global_id = next_id
-            next_id+=1
+            next_id += 1
         
         self.iop_init = self.operators[0].global_id
         self.iop_end = self.operators[-1].global_id
-        if self.iop_init in self._int_to_explicit:
-            print(f'operator index overlapped fact index')
-            exit(0)
 
+        # Check for overlap with facts
+        assert self.iop_init not in self._int_to_explicit, (
+            'Operator index overlapped with fact index'
+        )
 
+        # Assign global IDs to abstract tasks
         for ab_t in self.abstract_tasks:
             ab_t.global_id = next_id
-            next_id+=1
+            next_id += 1
+        
         self.iabt_init = self.abstract_tasks[0].global_id
         self.iabt_end = self.abstract_tasks[-1].global_id
-        
+
+        # Check for overlap with operators
+        assert self.iabt_init > self.iop_end, (
+            'Abstract task index overlapped with operator index'
+        )
+
+        # Assign global IDs to decompositions
         for d in self.decompositions:
             d.global_id = next_id
-            next_id+=1
+            next_id += 1
+        
         self.idec_init = self.decompositions[0].global_id
         self.idec_end = self.decompositions[-1].global_id
 
+        # Check for overlap with abstract tasks
+        assert self.idec_init > self.iabt_end, (
+            'Decomposition index overlapped with abstract task index'
+        )
+
+
     def goal_reached(self, state, task_network=[]):
-        return self.operation_type.goal_reached(state, self.goals, task_network)
+        return self.goals <= state and len(task_network) == 0
     
     def relaxed_goal_reached(self, state, task_network=[]):
-        return (state & self.goals) == self.goals
+        return (state & self.goals) == self.goals and len(task_network) == 0
 
     def apply(self, operator, state):
-        return self.operation_type.apply(operator, state)
+        return operator.apply_bitwise(state)
        
     def applicable(self, modifier, state):
-        return self.operation_type.applicable(modifier, state)
+        return modifier.applicable_bitwise(state)
     
     def methods(self, task):
-        return task.decompositions 
+        return task.decompositions
 
     def decompose(self, decomposition):
         return decomposition.task_network
@@ -359,29 +338,6 @@ class Model:
     def get_fact_name(self, fact_id):
         return self._int_to_explicit[fact_id]
 
-    def count_positive_binary_facts(self, state):
-        binary_str = bin(state)[2:] 
-        binary_str = binary_str[::-1]
-        count=0
-        for i, bit in enumerate(binary_str):
-            if int(bit) == 1:
-                count+=1
-        return count
-
-    def print_binary_state_info(self, state):
-        binary_str = bin(state)[2:]  # Convert state to binary string, remove the '0b' prefix
-        binary_str = binary_str[::-1]  # Reverse it to start from the least significant bit (LSB)
-        s = []
-        #print(f"Binary representation (LSB to MSB): {binary_str}")
-        facts_str = '['
-        for i, bit in enumerate(binary_str):
-            #print(f"Bit position: {i}, Bit value: {bit} - {self._int_to_explicit[i] }")
-            if int(bit) == 1:
-                facts_str += f'{self._int_to_explicit[i]} ({i})\n'
-                s.append(self._int_to_explicit[i])
-        facts_str += ']'
-        return facts_str, s
-      
     def problem_info(self):
         model_info = (
             f"Model info:"

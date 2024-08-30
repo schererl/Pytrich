@@ -9,8 +9,8 @@ import logging
 import re
 
 
-from .grounder import Grounder
-from ..model import Operator, Model, AbstractTask, Decomposition
+from Pyperplan.Grounder.grounder import Grounder
+from Pyperplan.model import Operator, Model, AbstractTask, Decomposition
 
 # controls mass log output
 verbose_logging = False

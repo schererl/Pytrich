@@ -1,8 +1,8 @@
 from collections import deque
 import time
-from pyperplan.heuristics.heuristic import Heuristic
-from pyperplan.heuristics.landmarks.and_or_graphs import AndOrGraph, ContentType, NodeType
-from pyperplan.heuristics.landmarks.landmark import Landmarks
+from Pyperplan.Heuristics.heuristic import Heuristic
+from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph, ContentType, NodeType
+from Pyperplan.Heuristics.Landmarks.landmark import Landmarks
 
 class TaskDecompositionHeuristic(Heuristic):
     def __init__(self, model, initial_node, name="tdg"):

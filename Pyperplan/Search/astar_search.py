@@ -1,12 +1,11 @@
 import time
 import heapq
 import psutil
-
-from pyperplan.model import Operator
-from pyperplan.search.htn_node import AstarNode
-from pyperplan.heuristics.blind_heuristic import BlindHeuristic
-from pyperplan.tools import parse_heuristic_params
-import pyperplan.FLAGS as FLAGS
+from Pyperplan.model import Operator
+from Pyperplan.Search.htn_node import AstarNode
+from Pyperplan.Heuristics.blind_heuristic import BlindHeuristic
+from Pyperplan.tools import parse_heuristic_params
+import Pyperplan.FLAGS as FLAGS
 def search(model, h_params=None, heuristic_type=BlindHeuristic, node_type=AstarNode):
     print('Staring solver')
     start_time   = time.time()

@@ -1,10 +1,4 @@
-import sys
-from ..model import Operator
-'''
-NOTE: Im using Strategy pattern because I observe there is a significant difference
-for searching time when we avoid 'if then else' selections, which in our case
-was the '__lt__' function that changes when we are using a_star or not.
-'''
+from Pyperplan.model import Operator
 class HTNNode:
     def __init__(self, parent, task, decomposition, state, task_network, seq_num, g_value):
         # HTN info
