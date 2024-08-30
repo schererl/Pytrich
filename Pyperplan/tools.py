@@ -31,7 +31,7 @@ def remove(filename):
     except OSError:
         pass
 
-def parse_heuristic_params(params_str):
+def parse_search_params(params_str):
     """
     Convert a string of heuristic parameters into a dictionary.
     Expects parameters in the format: key1=value1, key2=value2, ...

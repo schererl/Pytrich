@@ -5,6 +5,7 @@ import gc
 from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph
 from Pyperplan.ProblemRepresentation.and_or_graphs import NodeType
 from Pyperplan.ProblemRepresentation.and_or_graphs import ContentType
+from Pyperplan.model import Model
 
 # store landmarks, needed when landmarks are updated for each new node
 class LM_Node:
@@ -81,7 +82,7 @@ class LM_Node:
         return f"Lms (value={self.lm_value()}): \n\tlms: {bin(self.lms)}\n\tachieved: {bin(self.mark)}\n{self.achieved_disj}/{self.number_disj}"
 
 class Landmarks:
-    def __init__(self, model, bidirectional=True):
+    def __init__(self, model:Model, bidirectional=True):
         self.model=model
         self.bidirectional=bidirectional
         self.bu_AND_OR     = AndOrGraph(model, use_top_down=False) # bottom-up and or graph
@@ -260,7 +261,7 @@ class Landmarks:
                     queue.append(succ)
 
         
-    def bidirectional_lms(self, model, state, task_network):
+    def bidirectional_lms(self, state, task_network):
         """
         Combination of bottom-up landmarks w/ top-down landmarks:
             - refine operators found by bottom-up landmarks using top-down landmarks
@@ -279,8 +280,8 @@ class Landmarks:
         # get classical landmarks for the given problem
         landmarks = set()
         # compute landmarks based on the initial state and goal conditions
-        for fact_pos in range(len(bin(model.goals))-2):
-            if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
+        for fact_pos in range(len(bin(self.model.goals))-2):
+            if self.model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
                 for lm in self.bu_landmarks[fact_pos]:
                     landmarks.add(lm)
                     
@@ -322,11 +323,11 @@ class Landmarks:
         
         return landmarks
     
-    def classical_lms(self, model, state, task_network):
+    def classical_lms(self, state, task_network):
         landmarks = set()
         # compute landmarks based on the initial state and goal conditions
-        for fact_pos in range(len(bin(model.goals))-2):
-            if model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
+        for fact_pos in range(len(bin(self.model.goals))-2):
+            if self.model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
                 for lm in self.bu_landmarks[fact_pos]:
                     landmarks.add(lm)
         # compute landmarks based on task network

@@ -42,6 +42,12 @@ def main():
         "-hp", "--heuristicParams",
         help="Comma-separated list of heuristic parameters in the format key1=value1,key2=value2"
     )
+
+    argparser.add_argument(
+        "-fp", "--fvalueParams",
+        help="Comma-separated of escalar values for f-values, ex \"g=0, h=1\" for GBFS"
+    )
+
     argparser.add_argument(
         "-g", "--grounder",
         choices=GROUNDERS.keys(), default="panda", help="Grounder to use"
@@ -130,7 +136,8 @@ def main():
         heuristic    = HEURISTICS[args.heuristic]
         grounder     = GROUNDERS[args.grounder]
         h_params     = args.heuristicParams # heuristic parameters
-        search_plan(args.domain, args.problem, search, heuristic, h_params, grounder)
+        f_params     = args.fvalueParams
+        search_plan(args.domain, args.problem, search, heuristic, h_params, f_params, grounder)
 
 if __name__ == "__main__":
     main()

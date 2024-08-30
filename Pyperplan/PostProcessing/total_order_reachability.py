@@ -53,7 +53,7 @@ def _calculate_TO_achievers(model: Model, reachable: List[Set[int]]) -> Dict[int
     # compute achievers mappping local->global ids
     achivers_group: Dict[GlobalID, Set[GlobalID]] = {a.global_id: set() for a in model.operators}
     for o in model.operators:
-        if o.relaxed_applicable_bitwise(model.initial_state):
+        if o.applicable_bitwise(model.initial_state):
             achivers_group[o.global_id] = {-1}  # mark trivial applicable operators
             continue
         

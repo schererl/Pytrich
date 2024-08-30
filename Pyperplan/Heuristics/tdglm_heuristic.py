@@ -78,7 +78,7 @@ class TDGLmHeuristic(Heuristic):
             deepcopy(self.landmarks.fact_lms)
         )
         initial_node.lm_node = lm_triple_set #TODO: this is not ok, it suppose to get landmarkNode, here Im passing a set(), different purpose
-        super().set_hvalue(initial_node, self._solve_ip())
+        super().set_h_f_values(initial_node, self._solve_ip())
         self.initial_h = initial_node.h_value
 
     def read_parameters(self):
@@ -187,9 +187,9 @@ class TDGLmHeuristic(Heuristic):
             self.last_modif_facts.add(lm_id)
             
         if lm_unreachable:
-            super().set_hvalue(node, 100000000)
+            super().set_h_f_values(node, 100000000)
         else:
-            super().set_hvalue(node, self._solve_ip())
+            super().set_h_f_values(node, self._solve_ip())
             
         #print([self.landmarks.bu_AND_OR.nodes[idx] for idx in node.lm_node])
     def _calculate_reachability(self, current_task):

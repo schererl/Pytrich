@@ -1,16 +1,19 @@
-from typing import Optional, Type, Union, List, Dict
+
 import time
 import heapq
 import psutil
-from Pyperplan.model import Operator, AbstractTask, Model
-from Pyperplan.Search.htn_node import AstarNode, HTNNode
+
+from typing import Optional, Type, Union, List, Dict
+
 from Pyperplan.Heuristics.blind_heuristic import BlindHeuristic
-from Pyperplan.tools import parse_heuristic_params
+from Pyperplan.Search.htn_node import AstarNode, HTNNode
+from Pyperplan.model import Operator, AbstractTask, Model
+from Pyperplan.tools import parse_search_params
 import Pyperplan.FLAGS as FLAGS
 
 def search(model: Model, 
-           h_params: Optional[Dict] = None, 
-           heuristic_type: Type[BlindHeuristic] = BlindHeuristic, 
+           h_params: Optional[Dict] = None, f_params: Optional[Dict] = None,
+           heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
            node_type: Type[AstarNode] = AstarNode) -> None:
     print('Staring solver')
     start_time   = time.time()
@@ -21,15 +24,23 @@ def search(model: Model,
     seq_num        = 0
     
     closed_list = {}
-    node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
+    node= None
+    if f_params is not None:
+        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **(parse_search_params(f_params)))
+    else:
+        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
+    
+    print(node.__output__())
+
+
     h = None
     if not h_params is None:
-        h  = heuristic_type(model, node, **(parse_heuristic_params(h_params)))
+        h  = heuristic_type(model, node, **(parse_search_params(h_params)))
     else:
         h  = heuristic_type(model, node)
     
-    if FLAGS.LOG_HEURISTIC:
-        print(h.__output__())
+    
+    print(h.__output__())
     
 
     pq = []

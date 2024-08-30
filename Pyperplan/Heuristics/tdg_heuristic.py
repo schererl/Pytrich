@@ -1,11 +1,11 @@
-from collections import deque
 import time
 from Pyperplan.Heuristics.heuristic import Heuristic
 from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph, ContentType, NodeType
-from Pyperplan.Heuristics.Landmarks.landmark import Landmarks
+from Pyperplan.Search.htn_node import HTNNode
+from Pyperplan.model import Model
 
 class TaskDecompositionHeuristic(Heuristic):
-    def __init__(self, model, initial_node, name="tdg"):
+    def __init__(self, model:Model, initial_node:HTNNode, name="tdg"):
         super().__init__(model, initial_node, name=name)
         self.and_or_graph = AndOrGraph(model, use_top_down=False, use_tdg_only=True)
         self.iterations = 0
@@ -20,7 +20,7 @@ class TaskDecompositionHeuristic(Heuristic):
         
         self.preprocessing_time = time.time() - init_time
         self.and_or_graph = None # remove and_or_graph for memory
-        super().set_hvalue(initial_node, sum([self.tdg_values[t.global_id] for t in initial_node.task_network]))
+        super().set_h_f_values(initial_node, sum([self.tdg_values[t.global_id] for t in initial_node.task_network]))
         self.initial_h = initial_node.h_value
         
 
@@ -58,7 +58,7 @@ class TaskDecompositionHeuristic(Heuristic):
                     
                      
     def __call__(self, parent_node, node):
-        super().set_hvalue(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
+        super().set_h_f_values(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
     
     def __output__(self):
         str_output = f'Heuristic info:\n\theuristic name: {self.name}\n\tGraph size: {len(self.tdg_values)}\n\tIterations: {self.iterations}\n\tPreprocessing time: {self.preprocessing_time:.2f} s\n'

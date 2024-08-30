@@ -1,14 +1,16 @@
 import time
 from Pyperplan.Heuristics.heuristic import Heuristic
-from Pyperplan.model import Operator
+from Pyperplan.Search.htn_node import HTNNode
+from Pyperplan.model import Operator, Model
 from Pyperplan.Heuristics.Landmarks.landmark import Landmarks, LM_Node
 from Pyperplan.Heuristics.Landmarks.falm import FALM
 import Pyperplan.FLAGS as FLAGS
+
 class LandmarkHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
     """
-    def __init__(self, model, initial_node, on_reaching=False, use_disj=False, use_falm=False, use_bid=True, name="lmcount"):
+    def __init__(self, model:Model, initial_node:HTNNode, on_reaching=False, use_disj=False, use_falm=False, use_bid=True, name="lmcount"):
         super().__init__(model, initial_node, name=name)
         # set parameters
         self.use_disj = use_disj
@@ -40,14 +42,14 @@ class LandmarkHeuristic(Heuristic):
                 self.initt_andor_td = time.perf_counter()
 
             self.landmarks.top_down_lms()
-            initial_node.lm_node.update_lms(self.landmarks.bidirectional_lms(self.model, initial_node.state, initial_node.task_network))
+            initial_node.lm_node.update_lms(self.landmarks.bidirectional_lms(initial_node.state, initial_node.task_network))
 
             if FLAGS.MONITOR_LM_TIME:
                 self.endt_andor_all = time.perf_counter()
                 self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
 
         else:
-            initial_node.lm_node.update_lms(self.landmarks.classical_lms(self.model, initial_node.state, initial_node.task_network))
+            initial_node.lm_node.update_lms(self.landmarks.classical_lms(initial_node.state, initial_node.task_network))
 
             if FLAGS.MONITOR_LM_TIME:
                 self.endt_andor_all = time.perf_counter()
@@ -93,10 +95,10 @@ class LandmarkHeuristic(Heuristic):
             for task in self.model.initial_tn:
                 initial_node.lm_node.mark_lm(task.global_id)
 
-        super().set_hvalue(initial_node, initial_node.lm_node.lm_value())
+        super().set_h_f_values(initial_node, initial_node.lm_node.lm_value())
         self.initial_h = initial_node.h_value
     
-    def __call__(self, parent_node, node):
+    def __call__(self, parent_node:HTNNode, node:HTNNode):
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         # mark last reached task (also add decomposition here)
         node.lm_node.mark_lm(node.task.global_id)
@@ -116,7 +118,7 @@ class LandmarkHeuristic(Heuristic):
                 for t in node.decomposition.task_network:
                     node.lm_node.mark_lm(t.global_id)
                 
-        super().set_hvalue(node,  node.lm_node.lm_value())
+        super().set_h_f_values(node,  node.lm_node.lm_value())
 
     def _define_param_str(self):
         self.param_str = '_'

@@ -49,14 +49,14 @@ for domain_dir in $folder_benchmarks; do
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py  -ml -H LMCOUNT -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                    python3 ../Pyperplan/__main__.py  -ml -H LMCOUNT -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
                 )
                 echo "@"
                 echo "Running bidirectional landmark experiment for $problem_name:"
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "name=\"Bidirectional Landmarks\", use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
+                    python3 ../Pyperplan/__main__.py -ml -H LMCOUNT -hp "name=\"Bidirectional Landmarks\", use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
                 )
                 
                 # Remove .psas files and panda.log from the current directory
@@ -86,14 +86,14 @@ for domain_dir in $folder_benchmarks; do
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
+                        python3 ../Pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=False, use_disj=False" "$domain_file" "$problem_file"
                     )
                     echo "@"
                     echo "Running bidirectional landmark experiment for $problem_name:"
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
+                        python3 ../Pyperplan/__main__.py -ml -H LMCOUNT -hp "use_falm=False, use_bid=True, use_disj=False" "$domain_file" "$problem_file"
                     )
                     
                     # Clean up generated files

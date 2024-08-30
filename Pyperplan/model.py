@@ -21,26 +21,11 @@ class Operator:
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
                ((state_bitwise & self.neg_precons_bitwise) == 0)
     
-    def applicable(self, state):
-        return self.pos_precons <= state and self.neg_precons.isdisjoint(state)
-
-    def relaxed_applicable_bitwise(self, state_bitwise):
-        return (state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise
-
-    def relaxed_applicable(self, state):
-        return self.pos_precons <= state
-    
     def apply_bitwise(self, state_bitwise):
         return (state_bitwise & ~self.del_effects_bitwise) | self.add_effects_bitwise
     
-    def apply(self, state):
-        return (state - self.del_effects) | self.add_effects
-
     def relaxed_apply_bitwise(self, state_bitwise):
         return state_bitwise | self.add_effects_bitwise
-
-    def relaxed_apply(self, state):
-        return state | self.add_effects
         
     def get_add_effects_bitfact(self):
         bitwise_value = self.add_effects_bitwise
@@ -59,7 +44,6 @@ class Operator:
                 yield i
             bitwise_value >>= 1
             i += 1
-
 
     def __eq__(self, other):
         return (
@@ -110,15 +94,6 @@ class Decomposition:
         return ((state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise) and \
                ((state_bitwise & self.neg_precons_bitwise) == 0)
 
-    def applicable(self, state):
-        return self.pos_precons <= state and self.neg_precons.isdisjoint(state)
-    
-    def relaxed_applicable_bitwise(self, state_bitwise):
-        return (state_bitwise & self.pos_precons_bitwise) == self.pos_precons_bitwise
-
-    def relaxed_applicable(self, state):
-        return self.pos_precons <= state
-    
     def __eq__(self, other):
         return self.name == other.name
     
