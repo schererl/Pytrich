@@ -1,3 +1,0 @@
-[console_scripts]
-pyperplan = pyperplan.__main__:main
-
