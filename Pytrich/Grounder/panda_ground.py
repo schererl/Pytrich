@@ -1,9 +1,9 @@
 import subprocess
 import os
 
-from Pyperplan.model import Operator, Decomposition, AbstractTask
-from Pyperplan.Grounder.grounder import Grounder
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.model import Operator, Decomposition, AbstractTask
+from Pytrich.Grounder.grounder import Grounder
+import Pytrich.FLAGS as FLAGS
 class pandaGrounder(Grounder):
     def __init__(self, grounded_domain_file, grounded_problem_file):
         super().__init__(None, have_lifted=False)

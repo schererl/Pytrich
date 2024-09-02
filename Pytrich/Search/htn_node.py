@@ -1,5 +1,5 @@
 from typing import List, Optional, Union
-from Pyperplan.model import AbstractTask, Decomposition, Operator
+from Pytrich.model import AbstractTask, Decomposition, Operator
 
 class HTNNode:
     h_multiplier: Optional[int] = 1

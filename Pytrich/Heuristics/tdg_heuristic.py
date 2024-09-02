@@ -1,8 +1,8 @@
 import time
-from Pyperplan.Heuristics.heuristic import Heuristic
-from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph, ContentType, NodeType
-from Pyperplan.Search.htn_node import HTNNode
-from Pyperplan.model import Model
+from Pytrich.Heuristics.heuristic import Heuristic
+from Pytrich.ProblemRepresentation.and_or_graphs import AndOrGraph, ContentType, NodeType
+from Pytrich.Search.htn_node import HTNNode
+from Pytrich.model import Model
 
 class TaskDecompositionHeuristic(Heuristic):
     def __init__(self, model:Model, initial_node:HTNNode, name="tdg"):

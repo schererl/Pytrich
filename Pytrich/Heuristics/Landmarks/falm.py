@@ -2,8 +2,8 @@ from collections import deque
 from copy import deepcopy
 import gc
 
-from Pyperplan.Heuristics.Landmarks.landmark import Landmarks
-from Pyperplan.model import Operator
+from Pytrich.Heuristics.Landmarks.landmark import Landmarks
+from Pytrich.model import Operator
 
 class FALM:
     def __init__(self, model, lms_instance=None):

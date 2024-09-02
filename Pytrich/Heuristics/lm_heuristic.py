@@ -1,10 +1,10 @@
 import time
-from Pyperplan.Heuristics.heuristic import Heuristic
-from Pyperplan.Search.htn_node import HTNNode
-from Pyperplan.model import Operator, Model
-from Pyperplan.Heuristics.Landmarks.landmark import Landmarks, LM_Node
-from Pyperplan.Heuristics.Landmarks.falm import FALM
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.Heuristics.heuristic import Heuristic
+from Pytrich.Search.htn_node import HTNNode
+from Pytrich.model import Operator, Model
+from Pytrich.Heuristics.Landmarks.landmark import Landmarks, LM_Node
+from Pytrich.Heuristics.Landmarks.falm import FALM
+import Pytrich.FLAGS as FLAGS
 
 class LandmarkHeuristic(Heuristic):
     """

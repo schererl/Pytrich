@@ -1,4 +1,4 @@
-# HTN Pyperplan Project
+# Pytrich HTN Planner
 
 ## Overview
 This project focuses on Hierarchical Task Network (HTN) planning, originally based on the Pyperplan codebase. While it draws inspiration from Pyperplan, it has evolved into a distinct and currently unnamed project that is actively under development.

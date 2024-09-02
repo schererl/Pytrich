@@ -1,13 +1,13 @@
 from collections import defaultdict
-from Pyperplan.model import Model
-from Pyperplan.Parser.hddl import Problem
-from Pyperplan.PostProcessing.postprocessing_model import clean_tdg
-from Pyperplan.PostProcessing.postprocessing_model import remove_negative_precons
-from Pyperplan.PostProcessing.postprocessing_model import convert_bitwise_repr
-from Pyperplan.PostProcessing.postprocessing_model import del_relax_reachability
-from Pyperplan.PostProcessing.postprocessing_model import pullup
-from Pyperplan.PostProcessing.total_order_reachability import TO_relax_reachability
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.model import Model
+from Pytrich.Parser.hddl import Problem
+from Pytrich.PostProcessing.postprocessing_model import clean_tdg
+from Pytrich.PostProcessing.postprocessing_model import remove_negative_precons
+from Pytrich.PostProcessing.postprocessing_model import convert_bitwise_repr
+from Pytrich.PostProcessing.postprocessing_model import del_relax_reachability
+from Pytrich.PostProcessing.postprocessing_model import pullup
+from Pytrich.PostProcessing.total_order_reachability import TO_relax_reachability
+import Pytrich.FLAGS as FLAGS
 class Grounder:
     def __init__(self,
         problem, have_lifted=True

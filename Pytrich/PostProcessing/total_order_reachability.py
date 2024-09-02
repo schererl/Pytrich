@@ -3,8 +3,8 @@ from copy import copy, deepcopy
 import time
 from typing import List, Set, Dict, NewType, Tuple, Union
 
-import Pyperplan.FLAGS as FLAGS
-from Pyperplan.model import Decomposition, Model, Operator, AbstractTask
+import Pytrich.FLAGS as FLAGS
+from Pytrich.model import Decomposition, Model, Operator, AbstractTask
 
 GlobalID = NewType('GlobalID', int)
 LocalID  = NewType('LocalID', int)

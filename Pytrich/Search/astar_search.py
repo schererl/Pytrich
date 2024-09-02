@@ -5,11 +5,11 @@ import psutil
 
 from typing import Optional, Type, Union, List, Dict
 
-from Pyperplan.Heuristics.blind_heuristic import BlindHeuristic
-from Pyperplan.Search.htn_node import AstarNode, HTNNode
-from Pyperplan.model import Operator, AbstractTask, Model
-from Pyperplan.tools import parse_search_params
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
+from Pytrich.Search.htn_node import AstarNode, HTNNode
+from Pytrich.model import Operator, AbstractTask, Model
+from Pytrich.tools import parse_search_params
+import Pytrich.FLAGS as FLAGS
 
 def search(model: Model, 
            h_params: Optional[Dict] = None, f_params: Optional[Dict] = None,

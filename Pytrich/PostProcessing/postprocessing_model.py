@@ -2,8 +2,8 @@ import logging
 import sys
 
 
-from Pyperplan.model import Operator, AbstractTask
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.model import Operator, AbstractTask
+import Pytrich.FLAGS as FLAGS
 
 
 def clean_tdg(

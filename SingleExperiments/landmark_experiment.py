@@ -1,8 +1,8 @@
 import logging
-from Pyperplan.Grounder.panda_ground import pandaGrounder
-from Pyperplan.tools import parse_search_params
-from Pyperplan.Search.htn_node import AstarNode
-import Pyperplan.FLAGS as FLAGS
+from Pytrich.Grounder.panda_ground import pandaGrounder
+from Pytrich.tools import parse_search_params
+from Pytrich.Search.htn_node import AstarNode
+import Pytrich.FLAGS as FLAGS
 def run_experiment(domain_file, problem_file, heuristic, h_params, grounder):
     grounder = pandaGrounder(domain_file, problem_file)
     grounder_status = 'SUCCESS'

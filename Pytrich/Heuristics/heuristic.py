@@ -1,5 +1,5 @@
-from Pyperplan.Search.htn_node import HTNNode
-from Pyperplan.model import Model
+from Pytrich.Search.htn_node import HTNNode
+from Pytrich.model import Model
 
 
 class Heuristic:

@@ -3,14 +3,14 @@ import logging
 import os
 import sys
 
-from Pyperplan.planner import (
+from Pytrich.planner import (
     search_plan,
     SEARCHES,
     HEURISTICS,
     GROUNDERS
 )
 
-import Pyperplan.FLAGS as FLAGS
+import Pytrich.FLAGS as FLAGS
 import SingleExperiments.landmark_experiment as lge
 
 def main():

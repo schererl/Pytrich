@@ -2,10 +2,10 @@ from collections import deque
 from copy import deepcopy
 import gc
 
-from Pyperplan.ProblemRepresentation.and_or_graphs import AndOrGraph
-from Pyperplan.ProblemRepresentation.and_or_graphs import NodeType
-from Pyperplan.ProblemRepresentation.and_or_graphs import ContentType
-from Pyperplan.model import Model
+from Pytrich.ProblemRepresentation.and_or_graphs import AndOrGraph
+from Pytrich.ProblemRepresentation.and_or_graphs import NodeType
+from Pytrich.ProblemRepresentation.and_or_graphs import ContentType
+from Pytrich.model import Model
 
 # store landmarks, needed when landmarks are updated for each new node
 class LM_Node:
