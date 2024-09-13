@@ -48,14 +48,16 @@ for domain_dir in $folder_benchmarks; do
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../Pyperplan/__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                    export PYTHONPATH=$PYTHONPATH:~/Desktop/Pytrich/Pytrich
+                    python3 ../__main__.py -lge -hp "name=\"Classical Landmarks\", use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
                 )
                 echo "@"
                 echo "Running bidirectional landmark experiment for $problem_name:"
                 (
                     ulimit -t $TIME_LIMIT
                     ulimit -v $MEM_LIMIT
-                    python3 ../Pyperplan/__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
+                    export PYTHONPATH=$PYTHONPATH:~/Desktop/Pytrich/Pytrich
+                    python3 ../__main__.py -lge -hp "name=\"Bidirectional Landmarks\",use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
                 )
                 
                 # Remove .psas files and panda.log from the current directory
@@ -85,14 +87,14 @@ for domain_dir in $folder_benchmarks; do
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../Pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
+                        python3 ../__main__.py -lge -hp "use_falm=False, use_bid=False, use_disj=True" "$domain_file" "$problem_file"
                     )
                     echo "@"
                     echo "Running bidirectional landmark experiment for $problem_name:"
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
-                        python3 ../Pyperplan/__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
+                        python3 ../__main__.py -lge -hp "use_falm=False, use_bid=True, use_disj=True" "$domain_file" "$problem_file"
                     )
                     
                     # Clean up generated files

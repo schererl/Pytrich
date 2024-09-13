@@ -3,6 +3,7 @@ from copy import copy, deepcopy
 import time
 from typing import List, Set, Dict, NewType, Tuple, Union
 
+from Pytrich.DESCRIPTIONS import Descriptions
 import Pytrich.FLAGS as FLAGS
 from Pytrich.model import Decomposition, Model, Operator, AbstractTask
 
@@ -357,4 +358,5 @@ def TO_relax_reachability(model: Model) -> None:
         print(f'number of methods removed: {number_m_before - len(model.decompositions)} of {number_m_before}')
     
     model.assign_global_ids()
-    print(f'TO reachability elapsed time: {time.time() - start_time:.4f} s')
+    desc = Descriptions()
+    print(f'{desc("tor_elapsed_time", time.time() - start_time)}')

@@ -1,6 +1,8 @@
 import pandas as pd
 import glob
 
+import directories
+
 # Define the list of log files to process
 log_files = ['lse.out']  # You can add more log files to this list
 

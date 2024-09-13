@@ -3,6 +3,7 @@ import logging
 import os
 import sys
 
+from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.planner import (
     search_plan,
     SEARCHES,
@@ -16,7 +17,6 @@ import SingleExperiments.landmark_experiment as lge
 def main():
     # Commandline parsing
     log_levels = ["debug", "info", "warning", "error", "critical"]
-
     argparser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     argparser.add_argument(
         "domain", nargs="?", 
@@ -120,9 +120,10 @@ def main():
     )
     if not args.domain or not args.problem:
         argparser.error("The domain and problem arguments are required unless --runBenchmark is specified.")
-        
-    print(f'Domain: {domain_name}')
-    print(f'Problem: {problem_name}')
+
+    descriptions = Descriptions()
+    print(f'{descriptions("domain", domain_name)}')
+    print(f'{descriptions("problem", problem_name)}')
     args.problem = os.path.abspath(args.problem) if args.problem else None
     args.domain  = os.path.abspath(args.domain) if args.domain else None
 

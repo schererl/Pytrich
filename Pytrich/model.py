@@ -1,6 +1,8 @@
 import sys
 from typing import List, Union
 
+from Pytrich.DESCRIPTIONS import Descriptions
+
 class Operator:
     def __init__(self, name, pos_precons, neg_precons, add_effects, del_effects):
         self.name = name
@@ -124,6 +126,8 @@ class Model:
         self.decompositions = decompositions
         self.abstract_tasks = abstract_tasks
         
+        self.desc = Descriptions()
+
         # Global ID info: initial (init) and final (end) global indixes for facts, operators, abstract_tasks, and decompositions
         self.ifacts_init = 0 
         self.ifacts_end = len(self.facts) - 1 
@@ -244,10 +248,10 @@ class Model:
     def problem_info(self):
         model_info = (
             f"Model info:"
-            f"\n\tFacts: {len(self.facts)}"
-            f"\n\tAbstract Tasks: {len(self.abstract_tasks)}"
-            f"\n\tOperators: {len(self.operators)}"
-            f"\n\tDecompositions: {len(self.decompositions)}"
+            f"\n\t{self.desc('facts_model', len(self.facts))}"
+            f"\n\t{self.desc('abstract_tasks_model', len(self.abstract_tasks))}"
+            f"\n\t{self.desc('operators_model', len(self.operators))}"
+            f"\n\t{self.desc('decompositions_model', len(self.decompositions))}"
         )
         return model_info
     

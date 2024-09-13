@@ -1,0 +1,55 @@
+Domain (str) : Blocksworld-GTOHP
+Problem : p08
+reading
+	domain: /home/mago/Desktop/Pytrich/htn-benchmarks/Blocksworld-GTOHP/domain.hddl
+	problem: /home/mago/Desktop/Pytrich/htn-benchmarks/Blocksworld-GTOHP/p08.hddl
+Parsing ended
+Grounder ended
+Grounding completed: 
+	domain:/home/mago/Desktop/Pytrich/htn-benchmarks/Blocksworld-GTOHP/domain-grounded.hddl
+	problem:/home/mago/Desktop/Pytrich/htn-benchmarks/Blocksworld-GTOHP/p08-grounded.hddl
+used facts: 126
+cleaning operators: before 87 un ==> after 87 un
+cleaning decompositions: before 180 un ==> after 180 un
+cleaning tasks: before 70 un ==> after 70 un
+initializing pullup
+it (1) Pullup Op 130 Pullup Methods 53 Pullup Tasks 0
+it (2) Pullup Op 77 Pullup Methods 77 Pullup Tasks 0
+it (3) Pullup Op 0 Pullup Methods 0 Pullup Tasks 0
+Pullup ended
+ op (87=>87)|tsks (70=>70)|decompo (180=>180)
+Delete Relaxation Reachability: Operators 87 to 87, Decompositions 180 to 180, Tasks 70 to 70
+Starting TO reachability.
+TO achievers after 0.03 seconds.
+	(1) Decomposition reachability after 0.00 seconds.
+	(1) Executability reachability after 0.00 seconds.
+	(1) TO constraints reachability after 0.00 seconds.
+number of abstract tasks removed 0 of 70
+number of operators removed: 0 of 87
+number of methods removed: 0 of 180
+Total-Order Reachability Elapsed Time (float) (seconds) : 0.0287
+Model info:
+	Number of Facts (int) : 126
+	Number of Abstract Tasks (int) : 70
+	Number of Operators (int) : 87
+	Number of Decompositions (int) : 180
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks (int) : 200
+	Number of Task Landmarks (int) : 107
+	Number of Method Landmarks : 21
+	Number of Fact Landmarks : 72
+	Number of Min-Cov Disjunctions (int) : 0
+	Heuristic Elapsed Time (float) (seconds) : 0.0093
+	Elapsed Time for Disjunctions (int) (seconds) : 0.0000
+
+Search Status : GOAL
+Search Time (int) (seconds) : 0.0299
+Nodes per Second (float) : 18036.35
+Solution Size (int) : 119
+Nodes Expanded : 539
+Fringe Size (int) : 48
+Revisits Avoided: 0
+Used Memory: 43.4%

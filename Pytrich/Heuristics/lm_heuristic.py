@@ -1,4 +1,5 @@
 import time
+from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Operator, Model
@@ -133,19 +134,21 @@ class LandmarkHeuristic(Heuristic):
         if self.use_disj:
             self.param_str+='D'
             self.param_str+='_'
-        
-    # when verbose
+            
     def __output__(self):
-        out_str = f'Heuristic Info:\n\theuristic name: {self.name}\n'
-        out_str += f'\theuristic params: {self.param_str}\n'
-        out_str += f'\tinitial h: {self.initial_h}\n'
-        out_str += f'\taverage h: {self.total_hvalue / max(1, self.calls)}\n'
-        out_str += f'\tnumber of total AND/OR landmarks: {self.total_andor_lms}\n'
-        out_str += f'\tnumber of task AND/OR landmarks: {self.task_andor_lms}\n'
-        out_str += f'\tnumber of methods AND/OR landmarks: {self.methods_andor_lms}\n'
-        out_str += f'\tnumber of fact AND/OR landmarks: {self.fact_andor_lms}\n'
-        out_str += f'\tnumber of min-cov disjunctions: {self.mc_disj_lms}\n'
+        # Get the singleton instance of Descriptions
+        desc = Descriptions()
+
+        out_str = f'Heuristic Info:\n'
+        out_str += f'\t{desc("heuristic_name", self.name)}\n'
+        out_str += f'\t{desc("total_landmarks", self.total_andor_lms)}\n'
+        out_str += f'\t{desc("task_landmarks", self.task_andor_lms)}\n'
+        out_str += f'\t{desc("method_landmarks", self.methods_andor_lms)}\n'
+        out_str += f'\t{desc("fact_landmarks", self.fact_andor_lms)}\n'
+        out_str += f'\t{desc("min_cov_disjunctions_landmarks", self.mc_disj_lms)}\n'
+
         if FLAGS.MONITOR_LM_TIME:
-            out_str += f'\tElapsed time for AND/OR landmarks: {self.elapsed_andor_time:.4f} seconds\n'
-            out_str += f'\tElapsed time for minimal disjunctions: {self.elapsed_mcdisj_time:.4f} seconds\n'
+            out_str += f'\t{desc("heuristic_elapsed_time", f"{self.elapsed_andor_time:.4f}")}\n'
+            out_str += f'\t{desc("disjunctions_elapsed_time", f"{self.elapsed_mcdisj_time:.4f}")}\n'
+
         return out_str

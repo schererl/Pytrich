@@ -5,6 +5,7 @@ import psutil
 
 from typing import Optional, Type, Union, List, Dict
 
+from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
 from Pytrich.Search.htn_node import AstarNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
@@ -120,8 +121,17 @@ def search(model: Model,
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - start_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
+    
     if FLAGS.LOG_SEARCH:
-        print( "Status: {}\nElapsed Time: {:.2f} seconds\nNodes/second: {:.2f} n/s\nSolution size: {}\nExpanded Nodes: {}\nFringe Size: {}\nRevisits Avoided: {}\nUsed Memory: {}".format(STATUS, elapsed_time, nodes_second, len(op_sol), expansions, len(pq), count_revisits, memory_usage) )
+        desc = Descriptions()
+        print(f"{desc('search_status', STATUS)}\n"
+              f"{desc('search_elapsed_time', elapsed_time)}\n"
+              f"{desc('nodes_per_second', nodes_second)}\n"
+              f"{desc('solution_size', len(op_sol))}\n"
+              f"{desc('nodes_expanded', expansions)}\n"
+              f"{desc('fringe_size', len(pq))}\n"
+              f"Revisits Avoided: {count_revisits}\n"
+              f"Used Memory: {memory_usage}%")
 
     
     
