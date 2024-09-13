@@ -1,81 +1,42 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import parse_log
 import directories
 
-def parse_log_file(log_file_path):
-    """Parse the log file to extract relevant data."""
-    experiment_names = []
-    domains = []
-    problems = []
-    facts = []
-    abstract_tasks = []
-    operators = []
-    decompositions = []
-    to_reachability_times = []
-    expanded_nodes = []
-    
-    with open(log_file_path, 'r') as file:
-        current_experiment = None
-        current_domain = None
-        current_problem = None
-        expanded_node_count = -1
-        for line in file:
-            if "Experiment name:" in line:
-                current_experiment = line.split(": ")[1].strip()
-            elif "Domain:" in line:
-                current_domain = line.split(": ")[1].strip()
-            elif "Problem:" in line:
-                current_problem = line.split(": ")[1].strip()
-            elif "Facts:" in line:
-                fact_count = int(line.split(": ")[1].strip())
-            elif "Abstract Tasks:" in line:
-                abstract_task_count = int(line.split(": ")[1].strip())
-            elif "Operators:" in line:
-                operator_count = int(line.split(": ")[1].strip())
-            elif "Decompositions:" in line:
-                decomposition_count = int(line.split(": ")[1].strip())
-            elif "TO reachability elapsed time:" in line:
-                reachability_time = float(line.split(": ")[1].strip().split(" ")[0])
-            elif "Expanded Nodes:" in line:
-                expanded_node_count = int(line.split(": ")[1].strip())
-            elif "@" in line and current_experiment:
-                # Append the data
-                experiment_names.append(current_experiment)
-                domains.append(current_domain)
-                problems.append(current_problem)
-                facts.append(fact_count)
-                abstract_tasks.append(abstract_task_count)
-                operators.append(operator_count)
-                decompositions.append(decomposition_count)
-                to_reachability_times.append(reachability_time)
-                expanded_nodes.append(expanded_node_count)
+def create_data_frames(log_files_path):
+    parser = parse_log.ParseLog(log_files_path)
+    parser()
 
-                # Reset the values for the next block
-                current_experiment = None
-                current_domain = None
-                current_problem = None
-                expanded_node_count = -1
-
-    # Create DataFrames for further analysis
+    # Create the DataFrame for model info
     model_info_df = pd.DataFrame({
-        'Experiment name': experiment_names,
-        'Domain': domains,
-        'Problem': problems,
-        'Facts': facts,
-        'Abstract Tasks': abstract_tasks,
-        'Operators': operators,
-        'Decompositions': decompositions,
-        'Expanded Nodes': expanded_nodes
+        'Experiment name': parser.experiment_names,
+        'Domain': parser.domains,
+        'Problem': parser.problems,
+        'Facts': parser.facts,
+        'Abstract Tasks': parser.abstract_tasks,
+        'Operators': parser.operators,
+        'Decompositions': parser.decompositions,
+        'Expanded Nodes': parser.expanded_nodes
     })
 
+    # Remove rows with NaN values
+    model_info_df = model_info_df.dropna(subset=['Abstract Tasks'])
+    print(model_info_df)
+
+    # Create the DataFrame for reachability info
     reachability_df = pd.DataFrame({
-        'Domain': domains,
-        'Problem': problems,
-        'TO Reachability Time (s)': to_reachability_times
+        'Domain': parser.domains,
+        'Problem': parser.problems,
+        'TO Reachability Time (s)': parser.tor_elapsed_time
     })
+
+    # Remove rows with NaN values
+    reachability_df = reachability_df.dropna()
+    print(reachability_df)
 
     return model_info_df, reachability_df
+
 
 def filter_expanded_nodes(model_info_df):
     """Filter the expanded nodes data to include only cases where all experiments have valid expanded node counts."""
@@ -89,8 +50,17 @@ def filter_expanded_nodes(model_info_df):
 def generate_and_save_tables(model_info_df):
     """Generate comparison tables and save them to CSV files."""
     # Pivot tables for each category
-    abstract_tasks_df = model_info_df.pivot_table(index='Domain', columns='Experiment name', values='Abstract Tasks', aggfunc='sum')
-    decompositions_df = model_info_df.pivot_table(index='Domain', columns='Experiment name', values='Decompositions', aggfunc='sum')
+    print("\nInitial model_info_df:")
+    print(model_info_df)
+    
+    # Filter out rows where 'Domain', 'Heuristic name', or 'Abstract Tasks' are NaN
+    abstract_tasks_df = model_info_df.dropna(subset=['Domain', 'Experiment name', 'Abstract Tasks'])
+    
+    print("\nAfter filtering NaN values in 'Domain', 'Experiment name', and 'Abstract Tasks':")
+    print(abstract_tasks_df)
+    exit(0)
+    
+    decompositions_df = model_info_df.pivot_table(index='Domain', columns='Heuristic name', values='Decompositions', aggfunc='sum')
     facts_df = model_info_df.pivot_table(index='Domain', columns='Experiment name', values='Facts', aggfunc='sum')
     operators_df = model_info_df.pivot_table(index='Domain', columns='Experiment name', values='Operators', aggfunc='sum')
     expanded_nodes_df = filter_expanded_nodes(model_info_df)
@@ -140,21 +110,16 @@ def check_csv_exists():
                 return False
     return True
 
-def main(log_file_path):
+def main(log_files_path):
     """Main function to parse the log, generate tables, and plot data."""
-    # Check if any CSV files already exist before proceeding
     if check_csv_exists():
-        # Parse the log file
-        model_info_df, reachability_df = parse_log_file(log_file_path)
-        # Generate and save comparison tables
+        model_info_df, reachability_df = create_data_frames(log_files_path)
         generate_and_save_tables(model_info_df)
-        # Save reachability data
         save_reachability_data(reachability_df)
-        # Plot reachability times
         plot_reachability_times(reachability_df)
 
-# Constants for file names
-LOG_FILE_NAME = 'tor.log'
+
+LOG_FILES = ['test-tor-log.log']
 C_CSV_FILE = 'compound_tasks_comparison.csv'
 D_CSV_FILE = 'decompositions_comparison.csv'
 F_CSV_FILE = 'facts_comparison.csv'
@@ -162,5 +127,4 @@ A_CSV_FILE = 'actions_comparison.csv'
 PT_CSV_FILE = 'problems_terminated_comparison.csv'
 EN_CSV_FILE = 'expanded_nodes_comparison.csv'
 TOR_CSV_FILE = 'to_reachability_times.csv'
-# Run the main function
-main(directories.LOG_DIR + LOG_FILE_NAME)
+main([directories.LOG_DIR + fl for fl in LOG_FILES])

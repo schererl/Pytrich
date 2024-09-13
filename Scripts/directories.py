@@ -1,3 +1,3 @@
 CSV_DIR="csv-files/"
-LOG_DIR="plot-files/"
-IMAGE_DIR="image-files/"
+LOG_DIR="log-files/"
+PLOT_DIR="plot-files/"
