@@ -145,10 +145,10 @@ class LandmarkHeuristic(Heuristic):
         out_str += f'\t{desc("task_landmarks", self.task_andor_lms)}\n'
         out_str += f'\t{desc("method_landmarks", self.methods_andor_lms)}\n'
         out_str += f'\t{desc("fact_landmarks", self.fact_andor_lms)}\n'
-        out_str += f'\t{desc("min_cov_disjunctions_landmarks", self.mc_disj_lms)}\n'
+        out_str += f'\t{desc("mincov_disj_landmarks", self.mc_disj_lms)}\n'
 
         if FLAGS.MONITOR_LM_TIME:
             out_str += f'\t{desc("heuristic_elapsed_time", f"{self.elapsed_andor_time:.4f}")}\n'
-            out_str += f'\t{desc("disjunctions_elapsed_time", f"{self.elapsed_mcdisj_time:.4f}")}\n'
+            out_str += f'\t{desc("mincov_disj_elapsed_time", f"{self.elapsed_mcdisj_time:.4f}")}\n'
 
         return out_str

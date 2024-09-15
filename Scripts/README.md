@@ -1,14 +1,13 @@
 # Scripts Folder
 ### Experiments
 
-- **LandmarkGenerationExperiment.sh:** Compares the efficiency of landmark generation methods.
-- **LandmarkSearchExperiment.sh:** Compares heuristic search strategies.
+- **LandmarkGenerationExperiment.sh**: Compares the efficiency of landmark generation methods.
+- **LandmarkSearchExperiment.sh**: Compares landmarks during search.
+- **TOReachabilityExperiment.sh**: Runs experiments related to the total-order reachability grounder (TOR).
 
-### Log Parsers
+### Data Processing Scripts
 
-- **parse_landmark_logdata.py:** Generates a CSV file with the results from the landmark generation experiment.
-- **parse_tor_logdata.py:** Generates a CSV file with the results from the total-order grounder (TOR) experiment.
-
-### Plots
-
-- **plot_expnodes_lm_comparison.py:** Reads a CSV file and plots a comparison of the number of expanded nodes between different methods.
+- **parse_log.py**: Parse Pytrich logs.
+- **landmarks_data_processor.py**: Parses log files from the landmark generation experiment, generates CSV files with the results, ensures necessary directories exist, and outputs informative messages.
+- **tor_data_processor.py**: Parses log files from the total-order reachability grounder (TOR) experiment, generates CSV files and plots with the results, ensures necessary directories exist, and outputs informative messages.
+- **expnodes_plot.py**: Reads a CSV file processed from the landmark search experiment and plots a comparison of the number of expanded nodes between different methods, saving the plot into the appropriate directory.

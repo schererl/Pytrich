@@ -248,10 +248,10 @@ class Model:
     def problem_info(self):
         model_info = (
             f"Model info:"
-            f"\n\t{self.desc('facts_model', len(self.facts))}"
-            f"\n\t{self.desc('abstract_tasks_model', len(self.abstract_tasks))}"
-            f"\n\t{self.desc('operators_model', len(self.operators))}"
-            f"\n\t{self.desc('decompositions_model', len(self.decompositions))}"
+            f"\n\t{self.desc('fact_model', len(self.facts))}"
+            f"\n\t{self.desc('abstract_task_model', len(self.abstract_tasks))}"
+            f"\n\t{self.desc('operator_model', len(self.operators))}"
+            f"\n\t{self.desc('decomposition_model', len(self.decompositions))}"
         )
         return model_info
     

@@ -42,10 +42,10 @@
         "type": "float",
         "precision": 4
     },
-    "min_cov_disjunctions_landmarks": {
+    "mincov_disj_landmarks": {
         "description": "Number of Min-Cov Disjunctions Landmarks (int)"
     },
-    "disjunctions_elapsed_time": {
+    "mincov_disj_elapsed_time": {
         "description": "Elapsed Time for Disjunctions (int) (seconds)"
     },
     "solution_size": {
@@ -62,16 +62,16 @@
     "search_status": {
         "description": "Search Status"        
     },
-    "facts_model": {
+    "fact_model": {
         "description": "Number of Facts (int)"
     },
-    "abstract_tasks_model": {
+    "abstract_task_model": {
         "description": "Number of Abstract Tasks (int)"
     },
-    "operators_model": {
+    "operator_model": {
         "description": "Number of Operators (int)"
     },
-    "decompositions_model": {
+    "decomposition_model": {
         "description": "Number of Decompositions (int)"
     }
 }
