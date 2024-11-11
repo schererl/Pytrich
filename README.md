@@ -29,7 +29,6 @@ After compiling these, move them to `pandaOpt` directory before executing the pl
     ```
 
 ## User Guidance
-
 - **Benchmarks**: The benchmarks are included as a submodule from [htn-benchmarks](https://github.com/schererl/htn-benchmarks).
 - **Supported Planning Type**: Currently, only **total order** planning is supported.
 - **Parser/Grounder**: A custom parser/grounder is not yet implemented; instead, PANDA is used as a grounding subroutine.

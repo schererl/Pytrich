@@ -4,14 +4,13 @@ from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Operator, Model
 from Pytrich.Heuristics.Landmarks.landmark import Landmarks, LM_Node
-from Pytrich.Heuristics.Landmarks.falm import FALM
 import Pytrich.FLAGS as FLAGS
 
 class LandmarkHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
     """
-    def __init__(self, model:Model, initial_node:HTNNode, on_reaching=False, use_disj=False, use_falm=False, use_bid=True, name="lmcount"):
+    def __init__(self, model:Model, initial_node:HTNNode, on_reaching=False, use_disj=False, use_falm=False, use_bid=False, name="lmcount"):
         super().__init__(model, initial_node, name=name)
         # set parameters
         self.use_disj = use_disj
@@ -21,55 +20,49 @@ class LandmarkHeuristic(Heuristic):
 
         # Initialize timing variables
         self.initt_andor_all = 0
-        self.endt_andor_all = 0
-        self.initt_mcdisj = 0
-        self.endt_mcdisj = 0
-        self.elapsed_andor_time = 0
+        self.endt_andor_all  = 0
+        self.initt_mcdisj    = 0
+        self.endt_mcdisj     = 0
+        self.elapsed_andor_time  = 0
         self.elapsed_mcdisj_time = 0
 
         self.landmarks = None
         self.sccs = None  # NOTE: not working
 
         initial_node.lm_node = LM_Node()
-        self.landmarks = Landmarks(self.model)
+        self.landmarks = Landmarks(self.model, use_bid)
 
         if FLAGS.MONITOR_LM_TIME:
             self.initt_andor_all = time.perf_counter()
 
+        self.landmarks.generate_bottom_up()
         self.landmarks.bottom_up_lms()
-
-        if use_bid:
+        self.landmarks.compute_gn_orderings(self.landmarks.bu_lookup, self.landmarks.bu_graph)
+        if use_bid: # TODO: top-down and bid not working
             if FLAGS.MONITOR_LM_TIME:
                 self.initt_andor_td = time.perf_counter()
 
+            self.landmarks.generate_top_down()
             self.landmarks.top_down_lms()
-            initial_node.lm_node.update_lms(self.landmarks.bidirectional_lms(initial_node.state, initial_node.task_network))
-
+            self.landmarks.bidirectional_lms()
+            self.landmarks.identify_lms(self.landmarks.bid_lms)
+            initial_node.lm_node.initialize_lms(self.landmarks.bid_lms)
             if FLAGS.MONITOR_LM_TIME:
                 self.endt_andor_all = time.perf_counter()
                 self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
 
         else:
-            initial_node.lm_node.update_lms(self.landmarks.classical_lms(initial_node.state, initial_node.task_network))
-
+            initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
+            self.landmarks.identify_lms(self.landmarks.bu_lms)
             if FLAGS.MONITOR_LM_TIME:
                 self.endt_andor_all = time.perf_counter()
                 self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
 
-        self.task_andor_lms = len(self.landmarks.task_lms)
-        self.methods_andor_lms = len(self.landmarks.method_lms)
-        self.fact_andor_lms = len(self.landmarks.fact_lms)
-        self.total_andor_lms = self.task_andor_lms + self.methods_andor_lms + self.fact_andor_lms
+        self.task_andor_lms    = self.landmarks.count_task_lms
+        self.methods_andor_lms = self.landmarks.count_method_lms
+        self.fact_andor_lms    = self.landmarks.count_fact_lms
+        self.total_andor_lms   = self.task_andor_lms + self.methods_andor_lms + self.fact_andor_lms
         self.mc_disj_lms = 0
-
-        if use_falm:
-            f = FALM(self.model, self.landmarks)
-            f._calculate_reachable()
-            f._calculate_predecessors()
-            f._check_all_hierachy_achievers()
-            f.extract_landmarks()
-            initial_node.lm_node.update_lms(f.landmark_set)
-            exit()  # NOTE: unavailable work in progress
 
         if use_disj:
             if FLAGS.MONITOR_LM_TIME:
@@ -106,12 +99,12 @@ class LandmarkHeuristic(Heuristic):
         
         # in case there is a change in the state:
         if isinstance(node.task, Operator):
-            for fact_pos in range(len(bin(node.task.add_effects_bitwise))-2):
-                if node.task.add_effects_bitwise & (1 << fact_pos) and node.state & (1 << fact_pos):
+            for fact_pos in range(node.task.add_effects.bit_length()):
+                if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
                     node.lm_node.mark_lm(fact_pos)
                 
                 if self.use_disj:
-                    node.lm_node.mark_disjunction(node.state)        
+                    node.lm_node.mark_disjunction(node.state)
 
         else: #otherwise mark the decomposition
             node.lm_node.mark_lm(node.decomposition.global_id)

@@ -1,13 +1,13 @@
 import time
 from Pytrich.Heuristics.heuristic import Heuristic
-from Pytrich.ProblemRepresentation.and_or_graphs import AndOrGraph, ContentType, NodeType
+from Pytrich.ProblemRepresentation.and_or_graph import AndOrGraph, ContentType, NodeType
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Model
 
 class TaskDecompositionHeuristic(Heuristic):
     def __init__(self, model:Model, initial_node:HTNNode, name="tdg"):
         super().__init__(model, initial_node, name=name)
-        self.and_or_graph = AndOrGraph(model, use_top_down=False, use_tdg_only=True)
+        self.and_or_graph = AndOrGraph(model, graph_type=3)
         self.iterations = 0
         init_time = time.time()
         self.tdg_values = {}

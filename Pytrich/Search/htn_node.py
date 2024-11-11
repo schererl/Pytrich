@@ -47,7 +47,7 @@ class HTNNode:
         while self.parent is not None:
             goal_dist.append(self.task)
             plan_path.append(self.task)
-            if isinstance(self.task, Operator):
+            if isinstance(self.task, Operator) and self.task.cost!=0:
                 operators.append(self.task)
             else:
                 plan_path.append(self.decomposition)

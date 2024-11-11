@@ -13,9 +13,11 @@ from Pytrich.tools import parse_search_params
 import Pytrich.FLAGS as FLAGS
 
 def search(model: Model, 
-           h_params: Optional[Dict] = None, f_params: Optional[Dict] = None,
+           h_params: Optional[Dict] = None, s_params: Optional[Dict] = None,
            heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
            node_type: Type[AstarNode] = AstarNode) -> None:
+    
+    
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -26,13 +28,12 @@ def search(model: Model,
     
     closed_list = {}
     node= None
-    if f_params is not None:
-        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **(parse_search_params(f_params)))
+    if s_params is not None:
+        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **(parse_search_params(s_params)))
     else:
         node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
     
     print(node.__output__())
-
 
     h = None
     if not h_params is None:
@@ -40,19 +41,16 @@ def search(model: Model,
     else:
         h  = heuristic_type(model, node)
     
-    
     print(h.__output__())
-    
-
     pq = []
     
     heapq.heappush(pq, node)
     memory_usage = psutil.virtual_memory().percent
+    init_search_time = time.time()
     current_time = time.time()
     while pq:
         expansions += 1
         node:HTNNode = heapq.heappop(pq)
-        
         closed_list[hash(node)]=node.g_value
         
         # time and memory control
@@ -85,14 +83,13 @@ def search(model: Model,
         task:Union[AbstractTask, Operator] = node.task_network[0]
         # check if task is primitive
         if isinstance(task, Operator):
-            if not task.applicable_bitwise(node.state):
+            if not task.applicable(node.state):
                 continue
             
             seq_num += 1
-            new_state        = model.apply(task, node.state)
+            new_state        = task.apply(node.state)
             new_task_network = node.task_network[1:]
             new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1)
-            
             try_get_node_g_val = closed_list.get(hash(new_node))
             if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                 count_revisits+=1
@@ -103,13 +100,11 @@ def search(model: Model,
         # otherwise its abstract
         else:
             for method in task.decompositions:
-                if not method.applicable_bitwise(node.state):
+                if not method.applicable(node.state):
                     continue
-
                 seq_num += 1
-                new_task_network  = model.decompose(method)+node.task_network[1:]
-                new_node          = node_type(node, task, method, node.state, new_task_network, seq_num, node.g_value)
-                
+                refined_task_network  = method.task_network+node.task_network[1:]
+                new_node          = node_type(node, task, method, node.state, refined_task_network, seq_num, node.g_value)
                 try_get_node_g_val = closed_list.get(hash(new_node))
                 if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                     count_revisits+=1
@@ -119,9 +114,9 @@ def search(model: Model,
 
     current_time = time.time()
     elapsed_time = current_time - start_time
-    nodes_second = expansions/float(current_time - start_time)
+    nodes_second = expansions/float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
-    
+    print(bin(node.lm_node.lm_value()))
     if FLAGS.LOG_SEARCH:
         desc = Descriptions()
         print(f"{desc('search_status', STATUS)}\n"
