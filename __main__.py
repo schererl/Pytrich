@@ -80,9 +80,6 @@ def main():
             argparser.error(f"Problem file '{args.problem}' does not exist.")
 
     # Assign flags
-    FLAGS.LOG_GROUNDER = args.loggrounder
-    FLAGS.LOG_SEARCH = args.logsearch
-    FLAGS.LOG_HEURISTIC = args.logheuristic
     FLAGS.MONITOR_SEARCH_RESOURCES = args.monitorsearch
     FLAGS.MONITOR_LM_TIME = args.monitorlandmarks
     FLAGS.USE_TO_REACHABILITY = args.totalorderreachability

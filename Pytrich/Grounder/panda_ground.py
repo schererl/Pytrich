@@ -70,8 +70,8 @@ class PandaGrounder:
         Returns the path to the generated SAS file if successful, otherwise None.
         """
         script_dir = os.path.dirname(__file__)
-        pandaPIparser_path = os.path.join(script_dir, "../../pandaBuilds/pandaPIparser")
-        pandaPIgrounder_path = os.path.join(script_dir, "../../pandaBuilds/pandaPIgrounder")
+        pandaPIparser_path = os.path.join(script_dir, "../../PandaBuilds/pandaPIparser")
+        pandaPIgrounder_path = os.path.join(script_dir, "../../PandaBuilds/pandaPIgrounder")
 
         # Output file names based on domain and problem file names
         domain_base = os.path.splitext(os.path.basename(self.domain_file))[0]
