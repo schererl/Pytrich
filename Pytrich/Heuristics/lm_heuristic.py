@@ -10,12 +10,13 @@ class LandmarkHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
     """
-    def __init__(self, model:Model, initial_node:HTNNode, on_reaching=False, use_disj=False, use_falm=False, use_bid=False, name="lmcount"):
+    #TODO: implement LAZY and EAGER task landmark detection
+    def __init__(self, model:Model, initial_node:HTNNode, use_ord=False, use_disj=False, use_bid=False, name="lmcount"):
         super().__init__(model, initial_node, name=name)
         # set parameters
         self.use_disj = use_disj
-        self.use_falm = use_falm
         self.use_bid = use_bid
+        self.use_ord = use_ord
         self._define_param_str()
 
         # Initialize timing variables
@@ -37,11 +38,11 @@ class LandmarkHeuristic(Heuristic):
 
         self.landmarks.generate_bottom_up()
         self.landmarks.bottom_up_lms()
-        self.landmarks.compute_gn_orderings(self.landmarks.bu_lookup, self.landmarks.bu_graph)
+        if self.use_ord:
+            self.landmarks.compute_gn_orderings(self.landmarks.bu_lookup, self.landmarks.bu_graph)
         if use_bid: # TODO: top-down and bid not working
             if FLAGS.MONITOR_LM_TIME:
                 self.initt_andor_td = time.perf_counter()
-
             self.landmarks.generate_top_down()
             self.landmarks.top_down_lms()
             self.landmarks.bidirectional_lms()
@@ -84,11 +85,6 @@ class LandmarkHeuristic(Heuristic):
         if use_disj:
             initial_node.lm_node.mark_disjunction(initial_node.state)
 
-        self.on_reaching = on_reaching
-        if self.on_reaching:
-            for task in self.model.initial_tn:
-                initial_node.lm_node.mark_lm(task.global_id)
-
         super().set_h_f_values(initial_node, initial_node.lm_node.lm_value())
         self.initial_h = initial_node.h_value
     
@@ -102,17 +98,40 @@ class LandmarkHeuristic(Heuristic):
             for fact_pos in range(node.task.add_effects.bit_length()):
                 if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
                     node.lm_node.mark_lm(fact_pos)
-                
                 if self.use_disj:
                     node.lm_node.mark_disjunction(node.state)
-
+            # orderings: deleted facts can reactivate fact landmarks
+            if self.use_ord and (node.task.del_effects & node.lm_node.mark):  # if a fact landmark is deleted
+                self._deal_with_ordering(node, parent_node)        
         else: #otherwise mark the decomposition
             node.lm_node.mark_lm(node.decomposition.global_id)
-            if self.on_reaching:
-                for t in node.decomposition.task_network:
-                    node.lm_node.mark_lm(t.global_id)
+            
                 
         super().set_h_f_values(node,  node.lm_node.lm_value())
+
+    def _deal_with_ordering(self, node, parent_node):
+        # get the set of accepted landmarks that are deleted by this operator
+        deleted_lm_facts = node.lm_node.mark & node.task.del_effects
+        for bit_pos in range(deleted_lm_facts.bit_length()):
+            # if fact was true and deleted:
+            if deleted_lm_facts & (1 << bit_pos) and parent_node.state & (1 << bit_pos):
+                is_goal_fact = self.model.goals & (1 << bit_pos)
+                # if ϕ is part of the goal or required before another landmark
+                required_again = False
+                if is_goal_fact:
+                    required_again = True
+                else:
+                    # if there exists ψ such that ϕ →gn ψ and ψ is not accepted in s
+                    for psi in self.landmarks.lm_gn_orderings[bit_pos]:
+                        psi_accepted = node.lm_node.mark & (1 << psi)
+                        if not psi_accepted:
+                            required_again = True
+                            break
+                    
+                if required_again:
+                    # landmark ϕ needs to be required again
+                    node.lm_node.mark &= ~(1 << bit_pos)  # unmark the landmark as accepted
+                    node.lm_node.achieved_lms -= 1        # decrease the count of achieved landmarks
 
     def _define_param_str(self):
         self.param_str = '_'
@@ -121,11 +140,11 @@ class LandmarkHeuristic(Heuristic):
         else:
             self.param_str+='C'
         self.param_str+='_'
-        if self.use_falm:
-            self.param_str+='F'
-            self.param_str+='_'
         if self.use_disj:
             self.param_str+='D'
+            self.param_str+='_'
+        if self.use_ord:
+            self.param_str+='GN'
             self.param_str+='_'
             
     def __output__(self):

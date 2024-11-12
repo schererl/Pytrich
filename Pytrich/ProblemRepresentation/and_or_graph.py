@@ -20,7 +20,7 @@ class ContentType(Enum):
 
 
 class AndOrNode:
-    def __init__(self, ID, LOCALID, node_type, content_type=ContentType.Nan, str_name=''):
+    def __init__(self, ID, LOCALID, node_type, content_type=ContentType.Nan, weight=0, str_name=''):
         self.ID = ID # node's global id
         self.LOCALID = LOCALID # component's position in model
         self.type  = node_type 
@@ -50,11 +50,38 @@ class AndOrGraph:
             self.bu_initialize(model)
         elif graph_type == 1:
             self.td_initialize(model)
+        elif graph_type == 3:
+            self.tdg_initialize(model)
         else:
             print(f"Invalid Graph Type {graph_type}")
             exit(0)
         
-    
+    def tdg_initialize(self, model):
+        '''
+        Task Decomposition Graph only
+        '''
+        self.nodes = [None] * self.components_count # should ignore facts
+        # set abstract task
+        for t_i, t in enumerate(model.abstract_tasks):
+            task_node = AndOrNode(t.global_id, t_i, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, str_name=t.name)
+            self.nodes[t.global_id]=task_node
+            
+        # set primitive tasks -operators
+        for op_i, op in enumerate(model.operators):
+            operator_node = AndOrNode(op.global_id, op_i, NodeType.AND, content_type=ContentType.OPERATOR, weight=op.cost, str_name=op.name)
+            self.nodes[op.global_id] = operator_node
+            
+        # set methods
+        for d_i, d in enumerate(model.decompositions):
+            decomposition_node = AndOrNode(d.global_id, d_i, NodeType.AND, content_type=ContentType.METHOD, str_name=d.name)
+            self.nodes[d.global_id] = decomposition_node
+            task_head_id = d.compound_task.global_id
+            self.add_edge(decomposition_node, self.nodes[task_head_id])
+            for subt in d.task_network:
+                subt_node:AndOrNode = self.nodes[subt.global_id]
+                self.add_edge(subt_node, decomposition_node)
+
+
     def bu_initialize(self, model):
         '''
         Bottom-up graph for computing causal landmarks:

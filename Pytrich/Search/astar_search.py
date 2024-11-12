@@ -116,7 +116,6 @@ def search(model: Model,
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
-    print(bin(node.lm_node.lm_value()))
     if FLAGS.LOG_SEARCH:
         desc = Descriptions()
         print(f"{desc('search_status', STATUS)}\n"

@@ -47,22 +47,11 @@ def main():
 
     # Logging options
     argparser.add_argument(
-        "-lg", "--loggrounder", 
+        "-mg", "--monitorgrounder", 
         action="store_true",
-        help="If set, enables logging for the grounder"
+        help="If set, enables monitoring grounding"
     )
-    argparser.add_argument(
-        "-ns", "--nologsearch", 
-        action="store_false",
-        dest="logsearch",
-        help="If set, disables logging for the search"
-    )
-    argparser.add_argument(
-        "-nh", "--nologheuristic", 
-        action="store_false",
-        dest="logheuristic",
-        help="If set, disables logging for the heuristic"
-    )
+    
     argparser.add_argument(
         "-ms", "--monitorsearch", 
         action="store_true",

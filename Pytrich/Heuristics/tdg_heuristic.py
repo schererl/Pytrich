@@ -5,9 +5,10 @@ from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Model
 
 class TaskDecompositionHeuristic(Heuristic):
-    def __init__(self, model:Model, initial_node:HTNNode, name="tdg"):
+    def __init__(self, model:Model, initial_node:HTNNode, is_satis=False, name="tdg"):
         super().__init__(model, initial_node, name=name)
         self.and_or_graph = AndOrGraph(model, graph_type=3)
+        self.is_satis = is_satis
         self.iterations = 0
         init_time = time.time()
         self.tdg_values = {}
@@ -31,10 +32,12 @@ class TaskDecompositionHeuristic(Heuristic):
                 continue
             if node.content_type == ContentType.OPERATOR:
                 starting_nodes.append(node)
-                node.weight = 1
-                node.value = 0
+                node.value = 0 # need to change to 'node.weight' after first iteration
+                if self.is_satis and node.weight == 0:
+                    node.weight=1
             else:
-                node.weight = 0
+                if self.is_satis and node.content_type == ContentType.ABSTRACT_TASK:
+                    node.weight=1
                 node.value = 10000000
 
 

@@ -108,6 +108,7 @@ class Landmarks:
         # self.fact_lms = set()
         # self.method_lms = set()
         self.valid_disjunctions = []
+        self.lm_gn_orderings = []
 
     def generate_bottom_up(self):
         self._generate_lms(self.bu_lookup, self.bu_graph)
@@ -273,10 +274,17 @@ class Landmarks:
     def bottom_up_lms(self):
         # GOAL SET: tnI U G
         # compute landmarks based on the initial state and goal conditions
+        print(f'something')
+        self.bu_lms = self.model.initial_state
+
+        print(bin(self.bu_lms))
+        print(self.bu_lms & (1 << 0))
         for fact_pos in range(self.model.goals.bit_length()):
-            if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
+            #if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
+            if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
                 self.bu_lms |= self.bu_lookup[fact_pos]
-        
+            
+                
         # compute landmarks based on task network
         for t in self.model.initial_tn:
             self.bu_lms |= self.bu_lookup[t.global_id]
@@ -294,7 +302,7 @@ class Landmarks:
             Whenever fact f is made true and then deleted without reaching f', f needs to be reached again.
             This is called GREEDY NECESSARY ORDERING
         '''
-        greedy_necessary_orderings = [[] for _ in range(len(self.model.facts))]  # NOTE: only considering facts for now
+        self.lm_gn_orderings = [[] for _ in range(len(self.model.facts))]  # NOTE: only considering facts for now
         
         for f_prime_id, node_f_prime in enumerate(and_or_graph.nodes):
             if (self.bu_lms & (1 << f_prime_id)) and node_f_prime.content_type == ContentType.FACT:
@@ -308,7 +316,7 @@ class Landmarks:
 
                 # compute the intersection of fact predecessors of first-achievers
                 tmp_f_pred = [
-                    {pred_node.ID for pred_node in fa.predecessors if pred_node.content_type == ContentType.FACT}
+                    {pred_node.ID for pred_node in fa.predecessors if pred_node.content_type == ContentType.FACT and node_f_prime.type != NodeType.INIT}
                     for fa in first_achievers
                 ]
                 
@@ -316,18 +324,20 @@ class Landmarks:
                 # any fact that is common to all first achievers is a predecessor of f'
                 go = [
                     (f_id, f_prime_id) for f_id in f_intersection
-                    if self.bu_lms & (1 << f_id)  # Ensure f_id is also a landmark
                 ]
                 if go:
-                    greedy_necessary_orderings[f_prime_id] = go
-        # Print the greedy necessary orderings with fact names
-        for f_prime_id, orderings in enumerate(greedy_necessary_orderings):
-            if orderings:
-                f_prime_name = self.model.get_component(f_prime_id).name
-                formatted_orderings = [
-                    f"{self.model.get_component(gn[0]).name} < {f_prime_name}" for gn in orderings
-                ]
-                print(f"Orderings for {f_prime_name} (ID: {f_prime_id}): {', '.join(formatted_orderings)}")
+                    for ord in go:
+                        self.lm_gn_orderings[ord[1]].append(ord[0])
+                
+        # print the greedy necessary orderings with fact names
+        for f_prime, f_lst in enumerate(self.lm_gn_orderings):
+            if not f_lst:
+                continue
+            f_prime_name = self.model.get_component(f_prime).name
+            formatted_orderings = [
+                f"{self.model.get_component(f_id).name} < {f_prime_name}" for f_id in f_lst
+            ]
+            print(f"Orderings for {f_prime_name}: \n\t{'\n\t'.join(formatted_orderings)}")
                 
     def identify_lms(self, lm_set):
         for lm_id in range(lm_set.bit_length()):
@@ -347,61 +357,64 @@ class Landmarks:
         #     elif node.content_type == ContentType.ABSTRACT_TASK or node.content_type == ContentType.OPERATOR:
         #         self.task_lms.add(lm_id)
 
+    # TODO: refactor minimal disjunctions
     def _compute_minimal_fact_disjunction(self, disj_operators, disj_precons, TA):
         """
         This function finds a minimal set of fact preconditions that covers all operators in the disjunction.
         """
-        minimal_facts = set()
-        all_facts = set.union(*disj_precons)
+        return None
+        # minimal_facts = set()
+        # all_facts = set.union(*disj_precons)
         
-        fact_coverage = {fact: set() for fact in all_facts}
-        for op_disj_i, op in enumerate(disj_operators):
-            for fact in disj_precons[op_disj_i]:
-                fact_coverage[fact].add(op)
-        # keep track of covered operators
-        covered_operators = set()
-        # greedy approach: select facts that cover the most uncovered operators
-        while len(covered_operators) < TA and fact_coverage:
-            # find the fact that covers the most uncovered operators
-            best_fact = max(fact_coverage, key=lambda f: len(fact_coverage[f] - covered_operators))
-            best_coverage = fact_coverage[best_fact] - covered_operators
-            # add this fact to the minimal set
-            minimal_facts.add(best_fact)
-            # mark these operators as covered
-            covered_operators.update(best_coverage)
-            # remove the best fact from future consideration
-            del fact_coverage[best_fact]
+        # fact_coverage = {fact: set() for fact in all_facts}
+        # for op_disj_i, op in enumerate(disj_operators):
+        #     for fact in disj_precons[op_disj_i]:
+        #         fact_coverage[fact].add(op)
+        # # keep track of covered operators
+        # covered_operators = set()
+        # # greedy approach: select facts that cover the most uncovered operators
+        # while len(covered_operators) < TA and fact_coverage:
+        #     # find the fact that covers the most uncovered operators
+        #     best_fact = max(fact_coverage, key=lambda f: len(fact_coverage[f] - covered_operators))
+        #     best_coverage = fact_coverage[best_fact] - covered_operators
+        #     # add this fact to the minimal set
+        #     minimal_facts.add(best_fact)
+        #     # mark these operators as covered
+        #     covered_operators.update(best_coverage)
+        #     # remove the best fact from future consideration
+        #     del fact_coverage[best_fact]
         
-        # if it is not possible cover all return set()
-        if len(covered_operators) < TA:
-            return set()
+        # # if it is not possible cover all return set()
+        # if len(covered_operators) < TA:
+        #     return set()
 
-        # remove facts used into minimal facts from each disjunction 
-        for i, precon_set in enumerate(disj_precons):
-            disj_precons[i] = precon_set - minimal_facts
-        return minimal_facts
-    
+        # # remove facts used into minimal facts from each disjunction 
+        # for i, precon_set in enumerate(disj_precons):
+        #     disj_precons[i] = precon_set - minimal_facts
+        # return minimal_facts
+    # TODO: refactor minimal disjunctions
     def _compute_minimal_disjunctions(self):
-        for lm_fact in self.fact_lms:
-            o_achievers = set()
-            for o_a in self.model.operators:
-                if  o_a.add_effects_bitwise & (1 << lm_fact) != 0:
-                    o_achievers.add(o_a)
-            # OPTION 1: fact preconditions for operator disjunction
-            disjunctive_preconitions = [set(o_a.get_precons_bitfact()) for o_a in o_achievers]
-            # Get the intersection of disjunctive landmarks
-            if disjunctive_preconitions:
-                interesection_lms = set.intersection(*disjunctive_preconitions)
-                if not interesection_lms:
+        pass
+        # for lm_fact in self.bu_lms:
+        #     o_achievers = set()
+        #     for o_a in self.model.operators:
+        #         if  o_a.add_effects_bitwise & (1 << lm_fact) != 0:
+        #             o_achievers.add(o_a)
+        #     # OPTION 1: fact preconditions for operator disjunction
+        #     disjunctive_preconitions = [set(o_a.get_precons_bitfact()) for o_a in o_achievers]
+        #     # Get the intersection of disjunctive landmarks
+        #     if disjunctive_preconitions:
+        #         interesection_lms = set.intersection(*disjunctive_preconitions)
+        #         if not interesection_lms:
                     
-                    # compute maximal minimal disjunctions
-                    total_achievers = len(o_achievers)
-                    while disjunctive_preconitions:
-                        minimal_disj = self._compute_minimal_fact_disjunction(o_achievers, disjunctive_preconitions, total_achievers)
-                        if not minimal_disj or len(minimal_disj) > 4:
-                            break
-                        if  minimal_disj not in self.valid_disjunctions:
-                            self.valid_disjunctions.append(minimal_disj)
+        #             # compute maximal minimal disjunctions
+        #             total_achievers = len(o_achievers)
+        #             while disjunctive_preconitions:
+        #                 minimal_disj = self._compute_minimal_fact_disjunction(o_achievers, disjunctive_preconitions, total_achievers)
+        #                 if not minimal_disj or len(minimal_disj) > 4:
+        #                     break
+        #                 if  minimal_disj not in self.valid_disjunctions:
+        #                     self.valid_disjunctions.append(minimal_disj)
 
     def clear_structures(self):
         self.bu_graph = None
