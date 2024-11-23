@@ -69,4 +69,4 @@ Several new components of this planner are currently under research. Key project
 ### Heuristic Development
 - [ ] **IN PROGRESS:** Integrate IP/LP heuristic approaches (in progress).
 - [ ] **IN PROGRESS:** Explore HTN landmark heuristics (in progress).
-- [ ] **IN PROGRESS:** Research and apply RC compilation strategies.
+- [ ] **IN PROGRESS:** Implement RC compilation strategies.
