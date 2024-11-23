@@ -1,7 +1,7 @@
 # Pytrich HTN Planner
 
 ## Overview
-**Pytrich** is a Hierarchical Task Network (HTN) planner, initially inspired by the *Pyperplan* codebase, but it has developed into a distinct, actively evolving project. This planner is designed to leverage progressive search, total-order grounding techniques, and reasoning in AND/OR graph structures for heuristic search.
+**Pytrich** is a Hierarchical Task Network (HTN) planner, initially inspired by the *Pyperplan*, but it has developed into a distinct project. This progressive search planner for total-order problems.
 
 ## Prerequisites
 To run the planner, ensure the following dependencies are installed and compiled:
