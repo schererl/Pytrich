@@ -1,7 +1,7 @@
 # Pytrich HTN Planner
 
 ## Overview
-**Pytrich** is a Hierarchical Task Network (HTN) planner, initially inspired by the *Pyperplan*, but it has developed into a distinct project. This progressive search planner for total-order problems.
+**Pytrich** is a progressive search planner for total-order problems in Hierarchical Task Network (HTN), initially inspired by the *Pyperplan*, but it has developed into a distinct project.
 
 ## Prerequisites
 To run the planner, ensure the following dependencies are installed and compiled:
@@ -41,7 +41,8 @@ The script `__main__.py` supports the following arguments:
 
 - **domain and problem** (`[domain_file] [problem_file]`): Path to the domain and problem file in HDDL format. 
 - **--sas_file `<file>`**: Path to the problem already in sas plus format (don't require including .HDDL domain and problem files).
-- **-H, --heuristic `<heuristic_type>`** (`str`): Heuristic to use. Choices are `Blind`, `TDG`, `LMCOUNT`. Default is `TDG`.
+- **-H, --heuristic `<heuristic_type>`** (`str`): Heuristic to use. Choices are `TDG`, `LMCOUNT`. Default is `TDG`.
+- **-s, --search `<search_algorithm>`** (`str`): Search algorithm to use. Choices are `Astar`, `Blind`. Default is `Astar`.
 - **-hp `<args>`**: Heuristic parameters. Specify parameters for the selected heuristic. Each heuristic has its own parameters, which can be found in the respective class. Example: `-H LMCOUNT -hp "name=\"MyHeuristic\", use_bid=True, use_ord=False"`
 - **-tor**: Enable Total-Order reachability during grounder post-processing (unpublished).
 - **-ms**: Monitor time and memory usage during search.
