@@ -95,6 +95,7 @@ def main():
         print(f'{descriptions("problem", problem_name)}')
 
     # Run the search plan
+    
     result = search_plan(args.domain, args.problem, args.sas_file, SEARCHES[args.search], HEURISTICS[args.heuristic], args.heuristicParams, args.searchParams)
     print("Search Result:", result)
 

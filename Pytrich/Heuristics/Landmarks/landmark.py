@@ -274,11 +274,7 @@ class Landmarks:
     def bottom_up_lms(self):
         # GOAL SET: tnI U G
         # compute landmarks based on the initial state and goal conditions
-        print(f'something')
         self.bu_lms = self.model.initial_state
-
-        print(bin(self.bu_lms))
-        print(self.bu_lms & (1 << 0))
         for fact_pos in range(self.model.goals.bit_length()):
             #if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
             if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
