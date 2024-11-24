@@ -1,7 +1,7 @@
 # Pytrich HTN Planner
 
 ## Overview
-**Pytrich** is a progressive search planner for total-order problems in Hierarchical Task Network (HTN), initially inspired by the *Pyperplan*, but it has developed into a distinct project.
+**Pytrich** is a progressive search planner for total-order problems in Hierarchical Task Network (HTN).
 
 ## Prerequisites
 To run the planner, ensure the following dependencies are installed and compiled:
@@ -57,6 +57,7 @@ Several new components of this planner are currently under research. Key project
 3. **TO Grounding**: Pruning unreachable regions in Decomposition Space through Total-Order analysis.
 4. **Landmark Ordering**: Investigating landmark ordering to inform search, inspired by LAMA.
 5. **IP Heuristics**: Enhancing Integer Programming (IP) heuristics with landmarks for solving HTN planning problems.
+6. **Novelty**: Novelty for HTN planning.
 
 ## Development Roadmap
 
