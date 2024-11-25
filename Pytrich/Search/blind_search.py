@@ -1,6 +1,5 @@
 import time
 import psutil
-import heapq
 from typing import Optional, Type, Union, List, Dict
 
 from collections import deque
@@ -11,7 +10,7 @@ from Pytrich.tools import parse_search_params
 import Pytrich.FLAGS as FLAGS
 
 
-def search(model: Model, 
+def search(model: Model,
            h_params: Optional[Dict] = None, s_params: Optional[Dict] = None,
            heuristic_type=None,
            node_type: Type[HTNNode] = HTNNode) -> None:
@@ -40,28 +39,24 @@ def search(model: Model,
 
     # For novelty tracking
     seen_fact_task_pairs = set()
-
-    # Depending on whether novelty is used, choose the appropriate data structure
+    queue = deque()
     if use_novelty:
-        queue = []
-        # For the initial node, compute novelty
-        node_novelty = compute_novelty(node.state, node.task_network, seen_fact_task_pairs)
-        heapq.heappush(queue, (node_novelty, seq_num, node))
+        novelty_queue = deque()
+        if compute_novelty(node.state, None, node.task_network, seen_fact_task_pairs):
+            novelty_queue.append(node)
     else:
-        queue = deque()
         queue.append(node)
 
     memory_usage = psutil.virtual_memory().percent
     init_search_time = time.time()
     current_time = time.time()
 
-    while queue:
+    while (novelty_queue or queue) if use_novelty else queue:
         expansions += 1
-        if use_novelty:
-            # Pop node with lowest novelty score
-            _, _, node = heapq.heappop(queue)
+        if use_novelty and novelty_queue:
+            node: HTNNode = novelty_queue.popleft()
         else:
-            node: HTNNode = queue.popleft()  # FIFO for BFS
+            node: HTNNode = queue.popleft()
 
         # Time and memory control
         if FLAGS.MONITOR_SEARCH_RESOURCES and expansions % 100 == 0:
@@ -71,8 +66,9 @@ def search(model: Model,
                 memory_usage = psutil.virtual_memory().percent
                 elapsed_time = current_time - start_time
                 nodes_second = expansions / float(current_time - start_time)
+                fringe_size = len(queue) if not use_novelty else len(novelty_queue) + len(queue)
                 print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, "
-                      f"Expanded Nodes: {expansions}, Fringe Size: {len(queue)} "
+                      f"Expanded Nodes: {expansions}, Fringe Size: {fringe_size} "
                       f"Revisits Avoided: {count_revisits}, Used Memory: {memory_usage}%")
                 psutil.cpu_percent()
                 if psutil.virtual_memory().percent > 85:
@@ -117,9 +113,8 @@ def search(model: Model,
             if hash(new_node) in closed_list:
                 count_revisits += 1
             else:
-                if use_novelty:
-                    node_novelty = compute_novelty(new_state, new_task_network, seen_fact_task_pairs)
-                    heapq.heappush(queue, (node_novelty, seq_num, new_node))
+                if use_novelty and compute_novelty(new_state, task, new_task_network, seen_fact_task_pairs):
+                    novelty_queue.append(new_node)
                 else:
                     queue.append(new_node)
         # Otherwise, it's abstract
@@ -143,10 +138,8 @@ def search(model: Model,
                 if hash(new_node) in closed_list:
                     count_revisits += 1
                 else:
-                    if use_novelty:
-                        # State remains the same for methods
-                        node_novelty = compute_novelty(node.state, refined_task_network, seen_fact_task_pairs)
-                        heapq.heappush(queue, (node_novelty, seq_num, new_node))
+                    if use_novelty and compute_novelty(node.state, task, refined_task_network, seen_fact_task_pairs):
+                        novelty_queue.append(new_node)
                     else:
                         queue.append(new_node)
 
@@ -154,18 +147,19 @@ def search(model: Model,
     elapsed_time = current_time - start_time
     nodes_second = expansions / float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
+    fringe_size = len(queue) if not use_novelty else len(novelty_queue) + len(queue)
     if FLAGS.LOG_SEARCH:
         print(f"Search status: {STATUS}\n"
               f"Elapsed time: {elapsed_time}\n"
               f"Nodes per second: {nodes_second}\n"
               f"Solution size: {len(op_sol)}\n"
               f"Nodes expanded: {expansions}\n"
-              f"Fringe size: {len(queue)}\n"
+              f"Fringe size: {fringe_size}\n"
               f"Revisits avoided: {count_revisits}\n"
               f"Used memory: {memory_usage}%")
 
 
-def compute_novelty(state: int, task_network: List[Union[Operator, AbstractTask]], seen_tuples: set) -> int:
+def compute_novelty(state: int, task: Union[Operator, AbstractTask], task_network: List[Union[Operator, AbstractTask]], seen_tuples: set) -> int:
     """
     Compute the novelty of a node based on unseen (fact, task) pairs.
     This function updates 'seen_tuples' with new (fact, task) pairs encountered.
@@ -175,9 +169,6 @@ def compute_novelty(state: int, task_network: List[Union[Operator, AbstractTask]
         if state & (1 << bit_pos):
             for t in task_network:
                 if (bit_pos, t.global_id) not in seen_tuples:
-                    #novelty += 1
                     novelty = 1
                     seen_tuples.add((bit_pos, t.global_id))
-    # Return negative novelty to prioritize higher novelty in min-heap
-    return -novelty
-
+    return novelty

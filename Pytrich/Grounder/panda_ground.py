@@ -73,8 +73,9 @@ class PandaGrounder:
         pandaPIparser_path = os.path.join(script_dir, "../../PandaBuilds/pandaPIparser")
         pandaPIgrounder_path = os.path.join(script_dir, "../../PandaBuilds/pandaPIgrounder")
 
-        # Output file names based on domain and problem file names
-        domain_base = os.path.splitext(os.path.basename(self.domain_file))[0]
+        
+        domain_folder = os.path.basename(os.path.dirname(self.domain_file))
+        #domain_base = os.path.splitext(os.path.basename(self.domain_file))[0]
         problem_base = os.path.splitext(os.path.basename(self.problem_file))[0]
 
         if FLAGS.LOG_GROUNDER:
@@ -97,7 +98,7 @@ class PandaGrounder:
             print("Panda Parsing ended")
 
         # Step 2: Ground with pandaPIgrounder
-        psas_output = f"{domain_base}-{problem_base}.psas"
+        psas_output = f"{domain_folder}-{problem_base}.psas"
         result = subprocess.run(
             [pandaPIgrounder_path, "-q", "-D", "-e", parsed_output, psas_output],
             check=True
