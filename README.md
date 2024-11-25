@@ -1,4 +1,4 @@
-# Pytrich HTN Planner
+# <img src="Icon/pytrich-icon.png" alt="Pytrich Icon" width="40" style="border-radius: 50%;"/> Pytrich HTN Planner
 
 ## Overview
 **Pytrich** is a progressive search planner for total-order problems in Hierarchical Task Network (HTN).
