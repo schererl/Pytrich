@@ -221,14 +221,18 @@ class Landmarks:
     def bidirectional_lms(self):
         self.bid_lms = 0
         new_lms = self.bu_lms
+        it_n = 0
         # iterate over each landmark and increment with td and bu landmarks while new landmarks are discovered
         while new_lms != self.bid_lms:
+            it_n += 1
             self.bid_lms = new_lms
             for n_id in range(len(self.bu_graph.nodes)):
                 if new_lms & (1 << n_id):
                     new_lms |= self.bu_lookup[n_id]
                 if new_lms & (1 << n_id):
                     new_lms |= self.td_lookup[n_id]
+        self.bid_lms = self.bid_lms & ((1 << len(self.bu_graph.nodes))-1) #remove recomposition nodes
+        
         
 
     # def bidirectional_lms(self):
@@ -276,8 +280,8 @@ class Landmarks:
         # compute landmarks based on the initial state and goal conditions
         self.bu_lms = self.model.initial_state
         for fact_pos in range(self.model.goals.bit_length()):
-            #if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
-            if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
+            if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
+            #if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
                 self.bu_lms |= self.bu_lookup[fact_pos]
             
                 
@@ -333,7 +337,7 @@ class Landmarks:
             formatted_orderings = [
                 f"{self.model.get_component(f_id).name} < {f_prime_name}" for f_id in f_lst
             ]
-            print(f"Orderings for {f_prime_name}: \n\t{'\n\t'.join(formatted_orderings)}")
+            #print(f"Orderings for {f_prime_name}: \n\t{'\n\t'.join(formatted_orderings)}")
                 
     def identify_lms(self, lm_set):
         for lm_id in range(lm_set.bit_length()):
@@ -344,6 +348,7 @@ class Landmarks:
                     self.count_method_lms +=1
                 elif self.bu_graph.nodes[lm_id].content_type == ContentType.ABSTRACT_TASK or self.bu_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
                     self.count_task_lms +=1
+                    
         # for lm_id in lm_set:
         #     node = self.bu_graph.nodes[lm_id]
         #     if node.content_type == ContentType.FACT:

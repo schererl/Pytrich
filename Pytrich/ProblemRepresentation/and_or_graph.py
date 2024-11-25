@@ -154,7 +154,7 @@ class AndOrGraph:
         # set primitive tasks -operators
         for op_i, op in enumerate(model.operators):
             operator_node = AndOrNode(op.global_id, op_i, NodeType.AND, content_type=ContentType.OPERATOR, str_name=op.name)
-            recomposition_node = AndOrNode(self.components_count + op_i, op_i, NodeType.AND, content_type=ContentType.RECOMPOSITION, str_name=f'R-{op.name}')
+            recomposition_node = AndOrNode(self.components_count + op_i, op_i, NodeType.OR, content_type=ContentType.RECOMPOSITION, str_name=f'R-{op.name}')
             self.nodes[operator_node.ID] = operator_node
             self.nodes[recomposition_node.ID] = recomposition_node
             self.add_edge(recomposition_node, operator_node)

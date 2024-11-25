@@ -92,7 +92,6 @@ class LandmarkHeuristic(Heuristic):
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         # mark last reached task (also add decomposition here)
         node.lm_node.mark_lm(node.task.global_id)
-        
         # in case there is a change in the state:
         if isinstance(node.task, Operator):
             for fact_pos in range(node.task.add_effects.bit_length()):
