@@ -38,8 +38,7 @@ class LandmarkHeuristic(Heuristic):
 
         self.landmarks.generate_bottom_up()
         self.landmarks.bottom_up_lms()
-        if self.use_ord:
-            self.landmarks.compute_gn_orderings(self.landmarks.bu_lookup, self.landmarks.bu_graph)
+        
         if use_bid: # TODO: top-down and bid not working
             if FLAGS.MONITOR_LM_TIME:
                 self.initt_andor_td = time.perf_counter()
@@ -48,11 +47,16 @@ class LandmarkHeuristic(Heuristic):
             self.landmarks.bidirectional_lms()
             self.landmarks.identify_lms(self.landmarks.bid_lms)
             initial_node.lm_node.initialize_lms(self.landmarks.bid_lms)
+            if self.use_ord:
+                self.landmarks.compute_gn_fact_orderings(self.landmarks.td_lookup, self.landmarks.td_graph, self.landmarks.td_lms)
+                self.landmarks.compute_gn_task_orderings(self.landmarks.td_lookup, self.landmarks.td_graph, self.landmarks.td_lms)
             if FLAGS.MONITOR_LM_TIME:
                 self.endt_andor_all = time.perf_counter()
                 self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
 
         else:
+            if self.use_ord:
+                self.landmarks.compute_gn_fact_orderings(self.landmarks.bu_lookup, self.landmarks.bu_graph, self.landmarks.bu_lms)
             initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms)
             if FLAGS.MONITOR_LM_TIME:

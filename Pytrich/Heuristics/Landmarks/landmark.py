@@ -289,7 +289,7 @@ class Landmarks:
         for t in self.model.initial_tn:
             self.bu_lms |= self.bu_lookup[t.global_id]
                 
-    def compute_gn_orderings(self, lm_table, and_or_graph):
+    def compute_gn_fact_orderings(self, lm_table, and_or_graph, lm_set):
         '''
         Compute greedy necessary orderings among facts.
         1) For each fact' (fact prime) landmark
@@ -305,7 +305,7 @@ class Landmarks:
         self.lm_gn_orderings = [[] for _ in range(len(self.model.facts))]  # NOTE: only considering facts for now
         
         for f_prime_id, node_f_prime in enumerate(and_or_graph.nodes):
-            if (self.bu_lms & (1 << f_prime_id)) and node_f_prime.content_type == ContentType.FACT:
+            if (lm_set & (1 << f_prime_id)) and node_f_prime.content_type == ContentType.FACT:
                 # compute first achievers FA(f'): actions a in pred(f') where f' not in LM(a)
                 first_achievers = [
                     pred_node for pred_node in node_f_prime.predecessors
@@ -337,8 +337,59 @@ class Landmarks:
             formatted_orderings = [
                 f"{self.model.get_component(f_id).name} < {f_prime_name}" for f_id in f_lst
             ]
-            #print(f"Orderings for {f_prime_name}: \n\t{'\n\t'.join(formatted_orderings)}")
-                
+            print(f"Orderings for {f_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
+
+    def compute_gn_task_orderings(self, lm_table, and_or_graph, lm_set):
+        self.lm_gn_orderings = [[] for _ in range(len(self.model.abstract_tasks)+len(self.model.operators))]  # For tasks instead of facts
+
+        for t_prime_id, node_t_prime in enumerate(and_or_graph.nodes):
+            
+            if lm_set & (1 << t_prime_id):
+                first_achievers = None
+                if node_t_prime.content_type == ContentType.ABSTRACT_TASK:
+                    first_achievers = [
+                        pred_node for pred_node in node_t_prime.predecessors
+                        if not (lm_table[pred_node.ID] & (1 << t_prime_id))
+                    ]
+                elif node_t_prime.content_type == ContentType.OPERATOR:
+                    r_node = and_or_graph.nodes[and_or_graph.components_count+node_t_prime.LOCALID]
+                    first_achievers = [
+                        pred_node for pred_node in r_node.predecessors
+                        if not (lm_table[pred_node.ID] & (1 << t_prime_id))
+                    ]
+                if not first_achievers:
+                    continue
+                print(node_t_prime)
+                print(f'\t{[self.model.get_component(pred.ID).name for pred in first_achievers]}')
+                # Compute the intersection of task compound tasks
+                tmp_t_pred = [
+                    {pred_node.ID for pred_node in fa.predecessors
+                    if pred_node.content_type in {ContentType.ABSTRACT_TASK}}
+                    for fa in first_achievers
+                ]
+
+                t_intersection = set.intersection(*tmp_t_pred) if tmp_t_pred else set()
+                print(f'\t\t{[self.model.get_component(tID).name for tID in t_intersection]}')
+                # Any task common to all first achievers is a predecessor of t'
+                go = [
+                    (t_id, t_prime_id) for t_id in t_intersection
+                ]
+                if go:
+                    for ord in go:
+                        self.lm_gn_orderings[ord[1]-len(self.model.facts)].append(ord[0])
+
+        # Print the greedy necessary orderings with task names
+        for t_prime, t_lst in enumerate(self.lm_gn_orderings):
+            if not t_lst:
+                continue
+            t_prime +=len(self.model.facts)
+            t_prime_name = self.model.get_component(t_prime).name
+            formatted_orderings = [
+                f"{self.model.get_component(t_id).name} < {t_prime_name}" for t_id in t_lst
+            ]
+            print(f"Orderings for {t_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
+
+         
     def identify_lms(self, lm_set):
         for lm_id in range(lm_set.bit_length()):
             if lm_id < len(self.bu_graph.nodes) and lm_set & (1 << lm_id):

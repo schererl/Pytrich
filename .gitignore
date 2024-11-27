@@ -9,4 +9,6 @@ panda.log
 *.out
 *.log
 *.png
+
 !Icon/pytrich-icon.png
+!Experiments/outputs/log-files/**/*.log

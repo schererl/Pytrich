@@ -6,7 +6,7 @@
         "description": "Problem"
     },
     "experiment_name": {
-        "description": "Experiment Name"
+        "description": "Experiment name"
     },
     "heuristic_name": {
         "description": "Heuristic Name"
@@ -52,10 +52,10 @@
         "description": "Solution Size (int)"
     },
     "fringe_size": {
-        "description": "Fringe Size (int)"
+        "description": "Fringe size"
     },
     "nodes_per_second": {
-        "description": "Nodes per Second (float)",
+        "description": "Nodes per Second",
         "type": "float",
         "precision": 2
     },
