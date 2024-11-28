@@ -23,15 +23,15 @@ declare -A experiments
 
 # Experiment 1: NOVELTY
 experiments[0,name]="NOVELTY"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True"'
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True" -e "NOVELTY" '
 
 # Experiment 2: BLIND
 experiments[1,name]="BLIND"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False"'
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False" -e "BLIND" '
 
 # Experiment 3: LMCOUNT
 experiments[2,name]="LMCOUNT"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT'
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
 
 # Add or remove experiments by modifying the experiments array
 # Example of adding a new experiment:
@@ -80,15 +80,13 @@ for domain_dir in $folder_benchmarks; do
                         experiment_name=${experiments[$index,name]}
                         experiment_command=${experiments[$index,command]}
                         
-                        echo "@"
-                        echo "Experiment name: $experiment_name"
-                        echo "Domain name: $domain_file"
-                        echo "Problem name: $problem_name"
+                        #echo "Experiment name: $experiment_name"
                         (
                             ulimit -t $TIME_LIMIT
                             ulimit -v $MEM_LIMIT
-                            eval $experiment_command
+                            eval $experiment_command -e $experiment_name
                         )
+                        echo "@"
                     fi
                 done
                 
@@ -119,15 +117,12 @@ for domain_dir in $folder_benchmarks; do
                             experiment_name=${experiments[$index,name]}
                             experiment_command=${experiments[$index,command]}
                             
-                            echo "@"
-                            echo "Experiment name: $experiment_name"
-                            echo "Domain name: $domain_file"
-                            echo "Problem name: $problem_name"
                             (
                                 ulimit -t $TIME_LIMIT
                                 ulimit -v $MEM_LIMIT
                                 eval $experiment_command
                             )
+                            echo "@"
                         fi
                     done
                     

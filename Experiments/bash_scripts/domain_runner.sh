@@ -12,7 +12,7 @@ fi
 domain_dir="$1"
 
 # Define time and memory limits
-TIME_LIMIT=30
+TIME_LIMIT=2
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored (optional)
@@ -23,15 +23,15 @@ declare -A experiments
 
 # Experiment 1: NOVELTY
 experiments[0,name]="NOVELTY"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True"'
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True" -e "NOVELTY" '
 
 # Experiment 2: BLIND
 experiments[1,name]="BLIND"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False"'
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False" -e "BLIND" '
 
 # Experiment 3: LMCOUNT
 experiments[2,name]="LMCOUNT"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT'
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
 
 # Check if the domain directory exists
 if [ -d "$domain_dir" ]; then
@@ -74,15 +74,13 @@ if [ -d "$domain_dir" ]; then
                     experiment_name=${experiments[$index,name]}
                     experiment_command=${experiments[$index,command]}
                     
-                    echo "@"
-                    echo "Experiment name: $experiment_name"
-                    echo "Domain name: $domain_file"
-                    echo "Problem name: $problem_name"
+                    
                     (
                         ulimit -t $TIME_LIMIT
                         ulimit -v $MEM_LIMIT
                         eval $experiment_command
                     )
+                    echo "@"
                 fi
             done
             
@@ -113,15 +111,13 @@ if [ -d "$domain_dir" ]; then
                         experiment_name=${experiments[$index,name]}
                         experiment_command=${experiments[$index,command]}
                         
-                        echo "@"
-                        echo "Experiment name: $experiment_name"
-                        echo "Domain name: $domain_file"
-                        echo "Problem name: $problem_name"
+                        
                         (
                             ulimit -t $TIME_LIMIT
                             ulimit -v $MEM_LIMIT
                             eval $experiment_command
                         )
+                        echo "@"
                     fi
                 done
                 

@@ -22,7 +22,7 @@ class Descriptions:
         """Get description by key and format it with the value, handling precision for floats."""
         # Fetch the description details from the JSON
         description_info = self.descriptions.get(key, {})
-        description = description_info.get("description", "No description available")
+        description = description_info.get("description", f"Description for {key} not found, check \'descriptions.json\' file.")
         
         # Check if the value should be formatted with precision
         value_type = description_info.get("type", None)

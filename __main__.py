@@ -18,6 +18,18 @@ def main():
         help="Path to the problem file (required if --sas_file is not provided)."
     )
     argparser.add_argument(
+        "-en", "--experimentName",
+        help="Indicate the experiment name (Optional)"
+    )
+    argparser.add_argument(
+        "-dn", "--domainName",
+        help="Indicate the domain name (Optional)"
+    )
+    argparser.add_argument(
+        "-pn", "--problemName",
+        help="Indicate the problem name (Optional)"
+    )
+    argparser.add_argument(
         "--sas_file", 
         help="Path to the SASplus file if the problem is already grounded."
     )
@@ -45,7 +57,6 @@ def main():
         help="Use total-order reachability analysis during grounding post-processing"
     )
 
-    # Logging options
     argparser.add_argument(
         "-mg", "--monitorgrounder", 
         action="store_true",
@@ -63,8 +74,12 @@ def main():
         help="If set, enables monitoring time during landmark generation"
     )
 
+    
     args = argparser.parse_args()
-
+    desc = Descriptions()
+    if args.experimentName:
+        print(f"{desc('experiment_name', args.experimentName)}")
+    
     # Check for exclusive usage of sas_file or domain and problem
     if args.sas_file:
         if args.domain or args.problem:
@@ -85,17 +100,14 @@ def main():
     FLAGS.USE_TO_REACHABILITY = args.totalorderreachability
 
     # Extract domain and problem names if provided
-    domain_name = os.path.basename(args.domain) if args.domain else None
+    domain_name = os.path.basename(os.path.dirname(args.domain)) if args.domain else None
     problem_name = os.path.splitext(os.path.basename(args.problem))[0] if args.problem else None
-
-    descriptions = Descriptions()
     if domain_name:
-        print(f'{descriptions("domain", domain_name)}')
+        print(f'{desc("domain_name", domain_name)}')
     if problem_name:
-        print(f'{descriptions("problem", problem_name)}')
+        print(f'{desc("problem_name", problem_name)}')
 
     # Run the search plan
-    
     result = search_plan(args.domain, args.problem, args.sas_file, SEARCHES[args.search], HEURISTICS[args.heuristic], args.heuristicParams, args.searchParams)
     print("Search Result:", result)
 

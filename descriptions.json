@@ -1,24 +1,24 @@
 {
-    "domain": {
-        "description": "Domain (str)"
+    "domain_name": {
+        "description": "Domain"
     },
-    "problem": {
+    "problem_name": {
         "description": "Problem"
     },
     "experiment_name": {
-        "description": "Experiment name"
+        "description": "Experiment Name"
     },
     "heuristic_name": {
         "description": "Heuristic Name"
     },
     "heuristic_elapsed_time": {
-        "description": "Heuristic Elapsed Time (float) (seconds)"
+        "description": "Heuristic Elapsed Time"
     },
     "total_landmarks": {
-        "description": "Number of Total Landmarks (int)"
+        "description": "Number of Total Landmarks"
     },
     "task_landmarks": {
-        "description": "Number of Task Landmarks (int)"
+        "description": "Number of Task Landmarks"
     },
     "fact_landmarks": {
         "description": "Number of Fact Landmarks"
@@ -30,7 +30,7 @@
         "description": "Nodes Expanded"
     },
     "search_elapsed_time": {
-        "description": "Search Time (int) (seconds)",
+        "description": "Search Time (seconds)",
         "type": "float",
         "precision": 4
     },
@@ -38,18 +38,18 @@
         "description": "Final Fringe Contains"
     },
     "tor_elapsed_time": {
-        "description": "Total-Order Reachability Elapsed Time (float) (seconds)",
+        "description": "Total-Order Reachability Elapsed Time (seconds)",
         "type": "float",
         "precision": 4
     },
     "mincov_disj_landmarks": {
-        "description": "Number of Min-Cov Disjunctions Landmarks (int)"
+        "description": "Number of Min-Cov Disjunctions Landmarks"
     },
     "mincov_disj_elapsed_time": {
-        "description": "Elapsed Time for Disjunctions (int) (seconds)"
+        "description": "Elapsed Time for Disjunctions (seconds)"
     },
     "solution_size": {
-        "description": "Solution Size (int)"
+        "description": "Solution Size"
     },
     "fringe_size": {
         "description": "Fringe size"
@@ -63,15 +63,15 @@
         "description": "Search Status"        
     },
     "fact_model": {
-        "description": "Number of Facts (int)"
+        "description": "Number of Facts"
     },
     "abstract_task_model": {
-        "description": "Number of Abstract Tasks (int)"
+        "description": "Number of Abstract Tasks"
     },
     "operator_model": {
-        "description": "Number of Operators (int)"
+        "description": "Number of Operators"
     },
     "decomposition_model": {
-        "description": "Number of Decompositions (int)"
+        "description": "Number of Decompositions"
     }
 }

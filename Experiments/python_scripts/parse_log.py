@@ -33,8 +33,8 @@ class ParseLog:
         self.tor_elapsed_time = []
 
         # Compile regex patterns
-        self.domain_pattern = self._compile_pattern('domain')
-        self.problem_pattern = self._compile_pattern('problem')
+        self.domain_pattern = self._compile_pattern('domain_name')
+        self.problem_pattern = self._compile_pattern('problem_name')
         self.experiment_name_pattern = self._compile_pattern('experiment_name')
         self.nodes_expanded_pattern = self._compile_pattern('nodes_expanded', r'(\d+)')
         self.search_time_pattern = self._compile_pattern('search_elapsed_time', r'([0-9.]+)')
@@ -54,7 +54,9 @@ class ParseLog:
         self.model_abstract_task_pattern = self._compile_pattern('abstract_task_model', r'(\d+)')
 
     def _compile_pattern(self, key, value_regex=r'(.+)'):
-        description = self.descriptions.get(key, {}).get('description', key)
+        if key not in self.descriptions:
+            raise KeyError(f"The key '{key}' does not exist in the descriptions file.")
+        description = self.descriptions[key].get('description', key)
         description = re.sub(r'\s+', r'\\s*', description)
         pattern = re.sub(r'\s*(\([^)]*\))?', '', description)
         return re.compile(rf'\s*{pattern}\s*:\s*{value_regex}\s*')
@@ -64,8 +66,8 @@ class ParseLog:
             tmp_variables[key] = None
 
     def _append_parsed_data(self, tmp_variables):
-        self.domains.append(tmp_variables['domain'])
-        self.problems.append(tmp_variables['problem'])
+        self.domains.append(tmp_variables['domain_name'])
+        self.problems.append(tmp_variables['problem_name'])
         self.experiment_names.append(tmp_variables['experiment_name'])
         self.heuristic_names.append(tmp_variables['heuristic_name'])
         self.heuristics_elapsed_time.append(tmp_variables['heuristic_elapsed_time'])
@@ -86,7 +88,7 @@ class ParseLog:
 
     def __call__(self):
         tmp_variables = {
-            'domain': None, 'problem': None, 'experiment_name': None,
+            'domain_name': None, 'problem_name': None, 'experiment_name': None,
             'solution_size': None, 'expanded_nodes': None, 'search_elapsed_time': None, 
             'heuristic_name': None, 'heuristic_elapsed_time': None,
             'total_landmarks': None, 'task_landmarks': None,
@@ -98,20 +100,24 @@ class ParseLog:
         for log_file_path in self.log_files:
             with open(log_file_path, 'r') as file:
                 for line in file:
+                    if line == '@': 
+                        if len(tmp_variables["domain_name"])>0:
+                            self._append_parsed_data(tmp_variables)
+                            self._reset_tmp_variables(tmp_variables)
+                        continue
                     self._parse_line(line, tmp_variables)
-            if tmp_variables["domain"] is not None:
-                self._append_parsed_data(tmp_variables)
-                self._reset_tmp_variables(tmp_variables)
+                
+                    
+
 
     def _parse_line(self, line, tmp_variables):
         """Parse a single line using regex patterns and extract relevant data."""
         # Remove parentheses from lines:
         line = re.sub(r'\s*\([^)]*\)', '', line)
-        
         if domain_match := self.domain_pattern.search(line):
-            tmp_variables['domain'] = domain_match.group(1)
+            tmp_variables['domain_name'] = domain_match.group(1)
         elif problem_match := self.problem_pattern.search(line):
-            tmp_variables['problem'] = problem_match.group(1)
+            tmp_variables['problem_name'] = problem_match.group(1)
         elif experiment_name_match := self.experiment_name_pattern.search(line):
             tmp_variables['experiment_name'] = experiment_name_match.group(1)
         elif heuristic_name_match := self.heuristic_name_pattern.search(line):
@@ -153,7 +159,7 @@ class ParseLog:
 
     def save_as_csv(self, out_file):
         headers = [
-            "domain", "problem", "experiment_name", 
+            "domain_name", "problem_name", "experiment_name", 
             "search_elapsed_time", "solution_size", "expanded_nodes",
             "heuristic_name",
             "heuristic_elapsed_time", "total_landmarks", "task_landmarks",
@@ -173,10 +179,16 @@ class ParseLog:
             self.decompositions, self.operators, self.abstract_tasks,
             self.tor_elapsed_time
         )
+        # Filter out rows where all elements are None or empty
+        filtered_rows = [
+            row for row in rows 
+            if any(value is not None and value != "" for value in row)
+        ]
+        
         with open(out_file, "w", newline="") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(headers)
-            writer.writerows(rows)
+            writer.writerows(filtered_rows)
 
 def main():
     input_parser = argparse.ArgumentParser(description="Parse log files and optionally save the output to a CSV file.")

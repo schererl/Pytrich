@@ -4,6 +4,7 @@ from typing import Optional, Type, Union, List, Dict
 
 from collections import deque
 
+from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.model import Operator, AbstractTask, Model, Fact, Decomposition
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.tools import parse_search_params
@@ -149,14 +150,15 @@ def search(model: Model,
     _, op_sol, goal_dist_sol = node.extract_solution()
     fringe_size = len(queue) if not use_novelty else len(novelty_queue) + len(queue)
     if FLAGS.LOG_SEARCH:
-        print(f"Search status: {STATUS}\n"
-              f"Elapsed time: {elapsed_time}\n"
-              f"Nodes per second: {nodes_second}\n"
-              f"Solution size: {len(op_sol)}\n"
-              f"Nodes expanded: {expansions}\n"
-              f"Fringe size: {fringe_size}\n"
-              f"Revisits avoided: {count_revisits}\n"
-              f"Used memory: {memory_usage}%")
+        desc = Descriptions()
+        print(f"{desc('search_status', STATUS)}\n"
+              f"{desc('search_elapsed_time', elapsed_time)}\n"
+              f"{desc('nodes_per_second', nodes_second)}\n"
+              f"{desc('solution_size', len(op_sol))}\n"
+              f"{desc('nodes_expanded', expansions)}\n"
+              #f"{desc('fringe_size', len(pq))}\n"
+              f"Revisits Avoided: {count_revisits}\n"
+              f"Used Memory: {memory_usage}%")
 
 
 def compute_novelty(state: int, task: Union[Operator, AbstractTask], task_network: List[Union[Operator, AbstractTask]], seen_tuples: set) -> int:
