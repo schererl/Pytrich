@@ -170,7 +170,7 @@ class ParseLog:
         ]
         rows = zip(
             self.domains, self.problems, self.experiment_names,
-            self.expanded_nodes, self.solution_sizes, self.search_elapsed_time,
+            self.search_elapsed_time, self.solution_sizes, self.expanded_nodes, 
             self.heuristic_names, self.heuristics_elapsed_time,
             self.total_landmarks, self.task_landmarks, self.method_landmarks,
             self.fact_landmarks, self.mincov_disj_landmarks,

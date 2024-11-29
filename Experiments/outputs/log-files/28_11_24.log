@@ -1,0 +1,5964 @@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/AssemblyHierarchical
+@
+@
+@
+@
+Experiment Name : BLIND
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.9218
+Nodes per Second : 216034.50
+Solution Size : 6
+Nodes Expanded : 415164
+Revisits Avoided: 25036
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.3810
+Nodes per Second : 407755.62
+Solution Size : 6
+Nodes Expanded : 563052
+Revisits Avoided: 32216
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 376
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 21
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 11
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.6308
+Nodes per Second : 95600.11
+Solution Size : 6
+Nodes Expanded : 155661
+Fringe size : 7942
+Revisits Avoided: 10718
+Used Memory: 25.2%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 340366.17
+Solution Size : 4
+Nodes Expanded : 768
+Revisits Avoided: 44
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0013
+Nodes per Second : 635899.98
+Solution Size : 4
+Nodes Expanded : 772
+Revisits Avoided: 40
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 160
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 16
+	Number of Task Landmarks : 6
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 7
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0061
+Nodes per Second : 73937.67
+Solution Size : 4
+Nodes Expanded : 312
+Fringe size : 204
+Revisits Avoided: 8
+Used Memory: 24.8%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : BLIND
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth06
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Barman-BDI
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Barman-BDI
+Problem : pfile02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 5.1466
+Nodes per Second : 23447.42
+Solution Size : 27
+Nodes Expanded : 120672
+Revisits Avoided: 1689
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Barman-BDI
+Problem : pfile02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 19.5325
+Nodes per Second : 144041.82
+Solution Size : 24
+Nodes Expanded : 2813481
+Revisits Avoided: 52976
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Barman-BDI
+Problem : pfile02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1797
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 44
+	Number of Task Landmarks : 3
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 40
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 2.5517
+Nodes per Second : 84154.45
+Solution Size : 24
+Nodes Expanded : 214274
+Fringe size : 519
+Revisits Avoided: 3888
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Barman-BDI
+Problem : pfile04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 32.8490
+Nodes per Second : 14804.97
+Solution Size : 28
+Nodes Expanded : 486326
+Revisits Avoided: 5662
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Barman-BDI
+Problem : pfile04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2715
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 60
+	Number of Task Landmarks : 3
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 56
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 29.4825
+Nodes per Second : 50468.47
+Solution Size : 23
+Nodes Expanded : 1487502
+Fringe size : 5659
+Revisits Avoided: 21056
+Used Memory: 26.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Barman-BDI
+Problem : pfile07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 32.6007
+Nodes per Second : 11593.58
+Solution Size : 24
+Nodes Expanded : 377958
+Revisits Avoided: 2347
+Used Memory: 24.3%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Barman-BDI
+Problem : pfile01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2786
+Nodes per Second : 34731.49
+Solution Size : 10
+Nodes Expanded : 9671
+Revisits Avoided: 79
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Barman-BDI
+Problem : pfile01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0517
+Nodes per Second : 396914.16
+Solution Size : 10
+Nodes Expanded : 20466
+Revisits Avoided: 320
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Barman-BDI
+Problem : pfile01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 916
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 30
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 27
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1002
+Nodes per Second : 106446.09
+Solution Size : 10
+Nodes Expanded : 10318
+Fringe size : 39
+Revisits Avoided: 224
+Used Memory: 24.6%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Blocksworld-GTOHP
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p12
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 6.7106
+Nodes per Second : 14518.14
+Solution Size : 171
+Nodes Expanded : 97424
+Revisits Avoided: 2
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p12
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 8.7990
+Nodes per Second : 205640.77
+Solution Size : 150
+Nodes Expanded : 1809416
+Revisits Avoided: 2384
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p12
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2154
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 214
+	Number of Task Landmarks : 70
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 143
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 25.8181
+Nodes per Second : 55525.86
+Solution Size : 150
+Nodes Expanded : 1433056
+Fringe size : 40622
+Revisits Avoided: 18
+Used Memory: 30.5%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p13
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.9469
+Nodes per Second : 10163.94
+Solution Size : 172
+Nodes Expanded : 40115
+Revisits Avoided: 276
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p13
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.3721
+Nodes per Second : 239015.77
+Solution Size : 145
+Nodes Expanded : 805970
+Revisits Avoided: 224
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p13
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2146
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 216
+	Number of Task Landmarks : 73
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 142
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 8.2735
+Nodes per Second : 61658.22
+Solution Size : 145
+Nodes Expanded : 509560
+Fringe size : 9920
+Revisits Avoided: 224
+Used Memory: 26.8%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p06
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0798
+Nodes per Second : 28208.84
+Solution Size : 88
+Nodes Expanded : 2247
+Revisits Avoided: 0
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p06
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0585
+Nodes per Second : 450705.71
+Solution Size : 79
+Nodes Expanded : 26310
+Revisits Avoided: 127
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1205
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 118
+	Number of Task Landmarks : 41
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 76
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.2180
+Nodes per Second : 94613.71
+Solution Size : 79
+Nodes Expanded : 20204
+Fringe size : 612
+Revisits Avoided: 8
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0778
+Nodes per Second : 37573.38
+Solution Size : 64
+Nodes Expanded : 2919
+Revisits Avoided: 56
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0076
+Nodes per Second : 410526.29
+Solution Size : 62
+Nodes Expanded : 3066
+Revisits Avoided: 67
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 829
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 84
+	Number of Task Landmarks : 29
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 54
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0329
+Nodes per Second : 98287.39
+Solution Size : 62
+Nodes Expanded : 2867
+Fringe size : 20
+Revisits Avoided: 63
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 101121.47
+Solution Size : 22
+Nodes Expanded : 113
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 553964.68
+Solution Size : 21
+Nodes Expanded : 126
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 326
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 37
+	Number of Task Landmarks : 13
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 23
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0038
+Nodes per Second : 92817.90
+Solution Size : 21
+Nodes Expanded : 122
+Fringe size : 5
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p14
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 40.6051
+Nodes per Second : 8002.02
+Solution Size : 171
+Nodes Expanded : 324922
+Revisits Avoided: 6723
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p14
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.8175
+Nodes per Second : 220566.76
+Solution Size : 164
+Nodes Expanded : 621427
+Revisits Avoided: 6911
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p14
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2386
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 232
+	Number of Task Landmarks : 76
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 155
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 5.0266
+Nodes per Second : 63569.10
+Solution Size : 164
+Nodes Expanded : 318874
+Fringe size : 1804
+Revisits Avoided: 6278
+Used Memory: 25.5%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 9.7192
+Nodes per Second : 18321.66
+Solution Size : 156
+Nodes Expanded : 178070
+Revisits Avoided: 1871
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p08
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.3836
+Nodes per Second : 269295.22
+Solution Size : 119
+Nodes Expanded : 372557
+Revisits Avoided: 5475
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1683
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 160
+	Number of Task Landmarks : 55
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 104
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 4.2575
+Nodes per Second : 66647.13
+Solution Size : 119
+Nodes Expanded : 283322
+Fringe size : 3324
+Revisits Avoided: 4732
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p11
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.2020
+Nodes per Second : 14010.03
+Solution Size : 166
+Nodes Expanded : 16839
+Revisits Avoided: 36
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p11
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 4.1584
+Nodes per Second : 217354.59
+Solution Size : 153
+Nodes Expanded : 903813
+Revisits Avoided: 36
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p11
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2143
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 208
+	Number of Task Landmarks : 69
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 138
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 6.7286
+Nodes per Second : 61680.98
+Solution Size : 153
+Nodes Expanded : 414464
+Fringe size : 11741
+Revisits Avoided: 36
+Used Memory: 26.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0066
+Nodes per Second : 71520.21
+Solution Size : 39
+Nodes Expanded : 462
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0011
+Nodes per Second : 495202.32
+Solution Size : 39
+Nodes Expanded : 498
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 546
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 59
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 38
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0069
+Nodes per Second : 102015.27
+Solution Size : 39
+Nodes Expanded : 463
+Fringe size : 22
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0065
+Nodes per Second : 69899.83
+Solution Size : 40
+Nodes Expanded : 445
+Revisits Avoided: 2
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 513553.19
+Solution Size : 35
+Nodes Expanded : 897
+Revisits Avoided: 2
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 575
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 56
+	Number of Task Landmarks : 21
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 34
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0118
+Nodes per Second : 87568.56
+Solution Size : 35
+Nodes Expanded : 799
+Fringe size : 35
+Revisits Avoided: 2
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.5861
+Nodes per Second : 24666.50
+Solution Size : 86
+Nodes Expanded : 14454
+Revisits Avoided: 230
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0466
+Nodes per Second : 394333.15
+Solution Size : 84
+Nodes Expanded : 18322
+Revisits Avoided: 281
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 112
+	Number of Task Landmarks : 37
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 74
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1631
+Nodes per Second : 91164.58
+Solution Size : 84
+Nodes Expanded : 14422
+Fringe size : 124
+Revisits Avoided: 276
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p05
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2154
+Nodes per Second : 36376.18
+Solution Size : 77
+Nodes Expanded : 7833
+Revisits Avoided: 32
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1219
+Nodes per Second : 413804.34
+Solution Size : 71
+Nodes Expanded : 50368
+Revisits Avoided: 32
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1121
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 104
+	Number of Task Landmarks : 39
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 64
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.4903
+Nodes per Second : 88816.46
+Solution Size : 71
+Nodes Expanded : 43169
+Fringe size : 1339
+Revisits Avoided: 32
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-GTOHP
+Problem : p09
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.6908
+Nodes per Second : 23229.76
+Solution Size : 106
+Nodes Expanded : 16044
+Revisits Avoided: 25
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p09
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2509
+Nodes per Second : 401374.18
+Solution Size : 103
+Nodes Expanded : 100678
+Revisits Avoided: 24
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-GTOHP
+Problem : p09
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1549
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 154
+	Number of Task Landmarks : 51
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 102
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.8430
+Nodes per Second : 83156.54
+Solution Size : 103
+Nodes Expanded : 69583
+Fringe size : 1686
+Revisits Avoided: 24
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : BLIND
+Domain : Blocksworld-GTOHP
+Problem : p10
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 23.7006
+Nodes per Second : 135644.57
+Solution Size : 147
+Nodes Expanded : 3214836
+Revisits Avoided: 78383
+Used Memory: 24.5%
+Search Result: None
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Blocksworld-HPDDL
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-HPDDL
+Problem : pfile_025
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1899
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 265
+	Number of Task Landmarks : 75
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 188
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 18.2240
+Nodes per Second : 107605.24
+Solution Size : 118
+Nodes Expanded : 1959883
+Fringe size : 112
+Revisits Avoided: 46467
+Used Memory: 25.6%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 102028.62
+Solution Size : 20
+Nodes Expanded : 385
+Revisits Avoided: 24
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 533883.95
+Solution Size : 20
+Nodes Expanded : 612
+Revisits Avoided: 39
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 54
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 35
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0058
+Nodes per Second : 106393.25
+Solution Size : 20
+Nodes Expanded : 362
+Fringe size : 15
+Revisits Avoided: 22
+Used Memory: 24.6%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-HPDDL
+Problem : pfile_020
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1411
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 209
+	Number of Task Landmarks : 60
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 147
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 4.9881
+Nodes per Second : 107036.93
+Solution Size : 86
+Nodes Expanded : 533154
+Fringe size : 472
+Revisits Avoided: 25234
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 4.1508
+Nodes per Second : 39379.94
+Solution Size : 66
+Nodes Expanded : 163452
+Revisits Avoided: 7498
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1083
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 160
+	Number of Task Landmarks : 46
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 112
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.5016
+Nodes per Second : 114178.26
+Solution Size : 64
+Nodes Expanded : 56698
+Fringe size : 260
+Revisits Avoided: 2186
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Blocksworld-HPDDL
+Problem : pfile_010
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1060
+Nodes per Second : 57975.41
+Solution Size : 43
+Nodes Expanded : 6137
+Revisits Avoided: 401
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Blocksworld-HPDDL
+Problem : pfile_010
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.6628
+Nodes per Second : 463153.44
+Solution Size : 43
+Nodes Expanded : 306928
+Revisits Avoided: 20248
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Blocksworld-HPDDL
+Problem : pfile_010
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 704
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 104
+	Number of Task Landmarks : 30
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 72
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0447
+Nodes per Second : 115130.14
+Solution Size : 43
+Nodes Expanded : 4745
+Fringe size : 55
+Revisits Avoided: 281
+Used Memory: 25.0%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Childsnack
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Depots
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p12
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.9628
+Nodes per Second : 11036.20
+Solution Size : 96
+Nodes Expanded : 21661
+Revisits Avoided: 256
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p12
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5620
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 143
+	Number of Task Landmarks : 33
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 109
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.5270
+Nodes per Second : 98494.46
+Solution Size : 96
+Nodes Expanded : 50385
+Fringe size : 19
+Revisits Avoided: 846
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p13
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0739
+Nodes per Second : 23306.13
+Solution Size : 37
+Nodes Expanded : 1719
+Revisits Avoided: 7
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p13
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0132
+Nodes per Second : 477543.61
+Solution Size : 37
+Nodes Expanded : 6265
+Revisits Avoided: 47
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p13
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2360
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 82
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 61
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0415
+Nodes per Second : 108115.22
+Solution Size : 37
+Nodes Expanded : 3854
+Fringe size : 27
+Revisits Avoided: 48
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p06
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 6.0512
+Nodes per Second : 15488.42
+Solution Size : 92
+Nodes Expanded : 93721
+Revisits Avoided: 419
+Used Memory: 24.6%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6408
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 130
+	Number of Task Landmarks : 32
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 97
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.5441
+Nodes per Second : 91814.13
+Solution Size : 92
+Nodes Expanded : 140275
+Fringe size : 6
+Revisits Avoided: 1295
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1560
+Nodes per Second : 27771.71
+Solution Size : 51
+Nodes Expanded : 4330
+Revisits Avoided: 58
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1059
+Nodes per Second : 480880.56
+Solution Size : 51
+Nodes Expanded : 50866
+Revisits Avoided: 272
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1992
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 79
+	Number of Task Landmarks : 21
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 57
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0908
+Nodes per Second : 101240.37
+Solution Size : 51
+Nodes Expanded : 8647
+Fringe size : 9
+Revisits Avoided: 154
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 77900.07
+Solution Size : 15
+Nodes Expanded : 152
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 563490.08
+Solution Size : 15
+Nodes Expanded : 221
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 754
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 33
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 24
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 104026.34
+Solution Size : 15
+Nodes Expanded : 219
+Fringe size : 3
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p14
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0724
+Nodes per Second : 24960.74
+Solution Size : 47
+Nodes Expanded : 1805
+Revisits Avoided: 20
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p14
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0545
+Nodes per Second : 473005.43
+Solution Size : 47
+Nodes Expanded : 25714
+Revisits Avoided: 320
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p14
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2876
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 83
+	Number of Task Landmarks : 19
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 63
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0291
+Nodes per Second : 104616.20
+Solution Size : 47
+Nodes Expanded : 2286
+Fringe size : 80
+Revisits Avoided: 83
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0919
+Nodes per Second : 23357.91
+Solution Size : 55
+Nodes Expanded : 2142
+Revisits Avoided: 40
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p08
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1634
+Nodes per Second : 447797.55
+Solution Size : 55
+Nodes Expanded : 73115
+Revisits Avoided: 1024
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2349
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 97
+	Number of Task Landmarks : 25
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 71
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0406
+Nodes per Second : 103399.44
+Solution Size : 55
+Nodes Expanded : 3542
+Fringe size : 19
+Revisits Avoided: 73
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p11
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.5775
+Nodes per Second : 16473.09
+Solution Size : 73
+Nodes Expanded : 9511
+Revisits Avoided: 58
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p11
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.9395
+Nodes per Second : 373800.91
+Solution Size : 73
+Nodes Expanded : 351140
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p11
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4852
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 116
+	Number of Task Landmarks : 28
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 87
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.2746
+Nodes per Second : 100137.69
+Solution Size : 73
+Nodes Expanded : 26275
+Fringe size : 13
+Revisits Avoided: 329
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0859
+Nodes per Second : 33322.10
+Solution Size : 44
+Nodes Expanded : 2857
+Revisits Avoided: 34
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0437
+Nodes per Second : 497264.15
+Solution Size : 44
+Nodes Expanded : 21651
+Revisits Avoided: 64
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2969
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 68
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 50
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0685
+Nodes per Second : 105899.03
+Solution Size : 44
+Nodes Expanded : 6513
+Fringe size : 9
+Revisits Avoided: 79
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0100
+Nodes per Second : 51196.94
+Solution Size : 24
+Nodes Expanded : 506
+Revisits Avoided: 7
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0020
+Nodes per Second : 504125.71
+Solution Size : 24
+Nodes Expanded : 922
+Revisits Avoided: 8
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 49
+	Number of Task Landmarks : 12
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 36
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0089
+Nodes per Second : 104247.94
+Solution Size : 24
+Nodes Expanded : 560
+Fringe size : 7
+Revisits Avoided: 6
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0249
+Nodes per Second : 42163.13
+Solution Size : 34
+Nodes Expanded : 1046
+Revisits Avoided: 16
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0040
+Nodes per Second : 505004.06
+Solution Size : 34
+Nodes Expanded : 1987
+Revisits Avoided: 8
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2051
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 57
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 41
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0191
+Nodes per Second : 109556.77
+Solution Size : 34
+Nodes Expanded : 1312
+Fringe size : 4
+Revisits Avoided: 18
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p05
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.8903
+Nodes per Second : 18216.18
+Solution Size : 71
+Nodes Expanded : 16215
+Revisits Avoided: 54
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.1162
+Nodes per Second : 316684.66
+Solution Size : 71
+Nodes Expanded : 670123
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5830
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 99
+	Number of Task Landmarks : 25
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 73
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.6615
+Nodes per Second : 100827.87
+Solution Size : 71
+Nodes Expanded : 65296
+Fringe size : 7
+Revisits Avoided: 666
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p09
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 4.5029
+Nodes per Second : 12862.47
+Solution Size : 93
+Nodes Expanded : 57916
+Revisits Avoided: 574
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p09
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 9.7931
+Nodes per Second : 206531.05
+Solution Size : 93
+Nodes Expanded : 2022559
+Revisits Avoided: 8320
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p09
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5040
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 145
+	Number of Task Landmarks : 38
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 106
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.1335
+Nodes per Second : 87649.11
+Solution Size : 93
+Nodes Expanded : 98154
+Fringe size : 9
+Revisits Avoided: 1676
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p15
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.8832
+Nodes per Second : 10550.09
+Solution Size : 101
+Nodes Expanded : 40966
+Revisits Avoided: 209
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p15
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 29.1947
+Nodes per Second : 158037.48
+Solution Size : 101
+Nodes Expanded : 4613844
+Revisits Avoided: 24576
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p15
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7717
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 158
+	Number of Task Landmarks : 40
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 117
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.6418
+Nodes per Second : 94793.75
+Solution Size : 101
+Nodes Expanded : 58809
+Fringe size : 38
+Revisits Avoided: 509
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Depots
+Problem : p10
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0257
+Nodes per Second : 38551.95
+Solution Size : 38
+Nodes Expanded : 986
+Revisits Avoided: 11
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Depots
+Problem : p10
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0113
+Nodes per Second : 522297.74
+Solution Size : 38
+Nodes Expanded : 5839
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Depots
+Problem : p10
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1967
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 67
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 51
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0181
+Nodes per Second : 110478.40
+Solution Size : 38
+Nodes Expanded : 1454
+Fringe size : 7
+Revisits Avoided: 18
+Used Memory: 24.8%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Factories-simple
+@
+Experiment Name : BLIND
+Domain : Factories-simple
+Problem : pfile05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 12.0077
+Nodes per Second : 218100.03
+Solution Size : 306
+Nodes Expanded : 2618857
+Revisits Avoided: 147323
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Factories-simple
+Problem : pfile05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3011
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 30
+	Number of Task Landmarks : 10
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 19
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 41.3394
+Nodes per Second : 62899.21
+Solution Size : 306
+Nodes Expanded : 2599739
+Fringe size : 946
+Revisits Avoided: 146448
+Used Memory: 26.2%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Factories-simple
+Problem : pfile03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0894
+Nodes per Second : 95019.13
+Solution Size : 58
+Nodes Expanded : 8484
+Revisits Avoided: 572
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Factories-simple
+Problem : pfile03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0211
+Nodes per Second : 428963.45
+Solution Size : 58
+Nodes Expanded : 8995
+Revisits Avoided: 613
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Factories-simple
+Problem : pfile03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 809
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 22
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 13
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0835
+Nodes per Second : 111152.91
+Solution Size : 58
+Nodes Expanded : 8958
+Fringe size : 20
+Revisits Avoided: 608
+Used Memory: 24.7%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Factories-simple
+Problem : pfile02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0507
+Nodes per Second : 100035.72
+Solution Size : 48
+Nodes Expanded : 5060
+Revisits Avoided: 329
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Factories-simple
+Problem : pfile02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0140
+Nodes per Second : 437165.35
+Solution Size : 48
+Nodes Expanded : 6091
+Revisits Avoided: 408
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Factories-simple
+Problem : pfile02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 784
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 22
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 13
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0592
+Nodes per Second : 107736.03
+Solution Size : 48
+Nodes Expanded : 6070
+Fringe size : 19
+Revisits Avoided: 402
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Factories-simple
+Problem : pfile04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.3204
+Nodes per Second : 63212.49
+Solution Size : 125
+Nodes Expanded : 83459
+Revisits Avoided: 5047
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Factories-simple
+Problem : pfile04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2580
+Nodes per Second : 382505.04
+Solution Size : 123
+Nodes Expanded : 98632
+Revisits Avoided: 5959
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Factories-simple
+Problem : pfile04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1608
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 26
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 16
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.9388
+Nodes per Second : 105112.98
+Solution Size : 123
+Nodes Expanded : 98206
+Fringe size : 96
+Revisits Avoided: 5948
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Factories-simple
+Problem : pfile01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0017
+Nodes per Second : 165865.94
+Solution Size : 15
+Nodes Expanded : 268
+Revisits Avoided: 15
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Factories-simple
+Problem : pfile01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0007
+Nodes per Second : 520372.16
+Solution Size : 15
+Nodes Expanded : 299
+Revisits Avoided: 20
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Factories-simple
+Problem : pfile01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 262
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 18
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 10
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 104425.43
+Solution Size : 15
+Nodes Expanded : 296
+Fringe size : 5
+Revisits Avoided: 17
+Used Memory: 24.7%
+Search Result: None
+@
+Skipping ignored domain: Freecell-Learned-ECAI-16
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Hiking
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Hiking
+Problem : p01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 53.0842
+Nodes per Second : 28821.72
+Solution Size : 26
+Nodes Expanded : 1529973
+Revisits Avoided: 17011
+Used Memory: 25.0%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Lamps
+Skipping ignored domain: Logistics-Learned-ECAI-16
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Minecraft-Regular
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-5-5-5-07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.7821
+Nodes per Second : 9449.39
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 25.5%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-5-5-5-07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0319
+Nodes per Second : 74955.75
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-5-5-5-09
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.8013
+Nodes per Second : 9222.95
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 26.2%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-5-5-5-09
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0309
+Nodes per Second : 73793.51
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-004-005-004-005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.3574
+Nodes per Second : 12828.20
+Solution Size : 78
+Nodes Expanded : 4583
+Revisits Avoided: 312
+Used Memory: 25.3%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-004-005-004-005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2460
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 388
+	Number of Task Landmarks : 269
+	Number of Method Landmarks : 43
+	Number of Fact Landmarks : 76
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0196
+Nodes per Second : 78565.54
+Solution Size : 78
+Nodes Expanded : 588
+Fringe size : 108
+Revisits Avoided: 4
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-5-5-5-08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.7963
+Nodes per Second : 9280.31
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 25.6%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-5-5-5-08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0303
+Nodes per Second : 73967.69
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 25.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-003-004-004-004
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0965
+Nodes per Second : 20246.25
+Solution Size : 54
+Nodes Expanded : 1951
+Revisits Avoided: 167
+Used Memory: 25.7%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-003-004-004-004
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1742
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 289
+	Number of Task Landmarks : 196
+	Number of Method Landmarks : 41
+	Number of Fact Landmarks : 52
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0123
+Nodes per Second : 83716.00
+Solution Size : 54
+Nodes Expanded : 443
+Fringe size : 85
+Revisits Avoided: 4
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-003-003-003-003
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0285
+Nodes per Second : 32255.74
+Solution Size : 35
+Nodes Expanded : 915
+Revisits Avoided: 97
+Used Memory: 24.7%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-003-003-003-003
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1132
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 197
+	Number of Task Landmarks : 131
+	Number of Method Landmarks : 33
+	Number of Fact Landmarks : 33
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0079
+Nodes per Second : 85059.91
+Solution Size : 35
+Nodes Expanded : 300
+Fringe size : 57
+Revisits Avoided: 3
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-5-5-5-06
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.7777
+Nodes per Second : 9502.18
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 24.9%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-5-5-5-06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0304
+Nodes per Second : 73683.84
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-004-004-004-004
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1623
+Nodes per Second : 16547.56
+Solution Size : 66
+Nodes Expanded : 2683
+Revisits Avoided: 224
+Used Memory: 25.4%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-004-004-004-004
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2100
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 340
+	Number of Task Landmarks : 233
+	Number of Method Landmarks : 43
+	Number of Fact Landmarks : 64
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0158
+Nodes per Second : 81849.36
+Solution Size : 66
+Nodes Expanded : 516
+Fringe size : 96
+Revisits Avoided: 4
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-5-5-5-10
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.7931
+Nodes per Second : 9318.53
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 26.1%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-5-5-5-10
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0311
+Nodes per Second : 74031.98
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 26.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-003-004-003-004
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0626
+Nodes per Second : 24982.78
+Solution Size : 44
+Nodes Expanded : 1560
+Revisits Avoided: 131
+Used Memory: 26.1%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-003-004-003-004
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1402
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 233
+	Number of Task Landmarks : 158
+	Number of Method Landmarks : 33
+	Number of Fact Landmarks : 42
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0097
+Nodes per Second : 84540.43
+Solution Size : 44
+Nodes Expanded : 354
+Fringe size : 66
+Revisits Avoided: 3
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-005-005-005-005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.7844
+Nodes per Second : 9421.57
+Solution Size : 107
+Nodes Expanded : 7389
+Revisits Avoided: 513
+Used Memory: 24.7%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-005-005-005-005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 523
+	Number of Task Landmarks : 365
+	Number of Method Landmarks : 53
+	Number of Fact Landmarks : 105
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0305
+Nodes per Second : 74526.93
+Solution Size : 107
+Nodes Expanded : 792
+Fringe size : 145
+Revisits Avoided: 5
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Minecraft-Regular
+Problem : p-004-005-005-005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.4968
+Nodes per Second : 10965.54
+Solution Size : 92
+Nodes Expanded : 5446
+Revisits Avoided: 376
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Minecraft-Regular
+Problem : p-004-005-005-005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2920
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 460
+	Number of Task Landmarks : 319
+	Number of Method Landmarks : 51
+	Number of Fact Landmarks : 90
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0247
+Nodes per Second : 76695.72
+Solution Size : 92
+Nodes Expanded : 701
+Fringe size : 131
+Revisits Avoided: 5
+Used Memory: 25.1%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Monroe-Fully-Observable
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.9849
+Nodes per Second : 208208.58
+Solution Size : 16
+Nodes Expanded : 621445
+Revisits Avoided: 0
+Used Memory: 26.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767978
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 357
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 349
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 23.2063
+Nodes per Second : 64887.54
+Solution Size : 16
+Nodes Expanded : 101368
+Fringe size : 2244
+Revisits Avoided: 0
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Monroe-Fully-Observable
+Problem : pfile03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 56.3058
+Nodes per Second : 2610.81
+Solution Size : 11
+Nodes Expanded : 147003
+Revisits Avoided: 20
+Used Memory: 25.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.0044
+Nodes per Second : 261517.79
+Solution Size : 11
+Nodes Expanded : 262629
+Revisits Avoided: 0
+Used Memory: 26.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 804709
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 357
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 348
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 22.0219
+Nodes per Second : 73247.99
+Solution Size : 11
+Nodes Expanded : 42252
+Fringe size : 1832
+Revisits Avoided: 0
+Used Memory: 33.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Monroe-Fully-Observable
+Problem : pfile04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 25.3418
+Nodes per Second : 1348.81
+Solution Size : 3
+Nodes Expanded : 34181
+Revisits Avoided: 147
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2370
+Nodes per Second : 124859.95
+Solution Size : 3
+Nodes Expanded : 29576
+Revisits Avoided: 0
+Used Memory: 26.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767541
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 356
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 353
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 15.0471
+Nodes per Second : 63169.13
+Solution Size : 3
+Nodes Expanded : 88766
+Fringe size : 8558
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.1501
+Nodes per Second : 186695.17
+Solution Size : 7
+Nodes Expanded : 214685
+Revisits Avoided: 0
+Used Memory: 25.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 714756
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 344
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 341
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 44.1852
+Nodes per Second : 53036.65
+Solution Size : 7
+Nodes Expanded : 1646118
+Fringe size : 77189
+Revisits Avoided: 22
+Used Memory: 41.9%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile09
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.9371
+Nodes per Second : 228628.71
+Solution Size : 34
+Nodes Expanded : 442833
+Revisits Avoided: 0
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile09
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 751826
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 379
+	Number of Task Landmarks : 11
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 367
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 27.8106
+Nodes per Second : 63058.60
+Solution Size : 34
+Nodes Expanded : 373097
+Fringe size : 505
+Revisits Avoided: 8
+Used Memory: 39.2%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile06
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.3333
+Nodes per Second : 195246.67
+Solution Size : 12
+Nodes Expanded : 650774
+Revisits Avoided: 0
+Used Memory: 25.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 777228
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 356
+	Number of Task Landmarks : 5
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 350
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 23.3365
+Nodes per Second : 39717.53
+Solution Size : 12
+Nodes Expanded : 99517
+Fringe size : 69756
+Revisits Avoided: 0
+Used Memory: 33.9%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile08
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 4.8234
+Nodes per Second : 187612.95
+Solution Size : 15
+Nodes Expanded : 904896
+Revisits Avoided: 0
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 829897
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 381
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 373
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 21.5274
+Nodes per Second : 37089.07
+Solution Size : 15
+Nodes Expanded : 100581
+Fringe size : 76540
+Revisits Avoided: 0
+Used Memory: 38.0%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.9610
+Nodes per Second : 205881.29
+Solution Size : 18
+Nodes Expanded : 609587
+Revisits Avoided: 0
+Used Memory: 25.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 820413
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 364
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 354
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 22.7423
+Nodes per Second : 71893.00
+Solution Size : 18
+Nodes Expanded : 37882
+Fringe size : 1935
+Revisits Avoided: 0
+Used Memory: 34.5%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 7.0657
+Nodes per Second : 180785.39
+Solution Size : 25
+Nodes Expanded : 1277342
+Revisits Avoided: 0
+Used Memory: 26.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767654
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 357
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 349
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 44.8301
+Nodes per Second : 55334.98
+Solution Size : 25
+Nodes Expanded : 1287992
+Fringe size : 875
+Revisits Avoided: 0
+Used Memory: 39.5%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Fully-Observable
+Problem : pfile10
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.8226
+Nodes per Second : 227241.15
+Solution Size : 48
+Nodes Expanded : 414136
+Revisits Avoided: 1
+Used Memory: 25.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Fully-Observable
+Problem : pfile10
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 778296
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 399
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 381
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 25.8982
+Nodes per Second : 62489.64
+Solution Size : 48
+Nodes Expanded : 224700
+Fringe size : 3394
+Revisits Avoided: 2
+Used Memory: 41.5%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Monroe-Partially-Observable
+Experiment Name : NOVELTY
+Domain : Monroe-Partially-Observable
+Problem : pfile02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.0241
+Nodes per Second : 2132.36
+Solution Size : 6
+Nodes Expanded : 6448
+Revisits Avoided: 16
+Used Memory: 25.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Monroe-Partially-Observable
+Problem : pfile02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.8874
+Nodes per Second : 201118.17
+Solution Size : 6
+Nodes Expanded : 178436
+Revisits Avoided: 1
+Used Memory: 26.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 818377
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 373
+	Number of Task Landmarks : 5
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 367
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 16.7095
+Nodes per Second : 24674.41
+Solution Size : 6
+Nodes Expanded : 29496
+Fringe size : 56796
+Revisits Avoided: 0
+Used Memory: 39.5%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Partially-Observable
+Problem : pfile03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 45.1254
+Nodes per Second : 143651.73
+Solution Size : 12
+Nodes Expanded : 6482323
+Revisits Avoided: 1339
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 789621
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 354
+	Number of Task Landmarks : 4
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 349
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 45.6252
+Nodes per Second : 52653.71
+Solution Size : 12
+Nodes Expanded : 1631444
+Fringe size : 57867
+Revisits Avoided: 42
+Used Memory: 43.6%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 861688
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 379
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 371
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 21.8176
+Nodes per Second : 38912.59
+Solution Size : 13
+Nodes Expanded : 185561
+Fringe size : 113012
+Revisits Avoided: 0
+Used Memory: 42.8%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Partially-Observable
+Problem : pfile01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 38.9704
+Nodes per Second : 136404.78
+Solution Size : 11
+Nodes Expanded : 5315722
+Revisits Avoided: 1789
+Used Memory: 26.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 782156
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 353
+	Number of Task Landmarks : 6
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 346
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 16.7892
+Nodes per Second : 62614.68
+Solution Size : 11
+Nodes Expanded : 170799
+Fringe size : 4754
+Revisits Avoided: 0
+Used Memory: 38.0%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 819532
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 361
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 352
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 15.1020
+Nodes per Second : 73158.48
+Solution Size : 18
+Nodes Expanded : 48572
+Fringe size : 2532
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Monroe-Partially-Observable
+Problem : pfile08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 825023
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 398
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 382
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 47.3970
+Nodes per Second : 51817.02
+Solution Size : 45
+Nodes Expanded : 1608346
+Fringe size : 45194
+Revisits Avoided: 633
+Used Memory: 47.2%
+Search Result: None
+@
+@
+Experiment Name : BLIND
+Domain : Monroe-Partially-Observable
+Problem : pfile05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 24.8119
+Nodes per Second : 139372.69
+Solution Size : 10
+Nodes Expanded : 3458075
+Revisits Avoided: 793
+Used Memory: 25.5%
+Search Result: None
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Multiarm-Blocksworld
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_010
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 6.3181
+Nodes per Second : 54018.83
+Solution Size : 47
+Nodes Expanded : 341289
+Revisits Avoided: 9325
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_010
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1536
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 65
+	Number of Task Landmarks : 14
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 48
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.5022
+Nodes per Second : 111705.69
+Solution Size : 43
+Nodes Expanded : 55583
+Fringe size : 703
+Revisits Avoided: 2018
+Used Memory: 25.2%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_010
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2049
+Nodes per Second : 71013.28
+Solution Size : 45
+Nodes Expanded : 14547
+Revisits Avoided: 412
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_010
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 36.4832
+Nodes per Second : 160048.94
+Solution Size : 43
+Nodes Expanded : 5839084
+Revisits Avoided: 136460
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_010
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 722
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 90
+	Number of Task Landmarks : 31
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 57
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0697
+Nodes per Second : 118881.50
+Solution Size : 43
+Nodes Expanded : 7886
+Fringe size : 103
+Revisits Avoided: 202
+Used Memory: 24.8%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_015
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2123
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 92
+	Number of Task Landmarks : 19
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 70
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 21.1856
+Nodes per Second : 70566.63
+Solution Size : 60
+Nodes Expanded : 1494526
+Fringe size : 15789
+Revisits Avoided: 56968
+Used Memory: 25.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0072
+Nodes per Second : 96631.96
+Solution Size : 20
+Nodes Expanded : 689
+Revisits Avoided: 10
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 586014.01
+Solution Size : 20
+Nodes Expanded : 2199
+Revisits Avoided: 41
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 844
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 39
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 27
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0101
+Nodes per Second : 105630.16
+Solution Size : 20
+Nodes Expanded : 752
+Fringe size : 46
+Revisits Avoided: 11
+Used Memory: 24.5%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0054
+Nodes per Second : 138105.13
+Solution Size : 23
+Nodes Expanded : 729
+Revisits Avoided: 29
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0067
+Nodes per Second : 575783.09
+Solution Size : 23
+Nodes Expanded : 3831
+Revisits Avoided: 158
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 339
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 45
+	Number of Task Landmarks : 16
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 27
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0081
+Nodes per Second : 112047.16
+Solution Size : 23
+Nodes Expanded : 683
+Fringe size : 22
+Revisits Avoided: 26
+Used Memory: 24.4%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Robot
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_02_001
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 310689.19
+Solution Size : 6
+Nodes Expanded : 92
+Revisits Avoided: 4
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_02_001
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 542987.84
+Solution Size : 6
+Nodes Expanded : 98
+Revisits Avoided: 5
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_02_001
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 86
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 19
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 9
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0034
+Nodes per Second : 101285.48
+Solution Size : 6
+Nodes Expanded : 168
+Fringe size : 15
+Revisits Avoided: 9
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_05_010
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.4297
+Nodes per Second : 165966.17
+Solution Size : 28
+Nodes Expanded : 237272
+Revisits Avoided: 8005
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_05_010
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.9719
+Nodes per Second : 385852.89
+Solution Size : 28
+Nodes Expanded : 1532517
+Revisits Avoided: 47832
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_05_010
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 336
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 56
+	Number of Task Landmarks : 23
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 31
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.8092
+Nodes per Second : 118423.89
+Solution Size : 28
+Nodes Expanded : 95550
+Fringe size : 235
+Revisits Avoided: 5001
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_03_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 284942.41
+Solution Size : 15
+Nodes Expanded : 1417
+Revisits Avoided: 68
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_03_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 655839.82
+Solution Size : 15
+Nodes Expanded : 1495
+Revisits Avoided: 69
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_03_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 174
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 31
+	Number of Task Landmarks : 13
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 16
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0123
+Nodes per Second : 111928.15
+Solution Size : 15
+Nodes Expanded : 1156
+Fringe size : 11
+Revisits Avoided: 57
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_03_003
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0038
+Nodes per Second : 295056.20
+Solution Size : 15
+Nodes Expanded : 1087
+Revisits Avoided: 62
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_03_003
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 630487.65
+Solution Size : 15
+Nodes Expanded : 1151
+Revisits Avoided: 63
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_03_003
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 150
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 28
+	Number of Task Landmarks : 12
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0101
+Nodes per Second : 112727.36
+Solution Size : 15
+Nodes Expanded : 906
+Fringe size : 18
+Revisits Avoided: 55
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_04_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0588
+Nodes per Second : 209167.00
+Solution Size : 18
+Nodes Expanded : 12267
+Revisits Avoided: 469
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_04_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0796
+Nodes per Second : 540653.46
+Solution Size : 18
+Nodes Expanded : 42943
+Revisits Avoided: 1488
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_04_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 279
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 46
+	Number of Task Landmarks : 19
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 25
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0383
+Nodes per Second : 112783.23
+Solution Size : 21
+Nodes Expanded : 4046
+Fringe size : 93
+Revisits Avoided: 149
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_04_003
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 232397.87
+Solution Size : 7
+Nodes Expanded : 292
+Revisits Avoided: 8
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_04_003
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 603068.52
+Solution Size : 7
+Nodes Expanded : 1043
+Revisits Avoided: 37
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_04_003
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 167
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 27
+	Number of Task Landmarks : 11
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0031
+Nodes per Second : 84103.59
+Solution Size : 7
+Nodes Expanded : 116
+Fringe size : 34
+Revisits Avoided: 3
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_02_002
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 280312.40
+Solution Size : 7
+Nodes Expanded : 108
+Revisits Avoided: 3
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_02_002
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 610080.58
+Solution Size : 7
+Nodes Expanded : 120
+Revisits Avoided: 4
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_02_002
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 99
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 22
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 11
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 85979.49
+Solution Size : 7
+Nodes Expanded : 92
+Fringe size : 19
+Revisits Avoided: 3
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_03_002
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 243540.23
+Solution Size : 7
+Nodes Expanded : 441
+Revisits Avoided: 18
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_03_002
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 594028.06
+Solution Size : 7
+Nodes Expanded : 510
+Revisits Avoided: 19
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_03_002
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 151
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 29
+	Number of Task Landmarks : 12
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 15
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 93712.33
+Solution Size : 7
+Nodes Expanded : 173
+Fringe size : 34
+Revisits Avoided: 5
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_05_005
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0866
+Nodes per Second : 216365.85
+Solution Size : 26
+Nodes Expanded : 18713
+Revisits Avoided: 719
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_05_005
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1299
+Nodes per Second : 647659.29
+Solution Size : 26
+Nodes Expanded : 84046
+Revisits Avoided: 3101
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_05_005
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 250
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 48
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 26
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1892
+Nodes per Second : 121766.40
+Solution Size : 26
+Nodes Expanded : 22750
+Fringe size : 81
+Revisits Avoided: 1304
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_01_001
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 128397.06
+Solution Size : 0
+Nodes Expanded : 3
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_01_001
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 135300.13
+Solution Size : 0
+Nodes Expanded : 3
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_01_001
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 37
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 7
+	Number of Task Landmarks : 3
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 2
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0023
+Nodes per Second : 16272.76
+Solution Size : 0
+Nodes Expanded : 4
+Fringe size : 2
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Robot
+Problem : pfile_03_001
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 304959.93
+Solution Size : 7
+Nodes Expanded : 138
+Revisits Avoided: 6
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Robot
+Problem : pfile_03_001
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 643349.42
+Solution Size : 7
+Nodes Expanded : 154
+Revisits Avoided: 8
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Robot
+Problem : pfile_03_001
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 94
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 21
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 10
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 85832.64
+Solution Size : 7
+Nodes Expanded : 112
+Fringe size : 23
+Revisits Avoided: 4
+Used Memory: 24.7%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Rover-GTOHP
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p06
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 3.3728
+Nodes per Second : 33375.89
+Solution Size : 39
+Nodes Expanded : 112565
+Revisits Avoided: 1511
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p06
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 18.8128
+Nodes per Second : 146352.64
+Solution Size : 39
+Nodes Expanded : 2753289
+Revisits Avoided: 42996
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5393
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 32
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 24
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 8.3904
+Nodes per Second : 67035.70
+Solution Size : 39
+Nodes Expanded : 561755
+Fringe size : 31937
+Revisits Avoided: 13023
+Used Memory: 26.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1872
+Nodes per Second : 55183.01
+Solution Size : 40
+Nodes Expanded : 10322
+Revisits Avoided: 581
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.2857
+Nodes per Second : 381304.50
+Solution Size : 40
+Nodes Expanded : 108899
+Revisits Avoided: 4893
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1222
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 56
+	Number of Task Landmarks : 25
+	Number of Method Landmarks : 5
+	Number of Fact Landmarks : 26
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.2332
+Nodes per Second : 98767.14
+Solution Size : 40
+Nodes Expanded : 22690
+Fringe size : 946
+Revisits Avoided: 1642
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0040
+Nodes per Second : 106115.94
+Solution Size : 16
+Nodes Expanded : 409
+Revisits Avoided: 22
+Used Memory: 25.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 521300.20
+Solution Size : 16
+Nodes Expanded : 458
+Revisits Avoided: 35
+Used Memory: 25.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 34
+	Number of Task Landmarks : 14
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 16
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 91824.75
+Solution Size : 16
+Nodes Expanded : 220
+Fringe size : 35
+Revisits Avoided: 1
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 41.5059
+Nodes per Second : 19739.76
+Solution Size : 81
+Nodes Expanded : 819315
+Revisits Avoided: 6675
+Used Memory: 25.5%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0081
+Nodes per Second : 80067.84
+Solution Size : 20
+Nodes Expanded : 640
+Revisits Avoided: 19
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0029
+Nodes per Second : 484013.85
+Solution Size : 16
+Nodes Expanded : 1337
+Revisits Avoided: 41
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 651
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 30
+	Number of Task Landmarks : 11
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 17
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0074
+Nodes per Second : 101211.91
+Solution Size : 16
+Nodes Expanded : 490
+Fringe size : 47
+Revisits Avoided: 8
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0098
+Nodes per Second : 95519.25
+Solution Size : 24
+Nodes Expanded : 928
+Revisits Avoided: 21
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0043
+Nodes per Second : 454976.94
+Solution Size : 24
+Nodes Expanded : 1934
+Revisits Avoided: 65
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 560
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 35
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 17
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0078
+Nodes per Second : 102038.62
+Solution Size : 24
+Nodes Expanded : 533
+Fringe size : 47
+Revisits Avoided: 11
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 10.8685
+Nodes per Second : 27199.87
+Solution Size : 66
+Nodes Expanded : 295619
+Revisits Avoided: 3038
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 37.4236
+Nodes per Second : 148753.70
+Solution Size : 59
+Nodes Expanded : 5566878
+Revisits Avoided: 43100
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 9892
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 61
+	Number of Task Landmarks : 22
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 35
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 16.1302
+Nodes per Second : 60199.53
+Solution Size : 59
+Nodes Expanded : 969899
+Fringe size : 58975
+Revisits Avoided: 7176
+Used Memory: 27.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Rover-GTOHP
+Problem : p05
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.5418
+Nodes per Second : 31250.64
+Solution Size : 67
+Nodes Expanded : 79428
+Revisits Avoided: 1491
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Rover-GTOHP
+Problem : p05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 55.4995
+Nodes per Second : 136289.72
+Solution Size : 50
+Nodes Expanded : 7563998
+Revisits Avoided: 143539
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Rover-GTOHP
+Problem : p05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4176
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 37
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 27
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 17.2988
+Nodes per Second : 57447.61
+Solution Size : 50
+Nodes Expanded : 993241
+Fringe size : 69497
+Revisits Avoided: 20602
+Used Memory: 27.3%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Satellite-GTOHP
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Satellite-GTOHP
+Problem : p01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 133842.03
+Solution Size : 12
+Nodes Expanded : 228
+Revisits Avoided: 18
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Satellite-GTOHP
+Problem : p01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 469575.07
+Solution Size : 12
+Nodes Expanded : 442
+Revisits Avoided: 1
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Satellite-GTOHP
+Problem : p01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 419
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 38
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 7
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 93231.27
+Solution Size : 12
+Nodes Expanded : 169
+Fringe size : 21
+Revisits Avoided: 6
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Satellite-GTOHP
+Problem : p08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 46.4492
+Nodes per Second : 9239.53
+Solution Size : 48
+Nodes Expanded : 429168
+Revisits Avoided: 6335
+Used Memory: 25.1%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Satellite-GTOHP
+Problem : p03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0361
+Nodes per Second : 53239.20
+Solution Size : 16
+Nodes Expanded : 1915
+Revisits Avoided: 126
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Satellite-GTOHP
+Problem : p03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0113
+Nodes per Second : 444689.55
+Solution Size : 16
+Nodes Expanded : 4984
+Revisits Avoided: 14
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Satellite-GTOHP
+Problem : p03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1552
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 29
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 21
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0325
+Nodes per Second : 106712.33
+Solution Size : 16
+Nodes Expanded : 3058
+Fringe size : 130
+Revisits Avoided: 3
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Satellite-GTOHP
+Problem : p02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0213
+Nodes per Second : 80983.88
+Solution Size : 18
+Nodes Expanded : 1715
+Revisits Avoided: 71
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Satellite-GTOHP
+Problem : p02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0101
+Nodes per Second : 428451.49
+Solution Size : 18
+Nodes Expanded : 4265
+Revisits Avoided: 29
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Satellite-GTOHP
+Problem : p02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1300
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 42
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 22
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0096
+Nodes per Second : 106194.67
+Solution Size : 18
+Nodes Expanded : 689
+Fringe size : 65
+Revisits Avoided: 7
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Satellite-GTOHP
+Problem : p05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 19910
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 150
+	Number of Task Landmarks : 39
+	Number of Method Landmarks : 11
+	Number of Fact Landmarks : 100
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 28.3084
+Nodes per Second : 61272.96
+Solution Size : 63
+Nodes Expanded : 1730764
+Fringe size : 81756
+Revisits Avoided: 5226
+Used Memory: 27.9%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Snake
+@
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-5slots-seed1.snake
+Staring solver
+function F = 1*G + 1*H
+@
+Experiment Name : NOVELTY
+Domain : Snake
+Problem : pb-2slots-seed1.snake
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.4936
+Nodes per Second : 60868.44
+Solution Size : 17
+Nodes Expanded : 30033
+Revisits Avoided: 45
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Snake
+Problem : pb-2slots-seed1.snake
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0656
+Nodes per Second : 555260.93
+Solution Size : 17
+Nodes Expanded : 36370
+Revisits Avoided: 40
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-2slots-seed1.snake
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 149780
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 36
+	Number of Task Landmarks : 3
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 31
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.0322
+Nodes per Second : 123473.69
+Solution Size : 17
+Nodes Expanded : 33163
+Fringe size : 153
+Revisits Avoided: 44
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Snake
+Problem : pb-3slots-seed1.snake
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 9.9719
+Nodes per Second : 33700.09
+Solution Size : 32
+Nodes Expanded : 336049
+Revisits Avoided: 387
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Snake
+Problem : pb-3slots-seed1.snake
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.4055
+Nodes per Second : 307136.49
+Solution Size : 32
+Nodes Expanded : 738772
+Revisits Avoided: 604
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-3slots-seed1.snake
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 658359
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 55
+	Number of Task Landmarks : 3
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 50
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 17.9230
+Nodes per Second : 91825.06
+Solution Size : 32
+Nodes Expanded : 392777
+Fringe size : 421
+Revisits Avoided: 414
+Used Memory: 29.0%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-6slots-seed1.snake
+Staring solver
+function F = 1*G + 1*H
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-7slots-seed1.snake
+Staring solver
+function F = 1*G + 1*H
+@
+Experiment Name : NOVELTY
+Domain : Snake
+Problem : pb-8slots-seed1.snake
+@
+Experiment Name : BLIND
+Domain : Snake
+Problem : pb-8slots-seed1.snake
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-8slots-seed1.snake
+@
+Experiment Name : NOVELTY
+Domain : Snake
+Problem : pb-10slots-seed1.snake
+@
+Experiment Name : BLIND
+Domain : Snake
+Problem : pb-10slots-seed1.snake
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-10slots-seed1.snake
+@
+Experiment Name : NOVELTY
+Domain : Snake
+Problem : pb-9slots-seed1.snake
+@
+Experiment Name : BLIND
+Domain : Snake
+Problem : pb-9slots-seed1.snake
+@
+Experiment Name : LMCOUNT
+Domain : Snake
+Problem : pb-9slots-seed1.snake
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Towers
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0022
+Nodes per Second : 218803.98
+Solution Size : 7
+Nodes Expanded : 455
+Revisits Avoided: 0
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_03
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0007
+Nodes per Second : 709181.84
+Solution Size : 7
+Nodes Expanded : 455
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_03
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6196
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 10
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 7
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0145
+Nodes per Second : 131551.62
+Solution Size : 7
+Nodes Expanded : 480
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_06
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1193
+Nodes per Second : 123959.95
+Solution Size : 63
+Nodes Expanded : 14777
+Revisits Avoided: 0
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_06
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0208
+Nodes per Second : 715175.22
+Solution Size : 63
+Nodes Expanded : 14777
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_06
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 21806
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 13
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 10
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1921
+Nodes per Second : 131872.94
+Solution Size : 63
+Nodes Expanded : 14844
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_08
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.0691
+Nodes per Second : 103656.97
+Solution Size : 255
+Nodes Expanded : 110801
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_08
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.1626
+Nodes per Second : 682097.90
+Solution Size : 255
+Nodes Expanded : 110801
+Revisits Avoided: 0
+Used Memory: 25.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_08
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 39843
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 15
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 12
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.1037
+Nodes per Second : 129305.66
+Solution Size : 255
+Nodes Expanded : 110906
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 199201.77
+Solution Size : 1
+Nodes Expanded : 18
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 393216.00
+Solution Size : 1
+Nodes Expanded : 18
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_01
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1111
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 17
+	Number of Task Landmarks : 8
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 5
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 64527.75
+Solution Size : 1
+Nodes Expanded : 25
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 222503.98
+Solution Size : 3
+Nodes Expanded : 107
+Revisits Avoided: 0
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_02
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 598387.37
+Solution Size : 3
+Nodes Expanded : 107
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_02
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3364
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 9
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 6
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0066
+Nodes per Second : 111482.59
+Solution Size : 3
+Nodes Expanded : 122
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_10
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 8.9008
+Nodes per Second : 83041.01
+Solution Size : 1023
+Nodes Expanded : 739121
+Revisits Avoided: 0
+Used Memory: 25.2%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_10
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 1.3002
+Nodes per Second : 568500.94
+Solution Size : 1023
+Nodes Expanded : 739121
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_10
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 65033
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 17
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 6.7675
+Nodes per Second : 121647.15
+Solution Size : 1023
+Nodes Expanded : 739272
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.7%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_05
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0305
+Nodes per Second : 165651.97
+Solution Size : 31
+Nodes Expanded : 5041
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_05
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0075
+Nodes per Second : 684144.52
+Solution Size : 31
+Nodes Expanded : 5041
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_05
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 15332
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 12
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 9
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0798
+Nodes per Second : 133543.82
+Solution Size : 31
+Nodes Expanded : 5092
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_11
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 26.0463
+Nodes per Second : 71085.89
+Solution Size : 2047
+Nodes Expanded : 1851515
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_11
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 4.2141
+Nodes per Second : 439379.57
+Solution Size : 2047
+Nodes Expanded : 1851515
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_11
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 80764
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 18
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 15
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 16.6952
+Nodes per Second : 118501.10
+Solution Size : 2047
+Nodes Expanded : 1851692
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 26.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.3240
+Nodes per Second : 127245.41
+Solution Size : 127
+Nodes Expanded : 41215
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_07
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0586
+Nodes per Second : 704319.75
+Solution Size : 127
+Nodes Expanded : 41215
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_07
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 30134
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 14
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 11
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.4718
+Nodes per Second : 125533.92
+Solution Size : 127
+Nodes Expanded : 41300
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0144
+Nodes per Second : 111936.67
+Solution Size : 15
+Nodes Expanded : 1601
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_04
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0025
+Nodes per Second : 676582.44
+Solution Size : 15
+Nodes Expanded : 1601
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_04
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 10261
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 11
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 8
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0351
+Nodes per Second : 132784.50
+Solution Size : 15
+Nodes Expanded : 1638
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY
+Domain : Towers
+Problem : pfile_09
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 2.9984
+Nodes per Second : 96552.49
+Solution Size : 511
+Nodes Expanded : 289485
+Revisits Avoided: 0
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Towers
+Problem : pfile_09
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.4780
+Nodes per Second : 605807.31
+Solution Size : 511
+Nodes Expanded : 289485
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT
+Domain : Towers
+Problem : pfile_09
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 51402
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 16
+	Number of Task Landmarks : 2
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 13
+	Number of Min-Cov Disjunctions Landmarks : 0
+
+Search Status : GOAL
+Search Time (seconds) : 2.7281
+Nodes per Second : 126105.21
+Solution Size : 511
+Nodes Expanded : 289612
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Transport
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile11
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0082
+Nodes per Second : 67693.90
+Solution Size : 20
+Nodes Expanded : 548
+Revisits Avoided: 52
+Used Memory: 24.8%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile05
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 26.5494
+Nodes per Second : 30776.16
+Solution Size : 32
+Nodes Expanded : 817085
+Revisits Avoided: 112426
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile10
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 8.8880
+Nodes per Second : 24052.50
+Solution Size : 35
+Nodes Expanded : 213777
+Revisits Avoided: 34823
+Used Memory: 25.1%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile03
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.4528
+Nodes per Second : 51485.37
+Solution Size : 15
+Nodes Expanded : 23306
+Revisits Avoided: 2916
+Used Memory: 25.2%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile02
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0131
+Nodes per Second : 86949.65
+Solution Size : 19
+Nodes Expanded : 1133
+Revisits Avoided: 99
+Used Memory: 25.2%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile04
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0896
+Nodes per Second : 52040.92
+Solution Size : 22
+Nodes Expanded : 4659
+Revisits Avoided: 284
+Used Memory: 25.2%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile07
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 7.5272
+Nodes per Second : 30802.53
+Solution Size : 32
+Nodes Expanded : 231853
+Revisits Avoided: 13333
+Used Memory: 25.1%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile09
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 5.5431
+Nodes per Second : 29234.95
+Solution Size : 31
+Nodes Expanded : 162050
+Revisits Avoided: 25148
+Used Memory: 25.0%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY
+Domain : Transport
+Problem : pfile01
+Starting blind search
+Novelty is enabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 139525.39
+Solution Size : 8
+Nodes Expanded : 49
+Revisits Avoided: 4
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : BLIND
+Domain : Transport
+Problem : pfile01
+Starting blind search
+Novelty is disabled in the search
+function F = 1*G + 1*H
+Search Status : GOAL
+Search Time (seconds) : 0.0176
+Nodes per Second : 248091.81
+Solution Size : 8
+Nodes Expanded : 4331
+Revisits Avoided: 552
+Used Memory: 25.1%
+Search Result: None
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Woodworking

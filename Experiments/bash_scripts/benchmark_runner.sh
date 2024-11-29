@@ -12,7 +12,7 @@ fi
 folder_benchmarks="$1/*"
 
 # Define time and memory limits
-TIME_LIMIT=1
+TIME_LIMIT=60
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored
