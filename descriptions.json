@@ -73,5 +73,8 @@
     },
     "decomposition_model": {
         "description": "Number of Decompositions"
+    },
+    "novelty_type":{
+        "descripton": "Novelty Type"
     }
 }

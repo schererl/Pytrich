@@ -17,7 +17,7 @@ def search(model: Model,
            heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
            node_type: Type[AstarNode] = AstarNode) -> None:
     
-    
+    use_early=True
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -52,7 +52,6 @@ def search(model: Model,
         expansions += 1
         node:HTNNode = heapq.heappop(pq)
         closed_list[hash(node)]=node.g_value
-        
         # time and memory control
         if FLAGS.MONITOR_SEARCH_RESOURCES and expansions%100 == 0:
             current_time = time.time()
@@ -90,6 +89,15 @@ def search(model: Model,
             new_state        = task.apply(node.state)
             new_task_network = node.task_network[1:]
             new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1)
+
+            if use_early and model.goal_reached(new_node.state, new_node.task_network):
+                STATUS = 'GOAL'
+                psutil.cpu_percent()
+                memory_usage = psutil.virtual_memory().percent
+                elapsed_time = current_time - start_time
+                break   
+
+
             try_get_node_g_val = closed_list.get(hash(new_node))
             if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                 count_revisits+=1
@@ -105,6 +113,14 @@ def search(model: Model,
                 seq_num += 1
                 refined_task_network  = method.task_network+node.task_network[1:]
                 new_node          = node_type(node, task, method, node.state, refined_task_network, seq_num, node.g_value)
+                if use_early and model.goal_reached(new_node.state, new_node.task_network):
+                    STATUS = 'GOAL'
+                    psutil.cpu_percent()
+                    memory_usage = psutil.virtual_memory().percent
+                    elapsed_time = current_time - start_time
+                    break   
+
+
                 try_get_node_g_val = closed_list.get(hash(new_node))
                 if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
                     count_revisits+=1

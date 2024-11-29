@@ -7,10 +7,10 @@ import seaborn as sns
 import numpy as np
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Generate a PDF plot comparing expanded nodes between two experiments.")
-    parser.add_argument("--input_file", required=True, help="Path to the input CSV file.")
-    parser.add_argument("--e_x", required=True, help="Name of the experiment to use as the x-axis.")
-    parser.add_argument("--e_y", required=True, help="Name of the experiment to use as the y-axis.")
-    parser.add_argument("--output_file", required=True, help="Path to the output PDF file.")
+    parser.add_argument("-i", "--input_file", required=True, help="Path to the input CSV file.")
+    parser.add_argument("-o", "--output_file", required=True, help="Path to the output PDF file.")
+    parser.add_argument("-x", "--experiment_x", required=True, help="Name of the experiment to use as the x-axis.")
+    parser.add_argument("-y", "--experiment_y", required=True, help="Name of the experiment to use as the y-axis.")
     return parser.parse_args()
 
 def load_data(input_file, experiment_x, experiment_y):
@@ -100,10 +100,10 @@ def main():
         return
 
     # Unpack the returned values
-    data, placeholder_value = load_data(args.input_file, args.e_x, args.e_y)
+    data, placeholder_value = load_data(args.input_file, args.experiment_x, args.experiment_y)
 
     # Pass the placeholder_value to plot_expanded_nodes
-    plot_expanded_nodes(data, args.e_x, args.e_y, args.output_file, placeholder_value)
+    plot_expanded_nodes(data, args.experiment_x, args.experiment_y, args.output_file, placeholder_value)
 
     print(f"Plot has been saved to: {args.output_file}")
 

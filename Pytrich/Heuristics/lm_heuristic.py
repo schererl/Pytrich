@@ -108,6 +108,7 @@ class LandmarkHeuristic(Heuristic):
                 self._deal_with_ordering(node, parent_node)        
         else: #otherwise mark the decomposition
             node.lm_node.mark_lm(node.decomposition.global_id)
+        
             
                 
         super().set_h_f_values(node,  node.lm_node.lm_value())

@@ -5,8 +5,8 @@ from collections import defaultdict
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Generate a table of coverage from log files.")
-    parser.add_argument("--input_file", required=True, help="Path to the input CSV file.")
-    parser.add_argument("--output_file", required=True, help="Path to the output CSV file.")
+    parser.add_argument("-i", "--input_file", required=True, help="Path to the input CSV file.")
+    parser.add_argument("-o", "--output_file", required=True, help="Path to the output CSV file.")
     return parser.parse_args()
 
 def calculate_coverage(input_file):

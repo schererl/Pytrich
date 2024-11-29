@@ -5,6 +5,7 @@ from typing import Optional, Type, Union, List, Dict
 from collections import deque
 
 from Pytrich.DESCRIPTIONS import Descriptions
+from Pytrich.Heuristics.novelty_heuristic import NoveltyHeuristic
 from Pytrich.model import Operator, AbstractTask, Model, Fact, Decomposition
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.tools import parse_search_params
@@ -21,11 +22,6 @@ def search(model: Model,
     s_params_parsed = parse_search_params(s_params)
     use_novelty = s_params_parsed.get('use_novelty', False)  # Default to False if not specified
 
-    if use_novelty:
-        print('Novelty is enabled in the search')
-    else:
-        print('Novelty is disabled in the search')
-
     start_time = time.time()
     control_time = start_time
     STATUS = 'UNSOLVABLE'
@@ -35,18 +31,19 @@ def search(model: Model,
 
     closed_list = set()
     node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
+    novelty=None
+    if use_novelty:
+        print('Novelty is enabled in the search')
+        novelty  = NoveltyHeuristic(model, node, **(parse_search_params(h_params)))
+    else:
+        print('Novelty is disabled in the search')
 
     print(node.__output__())
 
-    # For novelty tracking
-    seen_fact_task_pairs = set()
+    
     queue = deque()
-    if use_novelty:
-        novelty_queue = deque()
-        if compute_novelty(node.state, None, node.task_network, seen_fact_task_pairs):
-            novelty_queue.append(node)
-    else:
-        queue.append(node)
+    novelty_queue = deque()
+    queue.append(node)
 
     memory_usage = psutil.virtual_memory().percent
     init_search_time = time.time()
@@ -114,7 +111,7 @@ def search(model: Model,
             if hash(new_node) in closed_list:
                 count_revisits += 1
             else:
-                if use_novelty and compute_novelty(new_state, task, new_task_network, seen_fact_task_pairs):
+                if use_novelty and novelty(node, new_node) == 0:
                     novelty_queue.append(new_node)
                 else:
                     queue.append(new_node)
@@ -139,7 +136,7 @@ def search(model: Model,
                 if hash(new_node) in closed_list:
                     count_revisits += 1
                 else:
-                    if use_novelty and compute_novelty(node.state, task, refined_task_network, seen_fact_task_pairs):
+                    if use_novelty and novelty(node, new_node) == 0:
                         novelty_queue.append(new_node)
                     else:
                         queue.append(new_node)
@@ -159,18 +156,3 @@ def search(model: Model,
               #f"{desc('fringe_size', len(pq))}\n"
               f"Revisits Avoided: {count_revisits}\n"
               f"Used Memory: {memory_usage}%")
-
-
-def compute_novelty(state: int, task: Union[Operator, AbstractTask], task_network: List[Union[Operator, AbstractTask]], seen_tuples: set) -> int:
-    """
-    Compute the novelty of a node based on unseen (fact, task) pairs.
-    This function updates 'seen_tuples' with new (fact, task) pairs encountered.
-    """
-    novelty = 0
-    for bit_pos in range(state.bit_length()):
-        if state & (1 << bit_pos):
-            for t in task_network:
-                if (bit_pos, t.global_id) not in seen_tuples:
-                    novelty = 1
-                    seen_tuples.add((bit_pos, t.global_id))
-    return novelty

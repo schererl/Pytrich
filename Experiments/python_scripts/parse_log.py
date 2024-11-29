@@ -192,24 +192,24 @@ class ParseLog:
 
 def main():
     input_parser = argparse.ArgumentParser(description="Parse log files and optionally save the output to a CSV file.")
-    input_parser.add_argument("--log_file", required=True, help="Path to the input log file.")
-    input_parser.add_argument("--out_file", help="Optional: Path to the output CSV file.")
+    input_parser.add_argument("-i","--input_file", required=True, help="Path to the input log file.")
+    input_parser.add_argument("-o", "--output_file", help="Optional: Path to the output CSV file.")
     args = input_parser.parse_args()
 
-    if not os.path.isfile(args.log_file):
-        print(f"Error: The specified log file does not exist: {args.log_file}")
+    if not os.path.isfile(args.input_file):
+        print(f"Error: The specified log file does not exist: {args.input_file}")
         return
 
-    parser = ParseLog([args.log_file])
+    parser = ParseLog([args.input_file])
     parser()
     print("Parsing completed.")
 
-    if args.out_file:
-        output_dir = os.path.dirname(args.out_file)
+    if args.output_file:
+        output_dir = os.path.dirname(args.output_file)
         if output_dir and not os.path.exists(output_dir):
             os.makedirs(output_dir, exist_ok=True)
-        parser.save_as_csv(args.out_file)
-        print(f"Parsed data has been saved to: {args.out_file}")
+        parser.save_as_csv(args.output_file)
+        print(f"Parsed data has been saved to: {args.output_file}")
 
 if __name__ == "__main__":
     main()

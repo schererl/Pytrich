@@ -8,6 +8,7 @@ from Pytrich.Grounder.panda_ground import PandaGrounder
 from .Heuristics.blind_heuristic import BlindHeuristic
 from .Heuristics.tdg_heuristic import TaskDecompositionHeuristic
 from .Heuristics.lm_heuristic import LandmarkHeuristic
+from .Heuristics.novelty_heuristic import NoveltyHeuristic
 # search
 from .Search.astar_search import search as astar_search
 from .Search.blind_search import search as blind_search
@@ -20,7 +21,8 @@ SEARCHES = {
 HEURISTICS = {
     "Blind"    : BlindHeuristic,
     "LMCOUNT"  : LandmarkHeuristic,
-    "TDG"      : TaskDecompositionHeuristic
+    "TDG"      : TaskDecompositionHeuristic,
+    "NOVELTY"  : NoveltyHeuristic
 }
 NUMBER = re.compile(r"\d+")
 

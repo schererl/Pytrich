@@ -12,3 +12,4 @@ panda.log
 
 !Icon/pytrich-icon.png
 !Experiments/outputs/log-files/**/*.log
+!Experiments/outputs/csv-files/**/*.log

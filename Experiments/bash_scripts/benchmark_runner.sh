@@ -16,22 +16,36 @@ TIME_LIMIT=60
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored
-ignored_domains=("Barman" "Freecell-Learned-ECAI-16" "ipc2020-feature-tests" "Logistics-Learned-ECAI-16" "SCCTEST")
+ignored_domains=("Barman" "ipc2020-feature-tests" "SCCTEST")
 
 # Define experiments as an array of associative arrays
 declare -A experiments
 
+# # Experiment 1: NOVELTY
+# experiments[0,name]="NOVELTY"
+# experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True" -e "NOVELTY" '
+
+# # Experiment 2: BLIND
+# experiments[1,name]="BLIND"
+# experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False" -e "BLIND" '
+
+# # Experiment 3: LMCOUNT
+# experiments[2,name]="LMCOUNT"
+# experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
+
 # Experiment 1: NOVELTY
-experiments[0,name]="NOVELTY"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True" -e "NOVELTY" '
+experiments[0,name]="LMCOUNT"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT" -s Astar -sp "G=0,H=1" -H LMCOUNT ' 
 
-# Experiment 2: BLIND
-experiments[1,name]="BLIND"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False" -e "BLIND" '
+experiments[1,name]="NOVELTY-FT"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-FT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"ft\""' 
 
-# Experiment 3: LMCOUNT
-experiments[2,name]="LMCOUNT"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
+experiments[2,name]="NOVELTY-lazyFT"
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lazyFT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"lazyft\"" ' 
+
+experiments[3,name]="NOVELTY-lmcount"
+experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lmcount" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"lmcount\"" ' 
+
 
 # Add or remove experiments by modifying the experiments array
 # Example of adding a new experiment:

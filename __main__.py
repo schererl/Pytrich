@@ -38,6 +38,7 @@ def main():
         choices=SEARCHES.keys(), default="Astar",
         help="Search strategy to use."
     )
+
     argparser.add_argument(
         "-H", "--heuristic", 
         choices=HEURISTICS.keys(), default="TDG",
