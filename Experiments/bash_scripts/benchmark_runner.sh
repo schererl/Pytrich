@@ -34,17 +34,14 @@ declare -A experiments
 # experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
 
 # Experiment 1: NOVELTY
-experiments[0,name]="LMCOUNT"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT" -s Astar -sp "G=0,H=1" -H LMCOUNT ' 
+# experiments[1,name]="NOVELTY-FT"
+# experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-FT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"ft\""' 
 
-experiments[1,name]="NOVELTY-FT"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-FT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"ft\""' 
+experiments[0,name]="NOVELTY-HFT1"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-HFT1" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"hft1\"" ' 
 
-experiments[2,name]="NOVELTY-lazyFT"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lazyFT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"lazyft\"" ' 
-
-experiments[3,name]="NOVELTY-lmcount"
-experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lmcount" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"lmcount\"" ' 
+experiments[1,name]="NOVELTY-HFT2"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-HFT2" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"hft2\"" ' 
 
 
 # Add or remove experiments by modifying the experiments array

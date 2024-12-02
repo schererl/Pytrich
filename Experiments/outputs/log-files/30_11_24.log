@@ -1,0 +1,5798 @@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/AssemblyHierarchical
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 376
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 6.4037
+Nodes per Second : 64983.12
+Solution Size : 5
+Nodes Expanded : 416092
+Fringe size : 577
+Revisits Avoided: 25420
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 376
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.5875
+Nodes per Second : 70513.70
+Solution Size : 5
+Nodes Expanded : 111892
+Fringe size : 6406
+Revisits Avoided: 7878
+Used Memory: 24.9%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 160
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0109
+Nodes per Second : 92796.86
+Solution Size : 3
+Nodes Expanded : 976
+Fringe size : 1
+Revisits Avoided: 108
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 160
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0060
+Nodes per Second : 56138.26
+Solution Size : 3
+Nodes Expanded : 311
+Fringe size : 204
+Revisits Avoided: 8
+Used Memory: 24.7%
+Search Result: None
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Barman-BDI
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3533
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 5.1136
+Nodes per Second : 6310.14
+Solution Size : 39
+Nodes Expanded : 32207
+Fringe size : 2786
+Revisits Avoided: 152
+Used Memory: 24.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7424
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 5.5910
+Nodes per Second : 3506.39
+Solution Size : 40
+Nodes Expanded : 19494
+Fringe size : 1403
+Revisits Avoided: 24
+Used Memory: 24.3%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2942
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 3.0874
+Nodes per Second : 7708.18
+Solution Size : 44
+Nodes Expanded : 23745
+Fringe size : 2022
+Revisits Avoided: 114
+Used Memory: 24.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4351
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 5.3388
+Nodes per Second : 5478.36
+Solution Size : 64
+Nodes Expanded : 29177
+Fringe size : 2425
+Revisits Avoided: 53
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Barman-BDI
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1797
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 7.6607
+Nodes per Second : 11896.29
+Solution Size : 27
+Nodes Expanded : 91093
+Fringe size : 2838
+Revisits Avoided: 1131
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1797
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3860
+Nodes per Second : 10680.09
+Solution Size : 26
+Nodes Expanded : 4086
+Fringe size : 356
+Revisits Avoided: 10
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Barman-BDI
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2715
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 32.8631
+Nodes per Second : 7797.36
+Solution Size : 29
+Nodes Expanded : 256190
+Fringe size : 18876
+Revisits Avoided: 1647
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2715
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.8269
+Nodes per Second : 7464.77
+Solution Size : 27
+Nodes Expanded : 6124
+Fringe size : 514
+Revisits Avoided: 17
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Barman-BDI
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3969
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 48.5236
+Nodes per Second : 6151.02
+Solution Size : 23
+Nodes Expanded : 298396
+Fringe size : 23916
+Revisits Avoided: 1854
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3969
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.3617
+Nodes per Second : 5708.41
+Solution Size : 22
+Nodes Expanded : 7706
+Fringe size : 713
+Revisits Avoided: 18
+Used Memory: 23.9%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 6664
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 10.7010
+Nodes per Second : 4025.11
+Solution Size : 62
+Nodes Expanded : 42972
+Fringe size : 3567
+Revisits Avoided: 69
+Used Memory: 24.2%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5714
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 3.3083
+Nodes per Second : 4526.91
+Solution Size : 44
+Nodes Expanded : 14886
+Fringe size : 1097
+Revisits Avoided: 18
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Barman-BDI
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 916
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.5007
+Nodes per Second : 15752.39
+Solution Size : 9
+Nodes Expanded : 7863
+Fringe size : 1111
+Revisits Avoided: 74
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Barman-BDI
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 916
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0653
+Nodes per Second : 14539.65
+Solution Size : 9
+Nodes Expanded : 927
+Fringe size : 94
+Revisits Avoided: 6
+Used Memory: 24.0%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Blocksworld-GTOHP
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2154
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 13.6596
+Nodes per Second : 7505.72
+Solution Size : 170
+Nodes Expanded : 102471
+Fringe size : 3089
+Revisits Avoided: 4
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2154
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2150
+Nodes per Second : 6644.73
+Solution Size : 170
+Nodes Expanded : 1382
+Fringe size : 18
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2146
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 9.7784
+Nodes per Second : 4919.49
+Solution Size : 154
+Nodes Expanded : 48070
+Fringe size : 634
+Revisits Avoided: 264
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2146
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1726
+Nodes per Second : 4319.02
+Solution Size : 175
+Nodes Expanded : 715
+Fringe size : 20
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1205
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2246
+Nodes per Second : 14980.19
+Solution Size : 87
+Nodes Expanded : 3324
+Fringe size : 95
+Revisits Avoided: 1
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1205
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0347
+Nodes per Second : 10822.56
+Solution Size : 87
+Nodes Expanded : 346
+Fringe size : 10
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 829
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1693
+Nodes per Second : 15833.98
+Solution Size : 63
+Nodes Expanded : 2655
+Fringe size : 103
+Revisits Avoided: 12
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 829
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0419
+Nodes per Second : 19362.31
+Solution Size : 96
+Nodes Expanded : 778
+Fringe size : 24
+Revisits Avoided: 0
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 326
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0035
+Nodes per Second : 40737.61
+Solution Size : 21
+Nodes Expanded : 122
+Fringe size : 3
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 326
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0031
+Nodes per Second : 37329.86
+Solution Size : 21
+Nodes Expanded : 95
+Fringe size : 2
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p14
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2386
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.7805
+Nodes per Second : 8364.09
+Solution Size : 234
+Nodes Expanded : 14824
+Fringe size : 202
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1683
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 10.2099
+Nodes per Second : 8559.49
+Solution Size : 123
+Nodes Expanded : 87354
+Fringe size : 3593
+Revisits Avoided: 56
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1683
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.4258
+Nodes per Second : 17077.47
+Solution Size : 150
+Nodes Expanded : 7197
+Fringe size : 26
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2143
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 4.5239
+Nodes per Second : 7002.70
+Solution Size : 165
+Nodes Expanded : 31631
+Fringe size : 996
+Revisits Avoided: 41
+Used Memory: 24.2%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 546
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0152
+Nodes per Second : 31015.66
+Solution Size : 38
+Nodes Expanded : 440
+Fringe size : 9
+Revisits Avoided: 0
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 546
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0141
+Nodes per Second : 31532.68
+Solution Size : 38
+Nodes Expanded : 413
+Fringe size : 3
+Revisits Avoided: 0
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 575
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0180
+Nodes per Second : 31271.33
+Solution Size : 39
+Nodes Expanded : 531
+Fringe size : 15
+Revisits Avoided: 2
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 575
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0071
+Nodes per Second : 25803.06
+Solution Size : 39
+Nodes Expanded : 158
+Fringe size : 6
+Revisits Avoided: 0
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.8329
+Nodes per Second : 11306.19
+Solution Size : 85
+Nodes Expanded : 9385
+Fringe size : 343
+Revisits Avoided: 22
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.7006
+Nodes per Second : 20818.77
+Solution Size : 109
+Nodes Expanded : 14527
+Fringe size : 21
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1121
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.4190
+Nodes per Second : 18137.60
+Solution Size : 76
+Nodes Expanded : 7557
+Fringe size : 270
+Revisits Avoided: 32
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1121
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0440
+Nodes per Second : 20030.45
+Solution Size : 76
+Nodes Expanded : 835
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-GTOHP
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1549
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.2391
+Nodes per Second : 10770.92
+Solution Size : 105
+Nodes Expanded : 13302
+Fringe size : 399
+Revisits Avoided: 34
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1549
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2248
+Nodes per Second : 15656.90
+Solution Size : 123
+Nodes Expanded : 3456
+Fringe size : 20
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-GTOHP
+Problem : p10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2030
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.7264
+Nodes per Second : 7498.58
+Solution Size : 229
+Nodes Expanded : 5402
+Fringe size : 237
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Blocksworld-HPDDL
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_045
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3423
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 7.2201
+Nodes per Second : 3401.02
+Solution Size : 230
+Nodes Expanded : 24468
+Fringe size : 348
+Revisits Avoided: 512
+Used Memory: 29.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_050
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3937
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 11.6807
+Nodes per Second : 2884.86
+Solution Size : 263
+Nodes Expanded : 33603
+Fringe size : 513
+Revisits Avoided: 432
+Used Memory: 29.8%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_025
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1899
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.7774
+Nodes per Second : 7559.10
+Solution Size : 126
+Nodes Expanded : 5813
+Fringe size : 148
+Revisits Avoided: 147
+Used Memory: 24.5%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_030
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2207
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.7172
+Nodes per Second : 6473.31
+Solution Size : 145
+Nodes Expanded : 11044
+Fringe size : 281
+Revisits Avoided: 309
+Used Memory: 25.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_035
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2773
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 2.9276
+Nodes per Second : 4790.60
+Solution Size : 181
+Nodes Expanded : 13945
+Fringe size : 256
+Revisits Avoided: 188
+Used Memory: 26.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0118
+Nodes per Second : 35891.04
+Solution Size : 20
+Nodes Expanded : 399
+Fringe size : 14
+Revisits Avoided: 26
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0067
+Nodes per Second : 32510.17
+Solution Size : 20
+Nodes Expanded : 198
+Fringe size : 14
+Revisits Avoided: 10
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_040
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3121
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 4.7721
+Nodes per Second : 4129.62
+Solution Size : 209
+Nodes Expanded : 19621
+Fringe size : 310
+Revisits Avoided: 370
+Used Memory: 26.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-HPDDL
+Problem : pfile_020
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1411
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 54.5554
+Nodes per Second : 12104.96
+Solution Size : 86
+Nodes Expanded : 660329
+Fringe size : 19802
+Revisits Avoided: 36597
+Used Memory: 26.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_020
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1411
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3728
+Nodes per Second : 10517.68
+Solution Size : 88
+Nodes Expanded : 3867
+Fringe size : 138
+Revisits Avoided: 137
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1083
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 4.4618
+Nodes per Second : 15823.99
+Solution Size : 66
+Nodes Expanded : 70551
+Fringe size : 563
+Revisits Avoided: 5531
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1083
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1392
+Nodes per Second : 13923.64
+Solution Size : 68
+Nodes Expanded : 1892
+Fringe size : 71
+Revisits Avoided: 68
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_055
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4227
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 17.9215
+Nodes per Second : 2724.40
+Solution Size : 274
+Nodes Expanded : 48722
+Fringe size : 785
+Revisits Avoided: 739
+Used Memory: 32.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Blocksworld-HPDDL
+Problem : pfile_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 704
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2398
+Nodes per Second : 22031.08
+Solution Size : 43
+Nodes Expanded : 5244
+Fringe size : 51
+Revisits Avoided: 488
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Blocksworld-HPDDL
+Problem : pfile_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 704
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0436
+Nodes per Second : 21141.32
+Solution Size : 45
+Nodes Expanded : 884
+Fringe size : 38
+Revisits Avoided: 39
+Used Memory: 24.6%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Childsnack
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Childsnack
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 210284
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 9.4930
+Nodes per Second : 6917.71
+Solution Size : 59
+Nodes Expanded : 29232
+Fringe size : 15901
+Revisits Avoided: 0
+Used Memory: 26.2%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Childsnack
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 84518
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 2.1651
+Nodes per Second : 8687.37
+Solution Size : 49
+Nodes Expanded : 11524
+Fringe size : 6347
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Childsnack
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 140338
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 4.8976
+Nodes per Second : 7828.71
+Solution Size : 54
+Nodes Expanded : 19650
+Fringe size : 10535
+Revisits Avoided: 0
+Used Memory: 25.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Childsnack
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 84518
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 2.1687
+Nodes per Second : 8505.68
+Solution Size : 49
+Nodes Expanded : 11573
+Fringe size : 6478
+Revisits Avoided: 0
+Used Memory: 24.6%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Childsnack
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 247208
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 12.2780
+Nodes per Second : 5911.04
+Solution Size : 64
+Nodes Expanded : 34355
+Fringe size : 19570
+Revisits Avoided: 0
+Used Memory: 26.8%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Depots
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5620
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 3.6798
+Nodes per Second : 5941.05
+Solution Size : 95
+Nodes Expanded : 21783
+Fringe size : 851
+Revisits Avoided: 297
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5620
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2309
+Nodes per Second : 5868.17
+Solution Size : 95
+Nodes Expanded : 1278
+Fringe size : 67
+Revisits Avoided: 0
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2360
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1619
+Nodes per Second : 14136.32
+Solution Size : 36
+Nodes Expanded : 2231
+Fringe size : 38
+Revisits Avoided: 12
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2360
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0357
+Nodes per Second : 11406.86
+Solution Size : 44
+Nodes Expanded : 360
+Fringe size : 12
+Revisits Avoided: 0
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 6408
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 10.0367
+Nodes per Second : 8029.17
+Solution Size : 91
+Nodes Expanded : 80420
+Fringe size : 4111
+Revisits Avoided: 444
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 6408
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1979
+Nodes per Second : 7004.77
+Solution Size : 91
+Nodes Expanded : 1290
+Fringe size : 73
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1992
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.3575
+Nodes per Second : 14146.23
+Solution Size : 50
+Nodes Expanded : 5011
+Fringe size : 181
+Revisits Avoided: 64
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1992
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0386
+Nodes per Second : 11402.49
+Solution Size : 50
+Nodes Expanded : 403
+Fringe size : 47
+Revisits Avoided: 0
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 754
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0065
+Nodes per Second : 35320.84
+Solution Size : 14
+Nodes Expanded : 195
+Fringe size : 7
+Revisits Avoided: 0
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 754
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0038
+Nodes per Second : 29842.34
+Solution Size : 14
+Nodes Expanded : 82
+Fringe size : 4
+Revisits Avoided: 0
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p14
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2876
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1440
+Nodes per Second : 12597.87
+Solution Size : 46
+Nodes Expanded : 1749
+Fringe size : 47
+Revisits Avoided: 19
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p14
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2876
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0503
+Nodes per Second : 9922.09
+Solution Size : 46
+Nodes Expanded : 449
+Fringe size : 38
+Revisits Avoided: 0
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2349
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2041
+Nodes per Second : 12666.06
+Solution Size : 54
+Nodes Expanded : 2530
+Fringe size : 41
+Revisits Avoided: 48
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2349
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0423
+Nodes per Second : 11238.36
+Solution Size : 58
+Nodes Expanded : 427
+Fringe size : 18
+Revisits Avoided: 0
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4852
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.3229
+Nodes per Second : 8751.38
+Solution Size : 72
+Nodes Expanded : 11489
+Fringe size : 242
+Revisits Avoided: 79
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4852
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1074
+Nodes per Second : 8341.13
+Solution Size : 72
+Nodes Expanded : 812
+Fringe size : 33
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2969
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2067
+Nodes per Second : 17159.01
+Solution Size : 43
+Nodes Expanded : 3466
+Fringe size : 112
+Revisits Avoided: 31
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2969
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0358
+Nodes per Second : 14947.42
+Solution Size : 43
+Nodes Expanded : 457
+Fringe size : 21
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0253
+Nodes per Second : 22293.19
+Solution Size : 23
+Nodes Expanded : 525
+Fringe size : 11
+Revisits Avoided: 7
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0095
+Nodes per Second : 19816.83
+Solution Size : 23
+Nodes Expanded : 153
+Fringe size : 6
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2051
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0579
+Nodes per Second : 21361.97
+Solution Size : 33
+Nodes Expanded : 1173
+Fringe size : 5
+Revisits Avoided: 16
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2051
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0200
+Nodes per Second : 18013.39
+Solution Size : 33
+Nodes Expanded : 307
+Fringe size : 13
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5830
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 2.0574
+Nodes per Second : 10883.17
+Solution Size : 70
+Nodes Expanded : 22265
+Fringe size : 891
+Revisits Avoided: 77
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5830
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0996
+Nodes per Second : 10492.65
+Solution Size : 70
+Nodes Expanded : 925
+Fringe size : 35
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5040
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 9.3235
+Nodes per Second : 6849.61
+Solution Size : 92
+Nodes Expanded : 63783
+Fringe size : 2367
+Revisits Avoided: 661
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5040
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1575
+Nodes per Second : 6001.84
+Solution Size : 96
+Nodes Expanded : 877
+Fringe size : 53
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p15
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7717
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 8.0697
+Nodes per Second : 5595.82
+Solution Size : 100
+Nodes Expanded : 45049
+Fringe size : 669
+Revisits Avoided: 219
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p15
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7717
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2959
+Nodes per Second : 5090.57
+Solution Size : 104
+Nodes Expanded : 1411
+Fringe size : 59
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Depots
+Problem : p10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1967
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0619
+Nodes per Second : 19704.59
+Solution Size : 37
+Nodes Expanded : 1158
+Fringe size : 25
+Revisits Avoided: 13
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Depots
+Problem : p10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1967
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0219
+Nodes per Second : 16665.47
+Solution Size : 37
+Nodes Expanded : 312
+Fringe size : 6
+Revisits Avoided: 0
+Used Memory: 24.1%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Factories-simple
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3011
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 26.8903
+Nodes per Second : 19956.58
+Solution Size : 305
+Nodes Expanded : 536529
+Fringe size : 105
+Revisits Avoided: 30218
+Used Memory: 24.3%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Factories-simple
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 809
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2188
+Nodes per Second : 39346.89
+Solution Size : 57
+Nodes Expanded : 8567
+Fringe size : 30
+Revisits Avoided: 581
+Used Memory: 23.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 809
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0799
+Nodes per Second : 40788.16
+Solution Size : 61
+Nodes Expanded : 3215
+Fringe size : 12
+Revisits Avoided: 216
+Used Memory: 23.4%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Factories-simple
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 784
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1384
+Nodes per Second : 42099.88
+Solution Size : 47
+Nodes Expanded : 5782
+Fringe size : 65
+Revisits Avoided: 379
+Used Memory: 23.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 784
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1023
+Nodes per Second : 43494.85
+Solution Size : 47
+Nodes Expanded : 4403
+Fringe size : 11
+Revisits Avoided: 296
+Used Memory: 23.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Factories-simple
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1608
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 2.8912
+Nodes per Second : 29812.30
+Solution Size : 124
+Nodes Expanded : 86125
+Fringe size : 237
+Revisits Avoided: 5230
+Used Memory: 23.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1608
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.7177
+Nodes per Second : 31082.39
+Solution Size : 122
+Nodes Expanded : 53318
+Fringe size : 17
+Revisits Avoided: 3265
+Used Memory: 23.6%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7260
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 35.6398
+Nodes per Second : 14268.47
+Solution Size : 1070
+Nodes Expanded : 508279
+Fringe size : 242
+Revisits Avoided: 23428
+Used Memory: 23.8%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Factories-simple
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 262
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 56332.20
+Solution Size : 14
+Nodes Expanded : 265
+Fringe size : 7
+Revisits Avoided: 15
+Used Memory: 23.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Factories-simple
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 262
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0032
+Nodes per Second : 54815.64
+Solution Size : 14
+Nodes Expanded : 151
+Fringe size : 9
+Revisits Avoided: 7
+Used Memory: 23.4%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Freecell-Learned-ECAI-16
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-4
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-4
+Staring solver
+function F = 0*G + 1*H
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-2
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-2
+Staring solver
+function F = 0*G + 1*H
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-3
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-3
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-5
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-5
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-1
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Freecell-Learned-ECAI-16
+Problem : probfreecell-03-1
+Staring solver
+function F = 0*G + 1*H
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Hiking
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Hiking
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 69482
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.4790
+Nodes per Second : 21567.14
+Solution Size : 61
+Nodes Expanded : 1496
+Fringe size : 325
+Revisits Avoided: 66
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Hiking
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 17035
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 2.5507
+Nodes per Second : 17389.03
+Solution Size : 25
+Nodes Expanded : 43625
+Fringe size : 13034
+Revisits Avoided: 861
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Hiking
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 17035
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0729
+Nodes per Second : 22653.33
+Solution Size : 25
+Nodes Expanded : 705
+Fringe size : 168
+Revisits Avoided: 33
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Hiking
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 48348
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3091
+Nodes per Second : 16921.66
+Solution Size : 49
+Nodes Expanded : 1231
+Fringe size : 279
+Revisits Avoided: 55
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Hiking
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 30867
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 20.1250
+Nodes per Second : 15197.04
+Solution Size : 37
+Nodes Expanded : 304210
+Fringe size : 63606
+Revisits Avoided: 3197
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Hiking
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 30867
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1570
+Nodes per Second : 18864.61
+Solution Size : 37
+Nodes Expanded : 967
+Fringe size : 228
+Revisits Avoided: 44
+Used Memory: 24.1%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Hiking
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 94254
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.7566
+Nodes per Second : 17862.49
+Solution Size : 73
+Nodes Expanded : 1749
+Fringe size : 393
+Revisits Avoided: 77
+Used Memory: 24.3%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Lamps
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Logistics-Learned-ECAI-16
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1739
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1066
+Nodes per Second : 16567.00
+Solution Size : 80
+Nodes Expanded : 1696
+Fringe size : 5
+Revisits Avoided: 54
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1739
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0856
+Nodes per Second : 16691.40
+Solution Size : 80
+Nodes Expanded : 1356
+Fringe size : 10
+Revisits Avoided: 38
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1736
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0515
+Nodes per Second : 16702.88
+Solution Size : 42
+Nodes Expanded : 790
+Fringe size : 4
+Revisits Avoided: 21
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1736
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0430
+Nodes per Second : 16144.20
+Solution Size : 42
+Nodes Expanded : 623
+Fringe size : 3
+Revisits Avoided: 16
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1739
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1228
+Nodes per Second : 14309.27
+Solution Size : 80
+Nodes Expanded : 1695
+Fringe size : 1
+Revisits Avoided: 54
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1739
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0875
+Nodes per Second : 16222.29
+Solution Size : 80
+Nodes Expanded : 1350
+Fringe size : 11
+Revisits Avoided: 37
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-3
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1736
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1029
+Nodes per Second : 16825.41
+Solution Size : 73
+Nodes Expanded : 1652
+Fringe size : 8
+Revisits Avoided: 53
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-06-3
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1736
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0801
+Nodes per Second : 17264.09
+Solution Size : 73
+Nodes Expanded : 1309
+Fringe size : 8
+Revisits Avoided: 37
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0410
+Nodes per Second : 21279.48
+Solution Size : 49
+Nodes Expanded : 796
+Fringe size : 3
+Revisits Avoided: 21
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0415
+Nodes per Second : 20911.85
+Solution Size : 49
+Nodes Expanded : 792
+Fringe size : 4
+Revisits Avoided: 20
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0245
+Nodes per Second : 15910.75
+Solution Size : 26
+Nodes Expanded : 332
+Fringe size : 1
+Revisits Avoided: 6
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0205
+Nodes per Second : 19628.84
+Solution Size : 26
+Nodes Expanded : 332
+Fringe size : 1
+Revisits Avoided: 6
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1291
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0341
+Nodes per Second : 23347.77
+Solution Size : 39
+Nodes Expanded : 729
+Fringe size : 2
+Revisits Avoided: 22
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-2
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1291
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0295
+Nodes per Second : 23392.43
+Solution Size : 39
+Nodes Expanded : 623
+Fringe size : 2
+Revisits Avoided: 19
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1518
+Nodes per Second : 15376.01
+Solution Size : 88
+Nodes Expanded : 2278
+Fringe size : 1
+Revisits Avoided: 76
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-05-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1515
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0928
+Nodes per Second : 17403.33
+Solution Size : 88
+Nodes Expanded : 1550
+Fringe size : 9
+Revisits Avoided: 44
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1291
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : UNSOLVABLE
+Search Time (seconds) : 0.0680
+Nodes per Second : 17809.59
+Solution Size : 57
+Nodes Expanded : 1159
+Fringe size : 0
+Revisits Avoided: 40
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-0
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1291
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : UNSOLVABLE
+Search Time (seconds) : 0.0604
+Nodes per Second : 20153.80
+Solution Size : 39
+Nodes Expanded : 1159
+Fringe size : 0
+Revisits Avoided: 40
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1294
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0688
+Nodes per Second : 20252.72
+Solution Size : 57
+Nodes Expanded : 1333
+Fringe size : 2
+Revisits Avoided: 42
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Logistics-Learned-ECAI-16
+Problem : probLOGISTICS-04-1
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1294
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0524
+Nodes per Second : 19902.47
+Solution Size : 57
+Nodes Expanded : 984
+Fringe size : 12
+Revisits Avoided: 25
+Used Memory: 24.2%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Minecraft-Regular
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-5-5-5-07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8304
+Nodes per Second : 3863.48
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-5-5-5-07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3101
+Nodes per Second : 2880.03
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-5-5-5-09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8238
+Nodes per Second : 3877.18
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-5-5-5-09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3139
+Nodes per Second : 2816.88
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-004-005-004-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2460
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.7749
+Nodes per Second : 5645.19
+Solution Size : 77
+Nodes Expanded : 4318
+Fringe size : 15
+Revisits Avoided: 277
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-004-005-004-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2460
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1638
+Nodes per Second : 4049.13
+Solution Size : 77
+Nodes Expanded : 623
+Fringe size : 96
+Revisits Avoided: 4
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-5-5-5-08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8722
+Nodes per Second : 3777.01
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-5-5-5-08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3111
+Nodes per Second : 2848.88
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-003-004-004-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1742
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2369
+Nodes per Second : 8250.34
+Solution Size : 53
+Nodes Expanded : 1914
+Fringe size : 7
+Revisits Avoided: 134
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-003-004-004-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1742
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0814
+Nodes per Second : 6251.82
+Solution Size : 53
+Nodes Expanded : 478
+Fringe size : 73
+Revisits Avoided: 4
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-003-003-003-003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1132
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0688
+Nodes per Second : 13686.34
+Solution Size : 34
+Nodes Expanded : 908
+Fringe size : 3
+Revisits Avoided: 72
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-003-003-003-003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1132
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0348
+Nodes per Second : 10436.30
+Solution Size : 34
+Nodes Expanded : 326
+Fringe size : 48
+Revisits Avoided: 3
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-5-5-5-06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8160
+Nodes per Second : 3894.13
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-5-5-5-06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3104
+Nodes per Second : 2853.82
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-004-004-004-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2100
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.3805
+Nodes per Second : 7074.90
+Solution Size : 65
+Nodes Expanded : 2640
+Fringe size : 7
+Revisits Avoided: 189
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-004-004-004-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2100
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1128
+Nodes per Second : 5244.97
+Solution Size : 65
+Nodes Expanded : 551
+Fringe size : 84
+Revisits Avoided: 4
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-5-5-5-10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8176
+Nodes per Second : 3890.29
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 25.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-5-5-5-10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3102
+Nodes per Second : 2850.86
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-003-004-003-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1402
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1788
+Nodes per Second : 8733.83
+Solution Size : 43
+Nodes Expanded : 1531
+Fringe size : 7
+Revisits Avoided: 104
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-003-004-003-004
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1402
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0471
+Nodes per Second : 8736.50
+Solution Size : 43
+Nodes Expanded : 380
+Fringe size : 57
+Revisits Avoided: 3
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-005-005-005-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.8385
+Nodes per Second : 3846.25
+Solution Size : 106
+Nodes Expanded : 7005
+Fringe size : 15
+Revisits Avoided: 470
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-005-005-005-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3368
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3051
+Nodes per Second : 2901.70
+Solution Size : 106
+Nodes Expanded : 836
+Fringe size : 130
+Revisits Avoided: 5
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Minecraft-Regular
+Problem : p-004-005-005-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2920
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.1595
+Nodes per Second : 4486.54
+Solution Size : 91
+Nodes Expanded : 5143
+Fringe size : 15
+Revisits Avoided: 335
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Minecraft-Regular
+Problem : p-004-005-005-005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2920
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2287
+Nodes per Second : 3459.05
+Solution Size : 91
+Nodes Expanded : 745
+Fringe size : 116
+Revisits Avoided: 5
+Used Memory: 25.0%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Monroe-Fully-Observable
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Fully-Observable
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 767978
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 35.5460
+Nodes per Second : 1138.33
+Solution Size : 15
+Nodes Expanded : 16396
+Fringe size : 11494
+Revisits Avoided: 14
+Used Memory: 41.7%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Monroe-Fully-Observable
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 767541
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 53.9878
+Nodes per Second : 842.44
+Solution Size : 2
+Nodes Expanded : 34181
+Fringe size : 32720
+Revisits Avoided: 147
+Used Memory: 40.6%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Fully-Observable
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 751826
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 48.7771
+Nodes per Second : 1085.63
+Solution Size : 33
+Nodes Expanded : 29467
+Fringe size : 21037
+Revisits Avoided: 16
+Used Memory: 44.4%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Fully-Observable
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 767654
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 49.7856
+Nodes per Second : 1127.87
+Solution Size : 24
+Nodes Expanded : 32130
+Fringe size : 10574
+Revisits Avoided: 16
+Used Memory: 43.6%
+Search Result: None
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Monroe-Partially-Observable
+Experiment Name : NOVELTY-HFT1
+Domain : Monroe-Partially-Observable
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 818377
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 20.3373
+Nodes per Second : 1276.03
+Solution Size : 5
+Nodes Expanded : 6448
+Fringe size : 3177
+Revisits Avoided: 16
+Used Memory: 40.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Partially-Observable
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 818377
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 20.3042
+Nodes per Second : 1270.53
+Solution Size : 5
+Nodes Expanded : 6448
+Fringe size : 3177
+Revisits Avoided: 16
+Used Memory: 40.1%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Partially-Observable
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 789621
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 54.4880
+Nodes per Second : 875.18
+Solution Size : 11
+Nodes Expanded : 35082
+Fringe size : 32595
+Revisits Avoided: 151
+Used Memory: 43.1%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Monroe-Partially-Observable
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 782156
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 24.6833
+Nodes per Second : 966.26
+Solution Size : 10
+Nodes Expanded : 10513
+Fringe size : 11184
+Revisits Avoided: 18
+Used Memory: 39.8%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Multiarm-Blocksworld
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_025
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4342
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.4258
+Nodes per Second : 10528.97
+Solution Size : 130
+Nodes Expanded : 14856
+Fringe size : 355
+Revisits Avoided: 40
+Used Memory: 24.1%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_060
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 10588
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 35.6698
+Nodes per Second : 3738.91
+Solution Size : 324
+Nodes Expanded : 133068
+Fringe size : 2123
+Revisits Avoided: 88
+Used Memory: 31.9%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1536
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.1310
+Nodes per Second : 26074.40
+Solution Size : 43
+Nodes Expanded : 29417
+Fringe size : 1887
+Revisits Avoided: 1348
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1536
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0877
+Nodes per Second : 25118.48
+Solution Size : 47
+Nodes Expanded : 2134
+Fringe size : 122
+Revisits Avoided: 42
+Used Memory: 24.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_035
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5806
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 6.3253
+Nodes per Second : 7734.85
+Solution Size : 173
+Nodes Expanded : 48727
+Fringe size : 1968
+Revisits Avoided: 300
+Used Memory: 25.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 722
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.3932
+Nodes per Second : 31070.09
+Solution Size : 43
+Nodes Expanded : 12168
+Fringe size : 607
+Revisits Avoided: 813
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 722
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0478
+Nodes per Second : 28911.78
+Solution Size : 45
+Nodes Expanded : 1338
+Fringe size : 69
+Revisits Avoided: 29
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_015
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2123
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 26.3610
+Nodes per Second : 17110.31
+Solution Size : 60
+Nodes Expanded : 450963
+Fringe size : 44899
+Revisits Avoided: 13968
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_015
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 2123
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2420
+Nodes per Second : 17629.91
+Solution Size : 64
+Nodes Expanded : 4184
+Fringe size : 223
+Revisits Avoided: 151
+Used Memory: 23.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 844
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0272
+Nodes per Second : 37880.16
+Solution Size : 20
+Nodes Expanded : 984
+Fringe size : 62
+Revisits Avoided: 65
+Used Memory: 23.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 844
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0135
+Nodes per Second : 34997.61
+Solution Size : 24
+Nodes Expanded : 427
+Fringe size : 27
+Revisits Avoided: 4
+Used Memory: 23.8%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_045
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7770
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 14.4163
+Nodes per Second : 5550.06
+Solution Size : 243
+Nodes Expanded : 79769
+Fringe size : 1813
+Revisits Avoided: 384
+Used Memory: 28.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 339
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0155
+Nodes per Second : 46043.98
+Solution Size : 23
+Nodes Expanded : 685
+Fringe size : 43
+Revisits Avoided: 25
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_01_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 339
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0088
+Nodes per Second : 42813.87
+Solution Size : 23
+Nodes Expanded : 353
+Fringe size : 22
+Revisits Avoided: 14
+Used Memory: 24.7%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_020
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3242
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.7836
+Nodes per Second : 13810.56
+Solution Size : 94
+Nodes Expanded : 10697
+Fringe size : 509
+Revisits Avoided: 150
+Used Memory: 23.9%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_055
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 9532
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 31.3244
+Nodes per Second : 4455.29
+Solution Size : 285
+Nodes Expanded : 139265
+Fringe size : 3345
+Revisits Avoided: 512
+Used Memory: 29.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_050
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 8698
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 24.8307
+Nodes per Second : 4886.43
+Solution Size : 262
+Nodes Expanded : 121066
+Fringe size : 3329
+Revisits Avoided: 139
+Used Memory: 28.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_030
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5117
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 3.0845
+Nodes per Second : 9054.72
+Solution Size : 153
+Nodes Expanded : 27748
+Fringe size : 820
+Revisits Avoided: 177
+Used Memory: 24.8%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Multiarm-Blocksworld
+Problem : pfile_02_040
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 7138
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 8.9565
+Nodes per Second : 6467.97
+Solution Size : 222
+Nodes Expanded : 57684
+Fringe size : 1175
+Revisits Avoided: 110
+Used Memory: 26.0%
+Search Result: None
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Robot
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_10_020
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 937
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.8008
+Nodes per Second : 37709.47
+Solution Size : 144
+Nodes Expanded : 30119
+Fringe size : 488
+Revisits Avoided: 495
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_02_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 86
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0017
+Nodes per Second : 70166.20
+Solution Size : 6
+Nodes Expanded : 103
+Fringe size : 9
+Revisits Avoided: 5
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_02_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 86
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 72937.88
+Solution Size : 6
+Nodes Expanded : 97
+Fringe size : 5
+Revisits Avoided: 4
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_05_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 336
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1922
+Nodes per Second : 60048.92
+Solution Size : 34
+Nodes Expanded : 11502
+Fringe size : 1606
+Revisits Avoided: 323
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_05_010
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 336
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0360
+Nodes per Second : 63772.78
+Solution Size : 40
+Nodes Expanded : 2256
+Fringe size : 75
+Revisits Avoided: 69
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_03_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 174
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0102
+Nodes per Second : 76510.81
+Solution Size : 16
+Nodes Expanded : 749
+Fringe size : 55
+Revisits Avoided: 29
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_03_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 174
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0057
+Nodes per Second : 76525.76
+Solution Size : 16
+Nodes Expanded : 398
+Fringe size : 10
+Revisits Avoided: 18
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_03_003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 150
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0070
+Nodes per Second : 79826.09
+Solution Size : 16
+Nodes Expanded : 523
+Fringe size : 29
+Revisits Avoided: 25
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_03_003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 150
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0045
+Nodes per Second : 78878.98
+Solution Size : 16
+Nodes Expanded : 322
+Fringe size : 10
+Revisits Avoided: 18
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_04_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 279
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0617
+Nodes per Second : 67291.10
+Solution Size : 21
+Nodes Expanded : 4112
+Fringe size : 389
+Revisits Avoided: 138
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_04_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 279
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0189
+Nodes per Second : 66684.26
+Solution Size : 25
+Nodes Expanded : 1225
+Fringe size : 27
+Revisits Avoided: 43
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_04_003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 167
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0078
+Nodes per Second : 78037.97
+Solution Size : 7
+Nodes Expanded : 577
+Fringe size : 30
+Revisits Avoided: 22
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_04_003
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 167
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 76484.24
+Solution Size : 7
+Nodes Expanded : 366
+Fringe size : 22
+Revisits Avoided: 14
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_02_002
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 99
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 73302.96
+Solution Size : 7
+Nodes Expanded : 128
+Fringe size : 3
+Revisits Avoided: 5
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_02_002
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 99
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 70204.61
+Solution Size : 7
+Nodes Expanded : 125
+Fringe size : 6
+Revisits Avoided: 5
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_03_002
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 151
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0054
+Nodes per Second : 76582.53
+Solution Size : 7
+Nodes Expanded : 380
+Fringe size : 20
+Revisits Avoided: 15
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_03_002
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 151
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 77017.31
+Solution Size : 11
+Nodes Expanded : 368
+Fringe size : 12
+Revisits Avoided: 15
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_05_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 250
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0640
+Nodes per Second : 71413.60
+Solution Size : 32
+Nodes Expanded : 4532
+Fringe size : 259
+Revisits Avoided: 155
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_05_005
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 250
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0243
+Nodes per Second : 69657.44
+Solution Size : 36
+Nodes Expanded : 1655
+Fringe size : 39
+Revisits Avoided: 56
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_01_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 37
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 14217.98
+Solution Size : 0
+Nodes Expanded : 3
+Fringe size : 2
+Revisits Avoided: 0
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_01_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 37
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 14298.76
+Solution Size : 0
+Nodes Expanded : 3
+Fringe size : 2
+Revisits Avoided: 0
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Robot
+Problem : pfile_03_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 94
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 81161.38
+Solution Size : 7
+Nodes Expanded : 168
+Fringe size : 3
+Revisits Avoided: 8
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Robot
+Problem : pfile_03_001
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 94
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 77812.03
+Solution Size : 7
+Nodes Expanded : 165
+Fringe size : 6
+Revisits Avoided: 8
+Used Memory: 24.3%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Rover-GTOHP
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5393
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 8.7895
+Nodes per Second : 16735.11
+Solution Size : 38
+Nodes Expanded : 146960
+Fringe size : 24653
+Revisits Avoided: 1720
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 5393
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.2737
+Nodes per Second : 19162.30
+Solution Size : 38
+Nodes Expanded : 5093
+Fringe size : 353
+Revisits Avoided: 29
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1222
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.5370
+Nodes per Second : 25333.37
+Solution Size : 39
+Nodes Expanded : 13562
+Fringe size : 1047
+Revisits Avoided: 827
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1222
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0779
+Nodes per Second : 25044.11
+Solution Size : 41
+Nodes Expanded : 1909
+Fringe size : 153
+Revisits Avoided: 42
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0125
+Nodes per Second : 41642.20
+Solution Size : 15
+Nodes Expanded : 490
+Fringe size : 25
+Revisits Avoided: 30
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0058
+Nodes per Second : 34771.84
+Solution Size : 15
+Nodes Expanded : 178
+Fringe size : 36
+Revisits Avoided: 0
+Used Memory: 24.0%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 12425
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.4059
+Nodes per Second : 11206.79
+Solution Size : 80
+Nodes Expanded : 15491
+Fringe size : 1317
+Revisits Avoided: 169
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 651
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0329
+Nodes per Second : 33927.57
+Solution Size : 19
+Nodes Expanded : 1086
+Fringe size : 157
+Revisits Avoided: 24
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 651
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0094
+Nodes per Second : 32004.02
+Solution Size : 25
+Nodes Expanded : 270
+Fringe size : 40
+Revisits Avoided: 0
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 560
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0320
+Nodes per Second : 39485.59
+Solution Size : 23
+Nodes Expanded : 1234
+Fringe size : 121
+Revisits Avoided: 33
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 560
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0094
+Nodes per Second : 35150.06
+Solution Size : 29
+Nodes Expanded : 304
+Fringe size : 42
+Revisits Avoided: 0
+Used Memory: 23.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 9892
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 21.3433
+Nodes per Second : 13818.26
+Solution Size : 63
+Nodes Expanded : 294710
+Fringe size : 39596
+Revisits Avoided: 2195
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 9892
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.3840
+Nodes per Second : 15894.43
+Solution Size : 77
+Nodes Expanded : 21749
+Fringe size : 1777
+Revisits Avoided: 134
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Rover-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4176
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 8.1269
+Nodes per Second : 15922.30
+Solution Size : 65
+Nodes Expanded : 129284
+Fringe size : 18905
+Revisits Avoided: 2192
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 4176
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1861
+Nodes per Second : 17080.92
+Solution Size : 69
+Nodes Expanded : 3053
+Fringe size : 282
+Revisits Avoided: 40
+Used Memory: 23.7%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Rover-GTOHP
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 57134
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 15.5805
+Nodes per Second : 7647.89
+Solution Size : 105
+Nodes Expanded : 117560
+Fringe size : 15728
+Revisits Avoided: 203
+Used Memory: 24.8%
+Search Result: None
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Satellite-GTOHP
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 27318
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 7.7443
+Nodes per Second : 2635.81
+Solution Size : 62
+Nodes Expanded : 20153
+Fringe size : 3819
+Revisits Avoided: 1008
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 15437
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 1.8371
+Nodes per Second : 4736.79
+Solution Size : 45
+Nodes Expanded : 8511
+Fringe size : 1792
+Revisits Avoided: 528
+Used Memory: 24.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Satellite-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 419
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0059
+Nodes per Second : 46389.31
+Solution Size : 11
+Nodes Expanded : 248
+Fringe size : 22
+Revisits Avoided: 18
+Used Memory: 23.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 419
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0035
+Nodes per Second : 41969.90
+Solution Size : 11
+Nodes Expanded : 125
+Fringe size : 26
+Revisits Avoided: 1
+Used Memory: 23.9%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 19031
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 2.8503
+Nodes per Second : 5252.61
+Solution Size : 47
+Nodes Expanded : 14713
+Fringe size : 2201
+Revisits Avoided: 528
+Used Memory: 24.2%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Satellite-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1552
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0829
+Nodes per Second : 25293.38
+Solution Size : 15
+Nodes Expanded : 2048
+Fringe size : 138
+Revisits Avoided: 154
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1552
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0252
+Nodes per Second : 20828.94
+Solution Size : 15
+Nodes Expanded : 485
+Fringe size : 149
+Revisits Avoided: 42
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Satellite-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1300
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0618
+Nodes per Second : 34570.17
+Solution Size : 17
+Nodes Expanded : 2084
+Fringe size : 86
+Revisits Avoided: 116
+Used Memory: 24.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1300
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0180
+Nodes per Second : 27495.87
+Solution Size : 17
+Nodes Expanded : 453
+Fringe size : 152
+Revisits Avoided: 1
+Used Memory: 24.1%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 53934
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 31.2158
+Nodes per Second : 1248.87
+Solution Size : 72
+Nodes Expanded : 38576
+Fringe size : 11345
+Revisits Avoided: 3048
+Used Memory: 25.6%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Satellite-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 19910
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 4.6161
+Nodes per Second : 3896.72
+Solution Size : 65
+Nodes Expanded : 17768
+Fringe size : 2540
+Revisits Avoided: 430
+Used Memory: 24.4%
+Search Result: None
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Snake
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-5slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-5slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-2slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 149780
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 1.7283
+Nodes per Second : 29103.77
+Solution Size : 17
+Nodes Expanded : 28482
+Fringe size : 236
+Revisits Avoided: 38
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-2slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 149780
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.9132
+Nodes per Second : 18640.92
+Solution Size : 17
+Nodes Expanded : 3249
+Fringe size : 1397
+Revisits Avoided: 0
+Used Memory: 25.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-3slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 658359
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 28.2813
+Nodes per Second : 18001.37
+Solution Size : 32
+Nodes Expanded : 268506
+Fringe size : 6209
+Revisits Avoided: 454
+Used Memory: 29.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-3slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 658359
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 14.4524
+Nodes per Second : 12868.67
+Solution Size : 32
+Nodes Expanded : 13959
+Fringe size : 5027
+Revisits Avoided: 0
+Used Memory: 29.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-6slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-6slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-7slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-7slots-seed1.snake
+Staring solver
+function F = 0*G + 1*H
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-8slots-seed1.snake
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-8slots-seed1.snake
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-10slots-seed1.snake
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-10slots-seed1.snake
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Snake
+Problem : pb-9slots-seed1.snake
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Snake
+Problem : pb-9slots-seed1.snake
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Towers
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 6196
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0149
+Nodes per Second : 76713.76
+Solution Size : 7
+Nodes Expanded : 455
+Fringe size : 24
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 6196
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0147
+Nodes per Second : 76849.69
+Solution Size : 7
+Nodes Expanded : 455
+Fringe size : 24
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 21806
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.3120
+Nodes per Second : 62485.30
+Solution Size : 63
+Nodes Expanded : 14777
+Fringe size : 66
+Revisits Avoided: 0
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 21806
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.3091
+Nodes per Second : 62809.25
+Solution Size : 63
+Nodes Expanded : 14777
+Fringe size : 66
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 39843
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 2.2783
+Nodes per Second : 54964.57
+Solution Size : 255
+Nodes Expanded : 110801
+Fringe size : 104
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 39843
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 2.2335
+Nodes per Second : 55427.32
+Solution Size : 255
+Nodes Expanded : 110801
+Fringe size : 104
+Revisits Avoided: 0
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1111
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 31562.49
+Solution Size : 1
+Nodes Expanded : 18
+Fringe size : 6
+Revisits Avoided: 0
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 1111
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 40986.68
+Solution Size : 1
+Nodes Expanded : 18
+Fringe size : 6
+Revisits Avoided: 0
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3364
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 68780.16
+Solution Size : 3
+Nodes Expanded : 107
+Fringe size : 14
+Revisits Avoided: 0
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 3364
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 68727.49
+Solution Size : 3
+Nodes Expanded : 107
+Fringe size : 14
+Revisits Avoided: 0
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 65033
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 16.7148
+Nodes per Second : 46082.83
+Solution Size : 1023
+Nodes Expanded : 739121
+Fringe size : 150
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 65033
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 16.8156
+Nodes per Second : 45796.93
+Solution Size : 1023
+Nodes Expanded : 739121
+Fringe size : 150
+Revisits Avoided: 0
+Used Memory: 25.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 15332
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1149
+Nodes per Second : 68681.36
+Solution Size : 31
+Nodes Expanded : 5041
+Fringe size : 50
+Revisits Avoided: 0
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 15332
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.1109
+Nodes per Second : 68480.48
+Solution Size : 31
+Nodes Expanded : 5041
+Fringe size : 50
+Revisits Avoided: 0
+Used Memory: 24.5%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 80764
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 44.4195
+Nodes per Second : 42724.41
+Solution Size : 2047
+Nodes Expanded : 1851515
+Fringe size : 176
+Revisits Avoided: 0
+Used Memory: 25.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 80764
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 44.7485
+Nodes per Second : 42394.97
+Solution Size : 2047
+Nodes Expanded : 1851515
+Fringe size : 176
+Revisits Avoided: 0
+Used Memory: 25.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 30134
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.8326
+Nodes per Second : 59296.77
+Solution Size : 127
+Nodes Expanded : 41215
+Fringe size : 84
+Revisits Avoided: 0
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 30134
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.8241
+Nodes per Second : 60371.08
+Solution Size : 127
+Nodes Expanded : 41215
+Fringe size : 84
+Revisits Avoided: 0
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 10261
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0413
+Nodes per Second : 71915.96
+Solution Size : 15
+Nodes Expanded : 1601
+Fringe size : 36
+Revisits Avoided: 0
+Used Memory: 24.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 10261
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0420
+Nodes per Second : 70585.50
+Solution Size : 15
+Nodes Expanded : 1601
+Fringe size : 36
+Revisits Avoided: 0
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Towers
+Problem : pfile_09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 51402
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 6.1389
+Nodes per Second : 50645.64
+Solution Size : 511
+Nodes Expanded : 289485
+Fringe size : 126
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Towers
+Problem : pfile_09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 51402
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 6.1137
+Nodes per Second : 50775.22
+Solution Size : 511
+Nodes Expanded : 289485
+Fringe size : 126
+Revisits Avoided: 0
+Used Memory: 24.7%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Transport
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 786
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0301
+Nodes per Second : 19323.75
+Solution Size : 19
+Nodes Expanded : 552
+Fringe size : 392
+Revisits Avoided: 47
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile11
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 786
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0444
+Nodes per Second : 25259.94
+Solution Size : 19
+Nodes Expanded : 1095
+Fringe size : 884
+Revisits Avoided: 113
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile05
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 613
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0558
+Nodes per Second : 24369.22
+Solution Size : 31
+Nodes Expanded : 1341
+Fringe size : 1104
+Revisits Avoided: 134
+Used Memory: 24.2%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 761
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2049
+Nodes per Second : 15772.20
+Solution Size : 34
+Nodes Expanded : 3211
+Fringe size : 3138
+Revisits Avoided: 415
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile10
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 761
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0131
+Nodes per Second : 26485.61
+Solution Size : 34
+Nodes Expanded : 318
+Fringe size : 150
+Revisits Avoided: 19
+Used Memory: 24.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 312
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0335
+Nodes per Second : 25854.32
+Solution Size : 14
+Nodes Expanded : 854
+Fringe size : 1143
+Revisits Avoided: 104
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 458
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.2081
+Nodes per Second : 17623.35
+Solution Size : 28
+Nodes Expanded : 3655
+Fringe size : 5257
+Revisits Avoided: 171
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile06
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 458
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0147
+Nodes per Second : 29202.16
+Solution Size : 30
+Nodes Expanded : 408
+Fringe size : 276
+Revisits Avoided: 22
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0061
+Nodes per Second : 40333.34
+Solution Size : 18
+Nodes Expanded : 222
+Fringe size : 104
+Revisits Avoided: 17
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0038
+Nodes per Second : 45284.29
+Solution Size : 18
+Nodes Expanded : 148
+Fringe size : 51
+Revisits Avoided: 8
+Used Memory: 24.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 502
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0079
+Nodes per Second : 34268.54
+Solution Size : 21
+Nodes Expanded : 248
+Fringe size : 142
+Revisits Avoided: 12
+Used Memory: 24.4%
+Search Result: None
+@
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0274
+Nodes per Second : 24201.01
+Solution Size : 31
+Nodes Expanded : 646
+Fringe size : 428
+Revisits Avoided: 40
+Used Memory: 24.6%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0119
+Nodes per Second : 31450.13
+Solution Size : 31
+Nodes Expanded : 352
+Fringe size : 131
+Revisits Avoided: 14
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 702
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.1887
+Nodes per Second : 18567.83
+Solution Size : 31
+Nodes Expanded : 3485
+Fringe size : 2774
+Revisits Avoided: 510
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 702
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0107
+Nodes per Second : 28814.50
+Solution Size : 31
+Nodes Expanded : 281
+Fringe size : 133
+Revisits Avoided: 17
+Used Memory: 24.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 788
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.4931
+Nodes per Second : 15447.74
+Solution Size : 36
+Nodes Expanded : 7602
+Fringe size : 10809
+Revisits Avoided: 555
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile08
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 788
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0205
+Nodes per Second : 28692.89
+Solution Size : 36
+Nodes Expanded : 558
+Fringe size : 309
+Revisits Avoided: 41
+Used Memory: 24.8%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT1
+Domain : Transport
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 120
+Heuristic Info:
+	Heuristic Name : novelty_hft1
+	Description for novelty_type not found, check 'descriptions.json' file. : hft1
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 43708.18
+Solution Size : 7
+Nodes Expanded : 78
+Fringe size : 30
+Revisits Avoided: 6
+Used Memory: 24.9%
+Search Result: None
+@
+Experiment Name : NOVELTY-HFT2
+Domain : Transport
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+ITERATIONS 120
+Heuristic Info:
+	Heuristic Name : novelty_hft2
+	Description for novelty_type not found, check 'descriptions.json' file. : hft2
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 44114.85
+Solution Size : 7
+Nodes Expanded : 78
+Fringe size : 30
+Revisits Avoided: 6
+Used Memory: 24.9%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks/Woodworking
