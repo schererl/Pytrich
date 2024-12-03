@@ -32,9 +32,7 @@ class TaskDecompositionHeuristic(Heuristic):
                 continue
             if node.content_type == ContentType.OPERATOR:
                 starting_nodes.append(node)
-                node.value = 0 # need to change to 'node.weight' after first iteration
-                if self.is_satis and node.weight == 0:
-                    node.weight=1
+                node.value = 0 #NOTE: need to change to 'node.weight' after first iteration
             else:
                 if self.is_satis and node.content_type == ContentType.ABSTRACT_TASK:
                     node.weight=1
@@ -58,10 +56,16 @@ class TaskDecompositionHeuristic(Heuristic):
                 if new_value != node.value:
                     changed=True
                     node.value=new_value
+        
+        for n in self.and_or_graph.nodes:
+            if n is None:
+                continue
+            if n != None and n.content_type == ContentType.OPERATOR or n.content_type == ContentType.ABSTRACT_TASK:
+                self.tdg_values[n.ID] = n.value
+        
                     
                      
     def __call__(self, parent_node, node):
-        print(sum([self.tdg_values[t.global_id] for t in node.task_network]))
         super().set_h_f_values(node, sum([self.tdg_values[t.global_id] for t in node.task_network]))
     
     def __output__(self):

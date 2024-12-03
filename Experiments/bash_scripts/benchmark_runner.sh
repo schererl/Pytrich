@@ -37,11 +37,11 @@ declare -A experiments
 # experiments[1,name]="NOVELTY-FT"
 # experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-FT" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"ft\""' 
 
-experiments[0,name]="NOVELTY-HFT1"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-HFT1" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"hft1\"" ' 
+experiments[0,name]="NOVELTY-satisTDG"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-satistdg" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"satistdg\"" ' 
 
-experiments[1,name]="NOVELTY-HFT2"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-HFT2" -s Astar -sp "G=0,H=1" -H NOVELTY  -hp "novelty_type=\"hft2\"" ' 
+experiments[1,name]="SATIS-TDG"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "SATIS-TDG" -s Astar -sp "G=0,H=1" -H TDG -hp "is_satis=True" ' 
 
 
 # Add or remove experiments by modifying the experiments array

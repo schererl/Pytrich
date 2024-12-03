@@ -51,6 +51,7 @@ def search(model: Model,
     while pq:
         expansions += 1
         node:HTNNode = heapq.heappop(pq)
+        #print(node.h_value, end = ' ')
         closed_list[hash(node)]=node.g_value
         # time and memory control
         if FLAGS.MONITOR_SEARCH_RESOURCES and expansions%100 == 0:
@@ -82,6 +83,7 @@ def search(model: Model,
         task:Union[AbstractTask, Operator] = node.task_network[0]
         # check if task is primitive
         if isinstance(task, Operator):
+            #print(f'o', end= '  ')
             if not task.applicable(node.state):
                 continue
             
@@ -107,6 +109,7 @@ def search(model: Model,
             
         # otherwise its abstract
         else:
+            #print(f'a ({len(task.decompositions)})', end= '  ')
             for method in task.decompositions:
                 if not method.applicable(node.state):
                     continue

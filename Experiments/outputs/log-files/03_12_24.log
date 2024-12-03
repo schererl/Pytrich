@@ -1,0 +1,1310 @@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//AssemblyHierarchical
+Experiment Name : NOVELTY-satisTDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth03
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 2.9272
+Nodes per Second : 130596.58
+Solution Size : 7
+Nodes Expanded : 382142
+Fringe size : 24796
+Revisits Avoided: 47177
+Used Memory: 33.2%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth03
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 124
+	Iterations: 11
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.6905
+Nodes per Second : 226198.21
+Solution Size : 7
+Nodes Expanded : 382142
+Fringe size : 24796
+Revisits Avoided: 47177
+Used Memory: 33.3%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0622
+Nodes per Second : 160681.00
+Solution Size : 5
+Nodes Expanded : 9884
+Fringe size : 2050
+Revisits Avoided: 1266
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth02
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 80
+	Iterations: 9
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0402
+Nodes per Second : 250277.71
+Solution Size : 5
+Nodes Expanded : 9884
+Fringe size : 2050
+Revisits Avoided: 1266
+Used Memory: 34.3%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : SATIS-TDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth04
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 168
+	Iterations: 13
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 50.2474
+Nodes per Second : 180205.17
+Solution Size : 9
+Nodes Expanded : 9054568
+Fringe size : 435333
+Revisits Avoided: 1149264
+Used Memory: 39.8%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0020
+Nodes per Second : 169875.38
+Solution Size : 3
+Nodes Expanded : 252
+Fringe size : 90
+Revisits Avoided: 22
+Used Memory: 33.9%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : AssemblyHierarchical
+Problem : genericLinearProblem_depth01
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 36
+	Iterations: 7
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0015
+Nodes per Second : 231333.90
+Solution Size : 3
+Nodes Expanded : 252
+Fringe size : 90
+Revisits Avoided: 22
+Used Memory: 33.9%
+Search Result: None
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Barman-BDI
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile05
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 1.1401
+Nodes per Second : 21809.38
+Solution Size : 47
+Nodes Expanded : 24813
+Fringe size : 42061
+Revisits Avoided: 81
+Used Memory: 33.6%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile05
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 559
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.7290
+Nodes per Second : 79027.38
+Solution Size : 55
+Nodes Expanded : 57425
+Fringe size : 89283
+Revisits Avoided: 453
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile10
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 1.5789
+Nodes per Second : 9188.78
+Solution Size : 47
+Nodes Expanded : 14449
+Fringe size : 43790
+Revisits Avoided: 21
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile10
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 1121
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3379
+Nodes per Second : 57876.03
+Solution Size : 47
+Nodes Expanded : 19329
+Fringe size : 52805
+Revisits Avoided: 31
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.6539
+Nodes per Second : 23464.11
+Solution Size : 50
+Nodes Expanded : 15303
+Fringe size : 27791
+Revisits Avoided: 89
+Used Memory: 33.9%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile03
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 469
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.8234
+Nodes per Second : 116794.13
+Solution Size : 50
+Nodes Expanded : 95971
+Fringe size : 54320
+Revisits Avoided: 696
+Used Memory: 34.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile06
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 15.0435
+Nodes per Second : 32861.97
+Solution Size : 76
+Nodes Expanded : 494261
+Fringe size : 229288
+Revisits Avoided: 3587
+Used Memory: 34.6%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile06
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 675
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.1505
+Nodes per Second : 101727.89
+Solution Size : 76
+Nodes Expanded : 625400
+Fringe size : 266942
+Revisits Avoided: 4307
+Used Memory: 34.7%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0914
+Nodes per Second : 33831.29
+Solution Size : 32
+Nodes Expanded : 3052
+Fringe size : 4733
+Revisits Avoided: 8
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile02
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 299
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0532
+Nodes per Second : 102311.34
+Solution Size : 32
+Nodes Expanded : 5327
+Fringe size : 6086
+Revisits Avoided: 22
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.1731
+Nodes per Second : 27840.85
+Solution Size : 31
+Nodes Expanded : 4768
+Fringe size : 6712
+Revisits Avoided: 17
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile04
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 443
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0831
+Nodes per Second : 94441.82
+Solution Size : 31
+Nodes Expanded : 7696
+Fringe size : 9816
+Revisits Avoided: 27
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.3196
+Nodes per Second : 17538.18
+Solution Size : 31
+Nodes Expanded : 5560
+Fringe size : 11800
+Revisits Avoided: 5
+Used Memory: 34.1%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile07
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 625
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1209
+Nodes per Second : 72296.50
+Solution Size : 33
+Nodes Expanded : 8557
+Fringe size : 16491
+Revisits Avoided: 8
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 14.6942
+Nodes per Second : 19220.42
+Solution Size : 67
+Nodes Expanded : 282360
+Fringe size : 280997
+Revisits Avoided: 1492
+Used Memory: 34.5%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile09
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 1003
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 17.7266
+Nodes per Second : 78684.85
+Solution Size : 75
+Nodes Expanded : 1394541
+Fringe size : 1203741
+Revisits Avoided: 8867
+Used Memory: 38.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile08
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.8514
+Nodes per Second : 11680.57
+Solution Size : 46
+Nodes Expanded : 9905
+Fringe size : 28689
+Revisits Avoided: 21
+Used Memory: 34.1%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile08
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 869
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3796
+Nodes per Second : 72224.52
+Solution Size : 48
+Nodes Expanded : 27170
+Fringe size : 50309
+Revisits Avoided: 41
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Barman-BDI
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0081
+Nodes per Second : 58862.67
+Solution Size : 14
+Nodes Expanded : 434
+Fringe size : 457
+Revisits Avoided: 1
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Barman-BDI
+Problem : pfile01
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 165
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0048
+Nodes per Second : 120321.35
+Solution Size : 16
+Nodes Expanded : 490
+Fringe size : 460
+Revisits Avoided: 1
+Used Memory: 34.2%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Blocksworld-GTOHP
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0502
+Nodes per Second : 39434.91
+Solution Size : 153
+Nodes Expanded : 1924
+Fringe size : 97
+Revisits Avoided: 12
+Used Memory: 34.2%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p12
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 382
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0080
+Nodes per Second : 154822.79
+Solution Size : 149
+Nodes Expanded : 1011
+Fringe size : 96
+Revisits Avoided: 0
+Used Memory: 34.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0388
+Nodes per Second : 36215.46
+Solution Size : 168
+Nodes Expanded : 1348
+Fringe size : 103
+Revisits Avoided: 0
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p13
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 386
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0273
+Nodes per Second : 171757.52
+Solution Size : 148
+Nodes Expanded : 4439
+Fringe size : 166
+Revisits Avoided: 8
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0122
+Nodes per Second : 57064.16
+Solution Size : 83
+Nodes Expanded : 646
+Fringe size : 48
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p06
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 214
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0049
+Nodes per Second : 223513.22
+Solution Size : 83
+Nodes Expanded : 912
+Fringe size : 37
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0080
+Nodes per Second : 76215.29
+Solution Size : 92
+Nodes Expanded : 557
+Fringe size : 70
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p04
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 150
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0022
+Nodes per Second : 184768.16
+Solution Size : 61
+Nodes Expanded : 277
+Fringe size : 37
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 109561.60
+Solution Size : 20
+Nodes Expanded : 92
+Fringe size : 12
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p01
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 62
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0008
+Nodes per Second : 185878.96
+Solution Size : 20
+Nodes Expanded : 85
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p14
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0440
+Nodes per Second : 32536.88
+Solution Size : 229
+Nodes Expanded : 1377
+Fringe size : 170
+Revisits Avoided: 0
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p14
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 418
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0428
+Nodes per Second : 134375.21
+Solution Size : 234
+Nodes Expanded : 5413
+Fringe size : 239
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.2269
+Nodes per Second : 59605.38
+Solution Size : 149
+Nodes Expanded : 13450
+Fringe size : 103
+Revisits Avoided: 0
+Used Memory: 34.4%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p08
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 296
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0131
+Nodes per Second : 193322.28
+Solution Size : 128
+Nodes Expanded : 2302
+Fringe size : 143
+Revisits Avoided: 11
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p11
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 23.9709
+Nodes per Second : 48515.12
+Solution Size : 186
+Nodes Expanded : 1162881
+Fringe size : 125
+Revisits Avoided: 0
+Used Memory: 34.1%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p11
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 376
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 163604.64
+Solution Size : 152
+Nodes Expanded : 782
+Fringe size : 99
+Revisits Avoided: 0
+Used Memory: 33.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0044
+Nodes per Second : 102964.30
+Solution Size : 40
+Nodes Expanded : 397
+Fringe size : 22
+Revisits Avoided: 0
+Used Memory: 33.4%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p03
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 102
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 188620.91
+Solution Size : 38
+Nodes Expanded : 169
+Fringe size : 19
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0025
+Nodes per Second : 90840.42
+Solution Size : 38
+Nodes Expanded : 180
+Fringe size : 22
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p02
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 104
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 206814.19
+Solution Size : 34
+Nodes Expanded : 221
+Fringe size : 27
+Revisits Avoided: 0
+Used Memory: 33.4%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.2208
+Nodes per Second : 66755.42
+Solution Size : 116
+Nodes Expanded : 14673
+Fringe size : 76
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p07
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 222
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0057
+Nodes per Second : 188405.01
+Solution Size : 83
+Nodes Expanded : 904
+Fringe size : 51
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0135
+Nodes per Second : 68202.63
+Solution Size : 77
+Nodes Expanded : 864
+Fringe size : 48
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p05
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 200
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0043
+Nodes per Second : 192801.51
+Solution Size : 76
+Nodes Expanded : 664
+Fringe size : 42
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.1060
+Nodes per Second : 53496.70
+Solution Size : 121
+Nodes Expanded : 5600
+Fringe size : 94
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p09
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 276
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 163231.43
+Solution Size : 112
+Nodes Expanded : 834
+Fringe size : 66
+Revisits Avoided: 1
+Used Memory: 33.3%
+Search Result: None
+@
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p15
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 474
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0168
+Nodes per Second : 162753.97
+Solution Size : 186
+Nodes Expanded : 2461
+Fringe size : 122
+Revisits Avoided: 0
+Used Memory: 33.2%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-GTOHP
+Problem : p10
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0340
+Nodes per Second : 39587.98
+Solution Size : 222
+Nodes Expanded : 1292
+Fringe size : 165
+Revisits Avoided: 0
+Used Memory: 33.3%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-GTOHP
+Problem : p10
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 354
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0070
+Nodes per Second : 138038.14
+Solution Size : 146
+Nodes Expanded : 779
+Fringe size : 103
+Revisits Avoided: 0
+Used Memory: 33.4%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Blocksworld-HPDDL
+@
+@
+@
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_025
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 48.7214
+Nodes per Second : 40249.02
+Solution Size : 120
+Nodes Expanded : 1960923
+Fringe size : 154
+Revisits Avoided: 49559
+Used Memory: 34.6%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_025
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 349
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 8.0208
+Nodes per Second : 244204.25
+Solution Size : 118
+Nodes Expanded : 1958387
+Fringe size : 117
+Revisits Avoided: 49651
+Used Memory: 34.9%
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 0.0035
+Nodes per Second : 117334.37
+Solution Size : 20
+Nodes Expanded : 367
+Fringe size : 30
+Revisits Avoided: 25
+Used Memory: 34.2%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_005
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 64
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0017
+Nodes per Second : 292307.21
+Solution Size : 20
+Nodes Expanded : 384
+Fringe size : 14
+Revisits Avoided: 25
+Used Memory: 34.2%
+Search Result: None
+@
+@
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_020
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 15.8631
+Nodes per Second : 47606.97
+Solution Size : 88
+Nodes Expanded : 755142
+Fringe size : 1295
+Revisits Avoided: 38742
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_020
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 263
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.1083
+Nodes per Second : 256027.72
+Solution Size : 86
+Nodes Expanded : 539521
+Fringe size : 93
+Revisits Avoided: 27247
+Used Memory: 34.1%
+Search Result: None
+@
+Experiment Name : NOVELTY-satisTDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Staring solver
+function F = 0*G + 1*H
+Heuristic Info:
+	Heuristic Name : novelty_satistdg
+	Description for novelty_type not found, check 'descriptions.json' file. : satistdg
+
+Search Status : GOAL
+Search Time (seconds) : 1.0377
+Nodes per Second : 62063.56
+Solution Size : 66
+Nodes Expanded : 64351
+Fringe size : 277
+Revisits Avoided: 2815
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : SATIS-TDG
+Domain : Blocksworld-HPDDL
+Problem : pfile_015
+Staring solver
+function F = 0*G + 1*H
+Heuristic info:
+	heuristic name: tdg
+	Graph size: 202
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2183
+Nodes per Second : 283530.06
+Solution Size : 64
+Nodes Expanded : 61645
+Fringe size : 94
+Revisits Avoided: 2709
+Used Memory: 34.0%
+Search Result: None
+@

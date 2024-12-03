@@ -31,7 +31,7 @@ class AndOrNode:
         # specific for computing heuristic values using AND/OR structure
         self.forced_true = False
         self.num_forced_predecessors = 0
-        self.weight    = 0
+        self.weight    = weight
         self.value     = 0
         # for output
         self.str_name = str_name

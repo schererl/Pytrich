@@ -3,7 +3,7 @@ import time
 from typing import Optional, Dict, Union, List, Type
 
 from Pytrich.DESCRIPTIONS import Descriptions
-from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyFF, NoveltyLMcount, NoveltyLazyFT, NoveltyPairs, NoveltySumFT, NoveltyHFT1, NoveltyHFT2
+from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyFF, NoveltyLMcount, NoveltyLazyFT, NoveltyPairs, NoveltySatisTDG, NoveltySumFT, NoveltyHFT1, NoveltyHFT2, NoveltyTDG
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Model, Operator, AbstractTask
@@ -27,6 +27,10 @@ class NoveltyHeuristic(Heuristic):
             self.novelty_function = NoveltySumFT()
         elif novelty_type == "lmcount":
             self.novelty_function = NoveltyLMcount(model, initial_node)
+        elif novelty_type == "tdg":
+            self.novelty_function = NoveltyTDG(model, initial_node)
+        elif novelty_type == "satistdg":
+            self.novelty_function = NoveltySatisTDG(model, initial_node)
         elif novelty_type == "pairs":
             self.novelty_function = NoveltyPairs()
         elif novelty_type == "hft1":

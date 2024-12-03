@@ -1,6 +1,7 @@
 from typing import Optional, Type, Union, List, Dict
 
 from Pytrich.Heuristics.Landmarks.landmark import LM_Node, Landmarks
+from Pytrich.Heuristics.tdg_heuristic import TaskDecompositionHeuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import AbstractTask, Operator
 
@@ -171,6 +172,46 @@ class NoveltyLMcount:
             return  node.lm_node.lm_value()
         return novelty
     
+
+class NoveltyTDG:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, is_satis=False)
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        """
+        
+        """
+        novelty = 1
+        
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((bit_pos, node.task.global_id))
+        
+        if novelty==1:
+            return  sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
+        return novelty
+    
+class NoveltySatisTDG:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, is_satis=True)
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        """
+        
+        """
+        novelty = 1
+        
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((bit_pos, node.task.global_id))
+        
+        if novelty==1:
+            return  sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
+        return novelty
 
 class NoveltyHFT1:
     def __init__(self, model, initial_node):
