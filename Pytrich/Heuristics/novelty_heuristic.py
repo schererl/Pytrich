@@ -16,6 +16,7 @@ class NoveltyHeuristic(Heuristic):
     def __init__(self, model: Model, initial_node: HTNNode, novelty_type: str = "ft"):
         super().__init__(model, initial_node, name=f"novelty_{novelty_type}")
         self.novelty_function = None
+        
         self.novelty_type = novelty_type
         if novelty_type == "ft":
             self.novelty_function = NoveltyFT()

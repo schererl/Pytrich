@@ -49,5 +49,22 @@ def parse_search_params(params_str):
     
     return param_dict
 
+def parse_argument_string(heuristic_string):
+    import re
+    pattern = r"(\w+)\((.*?)\)"
+    match = re.match(pattern, heuristic_string)
+    if not match:
+        raise ValueError(f"Invalid heuristic format: {heuristic_string}")
+    heuristic_name, params = match.groups()
+    param_dict = {}
+    if params:
+        for param in params.split(','):
+            key, value = param.split('=')
+            try:
+                param_dict[key.strip()] = eval(value.strip())
+            except NameError:
+                param_dict[key.strip()] = value.strip()
+    return heuristic_name, param_dict
+
 class InvalidArgumentException(Exception):
     pass

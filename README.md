@@ -10,11 +10,13 @@ To run the planner, ensure the following dependencies are installed and compiled
 - [pandaPIgrounder](https://github.com/panda-planner-dev/pandaPIgrounder)
 
 
-After compiling these, move them to `pandaBuilds` directory before executing the planner.
+After compiling, place the binaries in the `pandaBuilds` directory before executing the planner.
 
-If you use Ubuntu 22.04 probably the compiled panda files in the project will serve and you won't need to build them again
+> **Note:** If you're using Ubuntu 22.04, the precompiled PANDA files included in the project may work without recompilation.
 
-Pytrich was only tested in Ubuntu if you have any problem to run in a different distro or SO, contact us, or contribute to our project.
+### Compatibility
+- **Supported OS:** Ubuntu (tested on Ubuntu 22.04).
+- If you're running on a different OS or encounter any issues, please contact us or contribute a fix.
 
 ## Execution Instructions
 
@@ -31,44 +33,47 @@ Pytrich was only tested in Ubuntu if you have any problem to run in a different 
     ```
 
 ## User Guidance
-- **Benchmarks**: The benchmarks are included as a submodule from [htn-benchmarks](https://github.com/schererl/htn-benchmarks).
-- **Supported Planning Type**: Currently, only **total order** planning is supported.
-- **Parser/Grounder**: A custom parser/grounder is not yet implemented; instead, PANDA is used as a grounding subroutine.
-- **Scripts**: The `Script` directory contains useful scripts for running experiments (not working at the moment).
+### Benchmarks
+
+Benchmarks are included as a submodule from [htn-benchmarks](https://github.com/schererl/htn-benchmarks).
+
+### Supported HTN Planning Type
+Currently, only **total order** planning is supported.
+
+### Grounding
+The planner currently uses PANDA's grounding subroutine.
+
+### Experiments
+The `Experiments` directory contains useful scripts for running experiments and some results of previous experiments.
 
 ### Command-Line Arguments
-The script `__main__.py` supports the following arguments:
+| Argument                  | Description                                                                                     | Default            |
+|---------------------------|-------------------------------------------------------------------------------------------------|--------------------|
+| **domain and problem**    | Path to the domain and problem file in HDDL format.                                             | Required (if no `--sas_file`). |
+| **--sas_file `<file>`**   | Path to a pre-grounded SAS file (does not require domain/problem files).                        | None               |
+| **-H, --heuristic `<type>`** | Specify the heuristic to use in the format `heuristic_name(param1=value1,param2=value2)`.       | `TDG()`            |
+| **-S, --search `<type>`** | Specify the search algorithm in the format `search_name(param1=value1,param2=value2)`.          | `Astar(use_early=False)`          |
+| **-N, --node `<type>`**   | Specify the node type in the format `node_type(param1=value1,param2=value2)`.                   | `AstarNode(G=1,H=1)`      |
+| **-tor**                  | Enable Total-Order reachability analysis during grounding.                                      | Disabled           |
+| **-ms**                   | Monitor time and memory usage during search.                                                   | Disabled           |
+| **-ml**                   | Monitor time during landmark generation.                                                       | Disabled           |
+| **-mg**                   | Enable post-processing grounder logging.                                                       | Disabled           |
 
-- **domain and problem** (`[domain_file] [problem_file]`): Path to the domain and problem file in HDDL format. 
-- **--sas_file `<file>`**: Path to the problem already in sas plus format (don't require including .HDDL domain and problem files).
-- **-H, --heuristic `<heuristic_type>`** (`str`): Heuristic to use. Choices are `TDG`, `LMCOUNT`. Default is `TDG`.
-- **-s, --search `<search_algorithm>`** (`str`): Search algorithm to use. Choices are `Astar`, `Blind`. Default is `Astar`.
-- **-hp `<args>`**: Heuristic parameters. Specify parameters for the selected heuristic. Each heuristic has its own parameters, which can be found in the respective class. Example: `-H LMCOUNT -hp "name=\"MyHeuristic\", use_bid=True, use_ord=False"`
-- **-tor**: Enable Total-Order reachability during grounder post-processing (unpublished).
-- **-ms**: Monitor time and memory usage during search.
-- **-ml**: Monitor time during landmark generation.
-- **-mg**: Enable post-processing grounder logging.
+### Example Usage
+
+```bash
+python __main__.py \
+    -H "LMCOUNT(use_bid=True)" \
+    -S "Astar(use_early)" \
+    -N "AstarNode(G=0,H=5)" \
+    --sas_file htn-benchmarks/sas_folder/problem.sas
+```
+
 
 ## Ongoing Research
-Several new components of this planner are currently under research. Key projects include:
 
-1. **AND/OR Landmark Generation**: We are developing what we call **Bidirectional Landmarks** using a new AND/OR encoding for HTN planning.
-2. **TO Landmark Generation**: Exploration of Total-Order landmark computation to capture ordering constraints.
-3. **TO Grounding**: Pruning unreachable regions in Decomposition Space through Total-Order analysis.
-4. **Landmark Ordering**: Investigating landmark ordering to inform search, inspired by LAMA.
-5. **IP Heuristics**: Enhancing Integer Programming (IP) heuristics with landmarks for solving HTN planning problems.
-6. **Novelty**: Novelty for HTN planning.
-
-## Development Roadmap
-
-### Parser/Grounder
-- [ ] **DEVELOP:** Develop a new HTN parser/grounder.
-- [ ] **ENHANCE:** grounding techniques and post-processing methods (to-reachability).
-
-### Search Improvements
-- [ ] **Add:** Implement task preconditions for TO-HTN (Conny Olz's work).
-
-### Heuristic Development
-- [ ] **IN PROGRESS:** Integrate IP/LP heuristic approaches (in progress).
-- [ ] **IN PROGRESS:** Explore HTN landmark heuristics (in progress).
-- [ ] **IN PROGRESS:** Implement RC compilation strategies.
+1. **Bidirectional Landmarks**: Developing landmarks using an AND/OR graph encoding for HTN planning (paper submitted to ICAPS25).
+2. **Total-Order Landmark Generation**: Exploring order constraints in landmark computation (currently under research).
+3. **Total-Order Grounding**: Improving pruning in decomposition space (currently under research).
+4. **Novelty Search**: Applying novelty heuristics to HTN planning (currently under research).
+5. **Integer Programming (IP) Heuristics**: Leveraging landmarks in IP-based heuristics for HTN planning (research interest).

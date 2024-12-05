@@ -5,6 +5,8 @@ from typing import Optional, Type, Union, List, Dict
 from collections import deque
 
 from Pytrich.DESCRIPTIONS import Descriptions
+from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
+from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Heuristics.novelty_heuristic import NoveltyHeuristic
 from Pytrich.model import Operator, AbstractTask, Model, Fact, Decomposition
 from Pytrich.Search.htn_node import HTNNode
@@ -12,16 +14,15 @@ from Pytrich.tools import parse_search_params
 import Pytrich.FLAGS as FLAGS
 
 
-def search(model: Model,
-           h_params: Optional[Dict] = None, s_params: Optional[Dict] = None,
-           heuristic_type=None,
-           node_type: Type[HTNNode] = HTNNode) -> None:
+def search(
+        model: Model,
+        node_type: Type[HTNNode] = HTNNode,
+        heuristic_type: Heuristic = None,
+        h_params: Optional[Dict] = None,
+        n_params: Optional[Dict] = None,
+        use_novelty=False
+    ):
     print('Starting blind search')
-
-    # Parse search parameters
-    s_params_parsed = parse_search_params(s_params)
-    use_novelty = s_params_parsed.get('use_novelty', False)  # Default to False if not specified
-
     start_time = time.time()
     control_time = start_time
     STATUS = 'UNSOLVABLE'
@@ -31,10 +32,11 @@ def search(model: Model,
 
     closed_list = set()
     node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
+    
     novelty=None
     if use_novelty:
         print('Novelty is enabled in the search')
-        novelty  = NoveltyHeuristic(model, node, **(parse_search_params(h_params)))
+        novelty  = NoveltyHeuristic(model, node, **h_params)
     else:
         print('Novelty is disabled in the search')
 

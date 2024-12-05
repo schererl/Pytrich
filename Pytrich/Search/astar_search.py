@@ -9,15 +9,18 @@ from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
 from Pytrich.Search.htn_node import AstarNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
-from Pytrich.tools import parse_search_params
 import Pytrich.FLAGS as FLAGS
 
-def search(model: Model, 
-           h_params: Optional[Dict] = None, s_params: Optional[Dict] = None,
-           heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
-           node_type: Type[AstarNode] = AstarNode) -> None:
+def search(
+        model: Model,
+        heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
+        node_type: Type[AstarNode] = AstarNode,
+        h_params: Optional[Dict] = None,
+        n_params: Optional[Dict] = None,
+        use_early=False
+
+    ) -> None:
     
-    use_early=True
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -28,19 +31,10 @@ def search(model: Model,
     
     closed_list = {}
     node= None
-    if s_params is not None:
-        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **(parse_search_params(s_params)))
-    else:
-        node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0)
+    node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **n_params)
     
     print(node.__output__())
-
-    h = None
-    if not h_params is None:
-        h  = heuristic_type(model, node, **(parse_search_params(h_params)))
-    else:
-        h  = heuristic_type(model, node)
-    
+    h  = heuristic_type(model, node, **h_params)
     print(h.__output__())
     pq = []
     
@@ -109,7 +103,6 @@ def search(model: Model,
             
         # otherwise its abstract
         else:
-            #print(f'a ({len(task.decompositions)})', end= '  ')
             for method in task.decompositions:
                 if not method.applicable(node.state):
                     continue
@@ -135,9 +128,6 @@ def search(model: Model,
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
-    #print(node.lm_node.lm_value())
-    
-    
     if FLAGS.LOG_SEARCH:
         desc = Descriptions()
         print(f"{desc('search_status', STATUS)}\n"
@@ -148,6 +138,3 @@ def search(model: Model,
               f"{desc('fringe_size', len(pq))}\n"
               f"Revisits Avoided: {count_revisits}\n"
               f"Used Memory: {memory_usage}%")
-
-    
-    

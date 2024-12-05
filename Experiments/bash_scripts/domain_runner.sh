@@ -12,7 +12,7 @@ fi
 domain_dir="$1"
 
 # Define time and memory limits
-TIME_LIMIT=2
+TIME_LIMIT=1
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored (optional)
@@ -21,17 +21,26 @@ ignored_domains=("Barman" "Freecell-Learned-ECAI-16" "ipc2020-feature-tests" "Lo
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-# Experiment 1: NOVELTY
-experiments[0,name]="NOVELTY"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=True" -e "NOVELTY" '
+# Experiment 1: NOVELTY (Functional Type)
+experiments[0,name]="NOVELTY-FT"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-FT" -N "AstarNode(G=0,H=1)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=ft)" '
 
-# Experiment 2: BLIND
-experiments[1,name]="BLIND"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Blind -sp "use_novelty=False" -e "BLIND" '
+# Experiment 2: NOVELTY (Satisficing TDG)
+experiments[1,name]="NOVELTY-satisTDG"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-satisTDG" -N "AstarNode(G=0,H=1)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=satistdg)" '
 
-# Experiment 3: LMCOUNT
-experiments[2,name]="LMCOUNT"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -s Astar -H LMCOUNT -e "LMCOUNT"'
+# Experiment 3: SATIS-TDG
+experiments[2,name]="SATIS-TDG"
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "SATIS-TDG" -N "AstarNode(G=0,H=1)" -S "Astar(use_early=True)" -H "TDG(is_satis=True)" '
+
+# Experiment 4: BLIND
+experiments[3,name]="BLIND"
+experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "BLIND" -S "Blind()" '
+
+# Experiment 4: BLIND-NOVELTY
+experiments[3,name]="BLIND"
+experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "BLIND-NOVELTY" -S "Blind(use_novelty=True)" -H "NOVELTY(novelty_type=ft)"'
+
 
 # Check if the domain directory exists
 if [ -d "$domain_dir" ]; then
