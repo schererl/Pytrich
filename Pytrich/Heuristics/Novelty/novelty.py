@@ -121,8 +121,8 @@ class NoveltyLMcount:
         
         initial_node.lm_node = LM_Node()
         self.landmarks = Landmarks(model, False)
-        self.landmarks.generate_bottom_up()
-        self.landmarks.bottom_up_lms()
+        self.landmarks.generate_bu_table()
+        self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
         initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
         for fact_pos in range(initial_node.state.bit_length()):
             if initial_node.state & (1 << fact_pos):
@@ -134,6 +134,10 @@ class NoveltyLMcount:
         """
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         node.lm_node.mark_lm(node.task.global_id)
+        
+        self.landmarks.bottom_up_lms(node.state, node.task_network, reinitialize=False)
+        node.lm_node.update_lms(self.landmarks.bu_lms)
+        
         if isinstance(node.task, Operator):
             for fact_pos in range(node.task.add_effects.bit_length()):
                 if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
@@ -219,8 +223,7 @@ class NoveltyHFT1:
         
         initial_node.lm_node = LM_Node()
         self.landmarks = Landmarks(model, False)
-        self.landmarks.generate_bottom_up()
-        self.landmarks.bottom_up_lms()
+        
         initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
         for fact_pos in range(initial_node.state.bit_length()):
             if initial_node.state & (1 << fact_pos):

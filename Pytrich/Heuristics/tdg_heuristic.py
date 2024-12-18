@@ -38,7 +38,6 @@ class TaskDecompositionHeuristic(Heuristic):
                     node.weight=1
                 node.value = 10000000
 
-
         changed=True
         while changed:
             self.iterations+=1

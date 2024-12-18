@@ -26,6 +26,12 @@
     "method_landmarks": {
         "description": "Number of Method Landmarks"
     },
+    "fact_reactivations": {
+        "description": "Number of Fact Landmarks Reactivated"
+    },
+    "task_reactivations": {
+        "description": "Number of Task Landmarks Reactivated"
+    },
     "nodes_expanded": {
         "description": "Nodes Expanded"
     },

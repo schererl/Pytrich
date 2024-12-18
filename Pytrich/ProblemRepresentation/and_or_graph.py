@@ -46,6 +46,7 @@ class AndOrGraph:
         self.model = model
         self.nodes = None
         self.components_count = len(model.facts) + len(model.operators) + len(model.abstract_tasks) + len(model.decompositions)
+        self.init_nodes = set()
         if graph_type == 0:
             self.bu_initialize(model)
         elif graph_type == 1:
@@ -214,8 +215,15 @@ class AndOrGraph:
         #             print(f'\t{p.label}')
         #             to_no.predecessors.append(p)
         #             self.add_edge(p, to_no)
-            
-        
+
+    def update_bu_graph(self, state):
+        for fact in self.model.facts:
+            fact_ao_node = self.nodes[fact.global_id]
+            if fact_ao_node.type==NodeType.INIT and ~state & (1 << fact.global_id):
+                fact_ao_node.type=NodeType.OR
+            elif state & (1 << fact.global_id):
+                fact_ao_node.type=NodeType.INIT
+    
     def add_edge(self, nodeA, nodeB):
         nodeA.successors.append(nodeB)
         nodeB.predecessors.append(nodeA)

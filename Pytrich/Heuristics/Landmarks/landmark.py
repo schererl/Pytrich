@@ -34,6 +34,13 @@ class LM_Node:
         if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
             self.mark |= 1 << node_id
             self.achieved_lms+=1
+    
+    # in of recomputing landmarks and update lms
+    def update_lms(self, u_lms):
+        new_bits = u_lms & ~self.lms
+        self.lms |= new_bits
+        self.number_lms += new_bits.bit_count()
+
         
     # add new lms
     def initialize_lms(self, lms):
@@ -104,69 +111,33 @@ class Landmarks:
         self.count_task_lms = 0
         self.count_fact_lms = 0
         self.count_method_lms = 0
-        # self.task_lms = set()
-        # self.fact_lms = set()
-        # self.method_lms = set()
         self.valid_disjunctions = []
-        self.lm_gn_orderings = []
+        self.gn_fact_orderings = []
+        self.gn_task_orderings = []
 
-    def generate_bottom_up(self):
-        self._generate_lms(self.bu_lookup, self.bu_graph)
-    def generate_top_down(self):
-        self._generate_lms(self.td_lookup, self.td_graph)
+    def generate_bu_table(self, state=None, reinitialize=True):
+        if not reinitialize:
+            self.bu_graph.update_bu_graph(state)
+        self._generate_lm_table(self.bu_lookup, self.bu_graph, reinitialize)
+
+    def generate_td_table(self, reinitialize=True):
+        self._generate_lm_table(self.td_lookup, self.td_graph, reinitialize)
     
-    # def _generate_lms(self, lm_table, and_or_graph):
-    #     """
-    #     Original landmark extraction:
-    #       We refer to it as 'bottom-up landmarks' because it captures the HTN hierarchy this way
-    #       see: Höller, D., & Bercher, P. (2021). Landmark Generation in HTN Planning. Proceedings of the AAAI Conference on Artificial Intelligence
-    #     """
-    #     queue = deque([node for node in and_or_graph.nodes if node and (len(node.predecessors) == 0 or node.type == NodeType.INIT)])
-    #     it = 0
-    #     while queue:
-    #         node = queue.popleft()
-    #         it+=1
-            
-    #         new_landmarks= None
-    #         pred_lms = []
-    #         all_lms= False
-    #         for pred in node.predecessors:
-    #             lms = lm_table[pred.ID]
-    #             if lms is None:
-    #                 all_lms=True
-    #                 continue
-    #             pred_lms.append(lm_table[pred.ID])
-            
-    #         if node.type == NodeType.OR and node.predecessors:
-    #             # in case of some predecessor had all landmarks, just ignore it and apply the interesection of the others
-    #             if len(pred_lms) >= 1:
-    #                 new_landmarks = set.intersection(*(pred_lms)) | {node.ID}
-                
-    #         elif node.type == NodeType.AND and node.predecessors:
-    #             # if some predecessor had all landmarks, consider node containing all landmarks also
-    #             if not all_lms:
-    #                 new_landmarks = set.union(*(pred_lms)) | {node.ID}
-    #         else:
-    #             new_landmarks = {node.ID}
-            
-    #         if  new_landmarks != lm_table[node.ID]:
-    #             lm_table[node.ID] = new_landmarks
-    #             for succ in node.successors:
-    #                 queue.append(succ)
-    #     print(f'iterations {it}')
-
-    def _generate_lms(self, lm_table, and_or_graph):
+    def _generate_lm_table(self, lm_table, and_or_graph, reinitialize):
         """
         
         We calculate landmarks using binary representation
         """
         queue = deque([node for node in and_or_graph.nodes if node and (len(node.predecessors) == 0 or node.type == NodeType.INIT)])
         it=0
+
         for node in and_or_graph.nodes:
             if node and node.type == NodeType.INIT:
                 lm_table[node.ID] = 0
+            #if reinitialize:
             else:
                 lm_table[node.ID] = (1 << len(and_or_graph.nodes)) - 1
+
         while queue:
             it+=1
             node = queue.popleft()
@@ -184,39 +155,8 @@ class Landmarks:
                 lm_table[node.ID] = new_landmarks
                 for succ in node.successors:
                     queue.append(succ)
-        print(f'ITERATIONS {it}')
-    
-    # def bidirectional_lms(self):
-    #     visited = set()
-    #     queue   = deque()  
-    #     queue.extend(list(self.td_lms))
-        
-    #     # iterate over each landmark and increment with td and bu landmarks while new landarks are discovered
-    #     while queue:
-    #         node_id = queue.popleft()
-    #         visited.add(node_id)
-    #         # top-down landmarks
-    #         for lm_id in self.td_lookup[node_id]:
-    #            if not lm_id in visited:
-    #                queue.append(lm_id)
-            
-    #         if node_id >= self.bu_graph.components_count: # skip recomposition nodes, they dont exist in bottom-up graph
-    #             continue
-    #         # bottom-up landmarks
-    #         for lm_id in self.bu_lookup[node_id]:
-    #             if not lm_id in visited:
-    #                 queue.append(lm_id)
-
-    #         self.bid_lms.add(node_id)
-
-    #     for lm_id in self.bid_lms:
-    #         if self.bu_graph.nodes[lm_id].content_type == ContentType.FACT:
-    #             self.fact_lms.add(lm_id)
-    #         elif self.bu_graph.nodes[lm_id].content_type == ContentType.METHOD:
-    #             self.method_lms.add(lm_id)
-    #         else:
-    #             self.task_lms.add(lm_id)
-
+        if reinitialize:
+            print(f'ITERATIONS {it}')
 
     def bidirectional_lms(self):
         self.bid_lms = 0
@@ -232,61 +172,25 @@ class Landmarks:
                 if new_lms & (1 << n_id):
                     new_lms |= self.td_lookup[n_id]
         self.bid_lms = self.bid_lms & ((1 << len(self.bu_graph.nodes))-1) #remove recomposition nodes
-        
-        
 
-    # def bidirectional_lms(self):
-    #     print(f'HERE')
-    #     visited = 0
-    #     queue   = deque()
-    #     for bit in range(self.bu_lms.bit_length()):
-    #         if self.bu_lms & (1 << bit):
-    #             queue.append(bit)
-        
-    #     # iterate over each landmark and increment with td and bu landmarks while new landmarks are discovered
-    #     while queue:
-    #         node_id = queue.popleft()
-    #         if visited & (1 << node_id):
-    #             continue
-            
-    #         visited |= 1 << node_id
-    #         # top-down landmarks
-    #         print(self.td_lookup[node_id].bit_length())
-    #         for lm_id in range(self.td_lookup[node_id].bit_length()):
-    #             if self.td_lookup[node_id] & (1 << lm_id) and not visited & (1 << lm_id):
-    #                 queue.append(lm_id)
-            
-    #         if node_id >= self.bu_graph.components_count: # check if is a recomposition node
-    #             continue
-            
-    #         # bottom-up landmarks
-    #         for lm_id in range(self.bu_lookup[node_id].bit_length()):
-    #             if self.bu_lookup[node_id] & (1 << lm_id) and not visited & (lm_id << 1):
-    #                 queue.append(lm_id)
-
-    #         self.bid_lms |= (1 << node_id)
-
-    #     print(f'ENDED')
-        
-        
-    
     def top_down_lms(self):
         for lm in range(self.bu_lms.bit_length()):
             if self.bu_lms & (1 << lm):
                 self.td_lms |= self.td_lookup[lm]
 
-    def bottom_up_lms(self):
+    def bottom_up_lms(self, state, task_network, reinitialize=True):
         # GOAL SET: tnI U G
         # compute landmarks based on the initial state and goal conditions
-        self.bu_lms = self.model.initial_state
-        for fact_pos in range(self.model.goals.bit_length()):
-            if self.model.goals & (1 << fact_pos) and ~self.model.initial_state & (1 << fact_pos):
-            #if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
-                self.bu_lms |= self.bu_lookup[fact_pos]
+        self.bu_lms = state
+        if not reinitialize:
+            for fact_pos in range(self.model.goals.bit_length()):
+                if self.model.goals & (1 << fact_pos) and ~state & (1 << fact_pos):
+                #if self.model.goals & (1 << fact_pos): # and ~self.model.initial_state & (1 << fact_pos):
+                    self.bu_lms |= self.bu_lookup[fact_pos]
             
                 
         # compute landmarks based on task network
-        for t in self.model.initial_tn:
+        for t in task_network:
             self.bu_lms |= self.bu_lookup[t.global_id]
                 
     def compute_gn_fact_orderings(self, lm_table, and_or_graph, lm_set):
@@ -302,7 +206,7 @@ class Landmarks:
             Whenever fact f is made true and then deleted without reaching f', f needs to be reached again.
             This is called GREEDY NECESSARY ORDERING
         '''
-        self.lm_gn_orderings = [[] for _ in range(len(self.model.facts))]  # NOTE: only considering facts for now
+        self.gn_fact_orderings = [[] for _ in range(len(self.model.facts))]  # NOTE: only considering facts for now
         
         for f_prime_id, node_f_prime in enumerate(and_or_graph.nodes):
             if (lm_set & (1 << f_prime_id)) and node_f_prime.content_type == ContentType.FACT:
@@ -327,67 +231,72 @@ class Landmarks:
                 ]
                 if go:
                     for ord in go:
-                        self.lm_gn_orderings[ord[1]].append(ord[0])
+                        self.gn_fact_orderings[ord[1]].append(ord[0])
                 
         # print the greedy necessary orderings with fact names
-        for f_prime, f_lst in enumerate(self.lm_gn_orderings):
-            if not f_lst:
-                continue
-            f_prime_name = self.model.get_component(f_prime).name
-            formatted_orderings = [
-                f"{self.model.get_component(f_id).name} < {f_prime_name}" for f_id in f_lst
-            ]
-            print(f"Orderings for {f_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
+        # for f_prime, f_lst in enumerate(self.lm_gn_orderings):
+        #     if not f_lst:
+        #         continue
+        #     f_prime_name = self.model.get_component(f_prime).name
+        #     formatted_orderings = [
+        #         f"{self.model.get_component(f_id).name} < {f_prime_name}" for f_id in f_lst
+        #     ]
+        #     print(f"Orderings for {f_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
 
     def compute_gn_task_orderings(self, lm_table, and_or_graph, lm_set):
-        self.lm_gn_orderings = [[] for _ in range(len(self.model.abstract_tasks)+len(self.model.operators))]  # For tasks instead of facts
-
+        self.gn_task_orderings = [[] for _ in range(len(self.model.abstract_tasks)+len(self.model.operators))]  # For tasks instead of facts
         for t_prime_id, node_t_prime in enumerate(and_or_graph.nodes):
-            
-            if lm_set & (1 << t_prime_id):
+            if  (node_t_prime.content_type == ContentType.OPERATOR or node_t_prime.content_type == ContentType.ABSTRACT_TASK) and lm_set & (1 << t_prime_id):
                 first_achievers = None
-                if node_t_prime.content_type == ContentType.ABSTRACT_TASK:
-                    first_achievers = [
-                        pred_node for pred_node in node_t_prime.predecessors
-                        if not (lm_table[pred_node.ID] & (1 << t_prime_id))
-                    ]
-                elif node_t_prime.content_type == ContentType.OPERATOR:
-                    r_node = and_or_graph.nodes[and_or_graph.components_count+node_t_prime.LOCALID]
-                    first_achievers = [
-                        pred_node for pred_node in r_node.predecessors
-                        if not (lm_table[pred_node.ID] & (1 << t_prime_id))
-                    ]
+                achievers = None
+                
+                if node_t_prime.content_type == ContentType.OPERATOR:
+                    node_t_prime = and_or_graph.nodes[and_or_graph.components_count+node_t_prime.LOCALID]
+                first_achievers = [
+                    pred_node for pred_node in node_t_prime.predecessors
+                    if not (lm_table[pred_node.ID] & (1 << t_prime_id))
+                ]
+                achievers = [
+                    pred_node for pred_node in node_t_prime.predecessors
+                ]
                 if not first_achievers:
                     continue
-                print(node_t_prime)
-                print(f'\t{[self.model.get_component(pred.ID).name for pred in first_achievers]}')
+                
+                
                 # Compute the intersection of task compound tasks
                 tmp_t_pred = [
                     {pred_node.ID for pred_node in fa.predecessors
                     if pred_node.content_type in {ContentType.ABSTRACT_TASK}}
                     for fa in first_achievers
                 ]
-
+                
+                t_union = set.union(*tmp_t_pred) if tmp_t_pred else set()
                 t_intersection = set.intersection(*tmp_t_pred) if tmp_t_pred else set()
-                print(f'\t\t{[self.model.get_component(tID).name for tID in t_intersection]}')
+                
+                # if len(first_achievers) < sum([len(self.model.get_component(tID).decompositions) for tID in t_union]) :
+                #     print(node_t_prime)
+                #     print(f'\tachievers: {len(achievers)} first achivers: {len(first_achievers)}')
+                #     print(f'\ttotal choices: {sum([len(self.model.get_component(tID).decompositions) for tID in t_union])}')
+                #     print(f'\ttotal required again: {len(t_union)}')
+                
                 # Any task common to all first achievers is a predecessor of t'
                 go = [
                     (t_id, t_prime_id) for t_id in t_intersection
                 ]
                 if go:
                     for ord in go:
-                        self.lm_gn_orderings[ord[1]-len(self.model.facts)].append(ord[0])
+                        self.gn_task_orderings[ord[0]-len(self.model.facts)].append(ord[1])
 
         # Print the greedy necessary orderings with task names
-        for t_prime, t_lst in enumerate(self.lm_gn_orderings):
-            if not t_lst:
-                continue
-            t_prime +=len(self.model.facts)
-            t_prime_name = self.model.get_component(t_prime).name
-            formatted_orderings = [
-                f"{self.model.get_component(t_id).name} < {t_prime_name}" for t_id in t_lst
-            ]
-            print(f"Orderings for {t_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
+        # for t_prime, t_lst in enumerate(self.gn_task_orderings):
+        #     if not t_lst:
+        #         continue
+        #     t_prime +=len(self.model.facts)
+        #     t_prime_name = self.model.get_component(t_prime).name
+        #     formatted_orderings = [
+        #         f"{self.model.get_component(t_id).name}({self.model.get_component(t_id).global_id}) < {t_prime_name}" for t_id in t_lst
+        #     ]
+        #     print(f"Orderings for {t_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
 
          
     def identify_lms(self, lm_set):

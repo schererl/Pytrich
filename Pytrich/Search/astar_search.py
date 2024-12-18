@@ -45,7 +45,7 @@ def search(
     while pq:
         expansions += 1
         node:HTNNode = heapq.heappop(pq)
-        #print(node.h_value, end = ' ')
+        # print(node.h_value, end = ' ')
         closed_list[hash(node)]=node.g_value
         # time and memory control
         if FLAGS.MONITOR_SEARCH_RESOURCES and expansions%100 == 0:
