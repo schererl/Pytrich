@@ -172,15 +172,56 @@ class NoveltyLMcount:
         #                 self.seen_tuples.add(pair)
         #                 novelty=0
 
-        if novelty==1:
-            return  node.lm_node.lm_value()
-        return novelty
-    
+        #if novelty==1:
+        #    return  node.lm_node.lm_value()
+        #return novelty
+        return [node.lm_node.lm_value(), novelty]
+
+
+class YEP:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        
+        initial_node.lm_node = LM_Node()
+        self.landmarks = Landmarks(model, False)
+        self.landmarks.generate_bu_table()
+        self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
+        initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
+        for fact_pos in range(initial_node.state.bit_length()):
+            if initial_node.state & (1 << fact_pos):
+                initial_node.lm_node.mark_lm(fact_pos)
+        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, use_satis=True)
+
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        """
+        
+        """
+        node.lm_node = LM_Node(parent=parent_node.lm_node)
+        node.lm_node.mark_lm(node.task.global_id)
+        
+        self.landmarks.bottom_up_lms(node.state, node.task_network, reinitialize=False)
+        node.lm_node.update_lms(self.landmarks.bu_lms)
+        
+        if isinstance(node.task, Operator):
+            for fact_pos in range(node.task.add_effects.bit_length()):
+                if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
+                    node.lm_node.mark_lm(fact_pos)
+        else:
+            node.lm_node.mark_lm(node.decomposition.global_id)
+        
+        novelty = 1
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((bit_pos, node.task.global_id))
+        
+        return [sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network]), node.lm_node.lm_value(), novelty]
 
 class NoveltyTDG:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
-        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, is_satis=False)
+        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, use_satis=False)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
         """
         
@@ -193,100 +234,25 @@ class NoveltyTDG:
                     novelty = 0
                     self.seen_tuples.add((bit_pos, node.task.global_id))
         
-        if novelty==1:
-            return  sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
-        return novelty
+        # if novelty==1:
+        #     return  sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
+        # return novelty
+        return [sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network]), novelty]
     
 class NoveltySatisTDG:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
-        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, is_satis=True)
+        self.tdg_heuristic = TaskDecompositionHeuristic(model, initial_node, use_satis=True)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
         """
         
         """
         novelty = 1
-        
+        h_value=sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
         for bit_pos in range(node.state.bit_length()):
             if node.state & (1 << bit_pos):
-                if (bit_pos, node.task.global_id) not in self.seen_tuples:
+                if (h_value, bit_pos, node.task.global_id) not in self.seen_tuples:
                     novelty = 0
-                    self.seen_tuples.add((bit_pos, node.task.global_id))
+                    self.seen_tuples.add((h_value, bit_pos, node.task.global_id))
         
-        if novelty==1:
-            return  sum([self.tdg_heuristic.tdg_values[t.global_id] for t in node.task_network])
-        return novelty
-
-class NoveltyHFT1:
-    def __init__(self, model, initial_node):
-        self.seen_tuples = set()
-        
-        initial_node.lm_node = LM_Node()
-        self.landmarks = Landmarks(model, False)
-        
-        initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
-        for fact_pos in range(initial_node.state.bit_length()):
-            if initial_node.state & (1 << fact_pos):
-                initial_node.lm_node.mark_lm(fact_pos)
-
-    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
-        """
-        
-        """
-        node.lm_node = LM_Node(parent=parent_node.lm_node)
-        node.lm_node.mark_lm(node.task.global_id)
-        if isinstance(node.task, Operator):
-            for fact_pos in range(node.task.add_effects.bit_length()):
-                if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
-                    node.lm_node.mark_lm(fact_pos)
-        else:
-            node.lm_node.mark_lm(node.decomposition.global_id)
-        
-        novelty = 1
-        
-        for bit_pos in range(node.state.bit_length()):
-            if node.state & (1 << bit_pos):
-                for t in node.task_network:
-                    if (node.lm_node.lm_value(), bit_pos, t.global_id) not in self.seen_tuples:
-                        novelty = 0
-                        self.seen_tuples.add((node.lm_node.lm_value(), bit_pos, t.global_id))
-        
-        return novelty
-    
-class NoveltyHFT2:
-    def __init__(self, model, initial_node):
-        self.seen_tuples = set()
-        
-        initial_node.lm_node = LM_Node()
-        self.landmarks = Landmarks(model, False)
-        self.landmarks.generate_bottom_up()
-        self.landmarks.bottom_up_lms()
-        initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
-        for fact_pos in range(initial_node.state.bit_length()):
-            if initial_node.state & (1 << fact_pos):
-                initial_node.lm_node.mark_lm(fact_pos)
-
-    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
-        """
-        
-        """
-        node.lm_node = LM_Node(parent=parent_node.lm_node)
-        node.lm_node.mark_lm(node.task.global_id)
-        if isinstance(node.task, Operator):
-            for fact_pos in range(node.task.add_effects.bit_length()):
-                if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
-                    node.lm_node.mark_lm(fact_pos)
-        else:
-            node.lm_node.mark_lm(node.decomposition.global_id)
-        
-        novelty = 1
-        for bit_pos in range(node.state.bit_length()):
-            if node.state & (1 << bit_pos):
-                for t in node.task_network:
-                    if (node.lm_node.lm_value(), bit_pos, t.global_id) not in self.seen_tuples:
-                        novelty = 0
-                        self.seen_tuples.add((node.lm_node.lm_value(), bit_pos, t.global_id))
-        
-        if novelty==1:
-            return  node.lm_node.lm_value()
-        return novelty
+        return [h_value, novelty]

@@ -21,13 +21,21 @@ ignored_domains=("Barman" "ipc2020-feature-tests" "SCCTEST")
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-# Experiment 1: NOVELTY (Functional Type)
-experiments[0,name]="LMCOUNT"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False)" '
+experiments[0,name]="LMCOUNT-update"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False, use_bu_update=True)" '
 
-# Experiment 2: NOVELTY (Satisficing TDG)
-experiments[1,name]="LMCOUNT-update"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False, use_bu_update=True)" '
+experiments[1,name]="TDG-satis"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-satis" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "TDG(use_satis=True)" '
+
+experiments[2,name]="NOVELTY-satistdg"
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-satistdg" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=satistdg)" '
+
+experiments[3,name]="NOVELTY-lmcount-update"
+experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lmcount-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=lmcount)" '
+
+experiments[4,name]="NOVELTY-yep"
+experiments[4,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-yep" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=yep)" '
+
 
 # # Experiment 3: SATIS-TDG
 # experiments[2,name]="SATIS-TDG"

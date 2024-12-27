@@ -3,7 +3,7 @@ import time
 from typing import Optional, Dict, Union, List, Type
 
 from Pytrich.DESCRIPTIONS import Descriptions
-from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyFF, NoveltyLMcount, NoveltyLazyFT, NoveltyPairs, NoveltySatisTDG, NoveltySumFT, NoveltyHFT1, NoveltyHFT2, NoveltyTDG
+from Pytrich.Heuristics.Novelty.novelty import YEP, NoveltyFT, NoveltyFF, NoveltyLMcount, NoveltyLazyFT, NoveltyPairs, NoveltySatisTDG, NoveltySumFT, NoveltyTDG
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Model, Operator, AbstractTask
@@ -34,10 +34,8 @@ class NoveltyHeuristic(Heuristic):
             self.novelty_function = NoveltySatisTDG(model, initial_node)
         elif novelty_type == "pairs":
             self.novelty_function = NoveltyPairs()
-        elif novelty_type == "hft1":
-            self.novelty_function = NoveltyHFT1(model, initial_node)
-        elif novelty_type == "hft2":
-            self.novelty_function = NoveltyHFT2(model, initial_node)
+        elif novelty_type == "yep":
+            self.novelty_function = YEP(model, initial_node)
         else:
             raise ValueError(f"Unknown novelty type: {novelty_type}")
 
@@ -45,12 +43,12 @@ class NoveltyHeuristic(Heuristic):
         # initial_novelty = self.novelty_function(None, initial_node)
         initial_novelty = 0
         super().set_h_f_values(initial_node, initial_novelty)
-        self.initial_h = initial_node.h_value
+        self.initial_h = initial_node.h_values[0]
 
     def __call__(self, parent_node: HTNNode, node: HTNNode):
         # Compute the novelty for the current node
         novelty_value = self.novelty_function(parent_node, node)
-        super().set_h_f_values(node, novelty_value)
+        super().set_h_f_values(node, novelty_value[0],novelty_value[1:])
         return novelty_value
 
     

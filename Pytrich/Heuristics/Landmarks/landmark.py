@@ -134,8 +134,8 @@ class Landmarks:
         for node in and_or_graph.nodes:
             if node and node.type == NodeType.INIT:
                 lm_table[node.ID] = 0
-            #if reinitialize:
-            else:
+            if reinitialize:
+            #else:
                 lm_table[node.ID] = (1 << len(and_or_graph.nodes)) - 1
 
         while queue:

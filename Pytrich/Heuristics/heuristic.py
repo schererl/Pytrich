@@ -12,13 +12,17 @@ class Heuristic:
         self.name = name
     
     
-    def set_h_f_values(self, node:HTNNode, h_value):
+    def set_h_f_values(self, node:HTNNode, h_value, tie_breaking_values=[]):
         self.calls+=1
         self.total_hvalue+=h_value
         if self.min_hvalue > h_value:
             self.min_hvalue = h_value
-        node.h_value = h_value
-        node.compute_f()
+
+        node.h_values[0] = h_value
+        for h in tie_breaking_values:
+            node.h_values.append(h)
+
+        node.f_value = node.h_multiplier * node.h_values[0] + node.g_multiplier * node.g_value
         
     def __call__(self, parent_node, node):
         pass

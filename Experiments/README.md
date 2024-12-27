@@ -35,6 +35,20 @@
 
 # Experiment Report
 
+### 19/12/24
+### Search Methods
+- **LMCOUNT-update**
+- **TDG-satis**
+- **\[LMCOUNT-update,NOVELTY\]**
+- **\[TDG-satis, NOVELTY\]**
+- **\[TDG-satis, LMCOUNT-update, NOVELTY\]**
+
+Experiments to verify if using novelty as tie-breaking works and to use multiple heuristics as tie-breaking also works.
+Search: 5WA*
+Search time: 60s
+1- The results don't show clear difference of using novelty as tie-breaking helps the heuristic significantly under the tested benchmarks
+2- Using all three heuristics don't reduce significantly nodes expanded compared to the single best performant heuristic (tdg-satis)
+
 ## 29/11/24
 ### Search Methods
 - **LMCOUNT**

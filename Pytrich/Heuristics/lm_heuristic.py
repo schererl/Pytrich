@@ -111,7 +111,7 @@ class LandmarkHeuristic(Heuristic):
             initial_node.lm_node.mark_disjunction(initial_node.state)
 
         super().set_h_f_values(initial_node, initial_node.lm_node.lm_value())
-        self.initial_h = initial_node.h_value
+        self.initial_h = initial_node.h_values[0]
     
     def __call__(self, parent_node:HTNNode, node:HTNNode):
         node.lm_node = LM_Node(parent=parent_node.lm_node)

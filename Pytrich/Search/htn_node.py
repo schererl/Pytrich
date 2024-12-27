@@ -7,7 +7,7 @@ class HTNNode:
 
     def __init__(self, parent: Optional['HTNNode'], task: Union[Operator, AbstractTask],
                  decomposition: Optional[Decomposition], state: Union[int, set],
-                 task_network: List[Union[Operator, AbstractTask]], seq_num: int, g_value: int, 
+                 task_network: List[Union[Operator, AbstractTask]], seq_num: int, g_value: int,
                  H: Optional[float] = None, G: Optional[float] = None):
         # HTN info
         self.state = state
@@ -18,7 +18,7 @@ class HTNNode:
         
         # Astar info
         self.seq_num = seq_num
-        self.h_value = 0
+        self.h_values = [0]
         self.g_value = g_value
         self.f_value = 0
         # Heursitics info
@@ -33,8 +33,8 @@ class HTNNode:
             HTNNode.g_multiplier = G
         
 
-    def compute_f(self):
-        self.f_value = HTNNode.h_multiplier * self.h_value + HTNNode.g_multiplier * self.g_value
+    
+        
 
     def extract_solution(self):
         """
@@ -91,9 +91,8 @@ class HTNNode:
 
 class AstarNode(HTNNode):
     def __lt__(self, other):
-        if self.f_value ==  other.f_value:
-            if self.h_value == other.h_value:
-                return self.seq_num < other.seq_num
-            return self.h_value < other.h_value
-        return self.f_value < other.f_value
+        #print(self.h_values)
+        return ((self.f_value,) + tuple(self.h_values) + (self.seq_num,)) < \
+               ((other.f_value,) + tuple(other.h_values) + (other.seq_num,))
+
     
