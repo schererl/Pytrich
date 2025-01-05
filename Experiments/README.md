@@ -35,6 +35,22 @@
 
 # Experiment Report
 
+### 05/01/25
+### Search Methods
+- **LMCOUNT-update**
+- **TDG-satis**
+- **\[LMCOUNT-update,TDG-satis\]**
+- **\[LMCOUNT-update,TDG-satis,NOVELTY\]**
+- **\[TDG-satis,LMCOUNT-update\]**
+- **\[TDG-satis,LMCOUNT-update,NOVELTY\]**
+
+More experiments checking if using tie-breaking works.
+Search: 5WA*
+Search time: 600s
+1- The results don't show improvements using multiple heuristics for tie-breaking. 
+The coverage using single heuristic tends to be higher and the expanded nodes the same.
+
+
 ### 19/12/24
 ### Search Methods
 - **LMCOUNT-update**

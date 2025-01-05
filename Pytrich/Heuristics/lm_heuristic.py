@@ -17,102 +17,69 @@ class LandmarkHeuristic(Heuristic):
         use_bu_update: updates landmarks based on node's task network
     """
     
-    def __init__(   self, model:Model,
-                    initial_node:HTNNode,
-                    use_task_ord=False,
-                    use_fact_ord=False,
-                    use_disj=False,
-                    use_bid=False,
-                    use_bu_update=False,
-                    name="lmcount"
-                ):
-        super().__init__(model, initial_node, name=name)
-        # set parameters
+    def __init__(self,
+                 use_task_ord=False,
+                 use_fact_ord=False,
+                 use_disj=False,
+                 use_bid=False,
+                 use_bu_update=False,
+                 name="lmcount"):
+        super().__init__(name=name)
         self.use_disj = use_disj
-        self.use_bid  = use_bid
-        self.use_task_ord  = use_task_ord
-        self.use_fact_ord  = use_fact_ord
+        self.use_bid = use_bid
+        self.use_task_ord = use_task_ord
+        self.use_fact_ord = use_fact_ord
         self.use_bu_update = use_bu_update
-        
         self._define_param_str()
 
-        # Initialize timing variables
-        self.initt_andor_all = 0
-        self.endt_andor_all  = 0
-        self.initt_mcdisj    = 0
-        self.endt_mcdisj     = 0
-        self.elapsed_andor_time  = 0
+        self.landmarks = None
+        
+        # Timing and statistics
+        self.start_time = 0
+        self.elapsed_andor_time=0
+        self.elapsed_andor_time = 0
         self.elapsed_mcdisj_time = 0
         self.task_lm_reactivations = 0
         self.fact_lm_reactivations = 0
 
-        self.landmarks = None
-        self.sccs = None  # NOTE: not working
+        self.total_andor_lms   = 0
+        self.task_andor_lms    = 0
+        self.methods_andor_lms = 0
+        self.fact_andor_lms    = 0
+        self.mc_disj_lms       = 0
 
-        initial_node.lm_node = LM_Node()
-        self.landmarks = Landmarks(self.model, use_bid)
-
+    def initialize(self, model, initial_node):
+        """Generate and initialize landmarks."""
         if FLAGS.MONITOR_LM_TIME:
-            self.initt_andor_all = time.perf_counter()
-
+            self.start_time = time.perf_counter()
+        self.landmarks = Landmarks(model, self.use_bid)
         self.landmarks.generate_bu_table()
-        self.landmarks.bottom_up_lms(self.model.initial_state, self.model.initial_tn)
-        if use_bid: # TODO: top-down and bid not working
-            if FLAGS.MONITOR_LM_TIME:
-                self.initt_andor_td = time.perf_counter()
+        self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
+        if self.use_bid:
             self.landmarks.generate_td_table()
             self.landmarks.top_down_lms()
             self.landmarks.bidirectional_lms()
             self.landmarks.identify_lms(self.landmarks.bid_lms)
+            initial_node.lm_node = LM_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bid_lms)
-            
-            if FLAGS.MONITOR_LM_TIME:
-                self.endt_andor_all = time.perf_counter()
-                self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
-
         else:
+            initial_node.lm_node = LM_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms)
-            if FLAGS.MONITOR_LM_TIME:
-                self.endt_andor_all = time.perf_counter()
-                self.elapsed_andor_time = self.endt_andor_all - self.initt_andor_all
 
-        if self.use_task_ord:
-            assert use_bid is True
-            self.landmarks.compute_gn_task_orderings(self.landmarks.td_lookup, self.landmarks.td_graph, self.landmarks.td_lms)
-        if self.use_fact_ord:
-            self.landmarks.compute_gn_fact_orderings(self.landmarks.td_lookup, self.landmarks.td_graph, self.landmarks.td_lms)
-            
+        if FLAGS.MONITOR_LM_TIME:
+            self.elapsed_andor_time = time.perf_counter() - self.start_time
 
         self.task_andor_lms    = self.landmarks.count_task_lms
         self.methods_andor_lms = self.landmarks.count_method_lms
         self.fact_andor_lms    = self.landmarks.count_fact_lms
-        self.total_andor_lms   = self.task_andor_lms + self.methods_andor_lms + self.fact_andor_lms
+        self.total_andor_lms   = self.task_andor_lms + \
+                                self.methods_andor_lms + \
+                                self.fact_andor_lms
         self.mc_disj_lms = 0
-        # NOTE: minimal disjunctions not working
-        if use_disj:
-            if FLAGS.MONITOR_LM_TIME:
-                self.initt_mcdisj = time.perf_counter()
-
-            self.landmarks._compute_minimal_disjunctions()
-            self.mc_disj_lms = len(self.landmarks.valid_disjunctions)
-            initial_node.lm_node.update_disjunctions(self.landmarks.valid_disjunctions)
-
-            if FLAGS.MONITOR_LM_TIME:
-                self.endt_mcdisj = time.perf_counter()
-                self.elapsed_mcdisj_time = self.endt_mcdisj - self.initt_mcdisj
-
-        # clear lm structures and and-or-graph
-        #self.landmarks.clear_structures()
-        for fact_pos in range(len(bin(initial_node.state)) - 2):
-            if initial_node.state & (1 << fact_pos):
-                initial_node.lm_node.mark_lm(fact_pos)
-        if use_disj:
-            initial_node.lm_node.mark_disjunction(initial_node.state)
-
-        super().set_h_f_values(initial_node, initial_node.lm_node.lm_value())
-        self.initial_h = initial_node.h_values[0]
-    
+        
+        return super().initialize(model, initial_node.lm_node.lm_value())
+        
     def __call__(self, parent_node:HTNNode, node:HTNNode):
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         if self.use_bu_update:
@@ -120,27 +87,31 @@ class LandmarkHeuristic(Heuristic):
             self.landmarks.bottom_up_lms(node.state, node.task_network, reinitialize=False)
             node.lm_node.update_lms(self.landmarks.bu_lms)
             
-
         # mark last reached task (also add decomposition here)
         node.lm_node.mark_lm(node.task.global_id)
         # in case there is a change in the state:
         if isinstance(node.task, Operator):
             for fact_pos in range(node.task.add_effects.bit_length()):
-                if node.task.add_effects & (1 << fact_pos) and node.state & (1 << fact_pos):
+                if node.task.add_effects & (1 << fact_pos) \
+                    and node.state & (1 << fact_pos):
                     node.lm_node.mark_lm(fact_pos)
                 if self.use_disj:
                     node.lm_node.mark_disjunction(node.state)
             # orderings: deleted facts can reactivate fact landmarks
-            if self.use_task_ord and (node.task.del_effects & node.lm_node.mark):  # fact landmark is deleted
+            if self.use_task_ord \
+                and (node.task.del_effects & node.lm_node.mark):  # fact landmark is deleted
                 self._deal_with_fact_ordering(node, parent_node)
         else: #otherwise mark the decomposition
             node.lm_node.mark_lm(node.decomposition.global_id)
-            if self.use_fact_ord and (node.task.global_id & node.lm_node.lms): # task landmark applied ('delete' task from task network)
+            # task landmark applied ('delete' task from task network)
+            if self.use_fact_ord \
+                and (node.task.global_id & node.lm_node.lms): 
                 self._deal_with_task_ordering(node, parent_node)
         
             
-                
-        super().set_h_f_values(node,  node.lm_node.lm_value())
+        h_value =  node.lm_node.lm_value()
+        super().update_info(h_value)
+        return h_value
 
     def _deal_with_fact_ordering(self, node: HTNNode, parent_node: HTNNode):
         """
@@ -245,7 +216,35 @@ class LandmarkHeuristic(Heuristic):
         if self.use_fact_ord:
             self.param_str+='Ford'
             self.param_str+='_'
-            
+
+    def __repr__(self):
+        options = []
+        if self.use_task_ord:
+            options.append("use_task_ord")
+        if self.use_fact_ord:
+            options.append("use_fact_ord")
+        if self.use_bid:
+            options.append("use_bid")
+        if self.use_bu_update:
+            options.append("use_bu_update")
+        
+        options_str = ", ".join(options)
+        return f'lmcount({options_str})' if options else 'lmcount()'
+
+    def __str__(self):
+        options = []
+        if self.use_task_ord:
+            options.append("use_task_ord")
+        if self.use_fact_ord:
+            options.append("use_fact_ord")
+        if self.use_bid:
+            options.append("use_bid")
+        if self.use_bu_update:
+            options.append("use_bu_update")
+        
+        options_str = ", ".join(options)
+        return f'lmcount({options_str})' if options else 'lmcount()'
+
     def __output__(self):
         # Get the singleton instance of Descriptions
         desc = Descriptions()

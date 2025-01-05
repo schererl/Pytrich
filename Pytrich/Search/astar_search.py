@@ -7,15 +7,15 @@ from typing import Optional, Type, Union, List, Dict
 
 from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
+from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import AstarNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
 import Pytrich.FLAGS as FLAGS
 
 def search(
         model: Model,
-        heuristic_type: Type[BlindHeuristic] = BlindHeuristic,
+        heuristic: Type[BlindHeuristic] = BlindHeuristic,
         node_type: Type[AstarNode] = AstarNode,
-        h_params: Optional[Dict] = None,
         n_params: Optional[Dict] = None,
         use_early=False
 
@@ -31,11 +31,15 @@ def search(
     
     closed_list = {}
     node= None
-    node = node_type(None, None, None, model.initial_state, model.initial_tn, seq_num, 0, **n_params)
+    node = node_type(None, None, None,
+                     model.initial_state,
+                     model.initial_tn,
+                     seq_num,
+                     **n_params)
     
     print(node.__output__())
-    h  = heuristic_type(model, node, **h_params)
-    print(h.__output__())
+    node.update_g_h(0, heuristic.initialize(model, node))
+    print(heuristic.__output__())
     pq = []
     
     heapq.heappush(pq, node)
@@ -55,9 +59,19 @@ def search(
                 memory_usage = psutil.virtual_memory().percent
                 elapsed_time = current_time - start_time
                 nodes_second = expansions/float(current_time - start_time)
-                h_avg        = h.total_hvalue/h.calls
-                h_best       = h.min_hvalue
-                print(f"(Elapsed Time: {elapsed_time:.2f} seconds, Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, h-best {h_best} Expanded Nodes: {expansions}, Fringe Size: {len(pq)} Revists Avoided: {count_revisits}, Used Memory: {memory_usage}")
+                if isinstance(heuristic, Heuristic):
+                    h_avg        = heuristic.total_hvalue/heuristic.calls
+                    h_best       = heuristic.min_hvalue
+                else:
+                    h_avg        = -1
+                    h_best       = -1
+                print(f"(Elapsed Time: {elapsed_time:.2f} seconds, \
+                    Nodes/second: {nodes_second:.2f} n/s, h-avg {h_avg:.2f}, \
+                    h-best {h_best} \
+                    Expanded Nodes: {expansions}, \
+                    Fringe Size: {len(pq)} \
+                    Revists Avoided: {count_revisits}, \
+                    Used Memory: {memory_usage}")
                 psutil.cpu_percent()
                 if psutil.virtual_memory().percent > 85:
                     STATUS = 'OUT OF MEMORY'
@@ -84,21 +98,20 @@ def search(
             seq_num += 1
             new_state        = task.apply(node.state)
             new_task_network = node.task_network[1:]
-            new_node         = node_type(node, task, None, new_state, new_task_network, seq_num, node.g_value+1)
+            new_node         = node_type(node, task, None, new_state, new_task_network, seq_num)
 
             if use_early and model.goal_reached(new_node.state, new_node.task_network):
                 STATUS = 'GOAL'
                 psutil.cpu_percent()
                 memory_usage = psutil.virtual_memory().percent
                 elapsed_time = current_time - start_time
-                break   
-
+                break
 
             try_get_node_g_val = closed_list.get(hash(new_node))
-            if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
+            if try_get_node_g_val and try_get_node_g_val <= node.g_value+1:
                 count_revisits+=1
             else:
-                h(node, new_node)
+                new_node.update_g_h(node.g_value+1, heuristic(node, new_node))
                 heapq.heappush(pq, new_node)
             
         # otherwise its abstract
@@ -108,7 +121,7 @@ def search(
                     continue
                 seq_num += 1
                 refined_task_network  = method.task_network+node.task_network[1:]
-                new_node          = node_type(node, task, method, node.state, refined_task_network, seq_num, node.g_value)
+                new_node          = node_type(node, task, method, node.state, refined_task_network, seq_num)
                 if use_early and model.goal_reached(new_node.state, new_node.task_network):
                     STATUS = 'GOAL'
                     psutil.cpu_percent()
@@ -118,10 +131,10 @@ def search(
 
 
                 try_get_node_g_val = closed_list.get(hash(new_node))
-                if try_get_node_g_val and try_get_node_g_val <= new_node.g_value:
+                if try_get_node_g_val and try_get_node_g_val <= node.g_value:
                     count_revisits+=1
                 else:
-                    h(node, new_node)
+                    new_node.update_g_h(node.g_value, heuristic(node, new_node))
                     heapq.heappush(pq, new_node)
 
     current_time = time.time()

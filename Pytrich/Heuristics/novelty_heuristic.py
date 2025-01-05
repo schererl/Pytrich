@@ -1,61 +1,72 @@
-# Import statements
 import time
-from typing import Optional, Dict, Union, List, Type
-
+from typing import Optional, Dict, Union, List
 from Pytrich.DESCRIPTIONS import Descriptions
-from Pytrich.Heuristics.Novelty.novelty import YEP, NoveltyFT, NoveltyFF, NoveltyLMcount, NoveltyLazyFT, NoveltyPairs, NoveltySatisTDG, NoveltySumFT, NoveltyTDG
 from Pytrich.Heuristics.heuristic import Heuristic
+from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyLazyFT
 from Pytrich.Search.htn_node import HTNNode
-from Pytrich.model import Model, Operator, AbstractTask
-import Pytrich.FLAGS as FLAGS
+from Pytrich.model import Model
 
 class NoveltyHeuristic(Heuristic):
     """
     Novelty heuristic for HTN planning.
+    Computes novelty based on different configurations and integrates it into the search process.
     """
-    def __init__(self, model: Model, initial_node: HTNNode, novelty_type: str = "ft"):
-        super().__init__(model, initial_node, name=f"novelty_{novelty_type}")
-        self.novelty_function = None
+    def __init__(self, novelty_type: str = "ft", name: str = "novelty"):
+        super().__init__(name=name)
+        self.novelty_type = novelty_type.lower()
+        self.novelty_function = None  # Assigned during initialization
+        self.preprocessing_time = 0
+        self.start_time = 0
         
-        self.novelty_type = novelty_type
-        if novelty_type == "ft":
-            self.novelty_function = NoveltyFT()
-        elif novelty_type == "ff":
-            self.novelty_function = NoveltyFF()
-        elif novelty_type == "lazyft":
-            self.novelty_function = NoveltyLazyFT()
-        elif novelty_type == "sumft":
-            self.novelty_function = NoveltySumFT()
-        elif novelty_type == "lmcount":
-            self.novelty_function = NoveltyLMcount(model, initial_node)
-        elif novelty_type == "tdg":
-            self.novelty_function = NoveltyTDG(model, initial_node)
-        elif novelty_type == "satistdg":
-            self.novelty_function = NoveltySatisTDG(model, initial_node)
-        elif novelty_type == "pairs":
-            self.novelty_function = NoveltyPairs()
-        elif novelty_type == "yep":
-            self.novelty_function = YEP(model, initial_node)
-        else:
-            raise ValueError(f"Unknown novelty type: {novelty_type}")
+    def initialize(self, model: Model, initial_node: HTNNode):
+        """
+        Initialize the heuristic with the model and the initial node.
+        """
+        self.start_time = time.time()
+        self.novelty_function = self._get_novelty_function()
+        if not self.novelty_function:
+            raise ValueError(f"Unknown novelty type: {self.novelty_type}")
+        self.preprocessing_time = time.time() - self.start_time
+        return super().initialize(model, self._compute_novelty(initial_node))
 
-        # Compute the initial novelty
-        # initial_novelty = self.novelty_function(None, initial_node)
-        initial_novelty = 0
-        super().set_h_f_values(initial_node, initial_novelty)
-        self.initial_h = initial_node.h_values[0]
+    def _get_novelty_function(self):
+        """
+        Map the novelty type string to the appropriate novelty function.
+        """
+        novelty_functions = {
+            "ft": NoveltyFT(),
+            "lazyft": NoveltyLazyFT(),
+        }
+        return novelty_functions.get(self.novelty_type)
 
     def __call__(self, parent_node: HTNNode, node: HTNNode):
-        # Compute the novelty for the current node
-        novelty_value = self.novelty_function(parent_node, node)
-        super().set_h_f_values(node, novelty_value[0],novelty_value[1:])
+        """
+        Compute the novelty heuristic value for the given node.
+        """
+        
+        novelty_value = self._compute_novelty(node)
+        super().update_info(novelty_value)
         return novelty_value
 
-    
+    def _compute_novelty(self, node: HTNNode) -> int:
+        """
+        Compute the novelty for a given node using the configured novelty function.
+        """
+        return self.novelty_function(None, node)
+
+    def __repr__(self):
+        return f"Novelty(type={self.novelty_type})"
+
+    def __str__(self):
+        return f"Novelty(type={self.novelty_type})"
 
     def __output__(self):
-        desc = Descriptions()
-        out_str = f'Heuristic Info:\n'
-        out_str += f'\t{desc("heuristic_name", self.name)}\n'
-        out_str += f'\t{desc("novelty_type", self.novelty_type)}\n'
-        return out_str
+        """
+        Return a string representation of the heuristic configuration and statistics.
+        """
+        return (
+            f"Heuristic Info:\n"
+            f"\tName: {self.name}\n"
+            f"\tType: {self.novelty_type}\n"
+            f"\tPreprocessing Time: {getattr(self, 'preprocessing_time', 0):.2f} s\n"
+        )

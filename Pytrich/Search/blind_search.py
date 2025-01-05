@@ -17,8 +17,7 @@ import Pytrich.FLAGS as FLAGS
 def search(
         model: Model,
         node_type: Type[HTNNode] = HTNNode,
-        heuristic_type: Heuristic = None,
-        h_params: Optional[Dict] = None,
+        heuristic: Heuristic = None,
         n_params: Optional[Dict] = None,
         use_novelty=False
     ):
@@ -36,7 +35,7 @@ def search(
     novelty=None
     if use_novelty:
         print('Novelty is enabled in the search')
-        novelty  = NoveltyHeuristic(model, node, **h_params)
+        # novelty  = NoveltyHeuristic(model, node, **h_params)
     else:
         print('Novelty is disabled in the search')
 

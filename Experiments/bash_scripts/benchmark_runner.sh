@@ -24,17 +24,14 @@ declare -A experiments
 experiments[0,name]="LMCOUNT-update"
 experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False, use_bu_update=True)" '
 
-experiments[1,name]="TDG-satis"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-satis" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "TDG(use_satis=True)" '
+# experiments[1,name]="TDG-satis"
+# experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-satis" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "TDG(use_satis=True)" '
 
-experiments[2,name]="NOVELTY-satistdg"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-satistdg" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=satistdg)" '
+# experiments[2,name]="TDG-LMCOUNT"
+# experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT" -N "AstarNode(G=1,H=5)" -S "TiebreakingNode(use_early=True)" -A "Tiebreaking([TDG(use_satis=True),LMCOUNT(use_bu_update=True)])" '
 
-experiments[3,name]="NOVELTY-lmcount-update"
-experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-lmcount-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=lmcount)" '
-
-experiments[4,name]="NOVELTY-yep"
-experiments[4,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "NOVELTY-yep" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=yep)" '
+# experiments[3,name]="TDG-LMCOUNT-NOVELTY"
+# experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT-NOVELTY" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([TDG(use_satis=True), LMCOUNT(use_bu_update=True), NOVELTY(novelty_type=ft)])"" '
 
 
 # # Experiment 3: SATIS-TDG
@@ -97,7 +94,7 @@ for domain_dir in $folder_benchmarks; do
                         (
                             ulimit -t $TIME_LIMIT
                             ulimit -v $MEM_LIMIT
-                            eval $experiment_command -e $experiment_name
+                            eval $experiment_command
                         )
                         echo "@"
                     fi

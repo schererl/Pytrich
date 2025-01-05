@@ -1,0 +1,2814 @@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Rover-GTOHP/
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 214759
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 75
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 59
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 7.2291
+Nodes per Second : 6165.51
+Solution Size : 174
+Nodes Expanded : 35009
+Fringe size : 47197
+Revisits Avoided: 783
+Used Memory: 47.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 214759
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 17.8569
+Nodes per Second : 2184.95
+Solution Size : 174
+Nodes Expanded : 35030
+Fringe size : 47181
+Revisits Avoided: 782
+Used Memory: 48.4%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 23687
+	Iterations: 6
+	Preprocessing time: 0.33 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.1909
+Nodes per Second : 16966.06
+Solution Size : 139
+Nodes Expanded : 14278
+Fringe size : 106624
+Revisits Avoided: 9
+Used Memory: 44.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 214759
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.9725
+Nodes per Second : 5715.87
+Solution Size : 174
+Nodes Expanded : 35040
+Fringe size : 47171
+Revisits Avoided: 782
+Used Memory: 48.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 214759
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 10.7398
+Nodes per Second : 4766.84
+Solution Size : 143
+Nodes Expanded : 42351
+Fringe size : 82021
+Revisits Avoided: 24
+Used Memory: 49.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 214759
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 25.3398
+Nodes per Second : 1802.97
+Solution Size : 143
+Nodes Expanded : 42351
+Fringe size : 82021
+Revisits Avoided: 24
+Used Memory: 49.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 177985
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 89
+	Number of Task Landmarks : 26
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 62
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 3.6729
+Nodes per Second : 5617.59
+Solution Size : 232
+Nodes Expanded : 14058
+Fringe size : 21870
+Revisits Avoided: 544
+Used Memory: 46.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 177985
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 10.3945
+Nodes per Second : 1559.81
+Solution Size : 232
+Nodes Expanded : 14028
+Fringe size : 21885
+Revisits Avoided: 544
+Used Memory: 46.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 19454
+	Iterations: 6
+	Preprocessing time: 0.26 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.5432
+Nodes per Second : 9904.88
+Solution Size : 207
+Nodes Expanded : 32420
+Fringe size : 381462
+Revisits Avoided: 13
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 177985
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 4.1910
+Nodes per Second : 5011.85
+Solution Size : 232
+Nodes Expanded : 14028
+Fringe size : 21885
+Revisits Avoided: 544
+Used Memory: 46.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 177985
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 30.3370
+Nodes per Second : 1103.97
+Solution Size : 207
+Nodes Expanded : 31940
+Fringe size : 378807
+Revisits Avoided: 13
+Used Memory: 59.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 177985
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 93.1688
+Nodes per Second : 348.15
+Solution Size : 207
+Nodes Expanded : 31940
+Fringe size : 378807
+Revisits Avoided: 13
+Used Memory: 59.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 5393
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 26
+	Number of Task Landmarks : 7
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 18
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0220
+Nodes per Second : 24699.03
+Solution Size : 53
+Nodes Expanded : 338
+Fringe size : 343
+Revisits Avoided: 10
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 5393
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0478
+Nodes per Second : 10185.76
+Solution Size : 53
+Nodes Expanded : 338
+Fringe size : 343
+Revisits Avoided: 10
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 789
+	Iterations: 6
+	Preprocessing time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0190
+Nodes per Second : 49772.02
+Solution Size : 38
+Nodes Expanded : 640
+Fringe size : 1545
+Revisits Avoided: 2
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 5393
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0314
+Nodes per Second : 20122.28
+Solution Size : 53
+Nodes Expanded : 338
+Fringe size : 343
+Revisits Avoided: 10
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 5393
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0641
+Nodes per Second : 12057.36
+Solution Size : 38
+Nodes Expanded : 597
+Fringe size : 1499
+Revisits Avoided: 2
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 5393
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1187
+Nodes per Second : 5731.80
+Solution Size : 38
+Nodes Expanded : 597
+Fringe size : 1499
+Revisits Avoided: 2
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1222
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 49
+	Number of Task Landmarks : 25
+	Number of Method Landmarks : 5
+	Number of Fact Landmarks : 19
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0098
+Nodes per Second : 34381.58
+Solution Size : 43
+Nodes Expanded : 277
+Fringe size : 191
+Revisits Avoided: 6
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1222
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0214
+Nodes per Second : 14893.20
+Solution Size : 43
+Nodes Expanded : 275
+Fringe size : 189
+Revisits Avoided: 6
+Used Memory: 45.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 190
+	Iterations: 6
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0054
+Nodes per Second : 77948.12
+Solution Size : 39
+Nodes Expanded : 314
+Fringe size : 350
+Revisits Avoided: 2
+Used Memory: 45.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1222
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0135
+Nodes per Second : 26088.11
+Solution Size : 43
+Nodes Expanded : 275
+Fringe size : 189
+Revisits Avoided: 6
+Used Memory: 45.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1222
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0179
+Nodes per Second : 20333.99
+Solution Size : 39
+Nodes Expanded : 303
+Fringe size : 349
+Revisits Avoided: 2
+Used Memory: 45.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1222
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0298
+Nodes per Second : 11256.61
+Solution Size : 39
+Nodes Expanded : 301
+Fringe size : 366
+Revisits Avoided: 2
+Used Memory: 45.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 119104
+	Iterations: 6
+	Preprocessing time: 1.88 s
+
+Search Status : GOAL
+Search Time (seconds) : 42.9061
+Nodes per Second : 5358.37
+Solution Size : 544
+Nodes Expanded : 219342
+Fringe size : 4816739
+Revisits Avoided: 10
+Used Memory: 56.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 464
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 31
+	Number of Task Landmarks : 14
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 13
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0020
+Nodes per Second : 40691.58
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 32
+Revisits Avoided: 0
+Used Memory: 42.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 464
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0037
+Nodes per Second : 22492.98
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 32
+Revisits Avoided: 0
+Used Memory: 42.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 90
+	Iterations: 6
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 94657.44
+Solution Size : 15
+Nodes Expanded : 58
+Fringe size : 40
+Revisits Avoided: 0
+Used Memory: 42.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 464
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 32133.29
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 32
+Revisits Avoided: 0
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 464
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0032
+Nodes per Second : 30784.87
+Solution Size : 15
+Nodes Expanded : 57
+Fringe size : 41
+Revisits Avoided: 0
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 464
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0041
+Nodes per Second : 20711.72
+Solution Size : 15
+Nodes Expanded : 57
+Fringe size : 41
+Revisits Avoided: 0
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 342077
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 94
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 73
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 7.4110
+Nodes per Second : 2554.12
+Solution Size : 172
+Nodes Expanded : 10410
+Fringe size : 35791
+Revisits Avoided: 48
+Used Memory: 48.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 342077
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 16.3741
+Nodes per Second : 817.67
+Solution Size : 172
+Nodes Expanded : 10195
+Fringe size : 34563
+Revisits Avoided: 48
+Used Memory: 48.6%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 36293
+	Iterations: 6
+	Preprocessing time: 0.56 s
+
+Search Status : GOAL
+Search Time (seconds) : 5.9958
+Nodes per Second : 8327.90
+Solution Size : 152
+Nodes Expanded : 45045
+Fringe size : 710280
+Revisits Avoided: 4
+Used Memory: 44.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 342077
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 8.3176
+Nodes per Second : 2344.98
+Solution Size : 172
+Nodes Expanded : 10372
+Fringe size : 35866
+Revisits Avoided: 48
+Used Memory: 48.4%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 342077
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 342077
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 231082
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 92
+	Number of Task Landmarks : 21
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 70
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 6.8293
+Nodes per Second : 4363.17
+Solution Size : 245
+Nodes Expanded : 22288
+Fringe size : 39715
+Revisits Avoided: 547
+Used Memory: 45.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 231082
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 18.5897
+Nodes per Second : 1343.05
+Solution Size : 245
+Nodes Expanded : 22254
+Fringe size : 39733
+Revisits Avoided: 547
+Used Memory: 46.1%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 24707
+	Iterations: 6
+	Preprocessing time: 0.33 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.7846
+Nodes per Second : 12452.16
+Solution Size : 204
+Nodes Expanded : 17843
+Fringe size : 177568
+Revisits Avoided: 14
+Used Memory: 43.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 231082
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.5268
+Nodes per Second : 4050.52
+Solution Size : 245
+Nodes Expanded : 22259
+Fringe size : 39732
+Revisits Avoided: 547
+Used Memory: 45.7%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 231082
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 17.9945
+Nodes per Second : 1088.36
+Solution Size : 198
+Nodes Expanded : 17387
+Fringe size : 176545
+Revisits Avoided: 14
+Used Memory: 51.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 231082
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 48.2890
+Nodes per Second : 376.03
+Solution Size : 198
+Nodes Expanded : 17387
+Fringe size : 176545
+Revisits Avoided: 14
+Used Memory: 52.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 519397
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 92
+	Number of Task Landmarks : 17
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 74
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 14.7342
+Nodes per Second : 1167.22
+Solution Size : 147
+Nodes Expanded : 9678
+Fringe size : 78714
+Revisits Avoided: 533
+Used Memory: 55.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 519397
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 29.4934
+Nodes per Second : 436.90
+Solution Size : 147
+Nodes Expanded : 9662
+Fringe size : 78702
+Revisits Avoided: 531
+Used Memory: 56.0%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 53665
+	Iterations: 6
+	Preprocessing time: 0.87 s
+
+Search Status : GOAL
+Search Time (seconds) : 18.1137
+Nodes per Second : 6345.26
+Solution Size : 145
+Nodes Expanded : 109162
+Fringe size : 2207735
+Revisits Avoided: 3
+Used Memory: 48.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 519397
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 15.9019
+Nodes per Second : 1125.85
+Solution Size : 147
+Nodes Expanded : 9669
+Fringe size : 78709
+Revisits Avoided: 531
+Used Memory: 55.5%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 519397
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 519397
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 709413
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 116
+	Number of Task Landmarks : 26
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 89
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 38.1828
+Nodes per Second : 2080.11
+Solution Size : 287
+Nodes Expanded : 55551
+Fringe size : 159188
+Revisits Avoided: 513
+Used Memory: 74.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 709413
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 93.5773
+Nodes per Second : 672.34
+Solution Size : 287
+Nodes Expanded : 54325
+Fringe size : 146793
+Revisits Avoided: 447
+Used Memory: 74.9%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 72692
+	Iterations: 6
+	Preprocessing time: 1.31 s
+
+Search Status : GOAL
+Search Time (seconds) : 18.8806
+Nodes per Second : 6101.02
+Solution Size : 221
+Nodes Expanded : 106831
+Fringe size : 2179116
+Revisits Avoided: 5
+Used Memory: 48.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 709413
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 40.7066
+Nodes per Second : 1988.39
+Solution Size : 287
+Nodes Expanded : 55577
+Fringe size : 159225
+Revisits Avoided: 477
+Used Memory: 74.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 709413
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 709413
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1030582
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 149
+	Number of Task Landmarks : 36
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 112
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1030582
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 104208
+	Iterations: 6
+	Preprocessing time: 1.85 s
+
+Search Status : GOAL
+Search Time (seconds) : 21.7336
+Nodes per Second : 6204.82
+Solution Size : 352
+Nodes Expanded : 122904
+Fringe size : 2454594
+Revisits Avoided: 17
+Used Memory: 49.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1030582
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1030582
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1030582
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 12425
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 41
+	Number of Task Landmarks : 12
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 28
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0584
+Nodes per Second : 18285.83
+Solution Size : 93
+Nodes Expanded : 638
+Fringe size : 717
+Revisits Avoided: 8
+Used Memory: 41.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 12425
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1383
+Nodes per Second : 6290.41
+Solution Size : 93
+Nodes Expanded : 638
+Fringe size : 717
+Revisits Avoided: 8
+Used Memory: 41.7%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 1650
+	Iterations: 6
+	Preprocessing time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0553
+Nodes per Second : 47858.48
+Solution Size : 84
+Nodes Expanded : 1979
+Fringe size : 4863
+Revisits Avoided: 3
+Used Memory: 41.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 12425
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0793
+Nodes per Second : 15033.85
+Solution Size : 93
+Nodes Expanded : 638
+Fringe size : 717
+Revisits Avoided: 8
+Used Memory: 41.7%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 12425
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2274
+Nodes per Second : 9783.79
+Solution Size : 87
+Nodes Expanded : 1863
+Fringe size : 4744
+Revisits Avoided: 3
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 12425
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5212
+Nodes per Second : 3846.07
+Solution Size : 87
+Nodes Expanded : 1863
+Fringe size : 4744
+Revisits Avoided: 3
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 207953
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 74
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 58
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 4.5524
+Nodes per Second : 4233.94
+Solution Size : 161
+Nodes Expanded : 13370
+Fringe size : 41817
+Revisits Avoided: 194
+Used Memory: 44.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 207953
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 12.1364
+Nodes per Second : 1299.38
+Solution Size : 161
+Nodes Expanded : 13533
+Fringe size : 48780
+Revisits Avoided: 229
+Used Memory: 45.5%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 22361
+	Iterations: 6
+	Preprocessing time: 0.25 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.9841
+Nodes per Second : 9517.75
+Solution Size : 123
+Nodes Expanded : 35356
+Fringe size : 508810
+Revisits Avoided: 3
+Used Memory: 43.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 207953
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 5.0957
+Nodes per Second : 3817.47
+Solution Size : 161
+Nodes Expanded : 12851
+Fringe size : 42336
+Revisits Avoided: 194
+Used Memory: 45.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 207953
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 35.6794
+Nodes per Second : 1030.51
+Solution Size : 123
+Nodes Expanded : 34979
+Fringe size : 506788
+Revisits Avoided: 3
+Used Memory: 64.3%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 207953
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 92.6871
+Nodes per Second : 384.67
+Solution Size : 123
+Nodes Expanded : 34979
+Fringe size : 506788
+Revisits Avoided: 3
+Used Memory: 64.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 651
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 27
+	Number of Task Landmarks : 11
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 34390.18
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 44
+Revisits Avoided: 0
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 651
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0047
+Nodes per Second : 18103.93
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 44
+Revisits Avoided: 0
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 119
+	Iterations: 6
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 79787.52
+Solution Size : 15
+Nodes Expanded : 95
+Fringe size : 94
+Revisits Avoided: 1
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 651
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0036
+Nodes per Second : 27905.86
+Solution Size : 16
+Nodes Expanded : 53
+Fringe size : 44
+Revisits Avoided: 0
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 651
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 26559.30
+Solution Size : 15
+Nodes Expanded : 90
+Fringe size : 92
+Revisits Avoided: 1
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 651
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0077
+Nodes per Second : 15285.98
+Solution Size : 15
+Nodes Expanded : 90
+Fringe size : 92
+Revisits Avoided: 1
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 560
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 32
+	Number of Task Landmarks : 15
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 14
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0040
+Nodes per Second : 41879.59
+Solution Size : 28
+Nodes Expanded : 132
+Fringe size : 80
+Revisits Avoided: 0
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 560
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0072
+Nodes per Second : 22566.01
+Solution Size : 28
+Nodes Expanded : 129
+Fringe size : 78
+Revisits Avoided: 0
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 96
+	Iterations: 6
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 95162.88
+Solution Size : 23
+Nodes Expanded : 160
+Fringe size : 99
+Revisits Avoided: 2
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 560
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0054
+Nodes per Second : 33277.97
+Solution Size : 28
+Nodes Expanded : 130
+Fringe size : 82
+Revisits Avoided: 0
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 560
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 34063.35
+Solution Size : 23
+Nodes Expanded : 151
+Fringe size : 97
+Revisits Avoided: 2
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 560
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0085
+Nodes per Second : 21494.65
+Solution Size : 23
+Nodes Expanded : 151
+Fringe size : 97
+Revisits Avoided: 2
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9892
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 53
+	Number of Task Landmarks : 22
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 27
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0449
+Nodes per Second : 22061.17
+Solution Size : 80
+Nodes Expanded : 625
+Fringe size : 654
+Revisits Avoided: 4
+Used Memory: 42.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9892
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0949
+Nodes per Second : 7754.02
+Solution Size : 80
+Nodes Expanded : 526
+Fringe size : 649
+Revisits Avoided: 4
+Used Memory: 42.0%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 1276
+	Iterations: 6
+	Preprocessing time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0634
+Nodes per Second : 37351.24
+Solution Size : 63
+Nodes Expanded : 1979
+Fringe size : 7268
+Revisits Avoided: 2
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9892
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0605
+Nodes per Second : 16068.56
+Solution Size : 80
+Nodes Expanded : 549
+Fringe size : 714
+Revisits Avoided: 4
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9892
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2736
+Nodes per Second : 7979.83
+Solution Size : 63
+Nodes Expanded : 1969
+Fringe size : 7191
+Revisits Avoided: 2
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9892
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5695
+Nodes per Second : 3630.68
+Solution Size : 63
+Nodes Expanded : 1969
+Fringe size : 7191
+Revisits Avoided: 2
+Used Memory: 42.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4176
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 29
+	Number of Task Landmarks : 9
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 19
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0312
+Nodes per Second : 30760.46
+Solution Size : 67
+Nodes Expanded : 735
+Fringe size : 348
+Revisits Avoided: 39
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4176
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0703
+Nodes per Second : 12633.14
+Solution Size : 67
+Nodes Expanded : 735
+Fringe size : 348
+Revisits Avoided: 39
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 642
+	Iterations: 6
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0114
+Nodes per Second : 78424.70
+Solution Size : 54
+Nodes Expanded : 498
+Fringe size : 503
+Revisits Avoided: 4
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4176
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0505
+Nodes per Second : 19051.23
+Solution Size : 67
+Nodes Expanded : 735
+Fringe size : 348
+Revisits Avoided: 39
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4176
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0369
+Nodes per Second : 19143.81
+Solution Size : 54
+Nodes Expanded : 476
+Fringe size : 504
+Revisits Avoided: 4
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4176
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0643
+Nodes per Second : 9066.21
+Solution Size : 54
+Nodes Expanded : 476
+Fringe size : 504
+Revisits Avoided: 4
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57134
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 52
+	Number of Task Landmarks : 12
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 39
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.4123
+Nodes per Second : 12144.21
+Solution Size : 111
+Nodes Expanded : 2719
+Fringe size : 3527
+Revisits Avoided: 30
+Used Memory: 42.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57134
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.9152
+Nodes per Second : 4243.36
+Solution Size : 111
+Nodes Expanded : 2721
+Fringe size : 3534
+Revisits Avoided: 30
+Used Memory: 42.8%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 6721
+	Iterations: 6
+	Preprocessing time: 0.06 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.4016
+Nodes per Second : 19240.87
+Solution Size : 101
+Nodes Expanded : 6456
+Fringe size : 48863
+Revisits Avoided: 1
+Used Memory: 42.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57134
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5241
+Nodes per Second : 10593.70
+Solution Size : 111
+Nodes Expanded : 2724
+Fringe size : 3577
+Revisits Avoided: 30
+Used Memory: 42.5%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57134
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 2.4546
+Nodes per Second : 2887.83
+Solution Size : 99
+Nodes Expanded : 6306
+Fringe size : 48615
+Revisits Avoided: 1
+Used Memory: 43.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57134
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 5.9700
+Nodes per Second : 1108.15
+Solution Size : 99
+Nodes Expanded : 6306
+Fringe size : 48615
+Revisits Avoided: 1
+Used Memory: 43.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 266511
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 89
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 68
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 5.5570
+Nodes per Second : 4165.60
+Solution Size : 195
+Nodes Expanded : 14277
+Fringe size : 29132
+Revisits Avoided: 110
+Used Memory: 45.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 266511
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 13.5034
+Nodes per Second : 1300.03
+Solution Size : 195
+Nodes Expanded : 14245
+Fringe size : 29354
+Revisits Avoided: 110
+Used Memory: 46.1%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 28039
+	Iterations: 6
+	Preprocessing time: 0.37 s
+
+Search Status : GOAL
+Search Time (seconds) : 5.1136
+Nodes per Second : 8152.69
+Solution Size : 162
+Nodes Expanded : 38530
+Fringe size : 586954
+Revisits Avoided: 4
+Used Memory: 43.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 266511
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 6.2063
+Nodes per Second : 3904.17
+Solution Size : 195
+Nodes Expanded : 14225
+Fringe size : 29186
+Revisits Avoided: 110
+Used Memory: 46.0%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 266511
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 52.9257
+Nodes per Second : 742.86
+Solution Size : 160
+Nodes Expanded : 37420
+Fringe size : 583963
+Revisits Avoided: 4
+Used Memory: 74.0%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 266511
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 146.5725
+Nodes per Second : 262.10
+Solution Size : 162
+Nodes Expanded : 37747
+Fringe size : 583215
+Revisits Avoided: 4
+Used Memory: 74.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 125871
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 76
+	Number of Task Landmarks : 21
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 54
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 2.5020
+Nodes per Second : 6668.03
+Solution Size : 213
+Nodes Expanded : 12175
+Fringe size : 20149
+Revisits Avoided: 103
+Used Memory: 43.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 125871
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.0402
+Nodes per Second : 2046.77
+Solution Size : 209
+Nodes Expanded : 12661
+Fringe size : 21267
+Revisits Avoided: 126
+Used Memory: 43.5%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 14010
+	Iterations: 6
+	Preprocessing time: 0.16 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.8749
+Nodes per Second : 13824.46
+Solution Size : 192
+Nodes Expanded : 23547
+Fringe size : 217095
+Revisits Avoided: 4
+Used Memory: 43.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 125871
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 2.8606
+Nodes per Second : 6062.13
+Solution Size : 213
+Nodes Expanded : 12175
+Fringe size : 20096
+Revisits Avoided: 103
+Used Memory: 43.5%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 125871
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 15.3129
+Nodes per Second : 1650.17
+Solution Size : 195
+Nodes Expanded : 23866
+Fringe size : 216247
+Revisits Avoided: 6
+Used Memory: 48.7%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 125871
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 42.9298
+Nodes per Second : 571.96
+Solution Size : 197
+Nodes Expanded : 24065
+Fringe size : 216031
+Revisits Avoided: 6
+Used Memory: 49.0%
+Search Result: None
+@

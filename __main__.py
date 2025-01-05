@@ -4,9 +4,10 @@ import os
 import sys
 
 from Pytrich.DESCRIPTIONS import Descriptions
-from Pytrich.planner import search_plan, SEARCHES, HEURISTICS, NODES
+from Pytrich.planner import search_plan, SEARCHES, NODES
+from Pytrich.constants import HEURISTICS
 import Pytrich.FLAGS as FLAGS
-from Pytrich.tools import parse_argument_string
+from Pytrich.tools import parse_argument_string, parse_aggregation_function
 
 def main():
     argparser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -62,6 +63,11 @@ def main():
         help='Specify heuristic in format "heuristic_name(param1=value1,param2=value2)"'
     )
     argparser.add_argument(
+        "-A", "--aggregation", 
+        type=str,
+        help='Specify aggregation function in format "<agg_function>([<heuristic>|<agg_function>])"'
+    )
+    argparser.add_argument(
         "-S", "--search", default="Astar()",
         type=str,
         help='Specify search algorithm in format "search_name(param1=value1,param2=value2) '
@@ -102,7 +108,15 @@ def main():
     domain_name = os.path.basename(os.path.dirname(args.domain)) if args.domain else None
     problem_name = os.path.splitext(os.path.basename(args.problem))[0] if args.problem else None
     try:
-        heuristic_name, heuristic_params = parse_argument_string(args.heuristic)
+        heuristic_function= None
+        heuristic_name = None
+        parameters = None
+        if args.aggregation: #combination of multiple heuristics
+            heuristic_name, parameters = parse_argument_string(args.aggregation)
+            heuristic_function = parse_aggregation_function(heuristic_name, parameters)
+        else:
+            heuristic_name, parameters = parse_argument_string(args.heuristic)
+            heuristic_function = HEURISTICS[heuristic_name](**parameters)
     except ValueError as e:
         print(f"Error: {e}")
         sys.exit(1)
@@ -124,16 +138,15 @@ def main():
     print(f"  Problem: {problem_name}")
     print(f"  Search: {search_name}, Params: {search_params}")
     print(f"  Node: {node_name}, Params: {node_params}")
-    print(f"  Heuristic: {heuristic_name}, Params: {heuristic_params}")
+    print(f"  Heuristic: {heuristic_name}, Params: {parameters}")
     print()
 
-    
-    
     # Run the search plan
     result = search_plan(
         args.domain, args.problem, args.sas_file,
-        SEARCHES[search_name], HEURISTICS[heuristic_name], NODES[node_name],
-        heuristic_params, search_params, node_params
+        heuristic_function,
+        SEARCHES[search_name], NODES[node_name],
+        search_params, node_params
     )
     print("Search Result:", result)
 

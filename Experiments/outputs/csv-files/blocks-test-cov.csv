@@ -1,0 +1,7 @@
+domain,experiment_name,coverage,avg_solution_size
+Blocksworld-GTOHP,LMCOUNT-update,27,976.04
+Blocksworld-GTOHP,LMCOUNT-TDG,27,975.59
+Blocksworld-GTOHP,LMCOUNT-TDG-NOVELTY,23,335.43
+Blocksworld-GTOHP,TDG-satis,15,102.47
+Blocksworld-GTOHP,TDG-LMCOUNT,14,97.00
+Blocksworld-GTOHP,TDG-LMCOUNT-NOVELTY,14,97.00

@@ -1,0 +1,3082 @@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Blocksworld-GTOHP/
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p27
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 38257
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 3146
+	Number of Task Landmarks : 1201
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 1943
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 12.3824
+Nodes per Second : 1635.93
+Solution Size : 2655
+Nodes Expanded : 17112
+Fringe size : 1614
+Revisits Avoided: 0
+Used Memory: 30.7%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p27
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 38257
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 13.5283
+Nodes per Second : 1467.49
+Solution Size : 2655
+Nodes Expanded : 17055
+Fringe size : 1642
+Revisits Avoided: 0
+Used Memory: 31.8%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2154
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 194
+	Number of Task Landmarks : 70
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 123
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0357
+Nodes per Second : 27907.27
+Solution Size : 151
+Nodes Expanded : 795
+Fringe size : 74
+Revisits Avoided: 1
+Used Memory: 31.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2154
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1446
+Nodes per Second : 5828.91
+Solution Size : 151
+Nodes Expanded : 789
+Fringe size : 75
+Revisits Avoided: 1
+Used Memory: 31.5%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 382
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.2933
+Nodes per Second : 68021.38
+Solution Size : 149
+Nodes Expanded : 427937
+Fringe size : 35629
+Revisits Avoided: 4
+Used Memory: 32.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2154
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0434
+Nodes per Second : 23157.28
+Solution Size : 151
+Nodes Expanded : 792
+Fringe size : 76
+Revisits Avoided: 1
+Used Memory: 32.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2154
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 21.4605
+Nodes per Second : 19949.54
+Solution Size : 149
+Nodes Expanded : 427937
+Fringe size : 35629
+Revisits Avoided: 4
+Used Memory: 34.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2154
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 49.8057
+Nodes per Second : 8593.72
+Solution Size : 149
+Nodes Expanded : 427937
+Fringe size : 35629
+Revisits Avoided: 4
+Used Memory: 34.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2146
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 196
+	Number of Task Landmarks : 73
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 122
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1669
+Nodes per Second : 26339.75
+Solution Size : 148
+Nodes Expanded : 4100
+Fringe size : 177
+Revisits Avoided: 12
+Used Memory: 31.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2146
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.6663
+Nodes per Second : 6228.42
+Solution Size : 148
+Nodes Expanded : 4093
+Fringe size : 181
+Revisits Avoided: 12
+Used Memory: 31.9%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 386
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.8964
+Nodes per Second : 80906.58
+Solution Size : 144
+Nodes Expanded : 234196
+Fringe size : 17882
+Revisits Avoided: 228
+Used Memory: 32.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2146
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1832
+Nodes per Second : 23537.24
+Solution Size : 148
+Nodes Expanded : 4093
+Fringe size : 181
+Revisits Avoided: 12
+Used Memory: 31.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2146
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 11.0983
+Nodes per Second : 21115.67
+Solution Size : 144
+Nodes Expanded : 234151
+Fringe size : 17873
+Revisits Avoided: 228
+Used Memory: 32.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2146
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 26.0835
+Nodes per Second : 8980.25
+Solution Size : 144
+Nodes Expanded : 234154
+Fringe size : 17873
+Revisits Avoided: 228
+Used Memory: 32.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1205
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 107
+	Number of Task Landmarks : 41
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 65
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0131
+Nodes per Second : 36128.45
+Solution Size : 83
+Nodes Expanded : 329
+Fringe size : 44
+Revisits Avoided: 0
+Used Memory: 31.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1205
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0320
+Nodes per Second : 11526.99
+Solution Size : 83
+Nodes Expanded : 326
+Fringe size : 46
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 214
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0218
+Nodes per Second : 128610.36
+Solution Size : 78
+Nodes Expanded : 2658
+Fringe size : 244
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1205
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0149
+Nodes per Second : 29741.66
+Solution Size : 83
+Nodes Expanded : 326
+Fringe size : 46
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1205
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0866
+Nodes per Second : 31600.27
+Solution Size : 78
+Nodes Expanded : 2615
+Fringe size : 230
+Revisits Avoided: 0
+Used Memory: 31.5%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1205
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1656
+Nodes per Second : 16155.36
+Solution Size : 78
+Nodes Expanded : 2616
+Fringe size : 230
+Revisits Avoided: 0
+Used Memory: 31.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 829
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 77
+	Number of Task Landmarks : 29
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 47
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0084
+Nodes per Second : 42841.08
+Solution Size : 61
+Nodes Expanded : 291
+Fringe size : 42
+Revisits Avoided: 1
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 829
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0223
+Nodes per Second : 14535.34
+Solution Size : 61
+Nodes Expanded : 288
+Fringe size : 44
+Revisits Avoided: 1
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 150
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0066
+Nodes per Second : 109449.65
+Solution Size : 61
+Nodes Expanded : 634
+Fringe size : 85
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 829
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0117
+Nodes per Second : 31140.20
+Solution Size : 61
+Nodes Expanded : 288
+Fringe size : 44
+Revisits Avoided: 1
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 829
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0231
+Nodes per Second : 30573.47
+Solution Size : 61
+Nodes Expanded : 634
+Fringe size : 85
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 829
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0434
+Nodes per Second : 15504.66
+Solution Size : 61
+Nodes Expanded : 636
+Fringe size : 85
+Revisits Avoided: 0
+Used Memory: 31.6%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 326
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 35
+	Number of Task Landmarks : 13
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 21
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 51698.28
+Solution Size : 20
+Nodes Expanded : 69
+Fringe size : 14
+Revisits Avoided: 0
+Used Memory: 30.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 326
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0034
+Nodes per Second : 26853.66
+Solution Size : 20
+Nodes Expanded : 68
+Fringe size : 15
+Revisits Avoided: 0
+Used Memory: 30.9%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 62
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 97463.79
+Solution Size : 20
+Nodes Expanded : 87
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 30.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 326
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0031
+Nodes per Second : 35723.03
+Solution Size : 20
+Nodes Expanded : 68
+Fringe size : 15
+Revisits Avoided: 0
+Used Memory: 31.0%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 326
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 44091.89
+Solution Size : 20
+Nodes Expanded : 87
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 31.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 326
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0040
+Nodes per Second : 27923.51
+Solution Size : 20
+Nodes Expanded : 87
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 31.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p23
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9092
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 778
+	Number of Task Landmarks : 301
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 476
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.4281
+Nodes per Second : 8044.58
+Solution Size : 631
+Nodes Expanded : 2631
+Fringe size : 415
+Revisits Avoided: 0
+Used Memory: 31.2%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p23
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9092
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 4.2787
+Nodes per Second : 625.97
+Solution Size : 631
+Nodes Expanded : 2611
+Fringe size : 425
+Revisits Avoided: 0
+Used Memory: 31.5%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p23
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 9092
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.4747
+Nodes per Second : 7100.66
+Solution Size : 631
+Nodes Expanded : 2611
+Fringe size : 425
+Revisits Avoided: 0
+Used Memory: 31.8%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2386
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 210
+	Number of Task Landmarks : 76
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 133
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 17.8453
+Nodes per Second : 23275.63
+Solution Size : 230
+Nodes Expanded : 415160
+Fringe size : 4507
+Revisits Avoided: 8093
+Used Memory: 36.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2386
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 63.1630
+Nodes per Second : 6558.06
+Solution Size : 230
+Nodes Expanded : 414156
+Fringe size : 3794
+Revisits Avoided: 7883
+Used Memory: 36.4%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 418
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.3642
+Nodes per Second : 56173.80
+Solution Size : 163
+Nodes Expanded : 188856
+Fringe size : 11663
+Revisits Avoided: 2647
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2386
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 20.9714
+Nodes per Second : 19758.66
+Solution Size : 230
+Nodes Expanded : 414156
+Fringe size : 3794
+Revisits Avoided: 7883
+Used Memory: 36.5%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2386
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 10.5848
+Nodes per Second : 17857.68
+Solution Size : 163
+Nodes Expanded : 188828
+Fringe size : 11656
+Revisits Avoided: 2647
+Used Memory: 36.8%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2386
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 36.6954
+Nodes per Second : 5147.31
+Solution Size : 163
+Nodes Expanded : 188828
+Fringe size : 11656
+Revisits Avoided: 2647
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3267
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 272
+	Number of Task Landmarks : 103
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 168
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0603
+Nodes per Second : 19678.47
+Solution Size : 219
+Nodes Expanded : 903
+Fringe size : 137
+Revisits Avoided: 0
+Used Memory: 35.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3267
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2810
+Nodes per Second : 3397.08
+Solution Size : 219
+Nodes Expanded : 897
+Fringe size : 140
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3267
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0685
+Nodes per Second : 17297.97
+Solution Size : 219
+Nodes Expanded : 897
+Fringe size : 140
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 28659
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 2358
+	Number of Task Landmarks : 901
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 1456
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 5.6332
+Nodes per Second : 2344.40
+Solution Size : 1958
+Nodes Expanded : 10796
+Fringe size : 1285
+Revisits Avoided: 0
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 28659
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 288.1871
+Nodes per Second : 37.40
+Solution Size : 1958
+Nodes Expanded : 10739
+Fringe size : 1313
+Revisits Avoided: 0
+Used Memory: 39.6%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 28659
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 6.1562
+Nodes per Second : 2097.12
+Solution Size : 1958
+Nodes Expanded : 10739
+Fringe size : 1313
+Revisits Avoided: 0
+Used Memory: 36.8%
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 76775
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 6317
+	Number of Task Landmarks : 2401
+	Number of Method Landmarks : 3
+	Number of Fact Landmarks : 3913
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 172.1565
+Nodes per Second : 628.46
+Solution Size : 5335
+Nodes Expanded : 102568
+Fringe size : 3837
+Revisits Avoided: 2
+Used Memory: 42.8%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 76775
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 186.3011
+Nodes per Second : 578.06
+Solution Size : 5335
+Nodes Expanded : 102473
+Fringe size : 3884
+Revisits Avoided: 2
+Used Memory: 43.2%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p22
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 6558
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 567
+	Number of Task Landmarks : 224
+	Number of Method Landmarks : 4
+	Number of Fact Landmarks : 339
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.2287
+Nodes per Second : 11157.78
+Solution Size : 471
+Nodes Expanded : 1963
+Fringe size : 261
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p22
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 6558
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.8197
+Nodes per Second : 1112.45
+Solution Size : 471
+Nodes Expanded : 1953
+Fringe size : 266
+Revisits Avoided: 0
+Used Memory: 37.7%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p22
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 6558
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2587
+Nodes per Second : 9664.50
+Solution Size : 471
+Nodes Expanded : 1953
+Fringe size : 266
+Revisits Avoided: 0
+Used Memory: 37.7%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p21
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4561
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 388
+	Number of Task Landmarks : 150
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 237
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1225
+Nodes per Second : 14889.80
+Solution Size : 316
+Nodes Expanded : 1434
+Fringe size : 200
+Revisits Avoided: 0
+Used Memory: 37.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p21
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4561
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.7046
+Nodes per Second : 2112.75
+Solution Size : 316
+Nodes Expanded : 1426
+Fringe size : 204
+Revisits Avoided: 0
+Used Memory: 37.9%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p21
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 4561
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1378
+Nodes per Second : 13162.76
+Solution Size : 316
+Nodes Expanded : 1426
+Fringe size : 204
+Revisits Avoided: 0
+Used Memory: 38.4%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 96105
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 7907
+	Number of Task Landmarks : 3001
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 4905
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 98.0454
+Nodes per Second : 432.08
+Solution Size : 6659
+Nodes Expanded : 35801
+Fringe size : 4095
+Revisits Avoided: 1
+Used Memory: 40.9%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 96105
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 103.4018
+Nodes per Second : 405.24
+Solution Size : 6659
+Nodes Expanded : 35673
+Fringe size : 4157
+Revisits Avoided: 1
+Used Memory: 41.1%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3578
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 299
+	Number of Task Landmarks : 114
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 184
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0871
+Nodes per Second : 19083.02
+Solution Size : 241
+Nodes Expanded : 1344
+Fringe size : 198
+Revisits Avoided: 1
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3578
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5373
+Nodes per Second : 2563.90
+Solution Size : 241
+Nodes Expanded : 1328
+Fringe size : 206
+Revisits Avoided: 1
+Used Memory: 38.5%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 3578
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1051
+Nodes per Second : 15471.55
+Solution Size : 241
+Nodes Expanded : 1328
+Fringe size : 206
+Revisits Avoided: 1
+Used Memory: 38.6%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1683
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 144
+	Number of Task Landmarks : 55
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 88
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.1962
+Nodes per Second : 33032.36
+Solution Size : 126
+Nodes Expanded : 6271
+Fringe size : 239
+Revisits Avoided: 40
+Used Memory: 38.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1683
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5591
+Nodes per Second : 11332.06
+Solution Size : 126
+Nodes Expanded : 6269
+Fringe size : 240
+Revisits Avoided: 40
+Used Memory: 38.8%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 296
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.7002
+Nodes per Second : 80825.00
+Solution Size : 118
+Nodes Expanded : 137297
+Fringe size : 16308
+Revisits Avoided: 835
+Used Memory: 39.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1683
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2260
+Nodes per Second : 28471.48
+Solution Size : 126
+Nodes Expanded : 6269
+Fringe size : 240
+Revisits Avoided: 40
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1683
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 6.0481
+Nodes per Second : 22722.45
+Solution Size : 118
+Nodes Expanded : 137297
+Fringe size : 16308
+Revisits Avoided: 835
+Used Memory: 39.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1683
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 13.5531
+Nodes per Second : 10134.65
+Solution Size : 118
+Nodes Expanded : 137298
+Fringe size : 16308
+Revisits Avoided: 835
+Used Memory: 39.7%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2143
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 188
+	Number of Task Landmarks : 69
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 118
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0325
+Nodes per Second : 26727.53
+Solution Size : 152
+Nodes Expanded : 683
+Fringe size : 93
+Revisits Avoided: 1
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2143
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1312
+Nodes per Second : 5575.88
+Solution Size : 152
+Nodes Expanded : 681
+Fringe size : 94
+Revisits Avoided: 1
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 376
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.3389
+Nodes per Second : 80461.97
+Solution Size : 152
+Nodes Expanded : 188047
+Fringe size : 18467
+Revisits Avoided: 39
+Used Memory: 39.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2143
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0398
+Nodes per Second : 22106.21
+Solution Size : 152
+Nodes Expanded : 681
+Fringe size : 94
+Revisits Avoided: 1
+Used Memory: 39.3%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2143
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 8.8966
+Nodes per Second : 21158.49
+Solution Size : 152
+Nodes Expanded : 188047
+Fringe size : 18467
+Revisits Avoided: 39
+Used Memory: 40.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2143
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 19.7102
+Nodes per Second : 9545.02
+Solution Size : 152
+Nodes Expanded : 188048
+Fringe size : 18467
+Revisits Avoided: 39
+Used Memory: 40.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 546
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 55
+	Number of Task Landmarks : 20
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 34
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0048
+Nodes per Second : 38939.54
+Solution Size : 38
+Nodes Expanded : 136
+Fringe size : 17
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 546
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0077
+Nodes per Second : 21784.43
+Solution Size : 38
+Nodes Expanded : 136
+Fringe size : 17
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 102
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0026
+Nodes per Second : 153073.15
+Solution Size : 38
+Nodes Expanded : 307
+Fringe size : 33
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 546
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0049
+Nodes per Second : 39467.61
+Solution Size : 38
+Nodes Expanded : 136
+Fringe size : 17
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 546
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0088
+Nodes per Second : 41824.51
+Solution Size : 38
+Nodes Expanded : 307
+Fringe size : 33
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 546
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0140
+Nodes per Second : 24586.91
+Solution Size : 38
+Nodes Expanded : 308
+Fringe size : 33
+Revisits Avoided: 0
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p24
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 13653
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 1166
+	Number of Task Landmarks : 451
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 714
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.0871
+Nodes per Second : 5491.24
+Solution Size : 961
+Nodes Expanded : 4731
+Fringe size : 568
+Revisits Avoided: 0
+Used Memory: 39.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p24
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 13653
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 18.7201
+Nodes per Second : 254.58
+Solution Size : 961
+Nodes Expanded : 4705
+Fringe size : 581
+Revisits Avoided: 0
+Used Memory: 39.7%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p24
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 13653
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.2550
+Nodes per Second : 4616.54
+Solution Size : 961
+Nodes Expanded : 4705
+Fringe size : 581
+Revisits Avoided: 0
+Used Memory: 39.5%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 575
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 51
+	Number of Task Landmarks : 21
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 29
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0041
+Nodes per Second : 46192.05
+Solution Size : 36
+Nodes Expanded : 141
+Fringe size : 29
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 575
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0079
+Nodes per Second : 21670.75
+Solution Size : 36
+Nodes Expanded : 139
+Fringe size : 30
+Revisits Avoided: 0
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 104
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0045
+Nodes per Second : 149185.01
+Solution Size : 34
+Nodes Expanded : 575
+Fringe size : 45
+Revisits Avoided: 1
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 575
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0051
+Nodes per Second : 38205.00
+Solution Size : 36
+Nodes Expanded : 139
+Fringe size : 30
+Revisits Avoided: 0
+Used Memory: 39.2%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 575
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0144
+Nodes per Second : 44012.96
+Solution Size : 34
+Nodes Expanded : 569
+Fringe size : 42
+Revisits Avoided: 1
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 575
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0229
+Nodes per Second : 26746.99
+Solution Size : 34
+Nodes Expanded : 570
+Fringe size : 42
+Revisits Avoided: 1
+Used Memory: 39.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57513
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 4728
+	Number of Task Landmarks : 1801
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 2925
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 28.9225
+Nodes per Second : 917.40
+Solution Size : 3977
+Nodes Expanded : 22306
+Fringe size : 2438
+Revisits Avoided: 0
+Used Memory: 40.2%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 57513
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 31.0989
+Nodes per Second : 840.86
+Solution Size : 3977
+Nodes Expanded : 22226
+Fringe size : 2480
+Revisits Avoided: 0
+Used Memory: 40.2%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1216
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 104
+	Number of Task Landmarks : 37
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 66
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0142
+Nodes per Second : 36563.27
+Solution Size : 83
+Nodes Expanded : 419
+Fringe size : 49
+Revisits Avoided: 0
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1216
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0445
+Nodes per Second : 10247.71
+Solution Size : 83
+Nodes Expanded : 418
+Fringe size : 50
+Revisits Avoided: 0
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 222
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0374
+Nodes per Second : 106329.96
+Solution Size : 83
+Nodes Expanded : 3851
+Fringe size : 424
+Revisits Avoided: 9
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1216
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0181
+Nodes per Second : 29044.12
+Solution Size : 83
+Nodes Expanded : 418
+Fringe size : 50
+Revisits Avoided: 0
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1216
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1405
+Nodes per Second : 28180.23
+Solution Size : 83
+Nodes Expanded : 3852
+Fringe size : 424
+Revisits Avoided: 9
+Used Memory: 38.9%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1216
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.3107
+Nodes per Second : 12564.77
+Solution Size : 83
+Nodes Expanded : 3855
+Fringe size : 424
+Revisits Avoided: 9
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 18769
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 1555
+	Number of Task Landmarks : 600
+	Number of Method Landmarks : 2
+	Number of Fact Landmarks : 953
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 1.9606
+Nodes per Second : 3724.18
+Solution Size : 1278
+Nodes Expanded : 5710
+Fringe size : 858
+Revisits Avoided: 0
+Used Memory: 39.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 18769
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 46.2288
+Nodes per Second : 123.74
+Solution Size : 1277
+Nodes Expanded : 5666
+Fringe size : 881
+Revisits Avoided: 0
+Used Memory: 40.5%
+Search Result: None
+@
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 18769
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 2.1629
+Nodes per Second : 3282.07
+Solution Size : 1277
+Nodes Expanded : 5666
+Fringe size : 881
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1121
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 93
+	Number of Task Landmarks : 39
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 53
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0125
+Nodes per Second : 38891.70
+Solution Size : 78
+Nodes Expanded : 363
+Fringe size : 49
+Revisits Avoided: 0
+Used Memory: 41.3%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1121
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0310
+Nodes per Second : 13128.33
+Solution Size : 78
+Nodes Expanded : 363
+Fringe size : 49
+Revisits Avoided: 0
+Used Memory: 41.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 200
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2264
+Nodes per Second : 115574.40
+Solution Size : 70
+Nodes Expanded : 26036
+Fringe size : 2416
+Revisits Avoided: 23
+Used Memory: 41.4%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1121
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0162
+Nodes per Second : 28266.23
+Solution Size : 78
+Nodes Expanded : 363
+Fringe size : 49
+Revisits Avoided: 0
+Used Memory: 41.3%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1121
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.8326
+Nodes per Second : 31395.27
+Solution Size : 70
+Nodes Expanded : 26036
+Fringe size : 2416
+Revisits Avoided: 23
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1121
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.4491
+Nodes per Second : 18014.01
+Solution Size : 70
+Nodes Expanded : 26039
+Fringe size : 2416
+Revisits Avoided: 23
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1549
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 140
+	Number of Task Landmarks : 51
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 88
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0220
+Nodes per Second : 31102.96
+Solution Size : 109
+Nodes Expanded : 555
+Fringe size : 76
+Revisits Avoided: 1
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1549
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0707
+Nodes per Second : 8430.30
+Solution Size : 109
+Nodes Expanded : 550
+Fringe size : 79
+Revisits Avoided: 1
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 276
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2216
+Nodes per Second : 114576.17
+Solution Size : 102
+Nodes Expanded : 25237
+Fringe size : 2425
+Revisits Avoided: 32
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1549
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0267
+Nodes per Second : 25713.00
+Solution Size : 109
+Nodes Expanded : 550
+Fringe size : 79
+Revisits Avoided: 1
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1549
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.8935
+Nodes per Second : 28423.06
+Solution Size : 102
+Nodes Expanded : 25237
+Fringe size : 2425
+Revisits Avoided: 32
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 1549
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.9167
+Nodes per Second : 13204.85
+Solution Size : 102
+Nodes Expanded : 25239
+Fringe size : 2425
+Revisits Avoided: 32
+Used Memory: 41.8%
+Search Result: None
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2691
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 231
+	Number of Task Landmarks : 86
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 144
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0653
+Nodes per Second : 23666.02
+Solution Size : 190
+Nodes Expanded : 1293
+Fringe size : 137
+Revisits Avoided: 4
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2691
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2167
+Nodes per Second : 4097.37
+Solution Size : 179
+Nodes Expanded : 836
+Fringe size : 137
+Revisits Avoided: 0
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 474
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 156.6013
+Nodes per Second : 53398.37
+Solution Size : 179
+Nodes Expanded : 8362139
+Fringe size : 774916
+Revisits Avoided: 6272
+Used Memory: 63.6%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2691
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0568
+Nodes per Second : 18976.08
+Solution Size : 179
+Nodes Expanded : 836
+Fringe size : 137
+Revisits Avoided: 0
+Used Memory: 42.8%
+Search Result: None
+@
+@
+@
+Experiment Name : LMCOUNT-update
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: LMCOUNT, Params: {'use_bid': False, 'use_bu_update': True}
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2030
+Heuristic Info:
+	Heuristic Name : lmcount
+	Number of Total Landmarks : 175
+	Number of Task Landmarks : 65
+	Number of Method Landmarks : 1
+	Number of Fact Landmarks : 109
+	Number of Min-Cov Disjunctions Landmarks : 0
+	Number of Fact Landmarks Reactivated : 0
+	Number of Task Landmarks Reactivated : 0
+
+Search Status : GOAL
+Search Time (seconds) : 0.0512
+Nodes per Second : 21774.06
+Solution Size : 147
+Nodes Expanded : 961
+Fringe size : 121
+Revisits Avoided: 1
+Used Memory: 43.1%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2030
+[lmcount(use_bu_update), TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1870
+Nodes per Second : 5407.40
+Solution Size : 147
+Nodes Expanded : 953
+Fringe size : 126
+Revisits Avoided: 1
+Used Memory: 43.2%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {'G': 1, 'H': 5}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 5*H
+Heuristic info:
+	Name: tdg
+	Graph size: 354
+	Iterations: 4
+	Preprocessing time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 7.3889
+Nodes per Second : 54971.86
+Solution Size : 146
+Nodes Expanded : 406089
+Fringe size : 37407
+Revisits Avoided: 0
+Used Memory: 44.5%
+Search Result: None
+@
+Experiment Name : LMCOUNT-TDG
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('LMCOUNT', {'use_bu_update': True}), ('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2030
+[lmcount(use_bu_update), TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0510
+Nodes per Second : 22339.68
+Solution Size : 147
+Nodes Expanded : 953
+Fringe size : 126
+Revisits Avoided: 1
+Used Memory: 43.8%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2030
+[TDG(use_satis), lmcount(use_bu_update)]
+None
+Search Status : GOAL
+Search Time (seconds) : 22.0701
+Nodes per Second : 18406.65
+Solution Size : 146
+Nodes Expanded : 406086
+Fringe size : 37405
+Revisits Avoided: 0
+Used Memory: 45.7%
+Search Result: None
+@
+Experiment Name : TDG-LMCOUNT-NOVELTY
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('LMCOUNT', {'use_bu_update': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+ITERATIONS 2030
+[TDG(use_satis), lmcount(use_bu_update), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 65.6112
+Nodes per Second : 6190.10
+Solution Size : 146
+Nodes Expanded : 406090
+Fringe size : 37405
+Revisits Avoided: 0
+Used Memory: 45.7%
+Search Result: None
+@

@@ -2,13 +2,17 @@ from typing import List, Optional, Union
 from Pytrich.model import AbstractTask, Decomposition, Operator
 
 class HTNNode:
-    h_multiplier: Optional[int] = 1
-    g_multiplier: Optional[int] = 1
+    G: Optional[int] = 1
+    H: Optional[int] = 1
 
-    def __init__(self, parent: Optional['HTNNode'], task: Union[Operator, AbstractTask],
-                 decomposition: Optional[Decomposition], state: Union[int, set],
-                 task_network: List[Union[Operator, AbstractTask]], seq_num: int, g_value: int,
-                 H: Optional[float] = None, G: Optional[float] = None):
+    def __init__(self, parent: Optional['HTNNode'],
+                 task: Union[Operator, AbstractTask],
+                 decomposition: Optional[Decomposition],
+                 state: Union[int, set],
+                 task_network: List[Union[Operator, AbstractTask]],
+                 seq_num: int,
+                 H: Optional[float] = None,
+                 G: Optional[float] = None):
         # HTN info
         self.state = state
         self.parent = parent
@@ -16,26 +20,24 @@ class HTNNode:
         self.decomposition = decomposition
         self.task_network: List[Union[Operator, AbstractTask]] = task_network
         
-        # Astar info
-        self.seq_num = seq_num
-        self.h_values = [0]
-        self.g_value = g_value
-        self.f_value = 0
+        # Node value info
+        self.seq_num  = seq_num
+        self.h_value = 0
+        self.g_value = 0
+        if G is not None:
+            HTNNode.G = G
+        if H is not None:
+            HTNNode.H = H
         # Heursitics info
         self.lm_node = None # for landmarks
-        self.lp_vars = None # for TDGLm
-        
         # NOTE: only use if we search considering visited nodes -high computational cost
         self.hash_node = hash((self.state, tuple(task_network)))
-    
-        if G is not None and H is not None:
-            HTNNode.h_multiplier = H
-            HTNNode.g_multiplier = G
-        
 
-    
         
-
+    def update_g_h(self, g_value, h_value):
+        self.h_value = h_value
+        self.g_value = g_value
+    
     def extract_solution(self):
         """
         Returns the list of actions that were applied from the initial node to
@@ -63,7 +65,7 @@ class HTNNode:
         return self.hash_node
         
     def __output__(self):
-        return f"function F = {self.g_multiplier}*G + {self.h_multiplier}*H"
+        return f"function F = {self.G}*G + {self.H}*H"
 
     def __eq__(self, other):
         return self.state == other.state and self.task_network == other.task_network
@@ -92,7 +94,25 @@ class HTNNode:
 class AstarNode(HTNNode):
     def __lt__(self, other):
         #print(self.h_values)
-        return ((self.f_value,) + tuple(self.h_values) + (self.seq_num,)) < \
-               ((other.f_value,) + tuple(other.h_values) + (other.seq_num,))
+        return (self.g_value*HTNNode.G + self.h_value*HTNNode.H, \
+                self.h_value, \
+                self.seq_num) \
+                < \
+                (other.g_value*HTNNode.G + other.h_value*HTNNode.H, \
+                other.h_value, \
+                other.seq_num)
+
+
+class TiebreakingNode(HTNNode):
+    def __lt__(self, other):
+        #print(self.h_values)
+        return (self.g_value*HTNNode.G + self.h_value[0]*HTNNode.H, \
+                self.h_value, \
+                self.seq_num) \
+                < \
+                (other.g_value*HTNNode.G + other.h_value[0]*HTNNode.H, \
+                other.h_value, \
+                other.seq_num)
+
 
     
