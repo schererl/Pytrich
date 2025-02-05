@@ -32,15 +32,15 @@ class LM_Node:
     # mark as 'achieved' if node is a lm
     def mark_lm(self, node_id):
         if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
-            self.mark |= 1 << node_id
             self.achieved_lms+=1
+        self.mark |= 1 << node_id
     
     # in of recomputing landmarks and update lms
     def update_lms(self, u_lms):
-        new_bits = u_lms & ~self.lms
+        #new_bits = u_lms & ~self.lms
+        new_bits = u_lms & ~self.mark
         self.lms |= new_bits
         self.number_lms += new_bits.bit_count()
-
         
     # add new lms
     def initialize_lms(self, lms):
@@ -91,30 +91,43 @@ class LM_Node:
         return f"Lms (value={self.lm_value()}): \n\tlms: {bin(self.lms)}\n\tachieved: {bin(self.mark)}\n{self.achieved_disj}/{self.number_disj}"
 
 class Landmarks:
-    def __init__(self, model:Model, bidirectional=False):
+    def __init__(self, model:Model, bu:bool, bid:bool, mt:bool):
         self.model=model
-        self.bidirectional=bidirectional
-        self.bu_graph  = AndOrGraph(model, graph_type=0) # bottom-up and or graph
-        self.bu_count  = len(self.bu_graph.nodes)
-        self.bu_lookup = [None] * self.bu_count # bottom-up look-up table
-        #self.bu_lms    = set()
-        self.bu_lms    = 0
-        if bidirectional:
-            self.td_graph  = AndOrGraph(model, graph_type=1)  # top-down and or graph
-            self.td_count  = len(self.td_graph.nodes)
-            self.td_lookup = [None] * self.td_count # top-down look-up table
-            #self.td_lms    = set()
-            self.td_lms    = 0
-            #self.bid_lms   = set()
-            self.bid_lms   = 0
-            
         self.count_task_lms = 0
         self.count_fact_lms = 0
         self.count_method_lms = 0
         self.valid_disjunctions = []
         self.gn_fact_orderings = []
         self.gn_task_orderings = []
-
+        self.td_lms    = 0
+        self.bid_lms   = 0
+        self.bu_lms    = 0
+        self.mt_lms    = 0
+        self.mt_graph  = None
+        self.mt_count  = None
+        self.mt_lookup = None
+        self.bu_graph  = None
+        self.bu_count  = None
+        self.bu_lookup = None
+        self.td_graph  = None
+        self.td_count  = None
+        self.td_lookup = None
+        if mt:
+            self.mt_graph  = AndOrGraph(model, graph_type=2)
+            self.mt_count  = len(self.mt_graph.nodes)
+            self.mt_lookup = [None] * self.mt_count
+        if bu:
+            self.bu_graph  = AndOrGraph(model, graph_type=0)
+            self.bu_count  = len(self.bu_graph.nodes)
+            self.bu_lookup = [None] * self.bu_count
+        if bid:
+            self.td_graph  = AndOrGraph(model, graph_type=1)
+            self.td_count  = len(self.td_graph.nodes)
+            self.td_lookup = [None] * self.td_count
+    
+    def generate_mt_table(self, reinitialize=True):
+        self._generate_lm_table(self.mt_lookup, self.mt_graph, reinitialize)
+    
     def generate_bu_table(self, state=None, reinitialize=True):
         if not reinitialize:
             self.bu_graph.update_bu_graph(state)
@@ -192,6 +205,14 @@ class Landmarks:
         # compute landmarks based on task network
         for t in task_network:
             self.bu_lms |= self.bu_lookup[t.global_id]
+
+    def mandatory_tasks_lms(self, task_network):
+        # GOAL SET: tnI U G
+        # compute landmarks based on the initial state and goal conditions
+        self.mt_lms = 0
+        # compute landmarks based on task network
+        for t in task_network:
+            self.mt_lms |= self.mt_lookup[t.global_id]
                 
     def compute_gn_fact_orderings(self, lm_table, and_or_graph, lm_set):
         '''
@@ -299,14 +320,14 @@ class Landmarks:
         #     print(f"Orderings for {t_prime_name}: \n\t" + '\n\t'.join(formatted_orderings))
 
          
-    def identify_lms(self, lm_set):
+    def identify_lms(self, lm_set, and_or_graph):
         for lm_id in range(lm_set.bit_length()):
-            if lm_id < len(self.bu_graph.nodes) and lm_set & (1 << lm_id):
-                if self.bu_graph.nodes[lm_id].content_type == ContentType.FACT:
+            if lm_id < len(and_or_graph.nodes) and lm_set & (1 << lm_id):
+                if and_or_graph.nodes[lm_id].content_type == ContentType.FACT:
                     self.count_fact_lms +=1
-                elif self.bu_graph.nodes[lm_id].content_type == ContentType.METHOD:
+                elif and_or_graph.nodes[lm_id].content_type == ContentType.METHOD:
                     self.count_method_lms +=1
-                elif self.bu_graph.nodes[lm_id].content_type == ContentType.ABSTRACT_TASK or self.bu_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
+                elif and_or_graph.nodes[lm_id].content_type == ContentType.ABSTRACT_TASK or and_or_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
                     self.count_task_lms +=1
                     
         # for lm_id in lm_set:
@@ -386,10 +407,30 @@ class Landmarks:
         
 
     # UTILITARY
-    # def print_landmarks(self, node_id):
-    #     print(f'SPECIFIC landmarks of {self.and_or_graph.nodes[node_id]}')
-    #     for lm in self.landmarks[node_id]:
-    #         print(f'\tlm: {self.and_or_graph.nodes[lm]}')
+    def print_landmarks_by_bits(self, lms):
+        for lm_pos in range(lms.bit_length()):
+            if lms & (1 << lm_pos):
+                if self.bu_graph.nodes[lm_pos].content_type == ContentType.METHOD:
+                    print(f'head: {self.model.get_component(self.bu_graph.nodes[lm_pos].ID).compound_task.name}')
+                
+                print(f'\tlm: {self.bu_graph.nodes[lm_pos].str_name}')
+
+    def print_landmarks(self, node_str):
+        node_id=-1
+        for n in self.bu_graph.nodes:
+            print(n.str_name)
+            if node_str in n.str_name:
+                node_id=n.ID
+                print(f'SPECIFIC landmarks of {n.str_name} ({node_id})')
+                for lm in range(self.bu_lookup[node_id].bit_length()):
+                    if self.bu_lookup[node_id] & (1 << lm):
+                        print(f'\tlm: {self.bu_graph.nodes[lm].str_name}')
+
+    def print_failed_landmarks(self, node_lms):
+        for lm in node_lms:
+            print(f'\tlm: {self.bu_graph.nodes[lm].str_name}')
+        
+                
 
 # if __name__ == '__main__':
 #     graph = AndOrGraph(None, debug=True)  # Ensure correct initialization

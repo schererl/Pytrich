@@ -23,8 +23,8 @@ class AndOrNode:
     def __init__(self, ID, LOCALID, node_type, content_type=ContentType.Nan, weight=0, str_name=''):
         self.ID = ID # node's global id
         self.LOCALID = LOCALID # component's position in model
-        self.type  = node_type 
-        self.content_type = content_type 
+        self.type  = node_type
+        self.content_type = content_type
         self.successors   = []
         self.predecessors = []
         
@@ -51,9 +51,9 @@ class AndOrGraph:
             self.bu_initialize(model)
         elif graph_type == 1:
             self.td_initialize(model)
-        elif graph_type == 3:
+        elif graph_type == 2:
             self.tdg_initialize(model)
-        elif graph_type == 4:
+        elif graph_type == 3:
             self.c_initialize(model)
         else:
             print(f"Invalid Graph Type {graph_type}")
@@ -64,6 +64,10 @@ class AndOrGraph:
         Task Decomposition Graph only
         '''
         self.nodes = [None] * self.components_count # should ignore facts
+        for f_i, f in enumerate(self.model.facts):
+            fact_node = AndOrNode(f.global_id, f_i, NodeType.OR, content_type=ContentType.FACT, str_name=f_i)
+            self.nodes[f.global_id]=fact_node
+
         # set abstract task
         for t_i, t in enumerate(model.abstract_tasks):
             task_node = AndOrNode(t.global_id, t_i, NodeType.OR, content_type=ContentType.ABSTRACT_TASK, str_name=t.name)

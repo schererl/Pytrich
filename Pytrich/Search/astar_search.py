@@ -8,6 +8,7 @@ from typing import Optional, Type, Union, List, Dict
 from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
 from Pytrich.Heuristics.heuristic import Heuristic
+from Pytrich.Heuristics.lm_heuristic import LandmarkHeuristic
 from Pytrich.Search.htn_node import AstarNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
 import Pytrich.FLAGS as FLAGS
@@ -127,7 +128,7 @@ def search(
                     psutil.cpu_percent()
                     memory_usage = psutil.virtual_memory().percent
                     elapsed_time = current_time - start_time
-                    break   
+                    break 
 
 
                 try_get_node_g_val = closed_list.get(hash(new_node))
@@ -141,6 +142,11 @@ def search(
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
+    if isinstance(heuristic, LandmarkHeuristic):
+        if node.lm_node.lm_value():
+            if node.lm_node.get_unreached_landmarks() == 0:
+                print(f'({node.lm_node.get_unreached_landmarks()}) invalid landamarks')
+
     if FLAGS.LOG_SEARCH:
         desc = Descriptions()
         print(f"{desc('search_status', STATUS)}\n"

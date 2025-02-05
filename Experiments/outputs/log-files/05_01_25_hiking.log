@@ -1,0 +1,1075 @@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Hiking
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p27
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p27
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p27
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+@
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 20.2269
+Nodes per Second : 78954.68
+Solution Size : 79
+Nodes Expanded : 1577506
+Fringe size : 2524
+Revisits Avoided: 39631
+Used Memory: 34.3%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.2996
+Nodes per Second : 41428.19
+Solution Size : 85
+Nodes Expanded : 296053
+Fringe size : 565
+Revisits Avoided: 8186
+Used Memory: 33.6%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 16.0522
+Nodes per Second : 18622.90
+Solution Size : 85
+Nodes Expanded : 296065
+Fringe size : 552
+Revisits Avoided: 8186
+Used Memory: 33.7%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 3.7968
+Nodes per Second : 81377.92
+Solution Size : 85
+Nodes Expanded : 296065
+Fringe size : 552
+Revisits Avoided: 8186
+Used Memory: 33.9%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.7731
+Nodes per Second : 49744.70
+Solution Size : 61
+Nodes Expanded : 84022
+Fringe size : 548
+Revisits Avoided: 2508
+Used Memory: 33.7%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 3.7303
+Nodes per Second : 23087.95
+Solution Size : 61
+Nodes Expanded : 84032
+Fringe size : 536
+Revisits Avoided: 2508
+Used Memory: 33.6%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.9951
+Nodes per Second : 91681.40
+Solution Size : 61
+Nodes Expanded : 84032
+Fringe size : 536
+Revisits Avoided: 2508
+Used Memory: 33.4%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0659
+Nodes per Second : 70319.44
+Solution Size : 25
+Nodes Expanded : 3691
+Fringe size : 162
+Revisits Avoided: 124
+Used Memory: 33.5%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1128
+Nodes per Second : 37026.03
+Solution Size : 25
+Nodes Expanded : 3691
+Fringe size : 162
+Revisits Avoided: 124
+Used Memory: 33.7%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.0440
+Nodes per Second : 119883.66
+Solution Size : 25
+Nodes Expanded : 3691
+Fringe size : 162
+Revisits Avoided: 124
+Used Memory: 33.7%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.3988
+Nodes per Second : 45840.90
+Solution Size : 43
+Nodes Expanded : 333708
+Fringe size : 4331
+Revisits Avoided: 12671
+Used Memory: 34.3%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 18.5225
+Nodes per Second : 18135.40
+Solution Size : 43
+Nodes Expanded : 333742
+Fringe size : 4298
+Revisits Avoided: 12671
+Used Memory: 34.6%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 3.7730
+Nodes per Second : 91450.06
+Solution Size : 43
+Nodes Expanded : 333742
+Fringe size : 4298
+Revisits Avoided: 12671
+Used Memory: 32.2%
+Search Result: None
+@
+@
+@
+@
+@
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 17.5876
+Nodes per Second : 87406.40
+Solution Size : 57
+Nodes Expanded : 1519001
+Fringe size : 4604
+Revisits Avoided: 45282
+Used Memory: 38.1%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2806
+Nodes per Second : 60992.28
+Solution Size : 27
+Nodes Expanded : 15382
+Fringe size : 1335
+Revisits Avoided: 741
+Used Memory: 41.2%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5524
+Nodes per Second : 29356.39
+Solution Size : 27
+Nodes Expanded : 15382
+Fringe size : 1335
+Revisits Avoided: 741
+Used Memory: 41.0%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1787
+Nodes per Second : 104077.63
+Solution Size : 27
+Nodes Expanded : 15382
+Fringe size : 1335
+Revisits Avoided: 741
+Used Memory: 41.1%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 15.9813
+Nodes per Second : 42844.49
+Solution Size : 66
+Nodes Expanded : 678003
+Fringe size : 2033
+Revisits Avoided: 18564
+Used Memory: 41.5%
+Search Result: None
+@
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 8.0127
+Nodes per Second : 86347.38
+Solution Size : 66
+Nodes Expanded : 678003
+Fringe size : 2033
+Revisits Avoided: 18564
+Used Memory: 42.0%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.7045
+Nodes per Second : 56138.27
+Solution Size : 49
+Nodes Expanded : 36937
+Fringe size : 353
+Revisits Avoided: 1148
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.4803
+Nodes per Second : 25807.90
+Solution Size : 49
+Nodes Expanded : 36939
+Fringe size : 352
+Revisits Avoided: 1148
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.4162
+Nodes per Second : 100593.49
+Solution Size : 49
+Nodes Expanded : 36939
+Fringe size : 352
+Revisits Avoided: 1148
+Used Memory: 41.7%
+Search Result: None
+@
+@
+@
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.2466
+Nodes per Second : 61316.07
+Solution Size : 37
+Nodes Expanded : 13654
+Fringe size : 325
+Revisits Avoided: 462
+Used Memory: 41.4%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.4577
+Nodes per Second : 31432.04
+Solution Size : 37
+Nodes Expanded : 13654
+Fringe size : 325
+Revisits Avoided: 462
+Used Memory: 41.5%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.1533
+Nodes per Second : 105376.03
+Solution Size : 37
+Nodes Expanded : 13654
+Fringe size : 325
+Revisits Avoided: 462
+Used Memory: 41.5%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 12.8452
+Nodes per Second : 39109.10
+Solution Size : 97
+Nodes Expanded : 494230
+Fringe size : 829
+Revisits Avoided: 13375
+Used Memory: 37.6%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 28.7654
+Nodes per Second : 17301.34
+Solution Size : 97
+Nodes Expanded : 494242
+Fringe size : 823
+Revisits Avoided: 13375
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 6.6915
+Nodes per Second : 76230.09
+Solution Size : 97
+Nodes Expanded : 494242
+Fringe size : 823
+Revisits Avoided: 13375
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 3.7180
+Nodes per Second : 45562.92
+Solution Size : 73
+Nodes Expanded : 164955
+Fringe size : 475
+Revisits Avoided: 4693
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 7.9747
+Nodes per Second : 20999.45
+Solution Size : 73
+Nodes Expanded : 164955
+Fringe size : 475
+Revisits Avoided: 4693
+Used Memory: 38.0%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.9973
+Nodes per Second : 86835.60
+Solution Size : 73
+Nodes Expanded : 164955
+Fringe size : 475
+Revisits Avoided: 4693
+Used Memory: 37.9%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 1.3663
+Nodes per Second : 53106.44
+Solution Size : 40
+Nodes Expanded : 69420
+Fringe size : 1072
+Revisits Avoided: 2461
+Used Memory: 38.0%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 3.0783
+Nodes per Second : 23015.05
+Solution Size : 40
+Nodes Expanded : 69406
+Fringe size : 1079
+Revisits Avoided: 2461
+Used Memory: 38.4%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.7282
+Nodes per Second : 103798.91
+Solution Size : 40
+Nodes Expanded : 69406
+Fringe size : 1079
+Revisits Avoided: 2461
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.9824
+Nodes per Second : 52890.93
+Solution Size : 29
+Nodes Expanded : 48627
+Fringe size : 3469
+Revisits Avoided: 2566
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 2.1401
+Nodes per Second : 23428.29
+Solution Size : 29
+Nodes Expanded : 48698
+Fringe size : 3398
+Revisits Avoided: 2566
+Used Memory: 38.6%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 0.5303
+Nodes per Second : 104208.78
+Solution Size : 29
+Nodes Expanded : 48698
+Fringe size : 3398
+Revisits Avoided: 2566
+Used Memory: 38.6%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY-lazy
+Configuration:
+  Domain: Hiking
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {'novelty_type': 'lazyft'})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=lazyft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 5.2773
+Nodes per Second : 47402.29
+Solution Size : 53
+Nodes Expanded : 244936
+Fringe size : 1302
+Revisits Avoided: 7464
+Used Memory: 39.2%
+Search Result: None
+@
+Experiment Name : TDG-NOVELTY
+Configuration:
+  Domain: Hiking
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True}), ('NOVELTY', {})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis), Novelty(type=ft)]
+None
+Search Status : GOAL
+Search Time (seconds) : 12.2956
+Nodes per Second : 20096.71
+Solution Size : 53
+Nodes Expanded : 244936
+Fringe size : 1302
+Revisits Avoided: 7464
+Used Memory: 39.5%
+Search Result: None
+@
+Experiment Name : TDG
+Configuration:
+  Domain: Hiking
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: TiebreakingNode, Params: {'G': 1, 'H': 5}
+  Heuristic: Tiebreaking, Params: [('TDG', {'use_satis': True})]
+
+Staring solver
+function F = 1*G + 5*H
+[TDG(use_satis)]
+None
+Search Status : GOAL
+Search Time (seconds) : 2.7179
+Nodes per Second : 93902.59
+Solution Size : 53
+Nodes Expanded : 244936
+Fringe size : 1302
+Revisits Avoided: 7464
+Used Memory: 39.5%
+Search Result: None
+@
