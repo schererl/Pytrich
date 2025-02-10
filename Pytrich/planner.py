@@ -32,6 +32,7 @@ HEURISTICS = {
 NODES = {
     "HTNNode"    : HTNNode,
     "AstarNode"  : AstarNode,
+    "GreedyNode"  : AstarNode,
     "TiebreakingNode": TiebreakingNode
 }
 

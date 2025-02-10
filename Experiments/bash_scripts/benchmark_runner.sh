@@ -12,20 +12,24 @@ fi
 folder_benchmarks="$1/*"
 
 # Define time and memory limits
-TIME_LIMIT=60
+TIME_LIMIT=600
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored
-ignored_domains=("Barman" "ipc2020-feature-tests" "SCCTEST")
+ignored_domains=("AssemblyHierarchical" "ipc2020-feature-tests" "SCCTEST")
 
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-experiments[0,name]="LMCOUNT-update"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False, use_bu_update=True)" '
+experiments[0,name]="lmcount-tdg"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmcount-tdg" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h4ft)" '
+#experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmcount" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h1ft)" '
 
-# experiments[1,name]="TDG-satis"
-# experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-satis" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "TDG(use_satis=True)" '
+#experiments[1,name]="Novelty-lm-f-t"
+#experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h2ft)" '
+
+#experiments[2,name]="Novelty-lm-tdg-f-t"
+#experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-tdg-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h3ft)" '
 
 # experiments[2,name]="TDG-LMCOUNT"
 # experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT" -N "AstarNode(G=1,H=5)" -S "TiebreakingNode(use_early=True)" -A "Tiebreaking([TDG(use_satis=True),LMCOUNT(use_bu_update=True)])" '

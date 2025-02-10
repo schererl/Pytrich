@@ -12,7 +12,7 @@ fi
 domain_dir="$1"
 
 # Define time and memory limits
-TIME_LIMIT=30
+TIME_LIMIT=5
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored (optional)
@@ -21,26 +21,14 @@ ignored_domains=("Barman" "Freecell-Learned-ECAI-16" "ipc2020-feature-tests" "Lo
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-# experiments[0,name]="LMCOUNT-update"
-# experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-update" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=False, use_bu_update=True)" '
+experiments[0,name]="lmcount"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmcount" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h1ft)" '
 
-# experiments[1,name]="TDG-satis"
-# experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-satis" -N "AstarNode(G=1,H=5)" -S "Astar(use_early=True)" -H "TDG(use_satis=True)" '
+experiments[1,name]="Novelty-lm-f-t"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h2ft)" '
 
-# experiments[2,name]="TDG-LMCOUNT"
-# experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([TDG(use_satis=True),LMCOUNT(use_bu_update=True)])" '
-
-experiments[0,name]="TDG-NOVELTY-lazy"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-NOVELTY-lazy" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([TDG(use_satis=True), NOVELTY(novelty_type=\"lazyft\")])" '
-
-experiments[1,name]="TDG-NOVELTY"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-NOVELTY" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([TDG(use_satis=True), NOVELTY()])" '
-
-experiments[2,name]="TDG"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([TDG(use_satis=True)])" '
-
-#experiments[5,name]="LMCOUNT-TDG-NOVELTY"
-#experiments[5,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "LMCOUNT-TDG-NOVELTY" -N "TiebreakingNode(G=1,H=5)" -S "Astar(use_early=True)" -A "Tiebreaking([LMCOUNT(use_bu_update=True),TDG(use_satis=True),NOVELTY()])" '
+experiments[2,name]="Novelty-lm-tdg-f-t"
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-tdg-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h3ft)" '
 
 
 # Check if the domain directory exists

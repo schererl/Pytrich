@@ -90,6 +90,10 @@ class HTNNode:
             #f"\n{memory_info}"
         )
 
+class GreedyNode(HTNNode):
+    def __lt__(self, other):
+        return (self.h_value, self.g_value) < (other.h_value, other.g_value)
+
 
 class AstarNode(HTNNode):
     def __lt__(self, other):

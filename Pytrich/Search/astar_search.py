@@ -9,7 +9,7 @@ from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Heuristics.lm_heuristic import LandmarkHeuristic
-from Pytrich.Search.htn_node import AstarNode, HTNNode
+from Pytrich.Search.htn_node import AstarNode, GreedyNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
 import Pytrich.FLAGS as FLAGS
 
@@ -21,7 +21,7 @@ def search(
         use_early=False
 
     ) -> None:
-    
+    node_type =  GreedyNode
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time

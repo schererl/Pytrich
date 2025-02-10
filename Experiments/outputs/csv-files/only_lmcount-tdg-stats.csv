@@ -1,0 +1,17 @@
+domain,experiment_name,coverage,avg_solution_size,avg_expanded_nodes
+Barman-BDI,lmcount-tdg,17,109.76,25175.00
+Blocksworld-GTOHP,lmcount-tdg,27,910.26,3617.15
+Blocksworld-HPDDL,lmcount-tdg,9,120.00,237360.22
+Childsnack,lmcount-tdg,5,55.00,20784.20
+Depots,lmcount-tdg,24,87.54,6741.88
+Factories-simple,lmcount-tdg,11,2737.27,3100831.64
+Hiking,lmcount-tdg,13,55.46,1381583.92
+Monroe-Fully-Observable,lmcount-tdg,12,21.00,14824.83
+Monroe-Partially-Observable,lmcount-tdg,5,9.40,7482.80
+Multiarm-Blocksworld,lmcount-tdg,15,113.80,3386662.73
+Robot,lmcount-tdg,11,13.64,13140.00
+Rover-GTOHP,lmcount-tdg,15,108.93,1107.60
+Satellite-GTOHP,lmcount-tdg,12,83.50,2597.83
+Snake,lmcount-tdg,3,36.67,950656.67
+Towers,lmcount-tdg,13,1259.15,1412935.38
+Transport,lmcount-tdg,18,32.50,1438.06

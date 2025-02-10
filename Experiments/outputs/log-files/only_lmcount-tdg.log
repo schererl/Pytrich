@@ -1,0 +1,6632 @@
+Skipping ignored domain: AssemblyHierarchical
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Barman-BDI
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 8948
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.09 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.9570
+Nodes per Second : 14675.50
+Solution Size : 119
+Nodes Expanded : 12683
+Fringe size : 36607
+Revisits Avoided: 68
+Used Memory: 35.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3533
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1460
+Nodes per Second : 22966.95
+Solution Size : 61
+Nodes Expanded : 2807
+Fringe size : 4730
+Revisits Avoided: 26
+Used Memory: 35.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 8121
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.7166
+Nodes per Second : 16182.37
+Solution Size : 90
+Nodes Expanded : 10279
+Fringe size : 25447
+Revisits Avoided: 103
+Used Memory: 35.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 234970
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 61.93 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7424
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2584
+Nodes per Second : 15954.54
+Solution Size : 53
+Nodes Expanded : 3062
+Fringe size : 8296
+Revisits Avoided: 47
+Used Memory: 35.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 14033
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.19 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.5438
+Nodes per Second : 15098.50
+Solution Size : 184
+Nodes Expanded : 20388
+Fringe size : 50557
+Revisits Avoided: 60
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 20443
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.40 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.3839
+Nodes per Second : 9612.22
+Solution Size : 186
+Nodes Expanded : 57500
+Fringe size : 230442
+Revisits Avoided: 137
+Used Memory: 38.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2942
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1389
+Nodes per Second : 22448.32
+Solution Size : 58
+Nodes Expanded : 2727
+Fringe size : 4800
+Revisits Avoided: 39
+Used Memory: 36.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 19080
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.35 s
+
+Search Status : GOAL
+Search Time (seconds) : 7.0735
+Nodes per Second : 10558.46
+Solution Size : 294
+Nodes Expanded : 71024
+Fringe size : 245164
+Revisits Avoided: 154
+Used Memory: 38.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4351
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1975
+Nodes per Second : 22744.41
+Solution Size : 72
+Nodes Expanded : 3814
+Fringe size : 6397
+Revisits Avoided: 62
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1797
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0585
+Nodes per Second : 25527.42
+Solution Size : 43
+Nodes Expanded : 1249
+Fringe size : 1752
+Revisits Avoided: 3
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 15702
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.25 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.8420
+Nodes per Second : 15008.52
+Solution Size : 94
+Nodes Expanded : 8859
+Fringe size : 24177
+Revisits Avoided: 140
+Used Memory: 36.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2715
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0868
+Nodes per Second : 24313.44
+Solution Size : 35
+Nodes Expanded : 1707
+Fringe size : 2760
+Revisits Avoided: 33
+Used Memory: 36.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3969
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1231
+Nodes per Second : 20294.44
+Solution Size : 32
+Nodes Expanded : 1924
+Fringe size : 3848
+Revisits Avoided: 45
+Used Memory: 36.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 338151
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 150.54 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6664
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.06 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3814
+Nodes per Second : 16146.72
+Solution Size : 75
+Nodes Expanded : 5266
+Fringe size : 14470
+Revisits Avoided: 22
+Used Memory: 35.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5714
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1852
+Nodes per Second : 18086.35
+Solution Size : 52
+Nodes Expanded : 2542
+Fringe size : 6338
+Revisits Avoided: 46
+Used Memory: 35.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 77442
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 5.23 s
+
+Search Status : GOAL
+Search Time (seconds) : 55.8117
+Nodes per Second : 4379.16
+Solution Size : 402
+Nodes Expanded : 221516
+Fringe size : 1895518
+Revisits Avoided: 317
+Used Memory: 77.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 916
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0251
+Nodes per Second : 30288.66
+Solution Size : 16
+Nodes Expanded : 628
+Fringe size : 713
+Revisits Avoided: 0
+Used Memory: 35.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 122531
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 13.90 s
+
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Blocksworld-GTOHP
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2154
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0350
+Nodes per Second : 40291.70
+Solution Size : 154
+Nodes Expanded : 518
+Fringe size : 120
+Revisits Avoided: 0
+Used Memory: 35.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2146
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0305
+Nodes per Second : 43127.11
+Solution Size : 153
+Nodes Expanded : 503
+Fringe size : 115
+Revisits Avoided: 0
+Used Memory: 35.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1205
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0147
+Nodes per Second : 43308.81
+Solution Size : 78
+Nodes Expanded : 280
+Fringe size : 61
+Revisits Avoided: 0
+Used Memory: 35.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 829
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0095
+Nodes per Second : 43472.21
+Solution Size : 61
+Nodes Expanded : 199
+Fringe size : 53
+Revisits Avoided: 0
+Used Memory: 35.2%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 326
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 49777.21
+Solution Size : 20
+Nodes Expanded : 65
+Fringe size : 18
+Revisits Avoided: 0
+Used Memory: 34.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p23
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 9092
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.25 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3531
+Nodes per Second : 21449.07
+Solution Size : 639
+Nodes Expanded : 2237
+Fringe size : 575
+Revisits Avoided: 0
+Used Memory: 35.3%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2386
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2757
+Nodes per Second : 46142.02
+Solution Size : 236
+Nodes Expanded : 11597
+Fringe size : 434
+Revisits Avoided: 0
+Used Memory: 35.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3267
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0623
+Nodes per Second : 36334.73
+Solution Size : 218
+Nodes Expanded : 786
+Fringe size : 179
+Revisits Avoided: 0
+Used Memory: 35.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p26
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 28659
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.31 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.1077
+Nodes per Second : 8934.93
+Solution Size : 2002
+Nodes Expanded : 7085
+Fringe size : 1827
+Revisits Avoided: 0
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3375
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0648
+Nodes per Second : 31179.78
+Solution Size : 246
+Nodes Expanded : 850
+Fringe size : 213
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p29
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 76775
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 19.58 s
+
+Search Status : GOAL
+Search Time (seconds) : 25.3833
+Nodes per Second : 3377.88
+Solution Size : 5466
+Nodes Expanded : 19608
+Fringe size : 4773
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p22
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6558
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.13 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1990
+Nodes per Second : 25645.67
+Solution Size : 490
+Nodes Expanded : 1711
+Fringe size : 389
+Revisits Avoided: 0
+Used Memory: 35.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p21
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4561
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1037
+Nodes per Second : 30498.60
+Solution Size : 322
+Nodes Expanded : 1104
+Fringe size : 297
+Revisits Avoided: 0
+Used Memory: 35.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p30
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 96105
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 33.22 s
+
+Search Status : GOAL
+Search Time (seconds) : 42.4723
+Nodes per Second : 2601.08
+Solution Size : 6796
+Nodes Expanded : 24066
+Fringe size : 6064
+Revisits Avoided: 0
+Used Memory: 38.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3578
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0743
+Nodes per Second : 31242.56
+Solution Size : 241
+Nodes Expanded : 813
+Fringe size : 222
+Revisits Avoided: 0
+Used Memory: 36.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1683
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0235
+Nodes per Second : 41234.35
+Solution Size : 118
+Nodes Expanded : 423
+Fringe size : 101
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2143
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0376
+Nodes per Second : 40042.91
+Solution Size : 183
+Nodes Expanded : 628
+Fringe size : 146
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 546
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0080
+Nodes per Second : 38950.18
+Solution Size : 38
+Nodes Expanded : 136
+Fringe size : 22
+Revisits Avoided: 0
+Used Memory: 36.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p24
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 13653
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.56 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.7779
+Nodes per Second : 16285.62
+Solution Size : 1003
+Nodes Expanded : 3539
+Fringe size : 840
+Revisits Avoided: 0
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 575
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0060
+Nodes per Second : 50804.79
+Solution Size : 39
+Nodes Expanded : 131
+Fringe size : 30
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p28
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 57513
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 9.92 s
+
+Search Status : GOAL
+Search Time (seconds) : 13.1600
+Nodes per Second : 4541.59
+Solution Size : 4149
+Nodes Expanded : 14718
+Fringe size : 3585
+Revisits Avoided: 0
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0146
+Nodes per Second : 42465.81
+Solution Size : 83
+Nodes Expanded : 277
+Fringe size : 59
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 18769
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.98 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.3542
+Nodes per Second : 12307.62
+Solution Size : 1323
+Nodes Expanded : 4614
+Fringe size : 1199
+Revisits Avoided: 0
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1121
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0119
+Nodes per Second : 50770.42
+Solution Size : 83
+Nodes Expanded : 274
+Fringe size : 57
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1549
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0208
+Nodes per Second : 42612.03
+Solution Size : 111
+Nodes Expanded : 386
+Fringe size : 81
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2691
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0405
+Nodes per Second : 38358.48
+Solution Size : 179
+Nodes Expanded : 606
+Fringe size : 161
+Revisits Avoided: 0
+Used Memory: 36.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2030
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0338
+Nodes per Second : 36693.49
+Solution Size : 146
+Nodes Expanded : 509
+Fringe size : 133
+Revisits Avoided: 0
+Used Memory: 36.0%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Blocksworld-HPDDL
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_045
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3423
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.2176
+Nodes per Second : 29762.16
+Solution Size : 226
+Nodes Expanded : 182732
+Fringe size : 205402
+Revisits Avoided: 5357
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_090
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7212
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.32 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_075
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6000
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.23 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_060
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4594
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.11 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_050
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3937
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.10 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_025
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1899
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.8059
+Nodes per Second : 36694.94
+Solution Size : 122
+Nodes Expanded : 65289
+Fringe size : 59537
+Revisits Avoided: 3054
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_030
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2207
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.4192
+Nodes per Second : 35574.73
+Solution Size : 139
+Nodes Expanded : 84817
+Fringe size : 83276
+Revisits Avoided: 4300
+Used Memory: 36.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_400
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 32499
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 6.49 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_035
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2773
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 11.8037
+Nodes per Second : 35785.33
+Solution Size : 167
+Nodes Expanded : 420594
+Fringe size : 270235
+Revisits Avoided: 9311
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_080
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6179
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.25 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_095
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7676
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.30 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_250
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 20155
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.74 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_005
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0050
+Nodes per Second : 55247.15
+Solution Size : 20
+Nodes Expanded : 185
+Fringe size : 70
+Revisits Avoided: 12
+Used Memory: 35.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_070
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5423
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.19 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_040
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3121
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 41.9280
+Nodes per Second : 32769.29
+Solution Size : 203
+Nodes Expanded : 1371797
+Fringe size : 870150
+Revisits Avoided: 34833
+Used Memory: 41.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_300
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 24348
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 3.43 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_500
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 40693
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 10.93 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_200
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 15979
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.40 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_020
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1411
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1022
+Nodes per Second : 49934.83
+Solution Size : 92
+Nodes Expanded : 4274
+Fringe size : 2399
+Revisits Avoided: 261
+Used Memory: 35.9%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_015
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1083
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1326
+Nodes per Second : 46211.78
+Solution Size : 68
+Nodes Expanded : 5591
+Fringe size : 3424
+Revisits Avoided: 306
+Used Memory: 35.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_055
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4227
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.12 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_010
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 704
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0236
+Nodes per Second : 52309.98
+Solution Size : 43
+Nodes Expanded : 963
+Fringe size : 338
+Revisits Avoided: 67
+Used Memory: 35.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_085
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6671
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.28 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_150
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 12082
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.77 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_100
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 8023
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.33 s
+
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Childsnack
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Childsnack
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 210284
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 5.74 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.6545
+Nodes per Second : 31385.94
+Solution Size : 59
+Nodes Expanded : 28588
+Fringe size : 16545
+Revisits Avoided: 0
+Used Memory: 38.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Childsnack
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 84518
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.3088
+Nodes per Second : 36744.34
+Solution Size : 49
+Nodes Expanded : 11408
+Fringe size : 6463
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Childsnack
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 140338
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.68 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.2424
+Nodes per Second : 33335.53
+Solution Size : 54
+Nodes Expanded : 18863
+Fringe size : 11322
+Revisits Avoided: 0
+Used Memory: 37.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Childsnack
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 84518
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.97 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.2804
+Nodes per Second : 36313.09
+Solution Size : 49
+Nodes Expanded : 11244
+Fringe size : 6807
+Revisits Avoided: 0
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Childsnack
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 247208
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 7.10 s
+
+Search Status : GOAL
+Search Time (seconds) : 8.2528
+Nodes per Second : 29447.24
+Solution Size : 64
+Nodes Expanded : 33818
+Fringe size : 20107
+Revisits Avoided: 0
+Used Memory: 39.5%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Depots
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5620
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0701
+Nodes per Second : 50553.59
+Solution Size : 95
+Nodes Expanded : 1753
+Fringe size : 284
+Revisits Avoided: 14
+Used Memory: 36.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2360
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0172
+Nodes per Second : 29398.93
+Solution Size : 36
+Nodes Expanded : 172
+Fringe size : 86
+Revisits Avoided: 0
+Used Memory: 36.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6408
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0666
+Nodes per Second : 41796.22
+Solution Size : 91
+Nodes Expanded : 1264
+Fringe size : 395
+Revisits Avoided: 0
+Used Memory: 36.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1992
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0162
+Nodes per Second : 37994.22
+Solution Size : 50
+Nodes Expanded : 295
+Fringe size : 152
+Revisits Avoided: 0
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 12201
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1115
+Nodes per Second : 39650.12
+Solution Size : 107
+Nodes Expanded : 1368
+Fringe size : 609
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 754
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 44048.56
+Solution Size : 14
+Nodes Expanded : 50
+Fringe size : 21
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p23
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 43216
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.51 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.2867
+Nodes per Second : 13033.18
+Solution Size : 276
+Nodes Expanded : 23184
+Fringe size : 31107
+Revisits Avoided: 12
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5748
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0351
+Nodes per Second : 35508.01
+Solution Size : 40
+Nodes Expanded : 334
+Fringe size : 299
+Revisits Avoided: 0
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2876
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0192
+Nodes per Second : 47779.94
+Solution Size : 46
+Nodes Expanded : 259
+Fringe size : 97
+Revisits Avoided: 0
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 9753
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0588
+Nodes per Second : 22533.76
+Solution Size : 42
+Nodes Expanded : 365
+Fringe size : 744
+Revisits Avoided: 0
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 16324
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.11 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.4113
+Nodes per Second : 14986.87
+Solution Size : 108
+Nodes Expanded : 4500
+Fringe size : 10922
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p22
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 17370
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.13 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1884
+Nodes per Second : 33883.08
+Solution Size : 138
+Nodes Expanded : 2123
+Fringe size : 1422
+Revisits Avoided: 4
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p21
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 11052
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0960
+Nodes per Second : 37380.70
+Solution Size : 96
+Nodes Expanded : 1029
+Fringe size : 543
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7340
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0477
+Nodes per Second : 40382.99
+Solution Size : 56
+Nodes Expanded : 548
+Fringe size : 331
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2349
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0169
+Nodes per Second : 44647.96
+Solution Size : 54
+Nodes Expanded : 240
+Fringe size : 113
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4852
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0401
+Nodes per Second : 46065.72
+Solution Size : 72
+Nodes Expanded : 674
+Fringe size : 214
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2969
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0190
+Nodes per Second : 38183.09
+Solution Size : 43
+Nodes Expanded : 229
+Fringe size : 150
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p24
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 61988
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.98 s
+
+Search Status : GOAL
+Search Time (seconds) : 10.8857
+Nodes per Second : 12257.01
+Solution Size : 382
+Nodes Expanded : 121353
+Fringe size : 143423
+Revisits Avoided: 0
+Used Memory: 41.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1216
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0071
+Nodes per Second : 41197.56
+Solution Size : 23
+Nodes Expanded : 84
+Fringe size : 44
+Revisits Avoided: 0
+Used Memory: 38.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2051
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0108
+Nodes per Second : 35570.07
+Solution Size : 33
+Nodes Expanded : 120
+Fringe size : 81
+Revisits Avoided: 0
+Used Memory: 38.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p25
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 141581
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 3.32 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5830
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0408
+Nodes per Second : 33648.75
+Solution Size : 70
+Nodes Expanded : 391
+Fringe size : 319
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5040
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0429
+Nodes per Second : 36434.24
+Solution Size : 92
+Nodes Expanded : 534
+Fringe size : 283
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7717
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0629
+Nodes per Second : 37909.14
+Solution Size : 100
+Nodes Expanded : 752
+Fringe size : 387
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Depots
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1967
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0122
+Nodes per Second : 43976.98
+Solution Size : 37
+Nodes Expanded : 184
+Fringe size : 67
+Revisits Avoided: 0
+Used Memory: 35.8%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Factories-simple
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 28688
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 77.47 s
+
+Search Status : GOAL
+Search Time (seconds) : 357.7802
+Nodes per Second : 38625.54
+Solution Size : 13529
+Nodes Expanded : 10827213
+Fringe size : 19602
+Revisits Avoided: 350256
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3011
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.4475
+Nodes per Second : 49333.75
+Solution Size : 321
+Nodes Expanded : 20050
+Fringe size : 1190
+Revisits Avoided: 1138
+Used Memory: 35.9%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 24493
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 46.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 579.5170
+Nodes per Second : 35105.01
+Solution Size : 10625
+Nodes Expanded : 18726360
+Fringe size : 47102
+Revisits Avoided: 641540
+Used Memory: 45.3%
+Search Result: None
+@
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 809
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0193
+Nodes per Second : 53761.77
+Solution Size : 57
+Nodes Expanded : 789
+Fringe size : 173
+Revisits Avoided: 45
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4819
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.12 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.9688
+Nodes per Second : 46305.88
+Solution Size : 456
+Nodes Expanded : 85760
+Fringe size : 1861
+Revisits Avoided: 4436
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 784
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0226
+Nodes per Second : 57943.17
+Solution Size : 47
+Nodes Expanded : 1053
+Fringe size : 152
+Revisits Avoided: 66
+Used Memory: 36.6%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1608
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0815
+Nodes per Second : 55480.98
+Solution Size : 124
+Nodes Expanded : 3845
+Fringe size : 374
+Revisits Avoided: 231
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7260
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.51 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.4007
+Nodes per Second : 49681.03
+Solution Size : 1070
+Nodes Expanded : 93704
+Fringe size : 2314
+Revisits Avoided: 4372
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 11101
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.93 s
+
+Search Status : GOAL
+Search Time (seconds) : 87.9896
+Nodes per Second : 47957.98
+Solution Size : 1694
+Nodes Expanded : 4175253
+Fringe size : 4373
+Revisits Avoided: 163151
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 10868
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.83 s
+
+Search Status : GOAL
+Search Time (seconds) : 4.5884
+Nodes per Second : 46573.02
+Solution Size : 2173
+Nodes Expanded : 175039
+Fringe size : 5792
+Revisits Avoided: 7438
+Used Memory: 36.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 262
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0034
+Nodes per Second : 47282.50
+Solution Size : 14
+Nodes Expanded : 82
+Fringe size : 40
+Revisits Avoided: 1
+Used Memory: 36.4%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Hiking
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 209307
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 4.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 318.1353
+Nodes per Second : 25067.31
+Solution Size : 79
+Nodes Expanded : 7874161
+Fringe size : 141674
+Revisits Avoided: 193883
+Used Memory: 52.3%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 122679
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.60 s
+
+Search Status : GOAL
+Search Time (seconds) : 58.4958
+Nodes per Second : 25905.70
+Solution Size : 85
+Nodes Expanded : 1473879
+Fringe size : 24634
+Revisits Avoided: 39175
+Used Memory: 38.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 69482
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.66 s
+
+Search Status : GOAL
+Search Time (seconds) : 12.2663
+Nodes per Second : 32811.36
+Solution Size : 61
+Nodes Expanded : 380843
+Fringe size : 11056
+Revisits Avoided: 11315
+Used Memory: 35.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 17035
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.09 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2154
+Nodes per Second : 50324.60
+Solution Size : 25
+Nodes Expanded : 6536
+Fringe size : 1146
+Revisits Avoided: 250
+Used Memory: 35.1%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 38751
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.26 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.8227
+Nodes per Second : 47195.98
+Solution Size : 27
+Nodes Expanded : 26495
+Fringe size : 4628
+Revisits Avoided: 1268
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 154908
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.30 s
+
+Search Status : GOAL
+Search Time (seconds) : 113.4512
+Nodes per Second : 29246.73
+Solution Size : 66
+Nodes Expanded : 3250810
+Fringe size : 67816
+Revisits Avoided: 89111
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 48348
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.37 s
+
+Search Status : GOAL
+Search Time (seconds) : 4.5044
+Nodes per Second : 37296.76
+Solution Size : 49
+Nodes Expanded : 154037
+Fringe size : 4595
+Revisits Avoided: 4905
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 30867
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.20 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.2289
+Nodes per Second : 43541.29
+Solution Size : 37
+Nodes Expanded : 44914
+Fringe size : 2587
+Revisits Avoided: 1558
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 154760
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.28 s
+
+Search Status : GOAL
+Search Time (seconds) : 107.5894
+Nodes per Second : 23678.75
+Solution Size : 97
+Nodes Expanded : 2493584
+Fringe size : 49034
+Revisits Avoided: 64079
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 94254
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 28.1157
+Nodes per Second : 29449.56
+Solution Size : 73
+Nodes Expanded : 797467
+Fringe size : 14868
+Revisits Avoided: 22199
+Used Memory: 38.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 69630
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.64 s
+
+Search Status : GOAL
+Search Time (seconds) : 6.7931
+Nodes per Second : 42082.32
+Solution Size : 40
+Nodes Expanded : 259001
+Fringe size : 9681
+Revisits Avoided: 9642
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 75590
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.69 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.8308
+Nodes per Second : 46435.71
+Solution Size : 29
+Nodes Expanded : 99593
+Fringe size : 12306
+Revisits Avoided: 5711
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Hiking
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 108349
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.30 s
+
+Search Status : GOAL
+Search Time (seconds) : 32.2334
+Nodes per Second : 35533.37
+Solution Size : 53
+Nodes Expanded : 1099271
+Fringe size : 22561
+Revisits Avoided: 34387
+Used Memory: 37.6%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Lamps
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Monroe-Fully-Observable
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 790083
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 31.65 s
+
+Search Status : GOAL
+Search Time (seconds) : 35.7539
+Nodes per Second : 12940.56
+Solution Size : 40
+Nodes Expanded : 53055
+Fringe size : 90936
+Revisits Avoided: 9
+Used Memory: 57.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767978
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 30.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 30.2898
+Nodes per Second : 27801.75
+Solution Size : 15
+Nodes Expanded : 6609
+Fringe size : 3581
+Revisits Avoided: 3
+Used Memory: 50.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 804709
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 29.61 s
+
+Search Status : GOAL
+Search Time (seconds) : 29.6578
+Nodes per Second : 1868.67
+Solution Size : 10
+Nodes Expanded : 89
+Fringe size : 1929
+Revisits Avoided: 0
+Used Memory: 50.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767541
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 21.65 s
+
+Search Status : GOAL
+Search Time (seconds) : 21.6741
+Nodes per Second : 474.20
+Solution Size : 2
+Nodes Expanded : 9
+Fringe size : 480
+Revisits Avoided: 0
+Used Memory: 49.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 714756
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 20.89 s
+
+Search Status : GOAL
+Search Time (seconds) : 20.9592
+Nodes per Second : 1248.68
+Solution Size : 6
+Nodes Expanded : 89
+Fringe size : 3381
+Revisits Avoided: 3
+Used Memory: 49.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 751826
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 30.95 s
+
+Search Status : GOAL
+Search Time (seconds) : 31.1047
+Nodes per Second : 3804.72
+Solution Size : 33
+Nodes Expanded : 577
+Fringe size : 6490
+Revisits Avoided: 0
+Used Memory: 52.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 777228
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 29.40 s
+
+Search Status : GOAL
+Search Time (seconds) : 29.5010
+Nodes per Second : 1392.41
+Solution Size : 11
+Nodes Expanded : 134
+Fringe size : 4202
+Revisits Avoided: 0
+Used Memory: 51.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 829897
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 28.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 28.3573
+Nodes per Second : 943.20
+Solution Size : 14
+Nodes Expanded : 318
+Fringe size : 6379
+Revisits Avoided: 0
+Used Memory: 54.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 820413
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 30.89 s
+
+Search Status : GOAL
+Search Time (seconds) : 31.1341
+Nodes per Second : 39596.74
+Solution Size : 17
+Nodes Expanded : 9649
+Fringe size : 1107
+Revisits Avoided: 0
+Used Memory: 51.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 766944
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 31.99 s
+
+Search Status : GOAL
+Search Time (seconds) : 32.0496
+Nodes per Second : 2596.94
+Solution Size : 33
+Nodes Expanded : 154
+Fringe size : 2148
+Revisits Avoided: 0
+Used Memory: 54.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767654
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 29.88 s
+
+Search Status : GOAL
+Search Time (seconds) : 33.0377
+Nodes per Second : 33537.55
+Solution Size : 24
+Nodes Expanded : 105729
+Fringe size : 18564
+Revisits Avoided: 1
+Used Memory: 51.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 778296
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 32.51 s
+
+Search Status : GOAL
+Search Time (seconds) : 32.6613
+Nodes per Second : 9745.38
+Solution Size : 47
+Nodes Expanded : 1486
+Fringe size : 4705
+Revisits Avoided: 0
+Used Memory: 57.3%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Monroe-Partially-Observable
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 756594
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.01 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 818377
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 24.11 s
+
+Search Status : GOAL
+Search Time (seconds) : 24.1374
+Nodes per Second : 1736.23
+Solution Size : 5
+Nodes Expanded : 48
+Fringe size : 862
+Revisits Avoided: 1
+Used Memory: 51.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 789621
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.73 s
+
+Search Status : GOAL
+Search Time (seconds) : 24.6919
+Nodes per Second : 7643.78
+Solution Size : 11
+Nodes Expanded : 14984
+Fringe size : 69946
+Revisits Avoided: 75
+Used Memory: 52.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 861688
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 26.17 s
+
+Search Status : GOAL
+Search Time (seconds) : 27.3119
+Nodes per Second : 7601.07
+Solution Size : 12
+Nodes Expanded : 8650
+Fringe size : 43817
+Revisits Avoided: 32
+Used Memory: 54.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 782156
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 21.86 s
+
+Search Status : GOAL
+Search Time (seconds) : 23.5651
+Nodes per Second : 7352.37
+Solution Size : 10
+Nodes Expanded : 12500
+Fringe size : 60550
+Revisits Avoided: 156
+Used Memory: 50.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 808729
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 23.98 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 819532
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.25 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 818782
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.55 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 825023
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 25.00 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 767385
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 20.83 s
+
+Search Status : GOAL
+Search Time (seconds) : 21.1107
+Nodes per Second : 4407.01
+Solution Size : 9
+Nodes Expanded : 1232
+Fringe size : 13213
+Revisits Avoided: 16
+Used Memory: 49.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 829949
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.92 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 791924
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.19 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 762473
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 22.00 s
+
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Multiarm-Blocksworld
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_05_045
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 18010
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.33 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_070
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 23065
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.52 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_020
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7913
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.8328
+Nodes per Second : 44713.11
+Solution Size : 79
+Nodes Expanded : 123533
+Fringe size : 40650
+Revisits Avoided: 4013
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_040
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 13420
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.21 s
+
+Search Status : GOAL
+Search Time (seconds) : 332.7970
+Nodes per Second : 35429.72
+Solution Size : 207
+Nodes Expanded : 11783590
+Fringe size : 3669594
+Revisits Avoided: 126925
+Used Memory: 77.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_055
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 18132
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.34 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_065
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 21710
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.47 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_030
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 13822
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.18 s
+
+Search Status : GOAL
+Search Time (seconds) : 53.9079
+Nodes per Second : 44472.67
+Solution Size : 141
+Nodes Expanded : 2389386
+Fringe size : 419683
+Revisits Avoided: 28637
+Used Memory: 42.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_015
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6849
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.06 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.4476
+Nodes per Second : 50214.25
+Solution Size : 69
+Nodes Expanded : 19634
+Fringe size : 6667
+Revisits Avoided: 407
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_060
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 20301
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.47 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_030
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 9500
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.10 s
+
+Search Status : GOAL
+Search Time (seconds) : 150.8034
+Nodes per Second : 43867.46
+Solution Size : 140
+Nodes Expanded : 6611081
+Fringe size : 828362
+Revisits Avoided: 63963
+Used Memory: 49.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_020
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5996
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.6532
+Nodes per Second : 52473.22
+Solution Size : 93
+Nodes Expanded : 31584
+Fringe size : 9608
+Revisits Avoided: 544
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_095
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 32345
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.05 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_025
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 7869
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 12.3033
+Nodes per Second : 50403.04
+Solution Size : 115
+Nodes Expanded : 616077
+Fringe size : 90542
+Revisits Avoided: 8590
+Used Memory: 37.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_025
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 12213
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.12 s
+
+Search Status : GOAL
+Search Time (seconds) : 4.6354
+Nodes per Second : 44267.46
+Solution Size : 124
+Nodes Expanded : 200063
+Fringe size : 62876
+Revisits Avoided: 1936
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_005
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2062
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0148
+Nodes per Second : 45378.65
+Solution Size : 23
+Nodes Expanded : 317
+Fringe size : 147
+Revisits Avoided: 12
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_100
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 34088
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.19 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_085
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 29095
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.83 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_015
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4946
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.9135
+Nodes per Second : 54082.98
+Solution Size : 78
+Nodes Expanded : 47791
+Fringe size : 11387
+Revisits Avoided: 587
+Used Memory: 36.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_080
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 26788
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.85 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_045
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 14463
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.25 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_050
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 16371
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.32 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_040
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 19412
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.33 s
+
+Search Status : GOAL
+Search Time (seconds) : 292.4012
+Nodes per Second : 43913.18
+Solution Size : 203
+Nodes Expanded : 12825818
+Fringe size : 1622088
+Revisits Avoided: 116571
+Used Memory: 65.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_090
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 30089
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.91 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_035
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 11340
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.15 s
+
+Search Status : GOAL
+Search Time (seconds) : 224.5532
+Nodes per Second : 44110.14
+Solution Size : 174
+Nodes Expanded : 9898371
+Fringe size : 1253930
+Revisits Avoided: 132941
+Used Memory: 54.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_035
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 16670
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.25 s
+
+Search Status : GOAL
+Search Time (seconds) : 133.6575
+Nodes per Second : 46837.12
+Solution Size : 173
+Nodes Expanded : 6248311
+Fringe size : 334755
+Revisits Avoided: 62740
+Used Memory: 45.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_010
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2805
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0762
+Nodes per Second : 55270.35
+Solution Size : 45
+Nodes Expanded : 3329
+Fringe size : 975
+Revisits Avoided: 91
+Used Memory: 36.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_05_050
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 20118
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.35 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_06_010
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4228
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0456
+Nodes per Second : 47776.68
+Solution Size : 43
+Nodes Expanded : 1056
+Fringe size : 436
+Revisits Avoided: 27
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_04_075
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 25189
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.62 s
+
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Robot
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_10_020
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 937
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_001
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 86
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 67673.29
+Solution Size : 6
+Nodes Expanded : 94
+Fringe size : 12
+Revisits Avoided: 5
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_010
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 336
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.6687
+Nodes per Second : 69598.88
+Solution Size : 34
+Nodes Expanded : 116019
+Fringe size : 4307
+Revisits Avoided: 4244
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_45_090
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3801
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.10 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_15_030
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1221
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_005
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 174
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0128
+Nodes per Second : 76195.67
+Solution Size : 15
+Nodes Expanded : 882
+Fringe size : 58
+Revisits Avoided: 43
+Used Memory: 36.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_003
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 150
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0104
+Nodes per Second : 75577.81
+Solution Size : 15
+Nodes Expanded : 715
+Fringe size : 59
+Revisits Avoided: 44
+Used Memory: 36.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_25_050
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2128
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.03 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_005
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 279
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1476
+Nodes per Second : 76151.24
+Solution Size : 20
+Nodes Expanded : 11094
+Fringe size : 581
+Revisits Avoided: 440
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_003
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 167
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0179
+Nodes per Second : 77699.76
+Solution Size : 7
+Nodes Expanded : 1310
+Fringe size : 65
+Revisits Avoided: 71
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_002
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 99
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 73229.45
+Solution Size : 7
+Nodes Expanded : 105
+Fringe size : 6
+Revisits Avoided: 3
+Used Memory: 36.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_002
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 151
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0091
+Nodes per Second : 74063.34
+Solution Size : 7
+Nodes Expanded : 594
+Fringe size : 62
+Revisits Avoided: 29
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_30_060
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2399
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.09 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_35_070
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2885
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.06 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_50_100
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4369
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.18 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_005
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 250
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1841
+Nodes per Second : 74400.31
+Solution Size : 32
+Nodes Expanded : 13588
+Fringe size : 656
+Revisits Avoided: 506
+Used Memory: 36.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_40_080
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3371
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.61 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_01_001
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 37
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 13857.83
+Solution Size : 0
+Nodes Expanded : 3
+Fringe size : 2
+Revisits Avoided: 0
+Used Memory: 36.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_001
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 94
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0027
+Nodes per Second : 72324.76
+Solution Size : 7
+Nodes Expanded : 136
+Fringe size : 12
+Revisits Avoided: 6
+Used Memory: 36.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Robot
+  Problem: pfile_20_040
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1587
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Rover-GTOHP
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 214759
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.34 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.4593
+Nodes per Second : 16345.81
+Solution Size : 149
+Nodes Expanded : 1869
+Fringe size : 4466
+Revisits Avoided: 0
+Used Memory: 39.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 177985
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.86 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.3111
+Nodes per Second : 9168.56
+Solution Size : 261
+Nodes Expanded : 4119
+Fringe size : 20676
+Revisits Avoided: 0
+Used Memory: 39.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 5393
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0341
+Nodes per Second : 19505.32
+Solution Size : 46
+Nodes Expanded : 177
+Fringe size : 382
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1222
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0087
+Nodes per Second : 37096.14
+Solution Size : 41
+Nodes Expanded : 152
+Fringe size : 139
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0034
+Nodes per Second : 43178.85
+Solution Size : 19
+Nodes Expanded : 58
+Fringe size : 34
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 231082
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.55 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.7043
+Nodes per Second : 15149.44
+Solution Size : 224
+Nodes Expanded : 2406
+Fringe size : 5822
+Revisits Avoided: 0
+Used Memory: 40.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 12425
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0730
+Nodes per Second : 20375.30
+Solution Size : 95
+Nodes Expanded : 393
+Fringe size : 935
+Revisits Avoided: 0
+Used Memory: 37.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 207953
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 2.2579
+Nodes per Second : 7930.01
+Solution Size : 134
+Nodes Expanded : 1384
+Fringe size : 4051
+Revisits Avoided: 0
+Used Memory: 40.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 651
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0042
+Nodes per Second : 39575.34
+Solution Size : 19
+Nodes Expanded : 58
+Fringe size : 40
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 560
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 39247.65
+Solution Size : 24
+Nodes Expanded : 68
+Fringe size : 33
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 9892
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0719
+Nodes per Second : 19486.43
+Solution Size : 66
+Nodes Expanded : 421
+Fringe size : 1160
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 4176
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0252
+Nodes per Second : 35011.67
+Solution Size : 54
+Nodes Expanded : 222
+Fringe size : 207
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 57134
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.35 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3772
+Nodes per Second : 22801.77
+Solution Size : 102
+Nodes Expanded : 597
+Fringe size : 1018
+Revisits Avoided: 0
+Used Memory: 37.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 266511
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 3.18 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.4230
+Nodes per Second : 10158.16
+Solution Size : 202
+Nodes Expanded : 2452
+Fringe size : 10490
+Revisits Avoided: 0
+Used Memory: 41.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 125871
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.10 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.2049
+Nodes per Second : 20438.28
+Solution Size : 198
+Nodes Expanded : 2238
+Fringe size : 3694
+Revisits Avoided: 0
+Used Memory: 38.6%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Satellite-GTOHP
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 440621
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 15.77 s
+
+Search Status : GOAL
+Search Time (seconds) : 23.6079
+Nodes per Second : 1458.14
+Solution Size : 204
+Nodes Expanded : 11432
+Fringe size : 197616
+Revisits Avoided: 2117
+Used Memory: 57.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 957116
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 57.51 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 27318
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.18 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3234
+Nodes per Second : 9572.71
+Solution Size : 59
+Nodes Expanded : 1332
+Fringe size : 6661
+Revisits Avoided: 240
+Used Memory: 37.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 15437
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.08 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1373
+Nodes per Second : 13968.99
+Solution Size : 42
+Nodes Expanded : 759
+Fringe size : 2985
+Revisits Avoided: 128
+Used Memory: 37.8%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 419
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 33258.80
+Solution Size : 11
+Nodes Expanded : 54
+Fringe size : 59
+Revisits Avoided: 0
+Used Memory: 37.7%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1134611
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 87.87 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 19031
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.10 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2023
+Nodes per Second : 8529.39
+Solution Size : 44
+Nodes Expanded : 905
+Fringe size : 5769
+Revisits Avoided: 168
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 518987
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 20.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 27.5758
+Nodes per Second : 1011.19
+Solution Size : 204
+Nodes Expanded : 7618
+Fringe size : 188692
+Revisits Avoided: 864
+Used Memory: 60.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1552
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0084
+Nodes per Second : 25848.68
+Solution Size : 15
+Nodes Expanded : 91
+Fringe size : 162
+Revisits Avoided: 7
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1300
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0085
+Nodes per Second : 20426.81
+Solution Size : 17
+Nodes Expanded : 99
+Fringe size : 233
+Revisits Avoided: 5
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 53934
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.57 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.8716
+Nodes per Second : 7916.67
+Solution Size : 72
+Nodes Expanded : 2423
+Fringe size : 13303
+Revisits Avoided: 480
+Used Memory: 38.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 19910
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.11 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.2114
+Nodes per Second : 7427.11
+Solution Size : 62
+Nodes Expanded : 767
+Fringe size : 5397
+Revisits Avoided: 88
+Used Memory: 38.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 72461
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.60 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.4570
+Nodes per Second : 3078.05
+Solution Size : 139
+Nodes Expanded : 2634
+Fringe size : 35961
+Revisits Avoided: 229
+Used Memory: 38.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 129374
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.93 s
+
+Search Status : GOAL
+Search Time (seconds) : 3.2061
+Nodes per Second : 2399.24
+Solution Size : 133
+Nodes Expanded : 3060
+Fringe size : 50171
+Revisits Avoided: 312
+Used Memory: 39.3%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Snake
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Snake
+  Problem: pb-5slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Snake
+  Problem: pb-2slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 149780
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.20 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.2378
+Nodes per Second : 18163.03
+Solution Size : 17
+Nodes Expanded : 643
+Fringe size : 2077
+Revisits Avoided: 0
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Snake
+  Problem: pb-3slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 658359
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 16.71 s
+
+Search Status : GOAL
+Search Time (seconds) : 16.9635
+Nodes per Second : 12399.48
+Solution Size : 32
+Nodes Expanded : 3158
+Fringe size : 7123
+Revisits Avoided: 0
+Used Memory: 41.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Snake
+  Problem: pb-4slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1988625
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 172.57 s
+
+Search Status : GOAL
+Search Time (seconds) : 240.8407
+Nodes per Second : 41718.91
+Solution Size : 61
+Nodes Expanded : 2848169
+Fringe size : 23921
+Revisits Avoided: 2470
+Used Memory: 72.8%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Towers
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 6196
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.02 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0251
+Nodes per Second : 67170.15
+Solution Size : 7
+Nodes Expanded : 377
+Fringe size : 102
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 21806
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.13 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.3126
+Nodes per Second : 76133.74
+Solution Size : 63
+Nodes Expanded : 14080
+Fringe size : 763
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 39843
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.33 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.8816
+Nodes per Second : 69281.02
+Solution Size : 255
+Nodes Expanded : 107496
+Fringe size : 3409
+Revisits Avoided: 0
+Used Memory: 37.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 98911
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.95 s
+
+Search Status : GOAL
+Search Time (seconds) : 103.7595
+Nodes per Second : 44321.21
+Solution Size : 4095
+Nodes Expanded : 4512322
+Fringe size : 51763
+Revisits Avoided: 0
+Used Memory: 42.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 340267
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 35.72 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1111
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0032
+Nodes per Second : 22063.67
+Solution Size : 1
+Nodes Expanded : 10
+Fringe size : 14
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3364
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0110
+Nodes per Second : 22138.02
+Solution Size : 3
+Nodes Expanded : 52
+Fringe size : 69
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 65033
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.84 s
+
+Search Status : GOAL
+Search Time (seconds) : 13.7793
+Nodes per Second : 56121.30
+Solution Size : 1023
+Nodes Expanded : 726022
+Fringe size : 13249
+Revisits Avoided: 0
+Used Memory: 38.4%
+Search Result: None
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 229902
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 13.05 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 15332
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.07 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1277
+Nodes per Second : 76945.11
+Solution Size : 31
+Nodes Expanded : 4546
+Fringe size : 545
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 80764
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 1.26 s
+
+Search Status : GOAL
+Search Time (seconds) : 38.1638
+Nodes per Second : 48745.58
+Solution Size : 2047
+Nodes Expanded : 1798968
+Fringe size : 52723
+Revisits Avoided: 0
+Used Memory: 39.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 197839
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 8.68 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 30134
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.21 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.7355
+Nodes per Second : 72546.96
+Solution Size : 127
+Nodes Expanded : 38448
+Fringe size : 2851
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 265439
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 17.73 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 10261
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.04 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0563
+Nodes per Second : 79327.45
+Solution Size : 15
+Nodes Expanded : 1468
+Fringe size : 169
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 119450
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 2.78 s
+
+Search Status : GOAL
+Search Time (seconds) : 278.1980
+Nodes per Second : 39533.83
+Solution Size : 8191
+Nodes Expanded : 10888149
+Fringe size : 206798
+Revisits Avoided: 0
+Used Memory: 49.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 298134
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 23.72 s
+
+@
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Towers
+  Problem: pfile_09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 51402
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.52 s
+
+Search Status : GOAL
+Search Time (seconds) : 4.8030
+Nodes per Second : 64538.50
+Solution Size : 511
+Nodes Expanded : 276222
+Fringe size : 13389
+Revisits Avoided: 0
+Used Memory: 38.3%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Transport
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 786
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 41151.08
+Solution Size : 20
+Nodes Expanded : 106
+Fringe size : 82
+Revisits Avoided: 0
+Used Memory: 37.9%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 613
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 937
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0053
+Nodes per Second : 28949.05
+Solution Size : 17
+Nodes Expanded : 70
+Fringe size : 94
+Revisits Avoided: 0
+Used Memory: 37.0%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3868
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0623
+Nodes per Second : 33345.99
+Solution Size : 69
+Nodes Expanded : 1610
+Fringe size : 1667
+Revisits Avoided: 2
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 761
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0059
+Nodes per Second : 36383.40
+Solution Size : 34
+Nodes Expanded : 114
+Fringe size : 104
+Revisits Avoided: 0
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 973
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0069
+Nodes per Second : 41547.76
+Solution Size : 26
+Nodes Expanded : 144
+Fringe size : 105
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1763
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0136
+Nodes per Second : 34765.26
+Solution Size : 39
+Nodes Expanded : 280
+Fringe size : 246
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 312
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0041
+Nodes per Second : 41583.12
+Solution Size : 16
+Nodes Expanded : 119
+Fringe size : 89
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1919
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.6189
+Nodes per Second : 31043.99
+Solution Size : 51
+Nodes Expanded : 19006
+Fringe size : 18726
+Revisits Avoided: 51
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 458
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 44055.28
+Solution Size : 28
+Nodes Expanded : 146
+Fringe size : 93
+Revisits Avoided: 0
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0029
+Nodes per Second : 50768.49
+Solution Size : 18
+Nodes Expanded : 86
+Fringe size : 35
+Revisits Avoided: 0
+Used Memory: 37.5%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1123
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0109
+Nodes per Second : 37601.25
+Solution Size : 31
+Nodes Expanded : 245
+Fringe size : 234
+Revisits Avoided: 0
+Used Memory: 37.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 502
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0043
+Nodes per Second : 40553.21
+Solution Size : 21
+Nodes Expanded : 103
+Fringe size : 79
+Revisits Avoided: 0
+Used Memory: 37.6%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2886
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0502
+Nodes per Second : 31984.70
+Solution Size : 39
+Nodes Expanded : 1277
+Fringe size : 1591
+Revisits Avoided: 1
+Used Memory: 37.1%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 702
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 34357.64
+Solution Size : 30
+Nodes Expanded : 90
+Fringe size : 82
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 788
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0082
+Nodes per Second : 36393.09
+Solution Size : 33
+Nodes Expanded : 204
+Fringe size : 199
+Revisits Avoided: 0
+Used Memory: 37.2%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3789
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0369
+Nodes per Second : 28014.30
+Solution Size : 51
+Nodes Expanded : 711
+Fringe size : 1064
+Revisits Avoided: 1
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 120
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0015
+Nodes per Second : 37395.29
+Solution Size : 9
+Nodes Expanded : 31
+Fringe size : 15
+Revisits Avoided: 0
+Used Memory: 37.3%
+Search Result: None
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Transport
+  Problem: pfile18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3215
+Heuristic Info:
+	Name: novelty
+	Type: h4ft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0588
+Nodes per Second : 34445.96
+Solution Size : 53
+Nodes Expanded : 1543
+Fringe size : 1423
+Revisits Avoided: 0
+Used Memory: 37.4%
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Woodworking
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 04--p02-part3
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 09--p03-complete
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 10--p04-part1
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 00--p01-variant
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 06--p02-complete
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 01--p01-complete
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 02--p02-part1
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 07--p03-part1
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 05--p02-part4
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 03--p02-part2
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
+Experiment Name : lmcount-tdg
+Configuration:
+  Domain: Woodworking
+  Problem: 08--p03-part2
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h4ft'}
+
+@
