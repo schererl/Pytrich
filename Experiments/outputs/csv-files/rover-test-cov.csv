@@ -1,7 +1,0 @@
-domain,experiment_name,coverage,avg_solution_size
-Rover-GTOHP,LMCOUNT-update,18,129.61
-Rover-GTOHP,LMCOUNT-TDG-NOVELTY,18,129.39
-Rover-GTOHP,TDG-satis,20,143.65
-Rover-GTOHP,LMCOUNT-TDG,18,129.61
-Rover-GTOHP,TDG-LMCOUNT,15,97.27
-Rover-GTOHP,TDG-LMCOUNT-NOVELTY,15,97.53

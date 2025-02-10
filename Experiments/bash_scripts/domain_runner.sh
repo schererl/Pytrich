@@ -12,7 +12,7 @@ fi
 domain_dir="$1"
 
 # Define time and memory limits
-TIME_LIMIT=5
+TIME_LIMIT=600
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored (optional)

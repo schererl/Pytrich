@@ -1,4 +1,0 @@
-domain,experiment_name,coverage,avg_solution_size
-Hiking,TDG-satis,19,61.79
-Hiking,TDG-LMCOUNT,17,57.88
-Hiking,TDG-LMCOUNT-NOVELTY,15,54.73

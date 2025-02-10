@@ -1,1 +1,0 @@
-domain_name,problem_name,experiment_name,search_elapsed_time,solution_size,expanded_nodes,heuristic_name,heuristic_elapsed_time,total_landmarks,task_landmarks,method_landmarks,fact_landmarks,mincov_disj_landmarks,mincov_disj_elapsed_time,facts,decompositions,operators,abstract_tasks,tor_elapsed_time
