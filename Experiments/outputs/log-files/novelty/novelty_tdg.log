@@ -10104,3 +10104,244 @@ Configuration:
 @
 @
 @
+@
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Snake
+  Problem: pb-10slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Snake
+  Problem: pb-10slots-seed1.snake
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks//Towers
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Towers
+  Problem: pfile_03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: hft
+	Preprocessing Time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0139
+Nodes per Second : 127511.39
+Solution Size : 7
+Nodes Expanded : 404
+Fringe size : 75
+Revisits Avoided: 0
+Used Memory: 38.2%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Towers
+  Problem: pfile_03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic info:
+	Name: tdg
+	Graph size: 484
+	Iterations: 13
+	Preprocessing time: 0.01 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0129
+Nodes per Second : 184596.38
+Solution Size : 7
+Nodes Expanded : 377
+Fringe size : 102
+Revisits Avoided: 0
+Used Memory: 38.3%
+Search Result: None
+@
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Towers
+  Problem: pfile_06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: hft
+	Preprocessing Time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1941
+Nodes per Second : 101016.30
+Solution Size : 63
+Nodes Expanded : 14221
+Fringe size : 622
+Revisits Avoided: 0
+Used Memory: 38.3%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Towers
+  Problem: pfile_06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic info:
+	Name: tdg
+	Graph size: 1654
+	Iterations: 19
+	Preprocessing time: 0.05 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.1263
+Nodes per Second : 190887.44
+Solution Size : 63
+Nodes Expanded : 14080
+Fringe size : 763
+Revisits Avoided: 0
+Used Memory: 38.4%
+Search Result: None
+@
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Towers
+  Problem: pfile_08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: hft
+	Preprocessing Time: 0.11 s
+
+Search Status : GOAL
+Search Time (seconds) : 1.4490
+Nodes per Second : 80778.04
+Solution Size : 255
+Nodes Expanded : 107846
+Fringe size : 3059
+Revisits Avoided: 0
+Used Memory: 38.7%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Towers
+  Problem: pfile_08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic info:
+	Name: tdg
+	Graph size: 2989
+	Iterations: 22
+	Preprocessing time: 0.11 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.7087
+Nodes per Second : 181046.48
+Solution Size : 255
+Nodes Expanded : 107496
+Fringe size : 3409
+Revisits Avoided: 0
+Used Memory: 38.6%
+Search Result: None
+@
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Towers
+  Problem: pfile_12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: hft
+	Preprocessing Time: 0.38 s
+
+Search Status : GOAL
+Search Time (seconds) : 92.1971
+Nodes per Second : 49153.19
+Solution Size : 4095
+Nodes Expanded : 4513227
+Fringe size : 50858
+Revisits Avoided: 0
+Used Memory: 41.0%
+Search Result: None
+@
+Experiment Name : TDG-satis
+Configuration:
+  Domain: Towers
+  Problem: pfile_12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {'use_satis': True}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic info:
+	Name: tdg
+	Graph size: 7423
+	Iterations: 26
+	Preprocessing time: 0.37 s
+
+Search Status : GOAL
+Search Time (seconds) : 39.6042
+Nodes per Second : 115029.42
+Solution Size : 4095
+Nodes Expanded : 4512322
+Fringe size : 51763
+Revisits Avoided: 0
+Used Memory: 41.1%
+Search Result: None
+@
+Experiment Name : Novelty-tdg-f-t
+Configuration:
+  Domain: Towers
+  Problem: pfile_20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'hft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: hft
+	Preprocessing Time: 2.12 s
+

@@ -21,15 +21,15 @@ ignored_domains=("AssemblyHierarchical" "ipc2020-feature-tests" "SCCTEST")
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-experiments[0,name]="lmcount-tdg"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmcount-tdg" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h4ft)" '
-#experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmcount" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h1ft)" '
+experiments[0,name]="Novelty-bid-tdg-f-t"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-bid-tdg-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h6ft)" '
 
-#experiments[1,name]="Novelty-lm-f-t"
-#experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h2ft)" '
+experiments[1,name]="Novelty-tdg-bid-f-t"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-tdg-bid-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h5ft)" '
 
-#experiments[2,name]="Novelty-lm-tdg-f-t"
-#experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lm-tdg-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h3ft)" '
+experiments[2,name]="Novelty-bu-tdg-f-t"
+experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "Novelty-lmonly_bu-tdg-f-t" -S "Astar(use_early=True)" -H "NOVELTY(novelty_type=h7ft)" '
+
 
 # experiments[2,name]="TDG-LMCOUNT"
 # experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT" -N "AstarNode(G=1,H=5)" -S "TiebreakingNode(use_early=True)" -A "Tiebreaking([TDG(use_satis=True),LMCOUNT(use_bu_update=True)])" '

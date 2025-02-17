@@ -116,3 +116,57 @@ class NoveltyH4FT:
         h1_value = self.h1(parent_node, node)
         h2_value = self.h2(parent_node, node)
         return (h1_value, h2_value)
+    
+class NoveltyH5FT:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        self.h1 =  TaskDecompositionHeuristic(use_satis=True)
+        self.h2 =  LandmarkHeuristic(use_bid=True)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        h1_value = self.h1(parent_node, node)
+        h2_value = self.h2(parent_node, node)
+        novelty = 1
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (h1_value, h2_value, bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((h1_value, h2_value, bit_pos, node.task.global_id))
+        return (novelty, h1_value, h2_value)
+
+class NoveltyH6FT:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        self.h1 =  LandmarkHeuristic(use_bid=True)
+        self.h2 =  TaskDecompositionHeuristic(use_satis=True)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        h1_value = self.h1(parent_node, node)
+        h2_value = self.h2(parent_node, node)
+        novelty = 1
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (h1_value, h2_value, bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((h1_value, h2_value, bit_pos, node.task.global_id))
+        return (novelty, h1_value, h2_value)
+    
+class NoveltyH7FT:
+    def __init__(self, model, initial_node):
+        self.seen_tuples = set()
+        self.h1 =  LandmarkHeuristic()
+        self.h2 =  TaskDecompositionHeuristic(use_satis=True)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+        self.initial_h1 = self.h1.initialize(model, initial_node)
+    def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
+        h1_value = self.h1(parent_node, node)
+        h2_value = self.h2(parent_node, node)
+        novelty = 1
+        for bit_pos in range(node.state.bit_length()):
+            if node.state & (1 << bit_pos):
+                if (h1_value, bit_pos, node.task.global_id) not in self.seen_tuples:
+                    novelty = 0
+                    self.seen_tuples.add((h1_value, bit_pos, node.task.global_id))
+        return (novelty, h1_value, h2_value)

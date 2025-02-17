@@ -1,0 +1,1074 @@
+Domain directory does not exist: ../../htn-benchmarks/originalBenchmarks/Transport/domain.hddl
+Processing domain directory: ../../htn-benchmarks/originalBenchmarks/Transport/
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 786
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile11
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 786
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 613
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile05
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 613
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 937
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile12
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 937
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3868
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile19
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3868
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0047
+Nodes per Second : 69888.02
+Solution Size : 38
+Nodes Expanded : 205
+Fringe size : 83
+Revisits Avoided: 2
+Used Memory: 20.6%
+Search Result: None
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 761
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile10
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 761
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0082
+Nodes per Second : 38131.73
+Solution Size : 38
+Nodes Expanded : 205
+Fringe size : 83
+Revisits Avoided: 2
+Used Memory: 20.5%
+Search Result: None
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 973
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile13
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 973
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1763
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile15
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1763
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 312
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile03
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 312
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1919
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile16
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1919
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 458
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile06
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 458
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 90169.47
+Solution Size : 18
+Nodes Expanded : 95
+Fringe size : 29
+Revisits Avoided: 1
+Used Memory: 21.0%
+Search Result: None
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile02
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 325
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1123
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile14
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 1123
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 502
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile04
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 502
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile07
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 464
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2886
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile20
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 2886
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 702
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile09
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 702
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0053
+Nodes per Second : 73297.98
+Solution Size : 35
+Nodes Expanded : 265
+Fringe size : 121
+Revisits Avoided: 4
+Used Memory: 21.3%
+Search Result: None
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 788
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile08
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 788
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0102
+Nodes per Second : 37812.54
+Solution Size : 39
+Nodes Expanded : 288
+Fringe size : 126
+Revisits Avoided: 5
+Used Memory: 21.5%
+Search Result: None
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3789
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile17
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3789
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0009
+Nodes per Second : 62644.05
+Solution Size : 7
+Nodes Expanded : 22
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 21.5%
+Search Result: None
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 120
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 37368.61
+Solution Size : 9
+Nodes Expanded : 29
+Fringe size : 17
+Revisits Avoided: 0
+Used Memory: 21.5%
+Search Result: None
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 120
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.00 s
+
+Search Status : GOAL
+Search Time (seconds) : 0.0013
+Nodes per Second : 34495.21
+Solution Size : 7
+Nodes Expanded : 22
+Fringe size : 11
+Revisits Avoided: 0
+Used Memory: 21.5%
+Search Result: None
+@
+Experiment Name : lmcount
+Configuration:
+  Domain: Transport
+  Problem: pfile18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h1ft'}
+
+Staring solver
+function F = 1*G + 1*H
+Heuristic Info:
+	Name: novelty
+	Type: h1ft
+	Preprocessing Time: 0.01 s
+
+@
+Experiment Name : Novelty-lm-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h2ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3215
+Heuristic Info:
+	Name: novelty
+	Type: h2ft
+	Preprocessing Time: 0.00 s
+
+@
+Experiment Name : Novelty-lm-tdg-f-t
+Configuration:
+  Domain: Transport
+  Problem: pfile18
+  Search: Astar, Params: {'use_early': True}
+  Node: AstarNode, Params: {}
+  Heuristic: NOVELTY, Params: {'novelty_type': 'h3ft'}
+
+Staring solver
+function F = 1*G + 1*H
+ITERATIONS 3215
+Heuristic Info:
+	Name: novelty
+	Type: h3ft
+	Preprocessing Time: 0.01 s
+
+@

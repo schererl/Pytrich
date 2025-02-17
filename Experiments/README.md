@@ -27,13 +27,52 @@
     python python_scripts/parse_log.py -i outputs/log-files/new_experiment/<file_name>.log -o outputs/csv-files/new_experiment/<file_name>.csv
 
     # generate a coverage summary
-    python python_scripts/coverage_summary.py -i outputs/csv-files/new_experiment/<file_name>.csv -o outputs/csv-files/new_experiment/<file_name>-cov.csv
+    python python_scripts/statistics_summary.py -i outputs/csv-files/new_experiment/<file_name>.csv -o outputs/csv-files/new_experiment/<file_name>-cov.csv
 
     # create a plot of expanded nodes comparing two search methods
     python python_scripts/expanded_nodes_plot.py -i outputs/csv-files/new_experiment/<file_name>.csv -o outputs/img-files/new_experiment/<file_name>-<e1>-<e2>.pdf -x <search_method_1> -y <search_method_2>
 ```
 
 # Experiment Report
+
+### February -Novelty Experiments
+
+[csv file1 here](Experiments/outputs/csv-files/novelty/novelty-experiments.csv)
+[csv file2 here](Experiments/outputs/csv-files/novelty/novelty-experiments-stats.csv)
+
+**GENERAL IDEA:**: Implemented different novelty methods considering different heuristic values.
+
+* The novelty criteria is a tuple w=<h,f,t>, here *h* is a set of heuristics, *f* facts and *t* tasks.
+
+* We use GBFS with the queue (w,h), changing *h*. For validating whether novelty helps to solve more tasks, we typically compared (w,h) x (h).
+
+**EXPERIMENTS DESCRIPTION:**
+- lmcount: landmark count using bottom-up landmarks
+- TDG-satis: task decomposition graph heuristic satisficing
+- Novelty-lm-f-t: novelty with lmcount
+- Novelty-lm-tdg-f-t: novelty with lmcount, tdg-satis
+- lmcount-tdg: lmcount, tdg
+- Novelty-tdg-f-t: novelty, tdg
+- Novelty-bid-tdg-f-t: novelty, bidirectional lms, tdg
+- Novelty-tdg-bid-f-t: novelty, tdg, bidirectional lms
+- Novelty-lmonly_bu-tdg-f-t: novelty <h,f,t>, where h=lmcount, and tdg is tie-breaking.
+
+**SUMMARY TABLE**
+|experiment|coverage|avg. plan|avg. nodes|
+|-------|-----|-------|---------|
+lmcount	|166	|171.90	|536765.72|
+Novelty-lm-f-t|178	|161.45	|394222.06|
+Novelty-lm-tdg-f-t|179	|173.13	|269436.12|
+lmcount-tdg	|210	|393.27	|606909.24|
+Novelty-tdg-f-t	|152	|136.75	|538791.76|
+TDG-satis|163	|95.66	|875481.77|
+Novelty-bid-tdg-f-t	|189	|210.05	|387100.80|
+Novelty-tdg-bid-f-t	|164	|225.03	|353564.23|
+Novelty-lmonly_bu-tdg-f-t	|180	|205.77	|417151.27|
+
+**CONFIG:**
+- Time Limit: 60 seconds per problem instance.
+- Memory Limit: ~8 GB.
 
 ### 05/01/25
 ### Search Methods

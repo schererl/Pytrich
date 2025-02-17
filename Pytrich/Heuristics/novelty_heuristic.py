@@ -2,7 +2,7 @@ import time
 from typing import Optional, Dict, Union, List
 from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.heuristic import Heuristic
-from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyH1FT, NoveltyH2FT, NoveltyH3FT, NoveltyH4FT, NoveltyLazyFT
+from Pytrich.Heuristics.Novelty.novelty import NoveltyFT, NoveltyH1FT, NoveltyH2FT, NoveltyH3FT, NoveltyH4FT, NoveltyH5FT, NoveltyH6FT, NoveltyH7FT, NoveltyLazyFT
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import Model
 
@@ -45,6 +45,12 @@ class NoveltyHeuristic(Heuristic):
             return NoveltyH3FT(m,n)
         elif self.novelty_type == "h4ft":
             return NoveltyH4FT(m,n)
+        elif self.novelty_type == "h5ft":
+            return NoveltyH5FT(m,n)
+        elif self.novelty_type == "h6ft":
+            return NoveltyH6FT(m,n)
+        elif self.novelty_type == "h7ft":
+            return NoveltyH7FT(m,n)
         return None
         
         

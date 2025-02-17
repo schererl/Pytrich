@@ -102,10 +102,7 @@ class LandmarkHeuristic(Heuristic):
                                 self.methods_andor_lms + \
                                 self.fact_andor_lms
         self.mc_disj_lms = 0
-        
-        # for lm in initial_node.lm_node.get_unreached_landmarks():
-        #     print(model.get_component(lm).name)
-        
+                
         # mark initial state
         for fact_pos in range(initial_node.state.bit_length()):
             if initial_node.state & (1 << fact_pos) \

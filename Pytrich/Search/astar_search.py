@@ -21,7 +21,6 @@ def search(
         use_early=False
 
     ) -> None:
-    node_type =  GreedyNode
     print('Staring solver')
     start_time   = time.time()
     control_time = start_time
@@ -142,11 +141,7 @@ def search(
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - init_search_time)
     _, op_sol, goal_dist_sol = node.extract_solution()
-    if isinstance(heuristic, LandmarkHeuristic):
-        if node.lm_node.lm_value():
-            if node.lm_node.get_unreached_landmarks() == 0:
-                print(f'({node.lm_node.get_unreached_landmarks()}) invalid landamarks')
-
+    
     if FLAGS.LOG_SEARCH:
         desc = Descriptions()
         print(f"{desc('search_status', STATUS)}\n"

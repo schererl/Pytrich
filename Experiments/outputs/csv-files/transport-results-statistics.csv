@@ -1,0 +1,4 @@
+domain,experiment_name,coverage,avg_solution_size,avg_expanded_nodes
+Transport,lmcount,4,24.50,146.75
+Transport,Novelty-lm-tdg-f-t,3,28.00,171.67
+Transport,Novelty-lm-f-t,1,9.00,29.00
