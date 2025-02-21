@@ -10,7 +10,7 @@ from Pytrich.Search.htn_node import AstarNode, HTNNode, TiebreakingNode
 # heursitic
 from .Heuristics.blind_heuristic import BlindHeuristic
 from .Heuristics.tdg_heuristic import TaskDecompositionHeuristic
-from .Heuristics.lm_heuristic import LandmarkHeuristic
+from .Heuristics.lmcount_heuristic import LandmarkCountHeuristic
 from .Heuristics.novelty_heuristic import NoveltyHeuristic
 # search
 from .Search.astar_search import search as astar_search
@@ -23,7 +23,7 @@ SEARCHES = {
 
 HEURISTICS = {
     "Blind"    : BlindHeuristic,
-    "LMCOUNT"  : LandmarkHeuristic,
+    "LMCOUNT"  : LandmarkCountHeuristic,
     "TDG"      : TaskDecompositionHeuristic,
     "NOVELTY"  : NoveltyHeuristic,
     "HMAX"     : HmaxHeuristic

@@ -1,12 +1,14 @@
 import time
 from Pytrich.DESCRIPTIONS import Descriptions
+from Pytrich.Heuristics.Landmarks.landmark_cut import LMCutRC
+from Pytrich.Heuristics.Landmarks.lmc_node import LMC_Node
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import AbstractTask, Operator, Model
 from Pytrich.Heuristics.Landmarks.landmark import Landmarks, LM_Node
 import Pytrich.FLAGS as FLAGS
 
-class LandmarkHeuristic(Heuristic):
+class LandmarkCountHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
     Options:
@@ -26,15 +28,18 @@ class LandmarkHeuristic(Heuristic):
                  use_mt=False,
                  use_bu_update=False,
                  use_bu_strict=False,
+                 use_lmc=False,
                  name="lmcount"):
         super().__init__(name=name)
         self.use_bid = use_bid
         self.use_mt = use_mt
         self.use_bu_strict = use_bu_strict
         self.use_bu_update = use_bu_update
+        self.use_lmc = use_lmc
         self.use_disj = use_disj
         self.use_task_ord = use_task_ord
         self.use_fact_ord = use_fact_ord
+
         
         self._define_param_str()
 
@@ -84,6 +89,11 @@ class LandmarkHeuristic(Heuristic):
             initial_node.lm_node = LM_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bu_lms-self.landmarks.mt_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms-self.landmarks.mt_lms, self.landmarks.bu_graph)
+        elif self.use_lmc:
+            self.landmarks =LMCutRC(model)
+            self.landmarks.compute_lms()
+            initial_node.lm_node = LMC_Node()
+            initial_node.lm_node.initialize_lms(self.landmarks.lms)
         else:
             self.landmarks =Landmarks(model, True, False, False)
             self.landmarks.generate_bu_table()
@@ -95,23 +105,26 @@ class LandmarkHeuristic(Heuristic):
         if FLAGS.MONITOR_LM_TIME:
             self.elapsed_andor_time = time.perf_counter() - self.start_time                                     
 
-        self.task_andor_lms    = self.landmarks.count_task_lms
-        self.methods_andor_lms = self.landmarks.count_method_lms
-        self.fact_andor_lms    = self.landmarks.count_fact_lms
-        self.total_andor_lms   = self.task_andor_lms + \
-                                self.methods_andor_lms + \
-                                self.fact_andor_lms
-        self.mc_disj_lms = 0
+        # self.task_andor_lms    = self.landmarks.count_task_lms
+        # self.methods_andor_lms = self.landmarks.count_method_lms
+        # self.fact_andor_lms    = self.landmarks.count_fact_lms
+        # self.total_andor_lms   = self.task_andor_lms + \
+        #                         self.methods_andor_lms + \
+        #                         self.fact_andor_lms
+        # self.mc_disj_lms = 0
                 
         # mark initial state
-        for fact_pos in range(initial_node.state.bit_length()):
-            if initial_node.state & (1 << fact_pos) \
-                    and initial_node.state & (1 << fact_pos):
-                    initial_node.lm_node.mark_lm(fact_pos)
+        # for fact_pos in range(initial_node.state.bit_length()):
+        #     if initial_node.state & (1 << fact_pos) \
+        #             and initial_node.state & (1 << fact_pos):
+        #             initial_node.lm_node.mark_lm(fact_pos)
 
         return super().initialize(model, initial_node.lm_node.lm_value())
         
     def __call__(self, parent_node:HTNNode, node:HTNNode):
+        if self.use_lmc:
+            return
+        
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         if self.use_bu_update:
             #self.landmarks.generate_bu_table(node.state, reinitialize=False)

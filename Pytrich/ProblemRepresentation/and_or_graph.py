@@ -54,7 +54,7 @@ class AndOrGraph:
         elif graph_type == 2:
             self.tdg_initialize(model)
         elif graph_type == 3:
-            self.c_initialize(model)
+            self.rc_initialize(model)
         else:
             print(f"Invalid Graph Type {graph_type}")
             exit(0)
@@ -192,8 +192,8 @@ class AndOrGraph:
                 #         fact_node = self.nodes[fact_pos]
                 #         self.add_edge(fact_node, decomposition_node)
 
-    # composition graph (required to compute hmax and lmcut in DOF+TI HTN planning)
-    def c_initialize(self, model):
+    # Relaxed Composition Graph (required to compute hmax and lmcut in DOF+TI HTN planning)
+    def rc_initialize(self, model):
         """
         Similar to the 'bottom-up' initialization (bu_initialize), 
         but each operator (action) is followed by a dedicated OR node
@@ -298,11 +298,6 @@ class AndOrGraph:
                 else:
                     # If subtask is abstract, connect directly
                     self.add_edge(subt_node, decomposition_node)
-
-        
-
-        
-
 
     def to_initialize(self, model):
         pass

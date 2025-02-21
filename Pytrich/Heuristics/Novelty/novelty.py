@@ -1,4 +1,4 @@
-from Pytrich.Heuristics.lm_heuristic import LandmarkHeuristic
+from Pytrich.Heuristics.lmcount_heuristic import LandmarkCountHeuristic
 from Pytrich.Heuristics.tdg_heuristic import TaskDecompositionHeuristic
 from Pytrich.Search.htn_node import HTNNode
 class NoveltyFT:
@@ -53,7 +53,7 @@ class NoveltyH1FT:
         h_value = self.heuristic(parent_node, node)
         novelty = 1
         for bit_pos in range(node.state.bit_length()):
-            if node.state & (1 << bit_pos):
+            if node.state & (1 << bit_pos): #fato
                 if (h_value, bit_pos, node.task.global_id) not in self.seen_tuples:
                     novelty = 0
                     self.seen_tuples.add((h_value, bit_pos, node.task.global_id))
@@ -63,7 +63,7 @@ class NoveltyH1FT:
 class NoveltyH2FT:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
-        self.h1 =  LandmarkHeuristic()
+        self.h1 =  LandmarkCountHeuristic()
         self.initial_h1 = self.h1.initialize(model, initial_node)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
         """
@@ -84,7 +84,7 @@ class NoveltyH3FT:
         self.seen_tuples = set()
         self.h2 =  TaskDecompositionHeuristic(use_satis=True)
         self.initial_h2 = self.h2.initialize(model, initial_node)
-        self.h1 =  LandmarkHeuristic()
+        self.h1 =  LandmarkCountHeuristic()
         self.initial_h1 = self.h1.initialize(model, initial_node)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
         """
@@ -106,7 +106,7 @@ class NoveltyH4FT:
         self.seen_tuples = set()
         self.h2 =  TaskDecompositionHeuristic(use_satis=True)
         self.initial_h2 = self.h2.initialize(model, initial_node)
-        self.h1 =  LandmarkHeuristic()
+        self.h1 =  LandmarkCountHeuristic()
         self.initial_h1 = self.h1.initialize(model, initial_node)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
         """
@@ -121,7 +121,7 @@ class NoveltyH5FT:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
         self.h1 =  TaskDecompositionHeuristic(use_satis=True)
-        self.h2 =  LandmarkHeuristic(use_bid=True)
+        self.h2 =  LandmarkCountHeuristic(use_bid=True)
         self.initial_h1 = self.h1.initialize(model, initial_node)
         self.initial_h1 = self.h1.initialize(model, initial_node)
     def __call__(self, parent_node:HTNNode, node:HTNNode) -> int:
@@ -138,7 +138,7 @@ class NoveltyH5FT:
 class NoveltyH6FT:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
-        self.h1 =  LandmarkHeuristic(use_bid=True)
+        self.h1 =  LandmarkCountHeuristic(use_bid=True)
         self.h2 =  TaskDecompositionHeuristic(use_satis=True)
         self.initial_h1 = self.h1.initialize(model, initial_node)
         self.initial_h1 = self.h1.initialize(model, initial_node)
@@ -156,7 +156,7 @@ class NoveltyH6FT:
 class NoveltyH7FT:
     def __init__(self, model, initial_node):
         self.seen_tuples = set()
-        self.h1 =  LandmarkHeuristic()
+        self.h1 =  LandmarkCountHeuristic()
         self.h2 =  TaskDecompositionHeuristic(use_satis=True)
         self.initial_h1 = self.h1.initialize(model, initial_node)
         self.initial_h1 = self.h1.initialize(model, initial_node)
