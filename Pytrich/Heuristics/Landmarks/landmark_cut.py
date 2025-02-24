@@ -187,8 +187,9 @@ class LMCutRC:
                     self.index_of[ulm]=iof
                     if iof not in self.appears_in:
                         self.appears_in[iof]=[]
-                    self.appears_in[iof].append(i_dlm)
                     iof+=1
+                self.appears_in[self.index_of[ulm]].append(i_dlm)
+                
         # print(landmarks)
         # print(bin(self.lms))
         # print(self.appears_in)
