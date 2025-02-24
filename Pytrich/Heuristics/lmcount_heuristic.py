@@ -92,7 +92,8 @@ class LandmarkCountHeuristic(Heuristic):
         elif self.use_lmc:
             self.landmarks =LMCutRC(model)
             self.landmarks.compute_lms()
-            initial_node.lm_node = LMC_Node()
+            #initial_node.lm_node = LMC_Node()
+            initial_node.lm_node = LM_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.lms)
         else:
             self.landmarks =Landmarks(model, True, False, False)
@@ -123,8 +124,23 @@ class LandmarkCountHeuristic(Heuristic):
         
     def __call__(self, parent_node:HTNNode, node:HTNNode):
         if self.use_lmc:
-            return
-        
+            # node.lm_node = LMC_Node(parent=parent_node.lm_node)
+            # if isinstance(node.task, Operator):
+            #     node.lm_node.mark_lm(node.task.global_id)
+            # else:
+            #     node.lm_node.mark_lm(node.decomposition.global_id)
+            node.lm_node = LM_Node(parent=parent_node.lm_node)
+            if isinstance(node.task, Operator):
+                lm_index =  self.landmarks.index_of[node.task.global_id]
+            else:
+                lm_index = self.landmarks.index_of[node.decomposition.global_id]
+                
+            for dlm in self.landmarks.appears_in[lm_index]:
+                node.lm_node.mark_lm(dlm)
+            h_value =  node.lm_node.lm_value()
+            super().update_info(h_value)
+            return h_value
+                    
         node.lm_node = LM_Node(parent=parent_node.lm_node)
         if self.use_bu_update:
             #self.landmarks.generate_bu_table(node.state, reinitialize=False)
@@ -155,6 +171,7 @@ class LandmarkCountHeuristic(Heuristic):
             
         h_value =  node.lm_node.lm_value()
         super().update_info(h_value)
+        
         return h_value
 
     def _deal_with_fact_ordering(self, node: HTNNode, parent_node: HTNNode):

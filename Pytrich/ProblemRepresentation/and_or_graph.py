@@ -200,105 +200,94 @@ class AndOrGraph:
         that can connect to methods. This graph follows the direction of edges
         as in the bottom-up graph, but introduces a composition nodes for each action.
         """
-        # We will add one extra OR node for each operator, so we need additional indexing.
-        # Original components_count = facts + operators + abstract_tasks + decompositions
-        # Now we add extra OR nodes for each operator: these will come after all existing components.
-        extra_or_count = len(model.operators)  # one composition node per operator
-        total_nodes_count = self.components_count + extra_or_count + 1 # goal node 
-        
+        extra_or_count = len(model.operators)
+        total_nodes_count = self.components_count + extra_or_count
         self.nodes = [None] * total_nodes_count
 
-        # 1. Set Facts (OR nodes)
-        for fact in self.model.facts:
+        # set facts
+        for f in self.model.facts:
             fact_node = AndOrNode(
-                fact.local_id, fact.local_id, 
-                NodeType.OR, 
-                content_type=ContentType.FACT, 
-                str_name=fact.name
+                f.local_id, f.local_id,
+                NodeType.OR,
+                content_type=ContentType.FACT,
+                str_name=f.name
             )
-            self.nodes[fact.local_id] = fact_node
-            # Mark initial facts as INIT nodes
-            if model.initial_state & (1 << fact.local_id):
+            self.nodes[f.local_id] = fact_node
+            if model.initial_state & (1 << f.local_id):
                 fact_node.type = NodeType.INIT
 
-        # 2. Set Abstract Tasks (OR nodes)
-        for t_i, t in enumerate(model.abstract_tasks):
-            # Global_id of tasks and operators are unique and do not overlap with facts' IDs.
-            # t.global_id should already be offset by the count of facts.
-            task_node = AndOrNode(
-                t.global_id, t_i, 
-                NodeType.OR, 
-                content_type=ContentType.ABSTRACT_TASK, 
-                str_name=t.name
+        # set abstract tasks
+        for abti, at in enumerate(model.abstract_tasks):
+            tnode = AndOrNode(
+                at.global_id, abti,
+                NodeType.OR,
+                content_type=ContentType.ABSTRACT_TASK,
+                str_name=at.name
             )
-            self.nodes[t.global_id] = task_node
+            self.nodes[at.global_id] = tnode
 
         # 3. Set Primitive Tasks (Operators)
-        # Operators remain AND nodes, but we now introduce a recomposition OR node for each.
-        # We will create a composition OR node that follows each operator.
-        offset = self.components_count  # Start indexing recomposition nodes after all original components
-        for op_i, op in enumerate(model.operators):
+        offset = self.components_count
+        for oi, op in enumerate(model.operators):
             # op.global_id maps to the operator node
-            operator_node = AndOrNode(
-                op.global_id, op_i, 
-                NodeType.AND, 
-                content_type=ContentType.OPERATOR, 
-                weight=op.cost, 
+            onode = AndOrNode(
+                op.global_id, oi,
+                NodeType.AND,
+                content_type=ContentType.OPERATOR,
+                weight=op.cost,
                 str_name=op.name
             )
-            self.nodes[op.global_id] = operator_node
+            self.nodes[op.global_id] = onode
 
-            # Create composition OR node for this operator
-            action_or_node_id = offset + op_i
-            action_or_node = AndOrNode(
-                action_or_node_id, op_i, 
-                NodeType.OR, 
-                content_type=ContentType.RECOMPOSITION, 
+            #composition node
+            cnid = offset + oi
+            cnode = AndOrNode(
+                cnid, oi,
+                NodeType.OR,
+                content_type=ContentType.RECOMPOSITION,
                 str_name=f'R-{op.name}'
             )
-            self.nodes[action_or_node_id] = action_or_node
+            self.nodes[cnid] = cnode
+            self.add_edge(onode, cnode)
 
-            # Connect operator -> composition node
-            self.add_edge(operator_node, action_or_node)
+            if op.pos_precons.bit_length() == 0:
+                onode.type = NodeType.INIT
 
-            # Connect facts to the operator (for preconditions) and operator to facts (for effects)
             max_bit = max(op.pos_precons.bit_length(), op.add_effects.bit_length())
             for fact_pos in range(max_bit):
                 if op.pos_precons & (1 << fact_pos):
                     var_node = self.nodes[fact_pos]
-                    self.add_edge(var_node, operator_node)  # fact -> operator
+                    self.add_edge(var_node, onode)  # fact -> operator
                 if op.add_effects & (1 << fact_pos):
                     var_node = self.nodes[fact_pos]
-                    self.add_edge(operator_node, var_node)  # operator -> fact
+                    self.add_edge(onode, var_node)  # operator -> fact
 
-        # 4. Set Methods (Decompositions, AND nodes)
-        # Methods are AND nodes that connect upward to abstract tasks and downward to their subtasks.
-        # For primitive subtasks (operators), we now use their corresponding composition nodes.
+        # set methods
         for d_i, d in enumerate(model.decompositions):
-            decomposition_node = AndOrNode(
-                d.global_id, d_i, 
-                NodeType.AND, 
-                content_type=ContentType.METHOD, 
+            dnode = AndOrNode(
+                d.global_id, d_i,
+                NodeType.AND,
+                weight=1,
+                content_type=ContentType.METHOD,
                 str_name=d.name
             )
-            self.nodes[d.global_id] = decomposition_node
+            self.nodes[d.global_id] = dnode
 
-            # Connect method -> abstract task (as in bottom-up, method points to the abstract task)
-            task_head_id = d.compound_task.global_id
-            self.add_edge(decomposition_node, self.nodes[task_head_id])
+            dhid = d.compound_task.global_id # decomposition's head id
+            self.add_edge(dnode, self.nodes[dhid])
 
-            # Connect subtasks to method. If subtask is an operator, we connect from its composition node.
+            # connect methods to subtasks
             for subt in d.task_network:
-                subt_node = self.nodes[subt.global_id]
+                subtnode = self.nodes[subt.global_id]
                 if isinstance(subt, Operator):
-                    # If subtask is a primitive action, connect its recomposition OR node to the method.
-                    c_node_id = offset + subt_node.LOCALID
-                    c_node = self.nodes[c_node_id]
-                    self.add_edge(c_node, decomposition_node)
+                    # if operator, connect composition node to method
+                    cnid = offset + subtnode.LOCALID
+                    cnode = self.nodes[cnid]
+                    self.add_edge(cnode, dnode)
                 else:
-                    # If subtask is abstract, connect directly
-                    self.add_edge(subt_node, decomposition_node)
-
+                    # if abstract subtask, connect directly
+                    self.add_edge(subtnode, dnode)
+        
     def to_initialize(self, model):
         pass
         # set total-order achievers node

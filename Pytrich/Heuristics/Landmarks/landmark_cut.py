@@ -1,4 +1,5 @@
 from collections import deque
+from copy import deepcopy
 import heapq
 import math
 from Pytrich.ProblemRepresentation.and_or_graph import AndOrGraph, NodeType, ContentType
@@ -23,162 +24,181 @@ class LMCutRC:
         self.model= model
         self.graph = AndOrGraph(model, graph_type=3)
         self.lms = set()
-
+        
+        self.index_of = {}
+        self.appears_in = {}
+        self.appears_in[-1]=[]
         self.local_costs = {}
         for node in self.graph.nodes:
+            self.index_of[node.ID] = -1
+            
             if node is not None and node.type == NodeType.AND:
                 self.local_costs[node.ID] = node.weight
+                
         print(f'LMCUT LANDMARKS')
         
 
-    def compute_h_max(self, goal_ids):
+    def compute_h_max(self):
         """
         Compute hmax values over the RC graph using a Dijkstra-like algorithm.
-        
-        :param goal_ids: Iterable of node IDs corresponding to goal facts.
-        :return: Tuple (cost, support)
-          - cost: dict mapping node ID -> computed hₘₐₓ cost.
-          - support: dict mapping node ID -> a predecessor node ID that led to its current cost.
-                     (Used later for backtracking the landmark cut.)
+        :param goal_ids: iterable of node IDs corresponding to goals.
+        :return: Tuple (cost, pcf_justif)
+          - cost: dict mapping node ID -> computed hmax cost.
+          - pcf_justif: dict mapping node ID -> a predecessor AND node ID that led to its current cost.
+                    (Precondition choice function to induce the justification graph.)
         """
-        # Initialize cost for every node to infinity.
         cost = {node.ID: math.inf for node in self.graph.nodes if node is not None}
-        support = {}  # node ID -> predecessor node ID
+        
+        # pcf[n] = -1 and cost[-1]=math.inf for every initialized node n
+        # the first time a true node n' reaches n, pcf[n] = n'. because cost[n']
+        cost[-1] = math.inf
+        pcf = {node.ID: -1 for node in self.graph.nodes if node is not None}
+        
 
-        # For nodes marked as INIT, set cost = 0.
-        for node in self.graph.nodes:
-            if node is None:
-                continue
-            if node.type == NodeType.INIT:
-                cost[node.ID] = 0
-
-        # Use a heap (priority queue) initialized with all INIT nodes.
         heap = []
         for node in self.graph.nodes:
-            if node is not None and node.type == NodeType.INIT:
+            if node.type == NodeType.INIT:
+                cost[node.ID] = 0
                 heapq.heappush(heap, (0, node.ID))
-                
+               
         while heap:
             d, u_id = heapq.heappop(heap)
+            #print(f'{self.graph.nodes[u_id].str_name}:{d}')
             if d > cost[u_id]:
                 continue  # stale entry
             u_node = self.graph.nodes[u_id]
-            # Relax all successors of u_node.
+            # relax nodes
             for v_node in u_node.successors:
-                # Compute candidate cost for v_node based on its type.
                 if v_node.type == NodeType.AND:
-                    # For AND nodes: candidate = local_cost(v) + max_{p in pred(v)} cost(p)
-                    local = self.local_costs.get(v_node.ID, 0)
+                    # AND nodes: candidate = local_cost(v) + max_{p in pred(v)} cost(p)
+                    local = self.local_costs[v_node.ID]
                     pred_costs = [cost[p.ID] for p in v_node.predecessors]
                     max_val = max(pred_costs) if pred_costs else 0
                     candidate = local + max_val
-                    # Determine the predecessor that gives the maximum cost.
-                    best_pred = None
-                    best_val = -1
-                    for p in v_node.predecessors:
-                        if cost[p.ID] > best_val:
-                            best_val = cost[p.ID]
-                            best_pred = p.ID
+                    
+                    # update pcf of AND node v: pcf[v] = u if the cost of v is higher than current pcf of v.
+                    pcf_nodeid = None
+                    curr_pcf = pcf[v_node.ID]
+                    if cost[u_id] > cost[curr_pcf] or \
+                        cost[curr_pcf] == math.inf:
+                        pcf_nodeid = u_id
+
                 elif v_node.type == NodeType.OR:
-                    # For OR nodes: candidate = min_{p in pred(v)} cost(p)
+                    # OR nodes: candidate = min_{p in pred(v)} cost(p)
                     pred_costs = [cost[p.ID] for p in v_node.predecessors]
                     candidate = min(pred_costs) if pred_costs else math.inf
-                    best_pred = None
-                    best_val = math.inf
-                    for p in v_node.predecessors:
-                        if cost[p.ID] < best_val:
-                            best_val = cost[p.ID]
-                            best_pred = p.ID
-                else:
+                    pcf_nodeid = -1
+                else: # in case of reaching an INIT node
                     continue
 
                 if candidate < cost[v_node.ID]:
                     cost[v_node.ID] = candidate
-                    support[v_node.ID] = best_pred
+                    pcf[v_node.ID] = pcf_nodeid
+                    #print(f'\t{self.graph.nodes[v_node.ID].str_name} {candidate}')
                     heapq.heappush(heap, (candidate, v_node.ID))
-        # For debugging:
-        # print("Computed h_max costs:", cost)
-        return cost, support
+        return cost, pcf
 
-    def find_landmark_cut(self, cost, support, goal_ids, hmax_value):
+    def find_landmark_cut(self, cost, pcf, goals, hmax_value):
         """
         Extract a landmark cut from the RC graph.
         
-        Starting at each goal node (from goal_ids) that has cost equal to hmax_value,
-        follow the support pointers backward. When an operator node (AND node with content_type OPERATOR)
-        with a positive remaining local cost is encountered, add it to the cut and stop expanding that branch.
-        
-        :param cost: dict of hₘₐₓ values (from compute_h_max).
-        :param support: dict mapping node ID -> predecessor node ID.
-        :param goal_ids: Iterable of goal node IDs.
-        :param hmax_value: the overall hₘₐₓ value (typically, max_{g in goal_ids} cost[g]).
-        :return: A set of node IDs (of operator nodes) forming the landmark cut.
+        1) Starting at a goal node that has cost equal to hmax_value,
+            follow backward to produce the cut. 
+        2) OR nodes includes EVERY AND node predecessor into the stack.
+        3) AND nodes includes ONE predecessor into the stack 
+            that justify AND's cost (precondition choice function)
+        - When an AND node has cost different than its pcf, 
+            this means the AND node is part of the cut.
         """
         cut = set()
-        queue = deque()
+        stack = []
         visited = set()
         
-        # Initialize the queue with goal nodes having cost equal to hmax_value.
-        for gid in goal_ids:
-            if cost.get(gid, math.inf) == hmax_value:
-                queue.append(gid)
+        for gid in goals:
+            if cost[gid] == hmax_value:
+                stack.append(gid)
+                break
                 
-        while queue:
-            curr_id = queue.popleft()
-            if curr_id in visited:
+        while stack:
+            v_id = stack.pop()
+            if v_id in visited:
                 continue
-            visited.add(curr_id)
-            curr_node = self.graph.nodes[curr_id]
-            # If an operator node with positive local cost is encountered, add to cut.
-            if (curr_node.type == NodeType.AND and 
-                self.local_costs.get(curr_id, 0) > 0):
-                cut.add(curr_id)
-                continue
-            # Otherwise, follow the support pointer if available.
-            if curr_id in support:
-                pred_id = support[curr_id]
-                queue.append(pred_id)
+            visited.add(v_id)
+            v_node = self.graph.nodes[v_id]
+            
+            # OR node, include all predecessors with the same cost of v
+            if v_node.type == NodeType.OR:
+                for u_node in v_node.predecessors:
+                    #if cost[u_node.ID] == cost[v_id]:
+                    stack.append(u_node.ID)
+            else: 
+            # AND node: get pcf node check pcf -> v
+                u_id = pcf[v_id]
+                if cost[u_id] == math.inf: # unsatisfiable test: pcf max value is inf
+                    return
+                elif cost[u_id] < cost[v_id]: # cut test: pcf has a lower cost of v
+                    cut.add(v_id)
+                else: # goal zone: pcf has the same cost as v, both are in the goal zone
+                    stack.append(u_id)
+        
         return cut
 
+    
     def compute_lm_cut(self, goal_ids):
         """
-        Compute the LM-Cut heuristic over the RC graph for the given goal nodes.
-        
-        :param goal_ids: Iterable of node IDs representing the goal facts.
-        :return: Tuple (h, landmarks)
-          - h: the LM-Cut heuristic value (number, or math.inf if unreachable).
-          - landmarks: a list of landmark cuts (each is a set of operator node IDs).
+        Compute the LM-Cut heuristic over the Relaxed Composition Graph 
+        for the given goal nodes.
         """
         h = 0
         landmarks = []
-        print(f'cut')
+        iterations = 0
         while True:
-            cost, support = self.compute_h_max(goal_ids)
+            iterations+=1
+            cost, pcf = self.compute_h_max()
             hmax_val = max(cost.get(gid, math.inf) for gid in goal_ids)
+            #print(f'iteration {iterations} {hmax_val}')
             if hmax_val == 0:
-                # Goal reached.
                 break
             if hmax_val == math.inf:
-                # Goal is unreachable.
                 return math.inf, landmarks
 
-            cut = self.find_landmark_cut(cost, support, goal_ids, hmax_val)
+            cut = self.find_landmark_cut(cost, pcf, goal_ids, hmax_val)
             if not cut:
                 break
 
-            # λ is the minimum remaining cost among all operators in the cut.
-            lam = min(self.local_costs[nid] for nid in cut)
+            cut_cost = min(self.local_costs[nid] for nid in cut)
+            #print(f'[',end='')
             for nid in cut:
-                self.local_costs[nid] -= lam
-            h += lam
+                self.local_costs[nid] -= cut_cost
+                #print(f'{self.graph.nodes[nid].str_name} ',end='')
+            #print(f']')
+            h += cut_cost
             landmarks.append(cut)
-        self.lms = landmarks
-        print(f'lmcut {landmarks}')
-        exit(0)
-        return h, landmarks
+            
+        # process data structure for tracking lms
+        # for each landmark create an index 
+        #   and maps the component to the the list of landmark it appears
+        #self.lms = landmarks
+        self.lms = (1 << len(landmarks)) - 1
+        iof = 0
+        for i_dlm, dlm in enumerate(landmarks):
+            for ulm in dlm:
+                if self.index_of[ulm]==-1:
+                    self.index_of[ulm]=iof
+                    if iof not in self.appears_in:
+                        self.appears_in[iof]=[]
+                    self.appears_in[iof].append(i_dlm)
+                    iof+=1
+        # print(landmarks)
+        # print(bin(self.lms))
+        # print(self.appears_in)
+        # for lm in landmarks:
+        #     print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
+        
+        #return h, landmarks
+        
     
     def compute_lms(self):
         goals = [task.global_id for task in self.model.initial_tn]
-        print(f'LMCuuuUT')
         self.compute_lm_cut(goals)
         
