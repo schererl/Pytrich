@@ -2,6 +2,7 @@ from collections import deque
 from copy import deepcopy
 import heapq
 import math
+import time
 from Pytrich.ProblemRepresentation.and_or_graph import AndOrGraph, NodeType, ContentType
 
 class LMCutRC:
@@ -34,8 +35,6 @@ class LMCutRC:
             
             if node is not None and node.type == NodeType.AND:
                 self.local_costs[node.ID] = node.weight
-                
-        print(f'LMCUT LANDMARKS')
         
     def hmax_update(self, cut, cut_cost, pcf, cost):
         needs_update = set()
@@ -69,9 +68,14 @@ class LMCutRC:
                     # print(f"  - Current cost = {cost[nid]}, New computed cost = {max_val + self.local_costs[nid]}")
                     if pcf[nid] != curr_pcf or max_val != cost[nid]:
                         pcf[nid] = curr_pcf
+                        nid_old_cost = cost[nid]
                         cost[nid] = max_val + self.local_costs[nid]
                         for succ in node.successors:
-                            next_updates.add(succ.ID)
+                            # [OPT] only update successor (OR nodes) if the new value affects the successors
+                            if pcf[succ.ID] and \
+                                ((pcf[succ.ID] != nid and cost[pcf[succ.ID]] > cost[nid]) or \
+                                (pcf[succ.ID] == nid and nid_old_cost != cost[nid])):
+                                next_updates.add(succ.ID)
                 elif node.type == NodeType.OR:
                     min_val=math.inf
                     curr_pcf = -1 # pcf for OR nodes is useless, debug verificaiton only
@@ -89,7 +93,10 @@ class LMCutRC:
                         pcf[nid] = curr_pcf
                         cost[nid] = min_val
                         for succ in node.successors:
-                            next_updates.add(succ.ID)
+                            # [OPT] only update successor (AND nodes) if the new value affects the successors
+                            if pcf[succ.ID] == nid:
+                                next_updates.add(succ.ID)
+
             needs_update = next_updates
 
 
@@ -214,6 +221,7 @@ class LMCutRC:
         Compute the LM-Cut heuristic over the Relaxed Composition Graph 
         for the given goal nodes.
         """
+        start_time = time.perf_counter()
         h = 0
         landmarks = []
         iterations = 0
@@ -262,7 +270,8 @@ class LMCutRC:
         # print(self.appears_in)
         # for lm in landmarks:
         #     print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
-        
+        elapsed_time = time.perf_counter() - start_time
+        print(f"compute_lm_cut completed in {elapsed_time:.6f} seconds")
         #return h, landmarks
         
     
