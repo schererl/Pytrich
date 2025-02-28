@@ -6,96 +6,14 @@ from Pytrich.ProblemRepresentation.and_or_graph import AndOrGraph
 from Pytrich.ProblemRepresentation.and_or_graph import NodeType
 from Pytrich.ProblemRepresentation.and_or_graph import ContentType
 from Pytrich.model import Model
-
-# store landmarks, needed when landmarks are updated for each new node
-class LM_Node:
-    def __init__(self, parent=None):
-        if parent:
-            self.lms = parent.lms
-            self.mark = parent.mark
-            self.number_lms = parent.number_lms
-            self.achieved_lms = parent.achieved_lms
-            
-            self.disjunctions = deepcopy(parent.disjunctions)
-            self.number_disj   = parent.number_disj
-            self.achieved_disj = parent.achieved_disj
-        else:
-            self.lms  = 0
-            self.mark = 0
-            self.number_lms   = 0   # total number of lms
-            self.achieved_lms = 0   # total achieved lms
-
-            self.disjunctions = set()
-            self.number_disj   = 0
-            self.achieved_disj = 0
-            
-    # mark as 'achieved' if node is a lm
-    def mark_lm(self, node_id):
-        if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
-            self.achieved_lms+=1
-        self.mark |= 1 << node_id
-    
-    # in of recomputing landmarks and update lms
-    def update_lms(self, u_lms):
-        #new_bits = u_lms & ~self.lms
-        new_bits = u_lms & ~self.mark
-        self.lms |= new_bits
-        self.number_lms += new_bits.bit_count()
-        
-    # add new lms
-    def initialize_lms(self, lms):
-        # for lm_id in new_lms:
-        #     if ~self.lms & (1 << lm_id):
-        #         self.lms |= (1 << lm_id)
-        #         self.number_lms+=1
-        self.lms = lms
-        self.number_lms = lms.bit_count()
-    
-    # add new disjunctions
-    # each disjunction corresponds to a single fact
-    # so each disjunction formula is an integer, instead of a set of ints
-    def update_disjunctions(self, new_disj):
-        for disj in new_disj:
-            bit_disj = 0
-            for lm in disj:
-                bit_disj |=  1 << lm
-            self.disjunctions.add(bit_disj)
-            self.number_disj+=1
-    
-    def mark_disjunction(self, state):
-        """
-        Check if any disjunction is satisfied.
-        A disjunction is satisfied if its bitwise AND with `fact` is non-zero.
-        """
-        to_remove = set()
-        for disj in self.disjunctions:
-            if disj & state != 0:
-                self.achieved_disj += 1
-                to_remove.add(disj)
-                
-        # remove every element from self.disjunctions
-        self.disjunctions = self.disjunctions - to_remove
-
-
-    def lm_value(self):
-        return self.number_lms - self.achieved_lms + self.number_disj - self.achieved_disj
-    
-    def get_unreached_landmarks(self):
-        unreached = []
-        for i in range(len(bin(self.lms))-2):
-            if self.lms & (1 << i) and not self.mark & (1 << i):
-                unreached.append(i)
-        return unreached
-
-    def __str__(self):
-        return f"Lms (value={self.lm_value()}): \n\tlms: {bin(self.lms)}\n\tachieved: {bin(self.mark)}\n{self.achieved_disj}/{self.number_disj}"
-
 class Landmarks:
     def __init__(self, model:Model, bu:bool, bid:bool, mt:bool):
         self.model=model
-        self.count_task_lms = 0
-        self.count_fact_lms = 0
-        self.count_method_lms = 0
+        self.count_operator_lms = 0
+        self.count_abtask_lms  = 0
+        self.count_fact_lms    = 0
+        self.count_method_lms  = 0
+
         self.valid_disjunctions = []
         self.gn_fact_orderings = []
         self.gn_task_orderings = []
@@ -327,8 +245,10 @@ class Landmarks:
                     self.count_fact_lms +=1
                 elif and_or_graph.nodes[lm_id].content_type == ContentType.METHOD:
                     self.count_method_lms +=1
-                elif and_or_graph.nodes[lm_id].content_type == ContentType.ABSTRACT_TASK or and_or_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
-                    self.count_task_lms +=1
+                elif and_or_graph.nodes[lm_id].content_type == ContentType.ABSTRACT_TASK:
+                    self.count_abtask_lms +=1
+                elif and_or_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
+                    self.count_operator_lms +=1
                     
         # for lm_id in lm_set:
         #     node = self.bu_graph.nodes[lm_id]

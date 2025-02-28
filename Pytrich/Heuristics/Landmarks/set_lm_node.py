@@ -1,7 +1,7 @@
 from copy import deepcopy
 
 
-class LMC_Node:
+class SetLM_Node:
     def __init__(self, parent=None):
         if parent:
             self.lms = deepcopy(parent.lms)

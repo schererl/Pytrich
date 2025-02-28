@@ -26,6 +26,10 @@ class LMCutRC:
         self.graph = AndOrGraph(model, graph_type=3)
         self.lms = set()
         
+        self.count_operator_lms = 0
+        self.count_method_lms = 0
+        self.count_disjunction_lms = 0
+
         self.index_of = {}
         self.appears_in = {}
         self.appears_in[-1]=[]
@@ -250,13 +254,24 @@ class LMCutRC:
             landmarks.append(cut)
             self.hmax_update(cut, cut_cost, pcf, cost)
             
+        elapsed_time = time.perf_counter() - start_time
+        print(f"compute_lm_cut completed in {elapsed_time:.6f} seconds")
         # process data structure for tracking lms
-        # for each landmark create an index 
+        # for each landmark create an index
         #   and maps the component to the the list of landmark it appears
         #self.lms = landmarks
         self.lms = (1 << len(landmarks)) - 1
         iof = 0
         for i_dlm, dlm in enumerate(landmarks):
+            if len(dlm) == 1:
+                element = next(iter(dlm))
+                if self.graph.nodes[element].content_type == ContentType.METHOD:
+                    self.count_method_lms +=1
+                elif self.graph.nodes[element].content_type == ContentType.OPERATOR:
+                    self.count_operator_lms +=1
+            else:
+                self.count_disjunction_lms+=1
+                
             for ulm in dlm:
                 if self.index_of[ulm]==-1:
                     self.index_of[ulm]=iof
@@ -268,12 +283,9 @@ class LMCutRC:
         # print(landmarks)
         # print(bin(self.lms))
         # print(self.appears_in)
-        # for lm in landmarks:
-        #     print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
-        elapsed_time = time.perf_counter() - start_time
-        print(f"compute_lm_cut completed in {elapsed_time:.6f} seconds")
+        #for lm in landmarks:
+        #    print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
         #return h, landmarks
-        
     
     def compute_lms(self):
         goals = [task.global_id for task in self.model.initial_tn]

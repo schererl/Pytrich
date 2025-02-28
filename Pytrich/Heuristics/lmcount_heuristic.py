@@ -1,11 +1,11 @@
 import time
 from Pytrich.DESCRIPTIONS import Descriptions
+from Pytrich.Heuristics.Landmarks.bit_lm_node import BitLm_Node
+from Pytrich.Heuristics.Landmarks.landmark import Landmarks
 from Pytrich.Heuristics.Landmarks.landmark_cut import LMCutRC
-from Pytrich.Heuristics.Landmarks.lmc_node import LMC_Node
 from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import AbstractTask, Operator, Model
-from Pytrich.Heuristics.Landmarks.landmark import Landmarks, LM_Node
 import Pytrich.FLAGS as FLAGS
 
 class LandmarkCountHeuristic(Heuristic):
@@ -52,16 +52,17 @@ class LandmarkCountHeuristic(Heuristic):
         self.elapsed_mcdisj_time = 0
         self.task_lm_reactivations = 0
         self.fact_lm_reactivations = 0
-        self.total_andor_lms   = 0
-        self.task_andor_lms    = 0
-        self.methods_andor_lms = 0
-        self.fact_andor_lms    = 0
-        self.mc_disj_lms       = 0
+
+        self.total_lms    = 0
+        self.abtask_lms   = 0
+        self.operator_lms = 0
+        self.methods_lms  = 0
+        self.fact_lms     = 0
+        self.disjunction_lms = 0
 
     def initialize(self, model, initial_node):
         """Generate and initialize landmarks."""
-        if FLAGS.MONITOR_LM_TIME:
-            self.start_time = time.perf_counter()
+        self.start_time = time.perf_counter()
         
         if self.use_bid:
             self.landmarks = Landmarks(model, True, True, False)
@@ -71,13 +72,13 @@ class LandmarkCountHeuristic(Heuristic):
             self.landmarks.top_down_lms()
             self.landmarks.bidirectional_lms()
             self.landmarks.identify_lms(self.landmarks.bid_lms, self.landmarks.bu_graph)
-            initial_node.lm_node = LM_Node()
+            initial_node.lm_node = BitLm_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bid_lms)
         elif self.use_mt:
             self.landmarks =Landmarks(model, False, False, True)
             self.landmarks.generate_mt_table()
             self.landmarks.mandatory_tasks_lms(model.initial_tn)
-            initial_node.lm_node = LM_Node()
+            initial_node.lm_node = BitLm_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.mt_lms)
             self.landmarks.identify_lms(self.landmarks.mt_lms, self.landmarks.mt_graph)
         elif self.use_bu_strict:
@@ -86,39 +87,47 @@ class LandmarkCountHeuristic(Heuristic):
             self.landmarks.mandatory_tasks_lms(model.initial_tn)
             self.landmarks.generate_bu_table()
             self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
-            initial_node.lm_node = LM_Node()
+            initial_node.lm_node = BitLm_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bu_lms-self.landmarks.mt_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms-self.landmarks.mt_lms, self.landmarks.bu_graph)
         elif self.use_lmc:
             self.landmarks =LMCutRC(model)
             self.landmarks.compute_lms()
             #initial_node.lm_node = LMC_Node()
-            initial_node.lm_node = LM_Node()
+            initial_node.lm_node = BitLm_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.lms)
         else:
             self.landmarks =Landmarks(model, True, False, False)
             self.landmarks.generate_bu_table()
             self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
-            initial_node.lm_node = LM_Node()
+            initial_node.lm_node = BitLm_Node()
             initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms, self.landmarks.bu_graph)
             
-        if FLAGS.MONITOR_LM_TIME:
-            self.elapsed_andor_time = time.perf_counter() - self.start_time                                     
-
-        # self.task_andor_lms    = self.landmarks.count_task_lms
-        # self.methods_andor_lms = self.landmarks.count_method_lms
-        # self.fact_andor_lms    = self.landmarks.count_fact_lms
-        # self.total_andor_lms   = self.task_andor_lms + \
-        #                         self.methods_andor_lms + \
-        #                         self.fact_andor_lms
-        # self.mc_disj_lms = 0
-                
-        # mark initial state
-        # for fact_pos in range(initial_node.state.bit_length()):
-        #     if initial_node.state & (1 << fact_pos) \
-        #             and initial_node.state & (1 << fact_pos):
-        #             initial_node.lm_node.mark_lm(fact_pos)
+        self.elapsed_time = time.perf_counter() - self.start_time                                     
+        
+        #mark initial state
+        if not self.use_lmc:
+            self.abtask_lms   = self.landmarks.count_abtask_lms
+            self.operator_lms = self.landmarks.count_abtask_lms
+            self.methods_lms  = self.landmarks.count_method_lms
+            self.fact_lms     = self.landmarks.count_fact_lms
+            self.total_lms    = self.abtask_lms + \
+                                self.operator_lms + \
+                                self.methods_lms + \
+                                self.fact_lms
+            for fact_pos in range(initial_node.state.bit_length()):
+                if initial_node.state & (1 << fact_pos) \
+                        and initial_node.state & (1 << fact_pos):
+                        initial_node.lm_node.mark_lm(fact_pos)
+        else: #lmcut doesen't have fact and abstract task landmarks
+            self.operator_lms    = self.landmarks.count_operator_lms
+            self.methods_lms     = self.landmarks.count_method_lms
+            self.disjunction_lms = self.landmarks.count_disjunction_lms
+            
+            self.total_lms   = self.operator_lms + \
+                               self.methods_lms + \
+                               self.disjunction_lms
 
         return super().initialize(model, initial_node.lm_node.lm_value())
         
@@ -129,7 +138,7 @@ class LandmarkCountHeuristic(Heuristic):
             #     node.lm_node.mark_lm(node.task.global_id)
             # else:
             #     node.lm_node.mark_lm(node.decomposition.global_id)
-            node.lm_node = LM_Node(parent=parent_node.lm_node)
+            node.lm_node = BitLm_Node(parent=parent_node.lm_node)
             if isinstance(node.task, Operator):
                 lm_index =  self.landmarks.index_of[node.task.global_id]
             else:
@@ -141,7 +150,7 @@ class LandmarkCountHeuristic(Heuristic):
             super().update_info(h_value)
             return h_value
                     
-        node.lm_node = LM_Node(parent=parent_node.lm_node)
+        node.lm_node = BitLm_Node(parent=parent_node.lm_node)
         if self.use_bu_update:
             #self.landmarks.generate_bu_table(node.state, reinitialize=False)
             self.landmarks.bottom_up_lms(node.state, node.task_network, reinitialize=False)
@@ -312,16 +321,15 @@ class LandmarkCountHeuristic(Heuristic):
 
         out_str = f'Heuristic Info:\n'
         out_str += f'\t{desc("heuristic_name", self.name)}\n'
-        out_str += f'\t{desc("total_landmarks", self.total_andor_lms)}\n'
-        out_str += f'\t{desc("task_landmarks", self.task_andor_lms)}\n'
-        out_str += f'\t{desc("method_landmarks", self.methods_andor_lms)}\n'
-        out_str += f'\t{desc("fact_landmarks", self.fact_andor_lms)}\n'
-        out_str += f'\t{desc("mincov_disj_landmarks", self.mc_disj_lms)}\n'
+        out_str += f'\t{desc("total_landmarks", self.total_lms)}\n'
+        out_str += f'\t{desc("operator_landmarks", self.operator_lms)}\n'
+        out_str += f'\t{desc("abtask_landmarks", self.abtask_lms)}\n'
+        out_str += f'\t{desc("method_landmarks", self.methods_lms)}\n'
+        out_str += f'\t{desc("fact_landmarks", self.fact_lms)}\n'
+        out_str += f'\t{desc("disj_landmarks", self.disjunction_lms)}\n'
         out_str += f'\t{desc("fact_reactivations", self.fact_lm_reactivations)}\n'
         out_str += f'\t{desc("task_reactivations", self.fact_lm_reactivations)}\n'
-
-        if FLAGS.MONITOR_LM_TIME:
-            out_str += f'\t{desc("heuristic_elapsed_time", f"{self.elapsed_andor_time:.4f}")}\n'
-            out_str += f'\t{desc("mincov_disj_elapsed_time", f"{self.elapsed_mcdisj_time:.4f}")}\n'
+        out_str += f'\t{desc("heuristic_elapsed_time", f"{self.elapsed_time:.4f}")}\n'
+        
         
         return out_str
