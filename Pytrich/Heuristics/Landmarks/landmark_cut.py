@@ -37,6 +37,62 @@ class LMCutRC:
                 
         print(f'LMCUT LANDMARKS')
         
+    def hmax_update(self, cut, cut_cost, pcf, cost):
+        needs_update = set()
+        for c in cut:
+            # old_cost = cost[c]
+            cost[c] -= cut_cost
+            node_c = self.graph.nodes[c]
+            #print(f"Cut update: Node {node_c.str_name} (ID {c}) cost updated from {old_cost} to {cost[c]} (subtracted cut_cost {cut_cost})")
+            for succ in node_c.successors:
+                needs_update.add(succ.ID)
+            #    print(f"  Adding successor {succ.str_name} (ID {succ.ID}) for update")
+        
+        while needs_update:
+            next_updates =set()
+            #print("\n--- New update round ---")
+            #update_names = [self.graph.nodes[nid].str_name for nid in needs_update]
+            #print("Nodes to update:", len(update_names))
+
+            for nid in needs_update:
+                node = self.graph.nodes[nid]
+                if node.type == NodeType.AND:
+                    max_val=-math.inf
+                    curr_pcf = -1
+                    for pred in node.predecessors:
+                        if cost[pred.ID] > max_val:
+                            max_val=cost[pred.ID]
+                            curr_pcf=pred.ID
+                    # print(f"AND Node {node.str_name} (ID {nid}):")
+                    # print(f"  - Max predecessor cost = {max_val} from node {self.graph.nodes[curr_pcf].str_name if curr_pcf is not None else 'None'}")
+                    # print(f"  - Local cost = {self.local_costs.get(nid, 0)}")
+                    # print(f"  - Current cost = {cost[nid]}, New computed cost = {max_val + self.local_costs[nid]}")
+                    if pcf[nid] != curr_pcf or max_val != cost[nid]:
+                        pcf[nid] = curr_pcf
+                        cost[nid] = max_val + self.local_costs[nid]
+                        for succ in node.successors:
+                            next_updates.add(succ.ID)
+                elif node.type == NodeType.OR:
+                    min_val=math.inf
+                    curr_pcf = -1 # pcf for OR nodes is useless, debug verificaiton only
+                    # print(f"OR Node {node.str_name} (ID {nid}):")
+                    # print(f'Predecessors:')
+                    for pred in node.predecessors:
+                        #print(f'\t{pred.str_name} and cost {cost[pred.ID]}')
+                        if cost[pred.ID] < min_val:
+                            min_val=cost[pred.ID]
+                            curr_pcf=pred.ID
+                    # print()
+                    # print(f"  - Min predecessor cost = {min_val} from node {self.graph.nodes[curr_pcf].str_name if curr_pcf is not None else 'None'}")
+                    # print(f"  - Current cost = {cost[nid]}, New computed cost = {min_val}")
+                    if min_val != cost[nid]:
+                        pcf[nid] = curr_pcf
+                        cost[nid] = min_val
+                        for succ in node.successors:
+                            next_updates.add(succ.ID)
+            needs_update = next_updates
+
+
 
     def compute_h_max(self):
         cost = {}
@@ -85,8 +141,8 @@ class LMCutRC:
                     pcf_v  = -1
                     lc_v = self.local_costs[v_id]
                     for pred in v_node.predecessors:
-                        assert cost[pred.ID] < math.inf
-                        assert forced_true[pred.ID]
+                        #assert cost[pred.ID] < math.inf
+                        #assert forced_true[pred.ID]
                         if high_predv < cost[pred.ID]:
                             high_predv = cost[pred.ID]
                             pcf_v = pred.ID
@@ -161,9 +217,10 @@ class LMCutRC:
         h = 0
         landmarks = []
         iterations = 0
+        cost, pcf = self.compute_h_max()
         while True:
             iterations+=1
-            cost, pcf = self.compute_h_max()
+            #cost, pcf = self.compute_h_max()
             hmax_val = max(cost.get(gid, math.inf) for gid in goal_ids)
             #print(f'iteration {iterations} {hmax_val}')
             if hmax_val == 0:
@@ -183,6 +240,7 @@ class LMCutRC:
             #print(f']')
             h += cut_cost
             landmarks.append(cut)
+            self.hmax_update(cut, cut_cost, pcf, cost)
             
         # process data structure for tracking lms
         # for each landmark create an index 
@@ -202,8 +260,8 @@ class LMCutRC:
         # print(landmarks)
         # print(bin(self.lms))
         # print(self.appears_in)
-        for lm in landmarks:
-            print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
+        # for lm in landmarks:
+        #     print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
         
         #return h, landmarks
         
