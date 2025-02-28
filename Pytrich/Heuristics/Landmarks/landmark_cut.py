@@ -39,63 +39,72 @@ class LMCutRC:
         
 
     def compute_h_max(self):
-        """
-        Compute hmax values over the RC graph using a Dijkstra-like algorithm.
-        :param goal_ids: iterable of node IDs corresponding to goals.
-        :return: Tuple (cost, pcf_justif)
-          - cost: dict mapping node ID -> computed hmax cost.
-          - pcf_justif: dict mapping node ID -> a predecessor AND node ID that led to its current cost.
-                    (Precondition choice function to induce the justification graph.)
-        """
-        cost = {node.ID: math.inf for node in self.graph.nodes if node is not None}
-        
-        # pcf[n] = -1 and cost[-1]=math.inf for every initialized node n
-        # the first time a true node n' reaches n, pcf[n] = n'. because cost[n']
-        cost[-1] = math.inf
-        pcf = {node.ID: -1 for node in self.graph.nodes if node is not None}
-        
-
+        cost = {}
+        num_ft = {}
+        forced_true = {}
         heap = []
         for node in self.graph.nodes:
+            num_ft[node.ID]=0
+            forced_true[node.ID]= False
             if node.type == NodeType.INIT:
                 cost[node.ID] = 0
                 heapq.heappush(heap, (0, node.ID))
-               
+            elif node.type == NodeType.AND:
+                cost[node.ID] = -math.inf
+            else:
+                cost[node.ID] = math.inf
+        pcf = {node.ID: None for node in self.graph.nodes}
         while heap:
-            d, u_id = heapq.heappop(heap)
-            #print(f'{self.graph.nodes[u_id].str_name}:{d}')
-            if d > cost[u_id]:
-                continue  # stale entry
+            c, u_id = heapq.heappop(heap)
             u_node = self.graph.nodes[u_id]
-            # relax nodes
+            # print(f'{u_node.str_name}')
+            # print(f'\t{u_node.type}')
+            # print(f'\t{num_ft[u_id]} {len(u_node.predecessors)}')
+            # print(f'\t{c} {cost[u_id]}')
+            # assert (u_node.type == NodeType.AND and num_ft[u_id] == len(u_node.predecessors)) or\
+            #     (u_node.type == NodeType.OR and num_ft[u_id] >= 1) or\
+            #     (u_node.type == NodeType.INIT)
+            
+            if cost[u_id] != c:
+                continue
+            if forced_true[u_id]:
+                continue
+            forced_true[u_id]=True
             for v_node in u_node.successors:
-                if v_node.type == NodeType.AND:
-                    # AND nodes: candidate = local_cost(v) + max_{p in pred(v)} cost(p)
-                    local = self.local_costs[v_node.ID]
-                    pred_costs = [cost[p.ID] for p in v_node.predecessors]
-                    max_val = max(pred_costs) if pred_costs else 0
-                    candidate = local + max_val
-                    
-                    # update pcf of AND node v: pcf[v] = u if the cost of v is higher than current pcf of v.
-                    pcf_nodeid = None
-                    curr_pcf = pcf[v_node.ID]
-                    if cost[u_id] > cost[curr_pcf] or \
-                        cost[curr_pcf] == math.inf:
-                        pcf_nodeid = u_id
+                v_id = v_node.ID
+                num_ft[v_id]+=1
+                if v_node.type == NodeType.OR:
+                    new_cost = c
+                    if new_cost < cost[v_id]:
+                        cost[v_id]=c
+                        pcf[v_id] = u_id
+                        heapq.heappush(heap, (c, v_id))
+                        # print(f'\tnew cost: {cost[v_id]} to {v_node.str_name}')
+                elif v_node.type == NodeType.AND and num_ft[v_id] == len(v_node.predecessors):
+                    high_predv = -1
+                    pcf_v  = -1
+                    lc_v = self.local_costs[v_id]
+                    for pred in v_node.predecessors:
+                        assert cost[pred.ID] < math.inf
+                        assert forced_true[pred.ID]
+                        if high_predv < cost[pred.ID]:
+                            high_predv = cost[pred.ID]
+                            pcf_v = pred.ID
+                    v_cost = high_predv + lc_v
+                    cost[v_id]= v_cost
+                    pcf[v_id] = pcf_v
+                    # print(f'\tnew cost: {cost[v_id]} to {v_node.str_name} ')
+                    heapq.heappush(heap, (v_cost, v_id))
 
-                elif v_node.type == NodeType.OR:
-                    # OR nodes: candidate = min_{p in pred(v)} cost(p)
-                    pred_costs = [cost[p.ID] for p in v_node.predecessors]
-                    candidate = min(pred_costs) if pred_costs else math.inf
-                    pcf_nodeid = -1
-                else: # in case of reaching an INIT node
-                    continue
-
-                if candidate < cost[v_node.ID]:
-                    cost[v_node.ID] = candidate
-                    pcf[v_node.ID] = pcf_nodeid
-                    #print(f'\t{self.graph.nodes[v_node.ID].str_name} {candidate}')
-                    heapq.heappush(heap, (candidate, v_node.ID))
+        # for node in self.graph.nodes:
+        #     print(f'{node.ID}\ttype: {node.type}\tcost: {cost[node.ID]}\tpcf: {str(pcf[node.ID])}\t pcf-cost: {str(cost[pcf[node.ID]]) if node.type==NodeType.AND else '---'}')
+        # for t in self.model.initial_tn:
+        #     node = self.graph.nodes[t.global_id]
+        #     pcf_node = self.graph.nodes[pcf[node.ID]]
+        #     print(f'{t.name}\ttype: GOAL_NODE\tcost: {cost[node.ID]}\tpcf: {pcf_node.str_name}\t pcf-cost: {str(cost[pcf[node.ID]]) if node.type==NodeType.AND else '---'}')
+        #     pcf_of_pcf = self.graph.nodes[pcf[pcf_node.ID]]
+        #     print(f'{pcf_of_pcf.str_name}\tcost: {cost[pcf_of_pcf.ID]}')
+        # exit(0)            
         return cost, pcf
 
     def find_landmark_cut(self, cost, pcf, goals, hmax_value):
@@ -193,8 +202,8 @@ class LMCutRC:
         # print(landmarks)
         # print(bin(self.lms))
         # print(self.appears_in)
-        # for lm in landmarks:
-        #     print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
+        for lm in landmarks:
+            print(f'{[self.graph.nodes[id].str_name + " " + str(self.index_of[id]) for id in lm]}')
         
         #return h, landmarks
         
