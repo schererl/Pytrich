@@ -15,10 +15,14 @@ from .Heuristics.novelty_heuristic import NoveltyHeuristic
 # search
 from .Search.astar_search import search as astar_search
 from .Search.blind_search import search as blind_search
+from .Search.depth_first_search import search as depth_first_search
+from .Search.recdepth_first_search import search as recdepth_first_search
 
 SEARCHES = {
     "Blind": blind_search,
-    "Astar": astar_search
+    "Astar": astar_search,
+    "DFS": depth_first_search,
+    "rDFS": recdepth_first_search,
 }
 
 HEURISTICS = {

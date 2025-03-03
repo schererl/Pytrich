@@ -17,6 +17,9 @@
     "total_landmarks": {
         "description": "Number of Total Landmarks"
     },
+    "task_landmarks": {
+        "description": "Number of Task Landmarks"
+    },
     "operator_landmarks": {
         "description": "Number of Operator Landmarks"
     },

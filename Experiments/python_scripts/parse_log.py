@@ -25,12 +25,12 @@ class ParseLog:
         self.operators = []
         self.decompositions = []
         self.total_landmarks = []
-        self.task_landmarks = []
+        self.operator_landmarks = []
+        self.abtask_landmarks = []
         self.method_landmarks = []
         self.fact_landmarks = []
-        self.mincov_disj_landmarks = []
-        self.mincov_disj_elapsed_time = []
-        self.tor_elapsed_time = []
+        self.disj_landmarks = []
+        self.nodes_per_second = []
 
         # Compile regex patterns
         self.domain_pattern = self._compile_pattern('domain_name')
@@ -41,17 +41,14 @@ class ParseLog:
         self.solution_size_pattern = self._compile_pattern('solution_size', r'([0-9.]+)')
         self.heuristic_name_pattern = self._compile_pattern('heuristic_name')
         self.heuristic_elapsed_pattern = self._compile_pattern('heuristic_elapsed_time', r'([0-9.]+)')
-        self.tor_elapsed_time_pattern = self._compile_pattern('tor_elapsed_time', r'([0-9.]+)')
-        self.mincov_disj_landmarks_pattern = self._compile_pattern('mincov_disj_landmarks', r'(\d+)')
-        self.mincov_disj_elapsed_time_pattern = self._compile_pattern('mincov_disj_elapsed_time', r'([0-9.]+)')
         self.total_landmarks_pattern = self._compile_pattern('total_landmarks', r'(\d+)')
-        self.task_landmarks_pattern = self._compile_pattern('task_landmarks', r'(\d+)')
+        self.operator_landmarks_pattern = self._compile_pattern('operator_landmarks', r'(\d+)')
+        self.abtask_landmarks_pattern = self._compile_pattern('abtask_landmarks', r'(\d+)')
         self.fact_landmarks_pattern = self._compile_pattern('fact_landmarks', r'(\d+)')
+        self.disj_landmarks_pattern = self._compile_pattern('disj_landmarks', r'(\d+)')
         self.method_landmarks_pattern = self._compile_pattern('method_landmarks', r'(\d+)')
-        self.model_fact_pattern = self._compile_pattern('fact_model', r'(\d+)')
-        self.model_decomposition_pattern = self._compile_pattern('decomposition_model', r'(\d+)')
-        self.model_operator_pattern = self._compile_pattern('operator_model', r'(\d+)')
-        self.model_abstract_task_pattern = self._compile_pattern('abstract_task_model', r'(\d+)')
+        self.nodes_per_second_pattern = self._compile_pattern('nodes_per_second', r'([0-9.]+)')
+        
 
     def _compile_pattern(self, key, value_regex=r'(.+)'):
         if key not in self.descriptions:
@@ -72,30 +69,25 @@ class ParseLog:
         self.heuristic_names.append(tmp_variables['heuristic_name'])
         self.heuristics_elapsed_time.append(tmp_variables['heuristic_elapsed_time'])
         self.total_landmarks.append(tmp_variables['total_landmarks'])
-        self.task_landmarks.append(tmp_variables['task_landmarks'])
+        self.disj_landmarks.append(tmp_variables['disj_landmarks'])
         self.method_landmarks.append(tmp_variables['method_landmarks'])
         self.fact_landmarks.append(tmp_variables['fact_landmarks'])
-        self.mincov_disj_landmarks.append(tmp_variables['mincov_disj_landmarks'])
-        self.mincov_disj_elapsed_time.append(tmp_variables['mincov_disj_elapsed_time'])
+        self.operator_landmarks.append(tmp_variables['operator_landmarks'])
+        self.abtask_landmarks.append(tmp_variables['abtask_landmarks'])
         self.solution_sizes.append(tmp_variables['solution_size'])
         self.expanded_nodes.append(tmp_variables['expanded_nodes'])
         self.search_elapsed_time.append(tmp_variables['search_elapsed_time'])
-        self.facts.append(tmp_variables["fact_model"])
-        self.decompositions.append(tmp_variables["decomposition_model"])
-        self.operators.append(tmp_variables["operator_model"])
-        self.abstract_tasks.append(tmp_variables["abstract_task_model"])
-        self.tor_elapsed_time.append(tmp_variables["tor_elapsed_time"])
+        self.nodes_per_second.append(tmp_variables['nodes_per_second'])
 
     def __call__(self):
         tmp_variables = {
             'domain_name': None, 'problem_name': None, 'experiment_name': None,
             'solution_size': None, 'expanded_nodes': None, 'search_elapsed_time': None, 
+            'nodes_per_second':None,
             'heuristic_name': None, 'heuristic_elapsed_time': None,
-            'total_landmarks': None, 'task_landmarks': None,
+            'total_landmarks': None, 'operator_landmarks': None, 'abtask_landmarks': None,
             'method_landmarks': None, 'fact_landmarks': None,
-            'mincov_disj_landmarks': None, 'mincov_disj_elapsed_time': None,
-            'fact_model': None, 'decomposition_model': None, 'abstract_task_model': None,
-            'operator_model': None, 'tor_elapsed_time': None
+            'disj_landmarks': None,
         }
         for log_file_path in self.log_files:
             with open(log_file_path, 'r') as file:
@@ -124,10 +116,16 @@ class ParseLog:
             tmp_variables['heuristic_name'] = heuristic_name_match.group(1)
         elif heuristic_elapsed_match := self.heuristic_elapsed_pattern.search(line):
             tmp_variables['heuristic_elapsed_time'] = float(heuristic_elapsed_match.group(1))  # Use float here
+        elif nodes_per_second_match := self.nodes_per_second_pattern.search(line):
+            tmp_variables['nodes_per_second'] = float(nodes_per_second_match.group(1))
         elif total_landmarks_match := self.total_landmarks_pattern.search(line):
             tmp_variables['total_landmarks'] = int(total_landmarks_match.group(1))
-        elif task_landmarks_match := self.task_landmarks_pattern.search(line):
-            tmp_variables['task_landmarks'] = int(task_landmarks_match.group(1))
+        elif disj_landmarks_match := self.disj_landmarks_pattern.search(line):
+            tmp_variables['disj_landmarks'] = int(disj_landmarks_match.group(1))
+        elif abtask_landmarks_match := self.abtask_landmarks_pattern.search(line):
+            tmp_variables['abtask_landmarks'] = int(abtask_landmarks_match.group(1))
+        elif operator_landmarks_match := self.operator_landmarks_pattern.search(line):
+            tmp_variables['operator_landmarks'] = int(operator_landmarks_match.group(1))
         elif fact_landmarks_match := self.fact_landmarks_pattern.search(line):
             tmp_variables['fact_landmarks'] = int(fact_landmarks_match.group(1))
         elif method_landmarks_match := self.method_landmarks_pattern.search(line):
@@ -136,22 +134,8 @@ class ParseLog:
             tmp_variables['expanded_nodes'] = int(nodes_expanded_match.group(1))
         elif search_time_match := self.search_time_pattern.search(line):
             tmp_variables['search_elapsed_time'] = float(search_time_match.group(1))
-        elif tor_elapsed_time_match := self.tor_elapsed_time_pattern.search(line):
-            tmp_variables['tor_elapsed_time'] = float(tor_elapsed_time_match.group(1))
-        elif mincov_disjs_landmarks_match := self.mincov_disj_landmarks_pattern.search(line):
-            tmp_variables['mincov_disj_landmarks'] = int(mincov_disjs_landmarks_match.group(1))
-        elif disjunctions_elapsed_time_match := self.mincov_disj_elapsed_time_pattern.search(line):
-            tmp_variables['mincov_disj_elapsed_time'] = float(disjunctions_elapsed_time_match.group(1))
         elif solution_size_match := self.solution_size_pattern.search(line):
             tmp_variables['solution_size'] = int(solution_size_match.group(1))
-        elif model_abstract_task_match := self.model_abstract_task_pattern.search(line):
-            tmp_variables['abstract_task_model'] = int(model_abstract_task_match.group(1))
-        elif model_fact_match := self.model_fact_pattern.search(line):
-            tmp_variables['fact_model'] = int(model_fact_match.group(1))
-        elif model_decomposition_match := self.model_decomposition_pattern.search(line):
-            tmp_variables['decomposition_model'] = int(model_decomposition_match.group(1))
-        elif model_operator_match := self.model_operator_pattern.search(line):
-            tmp_variables['operator_model'] = int(model_operator_match.group(1))
         elif "@" in line:  # Delimiter for a new data block
             self._append_parsed_data(tmp_variables)
             self._reset_tmp_variables(tmp_variables)
@@ -160,24 +144,19 @@ class ParseLog:
     def save_as_csv(self, out_file):
         headers = [
             "domain_name", "problem_name", "experiment_name", 
-            "search_elapsed_time", "solution_size", "expanded_nodes",
-            "heuristic_name",
-            "heuristic_elapsed_time", "total_landmarks", "task_landmarks",
-            "method_landmarks", "fact_landmarks", "mincov_disj_landmarks",
-            "mincov_disj_elapsed_time", 
-            "facts", "decompositions", "operators",
-            "abstract_tasks", "tor_elapsed_time"
+            "search_elapsed_time", "solution_size", 
+            "expanded_nodes", "nodes_per_second",
+            "heuristic_name", 
+            "heuristic_elapsed_time", "total_landmarks", "disj_landmarks",
+            "abtask_landmarks", "operator_landmarks", "method_landmarks", "fact_landmarks", 
         ]
         rows = zip(
             self.domains, self.problems, self.experiment_names,
-            self.search_elapsed_time, self.solution_sizes, self.expanded_nodes, 
+            self.search_elapsed_time, self.solution_sizes, 
+            self.expanded_nodes, self.nodes_per_second,
             self.heuristic_names, self.heuristics_elapsed_time,
-            self.total_landmarks, self.task_landmarks, self.method_landmarks,
-            self.fact_landmarks, self.mincov_disj_landmarks,
-            self.mincov_disj_elapsed_time,
-            self.facts,
-            self.decompositions, self.operators, self.abstract_tasks,
-            self.tor_elapsed_time
+            self.total_landmarks, self.disj_landmarks,
+            self.abtask_landmarks, self.method_landmarks, self.fact_landmarks,
         )
         # Filter out rows where all elements are None or empty
         filtered_rows = [

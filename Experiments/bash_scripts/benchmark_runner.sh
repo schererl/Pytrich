@@ -12,7 +12,7 @@ fi
 folder_benchmarks="$1/*"
 
 # Define time and memory limits
-TIME_LIMIT=600
+TIME_LIMIT=120
 MEM_LIMIT=8008608
 
 # Define the array of domains to be ignored
@@ -21,17 +21,17 @@ ignored_domains=("ipc2020-feature-tests" "SCCTEST")
 # Define experiments as an array of associative arrays
 declare -A experiments
 
-experiments[0,name]="bu-lmcount"
-experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "bu-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT()" '
+experiments[0,name]="rDFS"
+experiments[0,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "rDFS" -S "rDFS()" '
 
-experiments[1,name]="bid-lmcount"
-experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "bid-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT(use_bid=True)" '
+experiments[1,name]="rDFS-novelty"
+experiments[1,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "rDFS-novelty" -S "rDFS(use_novelty=True)" '
 
-experiments[2,name]="lmc-lmcount"
-experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmc-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT(use_lmc=True)" '
+# experiments[2,name]="lmc-lmcount"
+# experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "lmc-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT(use_lmc=True)" '
 
-experiments[3,name]="mt-lmcount"
-experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "mt-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT(use_mt=True)" '
+# experiments[3,name]="mt-lmcount"
+# experiments[3,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "mt-lmcount" -S "Astar(use_early=True)" -H "LMCOUNT(use_mt=True)" '
 
 # experiments[2,name]="TDG-LMCOUNT"
 # experiments[2,command]='python3 ../../__main__.py "$domain_file" "$problem_file" -e "TDG-LMCOUNT" -N "AstarNode(G=1,H=5)" -S "TiebreakingNode(use_early=True)" -A "Tiebreaking([TDG(use_satis=True),LMCOUNT(use_bu_update=True)])" '

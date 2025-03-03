@@ -1,0 +1,6054 @@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//AssemblyHierarchical
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3029
+Nodes per Second : 348090.92
+Solution Size : 1762
+Nodes Expanded : 105441
+Fringe size : 0
+Revisits Avoided: 4462
+Used Memory: 39.7%
+Recursive DFS finished. Status: GOAL, expansions: 105441, solution size: 1762
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1329
+Nodes per Second : 91795.48
+Solution Size : 312
+Nodes Expanded : 12198
+Fringe size : 0
+Revisits Avoided: 244
+Used Memory: 39.6%
+Recursive DFS finished. Status: GOAL, expansions: 12198, solution size: 312
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 430227.62
+Solution Size : 10
+Nodes Expanded : 259
+Fringe size : 0
+Revisits Avoided: 4
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 259, solution size: 10
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0013
+Nodes per Second : 177380.96
+Solution Size : 10
+Nodes Expanded : 223
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 223, solution size: 10
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.5129
+Nodes per Second : 299060.20
+Solution Size : 5766
+Nodes Expanded : 452449
+Fringe size : 0
+Revisits Avoided: 18048
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 452449, solution size: 5766
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 5.2175
+Nodes per Second : 83933.52
+Solution Size : 5724
+Nodes Expanded : 437923
+Fringe size : 0
+Revisits Avoided: 17813
+Used Memory: 41.5%
+Recursive DFS finished. Status: GOAL, expansions: 437923, solution size: 5724
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.9435
+Nodes per Second : 297774.43
+Solution Size : 5962
+Nodes Expanded : 578721
+Fringe size : 0
+Revisits Avoided: 24629
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 578721, solution size: 5962
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 8.8410
+Nodes per Second : 70481.83
+Solution Size : 6740
+Nodes Expanded : 623131
+Fringe size : 0
+Revisits Avoided: 24947
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 623131, solution size: 6740
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 241225.25
+Solution Size : 6
+Nodes Expanded : 80
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 80, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 150844.10
+Solution Size : 6
+Nodes Expanded : 72
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 72, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: AssemblyHierarchical
+  Problem: genericLinearProblem_depth06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Barman-BDI
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0029
+Nodes per Second : 159468.79
+Solution Size : 42
+Nodes Expanded : 464
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 464, solution size: 42
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0325
+Nodes per Second : 14352.66
+Solution Size : 42
+Nodes Expanded : 466
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 466, solution size: 42
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 182844.18
+Solution Size : 44
+Nodes Expanded : 543
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 543, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0687
+Nodes per Second : 7714.40
+Solution Size : 44
+Nodes Expanded : 530
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 530, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0039
+Nodes per Second : 110536.54
+Solution Size : 44
+Nodes Expanded : 436
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 436, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0279
+Nodes per Second : 15820.13
+Solution Size : 44
+Nodes Expanded : 442
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 442, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0043
+Nodes per Second : 131883.12
+Solution Size : 52
+Nodes Expanded : 564
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 564, solution size: 52
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0466
+Nodes per Second : 12030.41
+Solution Size : 52
+Nodes Expanded : 561
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 561, solution size: 52
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0020
+Nodes per Second : 144457.00
+Solution Size : 28
+Nodes Expanded : 286
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 286, solution size: 28
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0118
+Nodes per Second : 24090.14
+Solution Size : 28
+Nodes Expanded : 285
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 285, solution size: 28
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 95527.23
+Solution Size : 30
+Nodes Expanded : 290
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 290, solution size: 30
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0239
+Nodes per Second : 12287.76
+Solution Size : 30
+Nodes Expanded : 294
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 294, solution size: 30
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0015
+Nodes per Second : 183697.02
+Solution Size : 24
+Nodes Expanded : 275
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 275, solution size: 24
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0218
+Nodes per Second : 12422.61
+Solution Size : 24
+Nodes Expanded : 271
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 271, solution size: 24
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0066
+Nodes per Second : 95455.12
+Solution Size : 58
+Nodes Expanded : 634
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 634, solution size: 58
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0825
+Nodes per Second : 8338.99
+Solution Size : 62
+Nodes Expanded : 688
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 688, solution size: 62
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0033
+Nodes per Second : 151980.83
+Solution Size : 43
+Nodes Expanded : 497
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 497, solution size: 43
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0498
+Nodes per Second : 10152.15
+Solution Size : 43
+Nodes Expanded : 506
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 506, solution size: 43
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 215499.66
+Solution Size : 10
+Nodes Expanded : 95
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 95, solution size: 10
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Barman-BDI
+  Problem: pfile01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0027
+Nodes per Second : 35529.43
+Solution Size : 10
+Nodes Expanded : 97
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 97, solution size: 10
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Blocksworld-GTOHP
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0063
+Nodes per Second : 241569.26
+Solution Size : 174
+Nodes Expanded : 1519
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 1519, solution size: 174
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p12
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1104
+Nodes per Second : 13759.57
+Solution Size : 174
+Nodes Expanded : 1519
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 1519, solution size: 174
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0036
+Nodes per Second : 150547.51
+Solution Size : 176
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 176
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p13
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0630
+Nodes per Second : 8557.50
+Solution Size : 176
+Nodes Expanded : 539
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 539, solution size: 176
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 219839.38
+Solution Size : 88
+Nodes Expanded : 266
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 266, solution size: 88
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0126
+Nodes per Second : 21045.89
+Solution Size : 88
+Nodes Expanded : 266
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.1%
+Recursive DFS finished. Status: GOAL, expansions: 266, solution size: 88
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 226719.14
+Solution Size : 99
+Nodes Expanded : 400
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 400, solution size: 99
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0125
+Nodes per Second : 33084.68
+Solution Size : 97
+Nodes Expanded : 413
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 413, solution size: 97
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 323252.73
+Solution Size : 22
+Nodes Expanded : 81
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 81, solution size: 22
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 78661.41
+Solution Size : 22
+Nodes Expanded : 81
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 81, solution size: 22
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0354
+Nodes per Second : 311650.11
+Solution Size : 242
+Nodes Expanded : 11039
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 11039, solution size: 242
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p14
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.6074
+Nodes per Second : 18218.81
+Solution Size : 235
+Nodes Expanded : 11066
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.1%
+Recursive DFS finished. Status: GOAL, expansions: 11066, solution size: 235
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0382
+Nodes per Second : 346180.06
+Solution Size : 158
+Nodes Expanded : 13220
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 13220, solution size: 158
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3886
+Nodes per Second : 34023.31
+Solution Size : 158
+Nodes Expanded : 13221
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.1%
+Recursive DFS finished. Status: GOAL, expansions: 13221, solution size: 158
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 4.9694
+Nodes per Second : 350834.05
+Solution Size : 194
+Nodes Expanded : 1743427
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.0%
+Recursive DFS finished. Status: GOAL, expansions: 1743427, solution size: 194
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p11
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 44.0796
+Nodes per Second : 26373.10
+Solution Size : 188
+Nodes Expanded : 1162516
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 1162516, solution size: 188
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0011
+Nodes per Second : 340178.91
+Solution Size : 42
+Nodes Expanded : 367
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.2%
+Recursive DFS finished. Status: GOAL, expansions: 367, solution size: 42
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0058
+Nodes per Second : 64431.57
+Solution Size : 41
+Nodes Expanded : 371
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.2%
+Recursive DFS finished. Status: GOAL, expansions: 371, solution size: 41
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 252795.82
+Solution Size : 40
+Nodes Expanded : 120
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 120, solution size: 40
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0022
+Nodes per Second : 55961.05
+Solution Size : 40
+Nodes Expanded : 121
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 121, solution size: 40
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0348
+Nodes per Second : 408797.24
+Solution Size : 118
+Nodes Expanded : 14221
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 14221, solution size: 118
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3782
+Nodes per Second : 37624.01
+Solution Size : 117
+Nodes Expanded : 14231
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 14231, solution size: 117
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0024
+Nodes per Second : 312749.83
+Solution Size : 81
+Nodes Expanded : 742
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 742, solution size: 81
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0222
+Nodes per Second : 33655.49
+Solution Size : 79
+Nodes Expanded : 746
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 746, solution size: 79
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0125
+Nodes per Second : 376278.01
+Solution Size : 129
+Nodes Expanded : 4720
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 4720, solution size: 129
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1588
+Nodes per Second : 29779.71
+Solution Size : 127
+Nodes Expanded : 4729
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 4729, solution size: 127
+Search Result: None
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0063
+Nodes per Second : 109678.73
+Solution Size : 230
+Nodes Expanded : 695
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.0%
+Recursive DFS finished. Status: GOAL, expansions: 695, solution size: 230
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0881
+Nodes per Second : 8137.23
+Solution Size : 225
+Nodes Expanded : 717
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.0%
+Recursive DFS finished. Status: GOAL, expansions: 717, solution size: 225
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Blocksworld-HPDDL
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_045
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0321
+Nodes per Second : 320327.74
+Solution Size : 226
+Nodes Expanded : 10289
+Fringe size : 0
+Revisits Avoided: 406
+Used Memory: 40.1%
+Recursive DFS finished. Status: GOAL, expansions: 10289, solution size: 226
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_045
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.9252
+Nodes per Second : 11120.64
+Solution Size : 226
+Nodes Expanded : 10289
+Fringe size : 0
+Revisits Avoided: 406
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 10289, solution size: 226
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_050
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0385
+Nodes per Second : 305623.28
+Solution Size : 251
+Nodes Expanded : 11762
+Fringe size : 0
+Revisits Avoided: 286
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 11762, solution size: 251
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_050
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.2704
+Nodes per Second : 9258.34
+Solution Size : 251
+Nodes Expanded : 11762
+Fringe size : 0
+Revisits Avoided: 286
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 11762, solution size: 251
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_025
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0122
+Nodes per Second : 278288.82
+Solution Size : 126
+Nodes Expanded : 3386
+Fringe size : 0
+Revisits Avoided: 120
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 3386, solution size: 126
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_025
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1659
+Nodes per Second : 20407.86
+Solution Size : 126
+Nodes Expanded : 3386
+Fringe size : 0
+Revisits Avoided: 120
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 3386, solution size: 126
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_030
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0127
+Nodes per Second : 315073.23
+Solution Size : 135
+Nodes Expanded : 3998
+Fringe size : 0
+Revisits Avoided: 222
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 3998, solution size: 135
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_030
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2282
+Nodes per Second : 17522.43
+Solution Size : 135
+Nodes Expanded : 3998
+Fringe size : 0
+Revisits Avoided: 222
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 3998, solution size: 135
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_035
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0203
+Nodes per Second : 278721.38
+Solution Size : 173
+Nodes Expanded : 5664
+Fringe size : 0
+Revisits Avoided: 125
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 5664, solution size: 173
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_035
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.4163
+Nodes per Second : 13603.94
+Solution Size : 173
+Nodes Expanded : 5664
+Fringe size : 0
+Revisits Avoided: 125
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 5664, solution size: 173
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 375184.50
+Solution Size : 20
+Nodes Expanded : 145
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 145, solution size: 20
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0017
+Nodes per Second : 83357.19
+Solution Size : 20
+Nodes Expanded : 145
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 145, solution size: 20
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_040
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0277
+Nodes per Second : 309087.82
+Solution Size : 205
+Nodes Expanded : 8557
+Fringe size : 0
+Revisits Avoided: 290
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 8557, solution size: 205
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_040
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.6704
+Nodes per Second : 12764.90
+Solution Size : 205
+Nodes Expanded : 8557
+Fringe size : 0
+Revisits Avoided: 290
+Used Memory: 40.5%
+Recursive DFS finished. Status: GOAL, expansions: 8557, solution size: 205
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_020
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 347325.86
+Solution Size : 88
+Nodes Expanded : 1816
+Fringe size : 0
+Revisits Avoided: 106
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 1816, solution size: 88
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_020
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0759
+Nodes per Second : 23920.33
+Solution Size : 88
+Nodes Expanded : 1816
+Fringe size : 0
+Revisits Avoided: 106
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 1816, solution size: 88
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_015
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0033
+Nodes per Second : 321911.84
+Solution Size : 66
+Nodes Expanded : 1056
+Fringe size : 0
+Revisits Avoided: 55
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 1056, solution size: 66
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_015
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0307
+Nodes per Second : 34390.75
+Solution Size : 66
+Nodes Expanded : 1056
+Fringe size : 0
+Revisits Avoided: 55
+Used Memory: 40.3%
+Recursive DFS finished. Status: GOAL, expansions: 1056, solution size: 66
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_055
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0504
+Nodes per Second : 266092.19
+Solution Size : 264
+Nodes Expanded : 13416
+Fringe size : 0
+Revisits Avoided: 518
+Used Memory: 40.4%
+Recursive DFS finished. Status: GOAL, expansions: 13416, solution size: 264
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_055
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.6245
+Nodes per Second : 8258.50
+Solution Size : 264
+Nodes Expanded : 13416
+Fringe size : 0
+Revisits Avoided: 518
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 13416, solution size: 264
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_010
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0026
+Nodes per Second : 202729.26
+Solution Size : 43
+Nodes Expanded : 518
+Fringe size : 0
+Revisits Avoided: 30
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 518, solution size: 43
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Blocksworld-HPDDL
+  Problem: pfile_010
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0121
+Nodes per Second : 42662.87
+Solution Size : 43
+Nodes Expanded : 518
+Fringe size : 0
+Revisits Avoided: 30
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 518, solution size: 43
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Childsnack
+Experiment Name : rDFS
+Configuration:
+  Domain: Childsnack
+  Problem: p04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1019
+Nodes per Second : 127716.50
+Solution Size : 60
+Nodes Expanded : 13010
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 13010, solution size: 60
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Childsnack
+  Problem: p04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.4567
+Nodes per Second : 10291.58
+Solution Size : 60
+Nodes Expanded : 4700
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 4700, solution size: 60
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Childsnack
+  Problem: p01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0251
+Nodes per Second : 191569.94
+Solution Size : 50
+Nodes Expanded : 4800
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 4800, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Childsnack
+  Problem: p01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1543
+Nodes per Second : 12187.58
+Solution Size : 50
+Nodes Expanded : 1880
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 1880, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Childsnack
+  Problem: p03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0435
+Nodes per Second : 243801.40
+Solution Size : 55
+Nodes Expanded : 10600
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.3%
+Recursive DFS finished. Status: GOAL, expansions: 10600, solution size: 55
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Childsnack
+  Problem: p03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3390
+Nodes per Second : 11479.24
+Solution Size : 55
+Nodes Expanded : 3892
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.6%
+Recursive DFS finished. Status: GOAL, expansions: 3892, solution size: 55
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Childsnack
+  Problem: p02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0257
+Nodes per Second : 205718.36
+Solution Size : 50
+Nodes Expanded : 5286
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.6%
+Recursive DFS finished. Status: GOAL, expansions: 5286, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Childsnack
+  Problem: p02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1642
+Nodes per Second : 12459.74
+Solution Size : 50
+Nodes Expanded : 2046
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 2046, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Childsnack
+  Problem: p05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1134
+Nodes per Second : 131524.82
+Solution Size : 65
+Nodes Expanded : 14913
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 14913, solution size: 65
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Childsnack
+  Problem: p05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.6374
+Nodes per Second : 8539.11
+Solution Size : 65
+Nodes Expanded : 5443
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 5443, solution size: 65
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Depots
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Factories-simple
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0816
+Nodes per Second : 233151.77
+Solution Size : 312
+Nodes Expanded : 19015
+Fringe size : 0
+Revisits Avoided: 952
+Used Memory: 42.1%
+Recursive DFS finished. Status: GOAL, expansions: 19015, solution size: 312
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.5612
+Nodes per Second : 34032.68
+Solution Size : 312
+Nodes Expanded : 19099
+Fringe size : 0
+Revisits Avoided: 957
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 19099, solution size: 312
+Search Result: None
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0084
+Nodes per Second : 297582.11
+Solution Size : 62
+Nodes Expanded : 2505
+Fringe size : 0
+Revisits Avoided: 146
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 2505, solution size: 62
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0325
+Nodes per Second : 77076.86
+Solution Size : 62
+Nodes Expanded : 2505
+Fringe size : 0
+Revisits Avoided: 146
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 2505, solution size: 62
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 17.1039
+Nodes per Second : 175271.20
+Solution Size : 443
+Nodes Expanded : 2997818
+Fringe size : 0
+Revisits Avoided: 145753
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 2997818, solution size: 443
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0120
+Nodes per Second : 323290.68
+Solution Size : 48
+Nodes Expanded : 3891
+Fringe size : 0
+Revisits Avoided: 233
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 3891, solution size: 48
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0460
+Nodes per Second : 84508.55
+Solution Size : 48
+Nodes Expanded : 3891
+Fringe size : 0
+Revisits Avoided: 233
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 3891, solution size: 48
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1257
+Nodes per Second : 308161.97
+Solution Size : 123
+Nodes Expanded : 38740
+Fringe size : 0
+Revisits Avoided: 2209
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 38740, solution size: 123
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.6994
+Nodes per Second : 55390.40
+Solution Size : 123
+Nodes Expanded : 38740
+Fringe size : 0
+Revisits Avoided: 2209
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 38740, solution size: 123
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.9859
+Nodes per Second : 212786.04
+Solution Size : 1071
+Nodes Expanded : 209793
+Fringe size : 0
+Revisits Avoided: 9077
+Used Memory: 42.0%
+Recursive DFS finished. Status: GOAL, expansions: 209793, solution size: 1071
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 9.7662
+Nodes per Second : 21937.28
+Solution Size : 1081
+Nodes Expanded : 214245
+Fringe size : 0
+Revisits Avoided: 9258
+Used Memory: 40.2%
+Recursive DFS finished. Status: GOAL, expansions: 214245, solution size: 1081
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 88.4581
+Nodes per Second : 130494.71
+Solution Size : 2079
+Nodes Expanded : 11543311
+Fringe size : 0
+Revisits Avoided: 433662
+Used Memory: 46.7%
+Recursive DFS finished. Status: GOAL, expansions: 11543311, solution size: 2079
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 10.4928
+Nodes per Second : 184682.59
+Solution Size : 2514
+Nodes Expanded : 1937830
+Fringe size : 0
+Revisits Avoided: 78013
+Used Memory: 41.3%
+Recursive DFS finished. Status: GOAL, expansions: 1937830, solution size: 2514
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 106.3702
+Nodes per Second : 18229.32
+Solution Size : 2514
+Nodes Expanded : 1939056
+Fringe size : 0
+Revisits Avoided: 78051
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 1939056, solution size: 2514
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 247924.78
+Solution Size : 15
+Nodes Expanded : 85
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 41.3%
+Recursive DFS finished. Status: GOAL, expansions: 85, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Factories-simple
+  Problem: pfile01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0008
+Nodes per Second : 113535.92
+Solution Size : 15
+Nodes Expanded : 87
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 41.4%
+Recursive DFS finished. Status: GOAL, expansions: 87, solution size: 15
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Freecell-Learned-ECAI-16
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Hiking
+@
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Lamps
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Logistics-Learned-ECAI-16
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-0
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 213789.30
+Solution Size : 81
+Nodes Expanded : 1325
+Fringe size : 0
+Revisits Avoided: 33
+Used Memory: 41.1%
+Recursive DFS finished. Status: GOAL, expansions: 1325, solution size: 81
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-0
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0484
+Nodes per Second : 27954.59
+Solution Size : 81
+Nodes Expanded : 1353
+Fringe size : 0
+Revisits Avoided: 33
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 1353, solution size: 81
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-1
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0013
+Nodes per Second : 291649.17
+Solution Size : 43
+Nodes Expanded : 375
+Fringe size : 0
+Revisits Avoided: 5
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 375, solution size: 43
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-1
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0155
+Nodes per Second : 24787.73
+Solution Size : 43
+Nodes Expanded : 383
+Fringe size : 0
+Revisits Avoided: 5
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 383, solution size: 43
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-2
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0061
+Nodes per Second : 205404.35
+Solution Size : 81
+Nodes Expanded : 1246
+Fringe size : 0
+Revisits Avoided: 35
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 1246, solution size: 81
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-2
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0542
+Nodes per Second : 23368.29
+Solution Size : 81
+Nodes Expanded : 1267
+Fringe size : 0
+Revisits Avoided: 35
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 1267, solution size: 81
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-3
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0036
+Nodes per Second : 313249.31
+Solution Size : 74
+Nodes Expanded : 1142
+Fringe size : 0
+Revisits Avoided: 38
+Used Memory: 41.3%
+Recursive DFS finished. Status: GOAL, expansions: 1142, solution size: 74
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-06-3
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0405
+Nodes per Second : 28506.82
+Solution Size : 74
+Nodes Expanded : 1155
+Fringe size : 0
+Revisits Avoided: 38
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 1155, solution size: 74
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-1
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 227649.04
+Solution Size : 50
+Nodes Expanded : 483
+Fringe size : 0
+Revisits Avoided: 11
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 483, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-1
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0207
+Nodes per Second : 23826.06
+Solution Size : 50
+Nodes Expanded : 493
+Fringe size : 0
+Revisits Avoided: 11
+Used Memory: 41.4%
+Recursive DFS finished. Status: GOAL, expansions: 493, solution size: 50
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-2
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0009
+Nodes per Second : 249122.92
+Solution Size : 27
+Nodes Expanded : 226
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 41.4%
+Recursive DFS finished. Status: GOAL, expansions: 226, solution size: 27
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-2
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0070
+Nodes per Second : 32658.18
+Solution Size : 27
+Nodes Expanded : 230
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 41.4%
+Recursive DFS finished. Status: GOAL, expansions: 230, solution size: 27
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-2
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 348640.80
+Solution Size : 40
+Nodes Expanded : 427
+Fringe size : 0
+Revisits Avoided: 11
+Used Memory: 41.4%
+Recursive DFS finished. Status: GOAL, expansions: 427, solution size: 40
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-2
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0114
+Nodes per Second : 38190.83
+Solution Size : 40
+Nodes Expanded : 434
+Fringe size : 0
+Revisits Avoided: 11
+Used Memory: 41.5%
+Recursive DFS finished. Status: GOAL, expansions: 434, solution size: 40
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-0
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0066
+Nodes per Second : 260709.34
+Solution Size : 89
+Nodes Expanded : 1715
+Fringe size : 0
+Revisits Avoided: 53
+Used Memory: 41.5%
+Recursive DFS finished. Status: GOAL, expansions: 1715, solution size: 89
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-05-0
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0586
+Nodes per Second : 29653.13
+Solution Size : 89
+Nodes Expanded : 1737
+Fringe size : 0
+Revisits Avoided: 53
+Used Memory: 41.5%
+Recursive DFS finished. Status: GOAL, expansions: 1737, solution size: 89
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-0
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : UNSOLVABLE
+Search Time (seconds) : 0.0041
+Nodes per Second : 293456.88
+Solution Size : 0
+Nodes Expanded : 1199
+Fringe size : 0
+Revisits Avoided: 40
+Used Memory: 41.4%
+Recursive DFS finished. Status: UNSOLVABLE, expansions: 1199, solution size: 0
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-0
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : UNSOLVABLE
+Search Time (seconds) : 0.0339
+Nodes per Second : 35381.40
+Solution Size : 0
+Nodes Expanded : 1199
+Fringe size : 0
+Revisits Avoided: 40
+Used Memory: 41.5%
+Recursive DFS finished. Status: UNSOLVABLE, expansions: 1199, solution size: 0
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-1
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0027
+Nodes per Second : 229324.07
+Solution Size : 58
+Nodes Expanded : 621
+Fringe size : 0
+Revisits Avoided: 20
+Used Memory: 41.5%
+Recursive DFS finished. Status: GOAL, expansions: 621, solution size: 58
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Logistics-Learned-ECAI-16
+  Problem: probLOGISTICS-04-1
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0194
+Nodes per Second : 32990.24
+Solution Size : 58
+Nodes Expanded : 639
+Fringe size : 0
+Revisits Avoided: 20
+Used Memory: 41.6%
+Recursive DFS finished. Status: GOAL, expansions: 639, solution size: 58
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Minecraft-Regular
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0029
+Nodes per Second : 186823.26
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.0%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0705
+Nodes per Second : 7615.44
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 192936.55
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0724
+Nodes per Second : 7420.73
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.4%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-005-004-005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0019
+Nodes per Second : 214514.97
+Solution Size : 78
+Nodes Expanded : 400
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.6%
+Recursive DFS finished. Status: GOAL, expansions: 400, solution size: 78
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-005-004-005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0336
+Nodes per Second : 11909.12
+Solution Size : 78
+Nodes Expanded : 400
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.0%
+Recursive DFS finished. Status: GOAL, expansions: 400, solution size: 78
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 188669.90
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0686
+Nodes per Second : 7823.56
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.2%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-004-004-004
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 224219.14
+Solution Size : 54
+Nodes Expanded : 303
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.1%
+Recursive DFS finished. Status: GOAL, expansions: 303, solution size: 54
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-004-004-004
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0191
+Nodes per Second : 15860.75
+Solution Size : 54
+Nodes Expanded : 303
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.9%
+Recursive DFS finished. Status: GOAL, expansions: 303, solution size: 54
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-003-003-003
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0009
+Nodes per Second : 219303.09
+Solution Size : 35
+Nodes Expanded : 207
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.9%
+Recursive DFS finished. Status: GOAL, expansions: 207, solution size: 35
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-003-003-003
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0097
+Nodes per Second : 21292.97
+Solution Size : 35
+Nodes Expanded : 207
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.0%
+Recursive DFS finished. Status: GOAL, expansions: 207, solution size: 35
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0038
+Nodes per Second : 140771.33
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.2%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0675
+Nodes per Second : 7959.79
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.6%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-004-004-004
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 200460.97
+Solution Size : 66
+Nodes Expanded : 352
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.5%
+Recursive DFS finished. Status: GOAL, expansions: 352, solution size: 66
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-004-004-004
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0251
+Nodes per Second : 14043.78
+Solution Size : 66
+Nodes Expanded : 352
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.6%
+Recursive DFS finished. Status: GOAL, expansions: 352, solution size: 66
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 191704.93
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.9%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-5-5-5-10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0863
+Nodes per Second : 6221.47
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.3%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-004-003-004
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0011
+Nodes per Second : 216992.95
+Solution Size : 44
+Nodes Expanded : 243
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.4%
+Recursive DFS finished. Status: GOAL, expansions: 243, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-003-004-003-004
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0113
+Nodes per Second : 21415.25
+Solution Size : 44
+Nodes Expanded : 243
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.4%
+Recursive DFS finished. Status: GOAL, expansions: 243, solution size: 44
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-005-005-005-005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 190199.40
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.4%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-005-005-005-005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0667
+Nodes per Second : 8054.17
+Solution Size : 107
+Nodes Expanded : 537
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.3%
+Recursive DFS finished. Status: GOAL, expansions: 537, solution size: 107
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-005-005-005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0026
+Nodes per Second : 186378.71
+Solution Size : 92
+Nodes Expanded : 476
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.2%
+Recursive DFS finished. Status: GOAL, expansions: 476, solution size: 92
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Minecraft-Regular
+  Problem: p-004-005-005-005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0475
+Nodes per Second : 10018.06
+Solution Size : 92
+Nodes Expanded : 476
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.3%
+Recursive DFS finished. Status: GOAL, expansions: 476, solution size: 92
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Monroe-Fully-Observable
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.9931
+Nodes per Second : 436164.53
+Solution Size : 25
+Nodes Expanded : 433143
+Fringe size : 0
+Revisits Avoided: 10
+Used Memory: 43.8%
+Recursive DFS finished. Status: GOAL, expansions: 433143, solution size: 25
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.4089
+Nodes per Second : 486338.68
+Solution Size : 11
+Nodes Expanded : 198877
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.9%
+Recursive DFS finished. Status: GOAL, expansions: 198877, solution size: 11
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 74.3265
+Nodes per Second : 2675.72
+Solution Size : 11
+Nodes Expanded : 198877
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.4%
+Recursive DFS finished. Status: GOAL, expansions: 198877, solution size: 11
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0023
+Nodes per Second : 46437.70
+Solution Size : 19
+Nodes Expanded : 109
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 109, solution size: 19
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0255
+Nodes per Second : 4269.07
+Solution Size : 19
+Nodes Expanded : 109
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 109, solution size: 19
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0020
+Nodes per Second : 92412.54
+Solution Size : 28
+Nodes Expanded : 181
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 181, solution size: 28
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0475
+Nodes per Second : 3813.35
+Solution Size : 28
+Nodes Expanded : 181
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.5%
+Recursive DFS finished. Status: GOAL, expansions: 181, solution size: 28
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.5019
+Nodes per Second : 476900.29
+Solution Size : 45
+Nodes Expanded : 239346
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 239346, solution size: 45
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 94.3967
+Nodes per Second : 2535.53
+Solution Size : 45
+Nodes Expanded : 239346
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 46.1%
+Recursive DFS finished. Status: GOAL, expansions: 239346, solution size: 45
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.4547
+Nodes per Second : 480671.38
+Solution Size : 12
+Nodes Expanded : 218556
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.1%
+Recursive DFS finished. Status: GOAL, expansions: 218556, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 86.0303
+Nodes per Second : 2540.45
+Solution Size : 12
+Nodes Expanded : 218556
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 45.4%
+Recursive DFS finished. Status: GOAL, expansions: 218556, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0055
+Nodes per Second : 377648.41
+Solution Size : 15
+Nodes Expanded : 2087
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.1%
+Recursive DFS finished. Status: GOAL, expansions: 2087, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.0367
+Nodes per Second : 2012.24
+Solution Size : 15
+Nodes Expanded : 2086
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.1%
+Recursive DFS finished. Status: GOAL, expansions: 2086, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3492
+Nodes per Second : 499470.53
+Solution Size : 18
+Nodes Expanded : 174430
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 43.0%
+Recursive DFS finished. Status: GOAL, expansions: 174430, solution size: 18
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 65.8353
+Nodes per Second : 2649.49
+Solution Size : 18
+Nodes Expanded : 174430
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 46.1%
+Recursive DFS finished. Status: GOAL, expansions: 174430, solution size: 18
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.6856
+Nodes per Second : 398344.84
+Solution Size : 34
+Nodes Expanded : 671459
+Fringe size : 0
+Revisits Avoided: 8
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 671459, solution size: 34
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.5614
+Nodes per Second : 388295.81
+Solution Size : 48
+Nodes Expanded : 218001
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 218001, solution size: 48
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Fully-Observable
+  Problem: pfile10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 82.6922
+Nodes per Second : 2636.29
+Solution Size : 48
+Nodes Expanded : 218001
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 47.1%
+Recursive DFS finished. Status: GOAL, expansions: 218001, solution size: 48
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Monroe-Partially-Observable
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.3980
+Nodes per Second : 135644.92
+Solution Size : 6
+Nodes Expanded : 189626
+Fringe size : 0
+Revisits Avoided: 900
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 189626, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 81.4709
+Nodes per Second : 2327.49
+Solution Size : 6
+Nodes Expanded : 189623
+Fringe size : 0
+Revisits Avoided: 900
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 189623, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3104
+Nodes per Second : 78096.42
+Solution Size : 12
+Nodes Expanded : 24238
+Fringe size : 0
+Revisits Avoided: 48
+Used Memory: 42.0%
+Recursive DFS finished. Status: GOAL, expansions: 24238, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 7.8859
+Nodes per Second : 3073.57
+Solution Size : 12
+Nodes Expanded : 24238
+Fringe size : 0
+Revisits Avoided: 48
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 24238, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0461
+Nodes per Second : 408920.45
+Solution Size : 13
+Nodes Expanded : 18847
+Fringe size : 0
+Revisits Avoided: 34
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 18847, solution size: 13
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 7.5014
+Nodes per Second : 2512.48
+Solution Size : 13
+Nodes Expanded : 18847
+Fringe size : 0
+Revisits Avoided: 34
+Used Memory: 43.3%
+Recursive DFS finished. Status: GOAL, expansions: 18847, solution size: 13
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0018
+Nodes per Second : 300153.13
+Solution Size : 12
+Nodes Expanded : 536
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 43.0%
+Recursive DFS finished. Status: GOAL, expansions: 536, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Monroe-Partially-Observable
+  Problem: pfile05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1502
+Nodes per Second : 3568.68
+Solution Size : 12
+Nodes Expanded : 536
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 43.2%
+Recursive DFS finished. Status: GOAL, expansions: 536, solution size: 12
+Search Result: None
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Multiarm-Blocksworld
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_010
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0200
+Nodes per Second : 446665.75
+Solution Size : 49
+Nodes Expanded : 8925
+Fringe size : 0
+Revisits Avoided: 276
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 8925, solution size: 49
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_010
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1674
+Nodes per Second : 53191.69
+Solution Size : 49
+Nodes Expanded : 8902
+Fringe size : 0
+Revisits Avoided: 275
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 8902, solution size: 49
+Search Result: None
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_01_010
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 354831.11
+Solution Size : 45
+Nodes Expanded : 496
+Fringe size : 0
+Revisits Avoided: 13
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 496, solution size: 45
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_01_010
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0085
+Nodes per Second : 58265.64
+Solution Size : 45
+Nodes Expanded : 496
+Fringe size : 0
+Revisits Avoided: 13
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 496, solution size: 45
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_015
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2208
+Nodes per Second : 526336.09
+Solution Size : 70
+Nodes Expanded : 116223
+Fringe size : 0
+Revisits Avoided: 3749
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 116223, solution size: 70
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_015
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 2.1319
+Nodes per Second : 37693.96
+Solution Size : 70
+Nodes Expanded : 80359
+Fringe size : 0
+Revisits Avoided: 2579
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 80359, solution size: 70
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0033
+Nodes per Second : 381523.05
+Solution Size : 20
+Nodes Expanded : 1246
+Fringe size : 0
+Revisits Avoided: 23
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 1246, solution size: 20
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0212
+Nodes per Second : 89161.13
+Solution Size : 20
+Nodes Expanded : 1888
+Fringe size : 0
+Revisits Avoided: 42
+Used Memory: 41.8%
+Recursive DFS finished. Status: GOAL, expansions: 1888, solution size: 20
+Search Result: None
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_01_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 376897.80
+Solution Size : 23
+Nodes Expanded : 179
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 179, solution size: 23
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_01_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 109252.10
+Solution Size : 23
+Nodes Expanded : 179
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 179, solution size: 23
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_030
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0269
+Nodes per Second : 219997.74
+Solution Size : 171
+Nodes Expanded : 5919
+Fringe size : 0
+Revisits Avoided: 56
+Used Memory: 43.6%
+Recursive DFS finished. Status: GOAL, expansions: 5919, solution size: 171
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Multiarm-Blocksworld
+  Problem: pfile_02_030
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.2347
+Nodes per Second : 19639.71
+Solution Size : 171
+Nodes Expanded : 24249
+Fringe size : 0
+Revisits Avoided: 209
+Used Memory: 43.9%
+Recursive DFS finished. Status: GOAL, expansions: 24249, solution size: 171
+Search Result: None
+@
+@
+@
+@
+@
+@
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Robot
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_001
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 510844.72
+Solution Size : 6
+Nodes Expanded : 76
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 76, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_001
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 152274.82
+Solution Size : 6
+Nodes Expanded : 79
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 79, solution size: 6
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_010
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0025
+Nodes per Second : 478058.71
+Solution Size : 40
+Nodes Expanded : 1175
+Fringe size : 0
+Revisits Avoided: 38
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 1175, solution size: 40
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_010
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0099
+Nodes per Second : 121074.37
+Solution Size : 45
+Nodes Expanded : 1194
+Fringe size : 0
+Revisits Avoided: 33
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 1194, solution size: 45
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 187039.82
+Solution Size : 15
+Nodes Expanded : 219
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 219, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 144928.05
+Solution Size : 16
+Nodes Expanded : 202
+Fringe size : 0
+Revisits Avoided: 5
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 202, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_003
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0008
+Nodes per Second : 227171.54
+Solution Size : 15
+Nodes Expanded : 190
+Fringe size : 0
+Revisits Avoided: 7
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 190, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_003
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0008
+Nodes per Second : 183476.74
+Solution Size : 16
+Nodes Expanded : 143
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 143, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0015
+Nodes per Second : 485720.07
+Solution Size : 23
+Nodes Expanded : 721
+Fringe size : 0
+Revisits Avoided: 24
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 721, solution size: 23
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0034
+Nodes per Second : 169331.56
+Solution Size : 23
+Nodes Expanded : 569
+Fringe size : 0
+Revisits Avoided: 15
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 569, solution size: 23
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_003
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 265639.25
+Solution Size : 7
+Nodes Expanded : 76
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 76, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_04_003
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 163722.19
+Solution Size : 7
+Nodes Expanded : 76
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 76, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_002
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 473833.51
+Solution Size : 7
+Nodes Expanded : 81
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 81, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_02_002
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 178998.22
+Solution Size : 7
+Nodes Expanded : 81
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 81, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_002
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 466241.83
+Solution Size : 11
+Nodes Expanded : 249
+Fringe size : 0
+Revisits Avoided: 10
+Used Memory: 42.3%
+Recursive DFS finished. Status: GOAL, expansions: 249, solution size: 11
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_002
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0010
+Nodes per Second : 213387.45
+Solution Size : 11
+Nodes Expanded : 215
+Fringe size : 0
+Revisits Avoided: 8
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 215, solution size: 11
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_005
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 520199.37
+Solution Size : 36
+Nodes Expanded : 827
+Fringe size : 0
+Revisits Avoided: 27
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 827, solution size: 36
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_05_005
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0045
+Nodes per Second : 149993.81
+Solution Size : 35
+Nodes Expanded : 679
+Fringe size : 0
+Revisits Avoided: 19
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 679, solution size: 35
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_01_001
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0000
+Nodes per Second : 164482.51
+Solution Size : 0
+Nodes Expanded : 4
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 4, solution size: 0
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_01_001
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0000
+Nodes per Second : 108942.96
+Solution Size : 0
+Nodes Expanded : 4
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 4, solution size: 0
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_001
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 529583.84
+Solution Size : 7
+Nodes Expanded : 125
+Fringe size : 0
+Revisits Avoided: 6
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 125, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Robot
+  Problem: pfile_03_001
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 240965.40
+Solution Size : 7
+Nodes Expanded : 128
+Fringe size : 0
+Revisits Avoided: 6
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 128, solution size: 7
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Rover-GTOHP
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0009
+Nodes per Second : 266212.75
+Solution Size : 75
+Nodes Expanded : 229
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 229, solution size: 75
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 36870.50
+Solution Size : 75
+Nodes Expanded : 227
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 227, solution size: 75
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 257299.03
+Solution Size : 58
+Nodes Expanded : 156
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 156, solution size: 58
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0030
+Nodes per Second : 51315.58
+Solution Size : 58
+Nodes Expanded : 155
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 155, solution size: 58
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 301937.38
+Solution Size : 16
+Nodes Expanded : 46
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 46, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 92892.63
+Solution Size : 16
+Nodes Expanded : 46
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 46, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0028
+Nodes per Second : 241215.05
+Solution Size : 171
+Nodes Expanded : 680
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 680, solution size: 171
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0330
+Nodes per Second : 20360.85
+Solution Size : 171
+Nodes Expanded : 671
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 671, solution size: 171
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 261866.60
+Solution Size : 20
+Nodes Expanded : 59
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 59, solution size: 20
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0008
+Nodes per Second : 76307.10
+Solution Size : 20
+Nodes Expanded : 59
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 59, solution size: 20
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 198102.31
+Solution Size : 29
+Nodes Expanded : 87
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 87, solution size: 29
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0012
+Nodes per Second : 70783.00
+Solution Size : 29
+Nodes Expanded : 86
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 86, solution size: 29
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0021
+Nodes per Second : 181316.76
+Solution Size : 118
+Nodes Expanded : 385
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 385, solution size: 118
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0137
+Nodes per Second : 27775.40
+Solution Size : 118
+Nodes Expanded : 380
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 380, solution size: 118
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0016
+Nodes per Second : 211049.78
+Solution Size : 111
+Nodes Expanded : 340
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 340, solution size: 111
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0108
+Nodes per Second : 31060.65
+Solution Size : 111
+Nodes Expanded : 334
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 334, solution size: 111
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0062
+Nodes per Second : 185868.80
+Solution Size : 221
+Nodes Expanded : 1145
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 1145, solution size: 221
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0796
+Nodes per Second : 14168.42
+Solution Size : 221
+Nodes Expanded : 1128
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.2%
+Recursive DFS finished. Status: GOAL, expansions: 1128, solution size: 221
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0156
+Nodes per Second : 179382.10
+Solution Size : 396
+Nodes Expanded : 2804
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.5%
+Recursive DFS finished. Status: GOAL, expansions: 2804, solution size: 396
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Rover-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.3627
+Nodes per Second : 7641.92
+Solution Size : 396
+Nodes Expanded : 2772
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 2772, solution size: 396
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Satellite-GTOHP
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p12
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.4486
+Nodes per Second : 26770.92
+Solution Size : 266
+Nodes Expanded : 12010
+Fringe size : 0
+Revisits Avoided: 918
+Used Memory: 43.8%
+Recursive DFS finished. Status: GOAL, expansions: 12010, solution size: 266
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p12
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 28.1415
+Nodes per Second : 429.15
+Solution Size : 266
+Nodes Expanded : 12077
+Fringe size : 0
+Revisits Avoided: 901
+Used Memory: 43.8%
+Recursive DFS finished. Status: GOAL, expansions: 12077, solution size: 266
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p13
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.5914
+Nodes per Second : 28198.45
+Solution Size : 474
+Nodes Expanded : 44875
+Fringe size : 0
+Revisits Avoided: 3006
+Used Memory: 44.1%
+Recursive DFS finished. Status: GOAL, expansions: 44875, solution size: 474
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0240
+Nodes per Second : 70607.39
+Solution Size : 97
+Nodes Expanded : 1694
+Fringe size : 0
+Revisits Avoided: 20
+Used Memory: 42.4%
+Recursive DFS finished. Status: GOAL, expansions: 1694, solution size: 97
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.5027
+Nodes per Second : 3377.83
+Solution Size : 101
+Nodes Expanded : 1698
+Fringe size : 0
+Revisits Avoided: 10
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 1698, solution size: 101
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0052
+Nodes per Second : 122496.30
+Solution Size : 55
+Nodes Expanded : 641
+Fringe size : 0
+Revisits Avoided: 43
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 641, solution size: 55
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0629
+Nodes per Second : 8852.06
+Solution Size : 55
+Nodes Expanded : 557
+Fringe size : 0
+Revisits Avoided: 39
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 557, solution size: 55
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 247597.64
+Solution Size : 12
+Nodes Expanded : 50
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 50, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 86028.00
+Solution Size : 12
+Nodes Expanded : 49
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 49, solution size: 12
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0129
+Nodes per Second : 189085.89
+Solution Size : 77
+Nodes Expanded : 2445
+Fringe size : 0
+Revisits Avoided: 207
+Used Memory: 42.6%
+Recursive DFS finished. Status: GOAL, expansions: 2445, solution size: 77
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2850
+Nodes per Second : 8827.40
+Solution Size : 77
+Nodes Expanded : 2516
+Fringe size : 0
+Revisits Avoided: 197
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 2516, solution size: 77
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p11
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2480
+Nodes per Second : 51622.81
+Solution Size : 256
+Nodes Expanded : 12801
+Fringe size : 0
+Revisits Avoided: 714
+Used Memory: 43.7%
+Recursive DFS finished. Status: GOAL, expansions: 12801, solution size: 256
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p11
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 32.3932
+Nodes per Second : 397.46
+Solution Size : 256
+Nodes Expanded : 12875
+Fringe size : 0
+Revisits Avoided: 700
+Used Memory: 45.4%
+Recursive DFS finished. Status: GOAL, expansions: 12875, solution size: 256
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0004
+Nodes per Second : 175532.55
+Solution Size : 16
+Nodes Expanded : 76
+Fringe size : 0
+Revisits Avoided: 3
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 76, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 51875.46
+Solution Size : 16
+Nodes Expanded : 75
+Fringe size : 0
+Revisits Avoided: 2
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 75, solution size: 16
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0005
+Nodes per Second : 160199.11
+Solution Size : 18
+Nodes Expanded : 77
+Fringe size : 0
+Revisits Avoided: 1
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 77, solution size: 18
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0011
+Nodes per Second : 66576.25
+Solution Size : 18
+Nodes Expanded : 76
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 76, solution size: 18
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0374
+Nodes per Second : 77242.23
+Solution Size : 115
+Nodes Expanded : 2887
+Fringe size : 0
+Revisits Avoided: 148
+Used Memory: 43.0%
+Recursive DFS finished. Status: GOAL, expansions: 2887, solution size: 115
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.3510
+Nodes per Second : 2227.27
+Solution Size : 115
+Nodes Expanded : 3009
+Fringe size : 0
+Revisits Avoided: 134
+Used Memory: 43.1%
+Recursive DFS finished. Status: GOAL, expansions: 3009, solution size: 115
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0219
+Nodes per Second : 70521.64
+Solution Size : 82
+Nodes Expanded : 1546
+Fringe size : 0
+Revisits Avoided: 124
+Used Memory: 43.1%
+Recursive DFS finished. Status: GOAL, expansions: 1546, solution size: 82
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2485
+Nodes per Second : 6402.53
+Solution Size : 82
+Nodes Expanded : 1591
+Fringe size : 0
+Revisits Avoided: 117
+Used Memory: 43.1%
+Recursive DFS finished. Status: GOAL, expansions: 1591, solution size: 82
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2073
+Nodes per Second : 47527.65
+Solution Size : 243
+Nodes Expanded : 9853
+Fringe size : 0
+Revisits Avoided: 304
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 9853, solution size: 243
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 5.3028
+Nodes per Second : 1437.74
+Solution Size : 255
+Nodes Expanded : 7624
+Fringe size : 0
+Revisits Avoided: 284
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 7624, solution size: 255
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0781
+Nodes per Second : 43375.61
+Solution Size : 191
+Nodes Expanded : 3386
+Fringe size : 0
+Revisits Avoided: 83
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 3386, solution size: 191
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Satellite-GTOHP
+  Problem: p10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 3.0670
+Nodes per Second : 855.24
+Solution Size : 195
+Nodes Expanded : 2623
+Fringe size : 0
+Revisits Avoided: 74
+Used Memory: 42.9%
+Recursive DFS finished. Status: GOAL, expansions: 2623, solution size: 195
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Snake
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-5slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 75.3095
+Nodes per Second : 243351.62
+Solution Size : 89
+Nodes Expanded : 18326690
+Fringe size : 0
+Revisits Avoided: 12129
+Used Memory: 55.0%
+Recursive DFS finished. Status: GOAL, expansions: 18326690, solution size: 89
+Search Result: None
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-2slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0032
+Nodes per Second : 158001.36
+Solution Size : 17
+Nodes Expanded : 500
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.6%
+Recursive DFS finished. Status: GOAL, expansions: 500, solution size: 17
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Snake
+  Problem: pb-2slots-seed1.snake
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0129
+Nodes per Second : 38642.22
+Solution Size : 17
+Nodes Expanded : 500
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.8%
+Recursive DFS finished. Status: GOAL, expansions: 500, solution size: 17
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-3slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0122
+Nodes per Second : 128158.83
+Solution Size : 32
+Nodes Expanded : 1559
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.5%
+Recursive DFS finished. Status: GOAL, expansions: 1559, solution size: 32
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Snake
+  Problem: pb-3slots-seed1.snake
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.1034
+Nodes per Second : 15075.42
+Solution Size : 32
+Nodes Expanded : 1559
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 43.4%
+Recursive DFS finished. Status: GOAL, expansions: 1559, solution size: 32
+Search Result: None
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-4slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 7.1373
+Nodes per Second : 282163.84
+Solution Size : 61
+Nodes Expanded : 2013885
+Fringe size : 0
+Revisits Avoided: 1801
+Used Memory: 46.3%
+Recursive DFS finished. Status: GOAL, expansions: 2013885, solution size: 61
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Snake
+  Problem: pb-4slots-seed1.snake
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 100.7571
+Nodes per Second : 20000.57
+Solution Size : 61
+Nodes Expanded : 2015200
+Fringe size : 0
+Revisits Avoided: 1801
+Used Memory: 46.2%
+Recursive DFS finished. Status: GOAL, expansions: 2015200, solution size: 61
+Search Result: None
+@
+@
+@
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-10slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Snake
+  Problem: pb-10slots-seed1.snake
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Snake
+  Problem: pb-9slots-seed1.snake
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Snake
+  Problem: pb-9slots-seed1.snake
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Towers
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0006
+Nodes per Second : 378060.65
+Solution Size : 7
+Nodes Expanded : 244
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 244, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_03
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0014
+Nodes per Second : 169917.01
+Solution Size : 7
+Nodes Expanded : 244
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.8%
+Recursive DFS finished. Status: GOAL, expansions: 244, solution size: 7
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0219
+Nodes per Second : 410930.90
+Solution Size : 63
+Nodes Expanded : 9012
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 9012, solution size: 63
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_06
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0839
+Nodes per Second : 110047.89
+Solution Size : 63
+Nodes Expanded : 9238
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 9238, solution size: 63
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2858
+Nodes per Second : 230297.90
+Solution Size : 255
+Nodes Expanded : 65826
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.7%
+Recursive DFS finished. Status: GOAL, expansions: 65826, solution size: 255
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_08
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 1.1471
+Nodes per Second : 60150.45
+Solution Size : 255
+Nodes Expanded : 68999
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.5%
+Recursive DFS finished. Status: GOAL, expansions: 68999, solution size: 255
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 291911.27
+Solution Size : 1
+Nodes Expanded : 19
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 19, solution size: 1
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 167419.70
+Solution Size : 1
+Nodes Expanded : 19
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 19, solution size: 1
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 341717.28
+Solution Size : 3
+Nodes Expanded : 62
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 62, solution size: 3
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_02
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0003
+Nodes per Second : 191351.62
+Solution Size : 3
+Nodes Expanded : 62
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 42.2%
+Recursive DFS finished. Status: GOAL, expansions: 62, solution size: 3
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 2.3427
+Nodes per Second : 193053.23
+Solution Size : 1023
+Nodes Expanded : 452264
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.7%
+Recursive DFS finished. Status: GOAL, expansions: 452264, solution size: 1023
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_10
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 10.1849
+Nodes per Second : 44654.74
+Solution Size : 1023
+Nodes Expanded : 454806
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.9%
+Recursive DFS finished. Status: GOAL, expansions: 454806, solution size: 1023
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0071
+Nodes per Second : 388421.82
+Solution Size : 31
+Nodes Expanded : 2742
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.6%
+Recursive DFS finished. Status: GOAL, expansions: 2742, solution size: 31
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_05
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0223
+Nodes per Second : 134134.52
+Solution Size : 31
+Nodes Expanded : 2992
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 2992, solution size: 31
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_11
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 4.3390
+Nodes per Second : 269922.08
+Solution Size : 2047
+Nodes Expanded : 1171197
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.1%
+Recursive DFS finished. Status: GOAL, expansions: 1171197, solution size: 2047
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_11
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 25.7716
+Nodes per Second : 45564.28
+Solution Size : 2047
+Nodes Expanded : 1174264
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 44.4%
+Recursive DFS finished. Status: GOAL, expansions: 1174264, solution size: 2047
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0672
+Nodes per Second : 343421.78
+Solution Size : 127
+Nodes Expanded : 23069
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.7%
+Recursive DFS finished. Status: GOAL, expansions: 23069, solution size: 127
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_07
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.2792
+Nodes per Second : 89918.03
+Solution Size : 127
+Nodes Expanded : 25106
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 25106, solution size: 127
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0025
+Nodes per Second : 368930.55
+Solution Size : 15
+Nodes Expanded : 930
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.9%
+Recursive DFS finished. Status: GOAL, expansions: 930, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_04
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0070
+Nodes per Second : 135222.32
+Solution Size : 15
+Nodes Expanded : 953
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 953, solution size: 15
+Search Result: None
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Towers
+  Problem: pfile_09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.7174
+Nodes per Second : 234696.29
+Solution Size : 511
+Nodes Expanded : 168360
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.0%
+Recursive DFS finished. Status: GOAL, expansions: 168360, solution size: 511
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Towers
+  Problem: pfile_09
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 3.1519
+Nodes per Second : 55825.60
+Solution Size : 511
+Nodes Expanded : 175958
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 40.8%
+Recursive DFS finished. Status: GOAL, expansions: 175958, solution size: 511
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Transport
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile11
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile05
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile10
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile03
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile06
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile02
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile04
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile07
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile09
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile08
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+@
+@
+Experiment Name : rDFS
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: rDFS, Params: {}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0001
+Nodes per Second : 280510.78
+Solution Size : 8
+Nodes Expanded : 21
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.1%
+Recursive DFS finished. Status: GOAL, expansions: 21, solution size: 8
+Search Result: None
+@
+Experiment Name : rDFS-novelty
+Configuration:
+  Domain: Transport
+  Problem: pfile01
+  Search: rDFS, Params: {'use_novelty': True}
+  Node: AstarNode, Params: {}
+  Heuristic: TDG, Params: {}
+
+Starting recursive DFS solver...
+Search Status : GOAL
+Search Time (seconds) : 0.0002
+Nodes per Second : 136347.34
+Solution Size : 8
+Nodes Expanded : 21
+Fringe size : 0
+Revisits Avoided: 0
+Used Memory: 41.2%
+Recursive DFS finished. Status: GOAL, expansions: 21, solution size: 8
+Search Result: None
+@
+Processing domain directory: ../../htn-benchmarks/smallBenchmarks//Woodworking
