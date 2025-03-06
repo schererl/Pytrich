@@ -1,6 +1,7 @@
 from collections import deque
 from copy import deepcopy
 import gc
+import math
 
 from Pytrich.ProblemRepresentation.and_or_graph import AndOrGraph
 from Pytrich.ProblemRepresentation.and_or_graph import NodeType
@@ -13,6 +14,7 @@ class Landmarks:
         self.count_abtask_lms  = 0
         self.count_fact_lms    = 0
         self.count_method_lms  = 0
+        self.count_disjunction_lms = 0
 
         self.valid_disjunctions = []
         self.gn_fact_orderings = []
@@ -131,7 +133,89 @@ class Landmarks:
         # compute landmarks based on task network
         for t in task_network:
             self.mt_lms |= self.mt_lookup[t.global_id]
+
+
+    def compute_ucp(self, landmarks):
+        """
+        Compute Uniform Cost Partitioning (UCP) for the provided disjunctive landmarks.
+        
+        Parameters:
+            landmarks (list of set[int]): Each element is a set (disjunctive landmark) of 
+                landmark element IDs (only operators and methods are considered).
                 
+        The function does the following:
+          1. For each disjunctive landmark in `landmarks`, assign each element a unique index 
+             (stored in self.index_of) if not already set.
+          2. Record in self.appears_in the list of disjunct indices in which each landmark element appears.
+          3. Count the unary landmarks (single-element sets) versus disjunctive ones.
+          4. For each unique landmark element (assumed to have cost 1), assign a cost share equal 
+             to 1 divided by its number of appearances.
+          5. Sets self.lms to a bitmask with one bit per unique landmark element.
+          
+        Returns:
+            dict: A mapping (self.ucp_cost) from unique landmark index to its cost share.
+        """
+        # Initialize or reset data structures.
+        if not hasattr(self, "index_of"):
+            self.index_of = {}
+        if not hasattr(self, "appears_in"):
+            self.appears_in = {}
+        self.appears_in.clear()
+        if not hasattr(self, "ucp_cost"):
+            self.ucp_cost = {}
+        else:
+            self.ucp_cost.clear()
+        
+        # Reset counts.
+        self.count_operator_lms = 0
+        self.count_method_lms = 0
+        self.count_disjunction_lms = 0
+
+        # Induce disjunctions of operators for fact landmarks, 
+        # and disjunction of methods for abstract tasks.
+        # Assign a unique index for each landmark element and record its appearances.
+        iof = 0
+        for lm_pos, lm_id in enumerate(landmarks):
+            node = self.bu_graph.nodes[lm_id]
+            curr_lm = []
+            if node.content_type == ContentType.METHOD:
+                self.count_method_lms += 1
+                curr_lm = [lm_id]
+            elif node.content_type == ContentType.OPERATOR:
+                self.count_operator_lms += 1
+                curr_lm = [lm_id]
+            else:
+                self.count_disjunction_lms += 1
+                curr_lm = [pred.ID for pred in node.predecessors]
+            
+            for ulm in curr_lm:
+                if self.index_of.get(ulm, -1) == -1:
+                    self.index_of[ulm] = iof
+                    self.appears_in[iof] = []
+                    iof += 1
+                self.appears_in[self.index_of[ulm]].append(lm_pos)
+
+        # cost of each disjunction landmark
+        self.dlm_cost = [math.inf for _ in range(len(landmarks))]
+        #for each unary landmark compute the ucp cost of it
+        for uid, appearance_list in self.appears_in.items():
+            count = len(appearance_list)
+            ucp_ulm = 1.0 / count if count > 0 else 0.0
+            # for each disjunction the unary landmark appears, 
+            # check if its ucp cost
+            #   is the lowest cost (thus the cost of the disjunction)
+            for lm_index in appearance_list:
+                if self.ucp_cost[lm_index] > ucp_ulm:
+                    self.ucp_cost[lm_index] = ucp_ulm
+             
+
+        # Create a bitmask for all unique landmarks.
+        self.lms = (1 << iof) - 1
+
+        print(f"UCP computed: {self.ucp_cost}")
+        return self.ucp_cost
+
+
     def compute_gn_fact_orderings(self, lm_table, and_or_graph, lm_set):
         '''
         Compute greedy necessary orderings among facts.
@@ -249,74 +333,6 @@ class Landmarks:
                     self.count_abtask_lms +=1
                 elif and_or_graph.nodes[lm_id].content_type == ContentType.OPERATOR:
                     self.count_operator_lms +=1
-                    
-        # for lm_id in lm_set:
-        #     node = self.bu_graph.nodes[lm_id]
-        #     if node.content_type == ContentType.FACT:
-        #         self.fact_lms.add(lm_id)
-        #     elif node.content_type == ContentType.METHOD:
-        #         self.method_lms.add(lm_id)
-        #     elif node.content_type == ContentType.ABSTRACT_TASK or node.content_type == ContentType.OPERATOR:
-        #         self.task_lms.add(lm_id)
-
-    # TODO: refactor minimal disjunctions
-    def _compute_minimal_fact_disjunction(self, disj_operators, disj_precons, TA):
-        """
-        This function finds a minimal set of fact preconditions that covers all operators in the disjunction.
-        """
-        return None
-        # minimal_facts = set()
-        # all_facts = set.union(*disj_precons)
-        
-        # fact_coverage = {fact: set() for fact in all_facts}
-        # for op_disj_i, op in enumerate(disj_operators):
-        #     for fact in disj_precons[op_disj_i]:
-        #         fact_coverage[fact].add(op)
-        # # keep track of covered operators
-        # covered_operators = set()
-        # # greedy approach: select facts that cover the most uncovered operators
-        # while len(covered_operators) < TA and fact_coverage:
-        #     # find the fact that covers the most uncovered operators
-        #     best_fact = max(fact_coverage, key=lambda f: len(fact_coverage[f] - covered_operators))
-        #     best_coverage = fact_coverage[best_fact] - covered_operators
-        #     # add this fact to the minimal set
-        #     minimal_facts.add(best_fact)
-        #     # mark these operators as covered
-        #     covered_operators.update(best_coverage)
-        #     # remove the best fact from future consideration
-        #     del fact_coverage[best_fact]
-        
-        # # if it is not possible cover all return set()
-        # if len(covered_operators) < TA:
-        #     return set()
-
-        # # remove facts used into minimal facts from each disjunction 
-        # for i, precon_set in enumerate(disj_precons):
-        #     disj_precons[i] = precon_set - minimal_facts
-        # return minimal_facts
-    # TODO: refactor minimal disjunctions
-    def _compute_minimal_disjunctions(self):
-        pass
-        # for lm_fact in self.bu_lms:
-        #     o_achievers = set()
-        #     for o_a in self.model.operators:
-        #         if  o_a.add_effects_bitwise & (1 << lm_fact) != 0:
-        #             o_achievers.add(o_a)
-        #     # OPTION 1: fact preconditions for operator disjunction
-        #     disjunctive_preconitions = [set(o_a.get_precons_bitfact()) for o_a in o_achievers]
-        #     # Get the intersection of disjunctive landmarks
-        #     if disjunctive_preconitions:
-        #         interesection_lms = set.intersection(*disjunctive_preconitions)
-        #         if not interesection_lms:
-                    
-        #             # compute maximal minimal disjunctions
-        #             total_achievers = len(o_achievers)
-        #             while disjunctive_preconitions:
-        #                 minimal_disj = self._compute_minimal_fact_disjunction(o_achievers, disjunctive_preconitions, total_achievers)
-        #                 if not minimal_disj or len(minimal_disj) > 4:
-        #                     break
-        #                 if  minimal_disj not in self.valid_disjunctions:
-        #                     self.valid_disjunctions.append(minimal_disj)
 
     def clear_structures(self):
         self.bu_graph = None
@@ -324,39 +340,3 @@ class Landmarks:
         self.bu_lookup = None
         self.r_lookup = None
         gc.collect()
-        
-
-    # UTILITARY
-    def print_landmarks_by_bits(self, lms):
-        for lm_pos in range(lms.bit_length()):
-            if lms & (1 << lm_pos):
-                if self.bu_graph.nodes[lm_pos].content_type == ContentType.METHOD:
-                    print(f'head: {self.model.get_component(self.bu_graph.nodes[lm_pos].ID).compound_task.name}')
-                
-                print(f'\tlm: {self.bu_graph.nodes[lm_pos].str_name}')
-
-    def print_landmarks(self, node_str):
-        node_id=-1
-        for n in self.bu_graph.nodes:
-            print(n.str_name)
-            if node_str in n.str_name:
-                node_id=n.ID
-                print(f'SPECIFIC landmarks of {n.str_name} ({node_id})')
-                for lm in range(self.bu_lookup[node_id].bit_length()):
-                    if self.bu_lookup[node_id] & (1 << lm):
-                        print(f'\tlm: {self.bu_graph.nodes[lm].str_name}')
-
-    def print_failed_landmarks(self, node_lms):
-        for lm in node_lms:
-            print(f'\tlm: {self.bu_graph.nodes[lm].str_name}')
-        
-                
-
-# if __name__ == '__main__':
-#     graph = AndOrGraph(None, debug=True)  # Ensure correct initialization
-#     lm = Landmarks(graph)
-#     lm.generate_lms()
-#     for node_id, lms in enumerate(lm.landmarks):
-#         print(f"node{node_id} {lm.nodes[node_id]}")
-#         for lm_id in lms:
-#             print(f"\tlm {lm.nodes[lm_id]}")
