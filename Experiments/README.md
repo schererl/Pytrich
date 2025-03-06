@@ -35,6 +35,20 @@
 
 # Experiment Report
 
+### 28/02/25 - Landmark Experimients (including lmc)
+
+**GENERAL IDEA:** Compare all types of landmark generation techniques for HTN planning using simple lm-count heuristic.
+
+* Compared Mandatory Tasks (MT), Bottom-up (BU), Bidirectional (BID) and Landmark-cut (LMC)
+* I made a mistake and ran all the experiments using A-star (suppose to use GBFS or WA-star).
+Experiments with 8GB ram and 1800 runtime.
+
+### Novelty Experiments (again) with DFS implementation (recursive) 
+
+**GENERAL IDEA:** Use DFS see if is faster and see if novelty helps.
+
+* It didnt  :(
+
 ### February -Novelty Experiments
 
 [csv file1 here](Experiments/outputs/csv-files/novelty/novelty-experiments.csv)
