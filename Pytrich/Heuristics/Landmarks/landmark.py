@@ -137,12 +137,8 @@ class Landmarks:
 
     def compute_ucp(self, landmarks):
         """
-        Compute Uniform Cost Partitioning (UCP) for the provided disjunctive landmarks.
+        Compute Uniform Cost Partitioning (UCP) for disjunctive landmarks.
         
-        Parameters:
-            landmarks (list of set[int]): Each element is a set (disjunctive landmark) of 
-                landmark element IDs (only operators and methods are considered).
-                
         The function does the following:
           1. For each disjunctive landmark in `landmarks`, assign each element a unique index 
              (stored in self.index_of) if not already set.
@@ -151,32 +147,35 @@ class Landmarks:
           4. For each unique landmark element (assumed to have cost 1), assign a cost share equal 
              to 1 divided by its number of appearances.
           5. Sets self.lms to a bitmask with one bit per unique landmark element.
-          
-        Returns:
-            dict: A mapping (self.ucp_cost) from unique landmark index to its cost share.
         """
         # Initialize or reset data structures.
         if not hasattr(self, "index_of"):
             self.index_of = {}
+            for node in self.bu_graph.nodes:
+                self.index_of[node.ID] = -1
         if not hasattr(self, "appears_in"):
             self.appears_in = {}
-        self.appears_in.clear()
         if not hasattr(self, "ucp_cost"):
-            self.ucp_cost = {}
-        else:
-            self.ucp_cost.clear()
+            self.ucp_cost = []
         
         # Reset counts.
         self.count_operator_lms = 0
         self.count_method_lms = 0
         self.count_disjunction_lms = 0
 
-        # Induce disjunctions of operators for fact landmarks, 
+        # Induce disjunctions of operators for fact landmarks,
         # and disjunction of methods for abstract tasks.
         # Assign a unique index for each landmark element and record its appearances.
         iof = 0
-        for lm_pos, lm_id in enumerate(landmarks):
+        dlm=0
+        for lm_id in range(landmarks.bit_length()):
+            if ~landmarks & (1 << lm_id):
+                continue
+
             node = self.bu_graph.nodes[lm_id]
+            if node.type == NodeType.INIT:
+                continue
+            
             curr_lm = []
             if node.content_type == ContentType.METHOD:
                 self.count_method_lms += 1
@@ -187,32 +186,30 @@ class Landmarks:
             else:
                 self.count_disjunction_lms += 1
                 curr_lm = [pred.ID for pred in node.predecessors]
-            
             for ulm in curr_lm:
                 if self.index_of.get(ulm, -1) == -1:
                     self.index_of[ulm] = iof
                     self.appears_in[iof] = []
                     iof += 1
-                self.appears_in[self.index_of[ulm]].append(lm_pos)
+                self.appears_in[self.index_of[ulm]].append(dlm)
+            dlm+=1
 
         # cost of each disjunction landmark
-        self.dlm_cost = [math.inf for _ in range(len(landmarks))]
         #for each unary landmark compute the ucp cost of it
+        self.ucp_cost = [math.inf for _ in range(dlm)]
+        self.appears_in[-1]=[]
         for uid, appearance_list in self.appears_in.items():
             count = len(appearance_list)
             ucp_ulm = 1.0 / count if count > 0 else 0.0
-            # for each disjunction the unary landmark appears, 
+            # for each disjunction the unary landmark appears,
             # check if its ucp cost
             #   is the lowest cost (thus the cost of the disjunction)
             for lm_index in appearance_list:
                 if self.ucp_cost[lm_index] > ucp_ulm:
                     self.ucp_cost[lm_index] = ucp_ulm
+        
              
-
-        # Create a bitmask for all unique landmarks.
-        self.lms = (1 << iof) - 1
-
-        print(f"UCP computed: {self.ucp_cost}")
+        self.bu_lms = (1 << dlm) - 1
         return self.ucp_cost
 
 

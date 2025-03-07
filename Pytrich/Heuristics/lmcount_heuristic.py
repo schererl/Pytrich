@@ -7,7 +7,9 @@ from Pytrich.Heuristics.heuristic import Heuristic
 from Pytrich.Search.htn_node import HTNNode
 from Pytrich.model import AbstractTask, Operator, Model
 import Pytrich.FLAGS as FLAGS
-
+#TODO: need code refactor
+# landmark should have a lm_index that is different from global_id (at least not necessarily equal)
+# this is implemented in UCP and lm-cut lms
 class LandmarkCountHeuristic(Heuristic):
     """
     Compute landmarks and perform a sort of hamming distance with it (not admissible yet)
@@ -29,6 +31,7 @@ class LandmarkCountHeuristic(Heuristic):
                  use_bu_update=False,
                  use_bu_strict=False,
                  use_lmc=False,
+                 use_ucp=False,
                  name="lmcount"):
         super().__init__(name=name)
         self.use_bid = use_bid
@@ -39,6 +42,7 @@ class LandmarkCountHeuristic(Heuristic):
         self.use_disj = use_disj
         self.use_task_ord = use_task_ord
         self.use_fact_ord = use_fact_ord
+        self.use_ucp = use_ucp
 
         
         self._define_param_str()
@@ -101,8 +105,12 @@ class LandmarkCountHeuristic(Heuristic):
             self.landmarks.generate_bu_table()
             self.landmarks.bottom_up_lms(model.initial_state, model.initial_tn)
             initial_node.lm_node = BitLm_Node()
-            initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
             self.landmarks.identify_lms(self.landmarks.bu_lms, self.landmarks.bu_graph)
+            if self.use_ucp:
+                self.landmarks.compute_ucp(self.landmarks.bu_lms)
+                initial_node.lm_node.initialize_lms(self.landmarks.bu_lms, lm_sum=sum(self.landmarks.ucp_cost))
+            else:
+                initial_node.lm_node.initialize_lms(self.landmarks.bu_lms)
             
         self.elapsed_time = time.perf_counter() - self.start_time                                     
         
@@ -116,10 +124,11 @@ class LandmarkCountHeuristic(Heuristic):
                                 self.operator_lms + \
                                 self.methods_lms + \
                                 self.fact_lms
-            for fact_pos in range(initial_node.state.bit_length()):
-                if initial_node.state & (1 << fact_pos) \
-                        and initial_node.state & (1 << fact_pos):
-                        initial_node.lm_node.mark_lm(fact_pos)
+            if not self.use_ucp:
+                for fact_pos in range(initial_node.state.bit_length()):
+                    if initial_node.state & (1 << fact_pos) \
+                            and initial_node.state & (1 << fact_pos):
+                            initial_node.lm_node.mark_lm(fact_pos)
         else: #lmcut doesen't have fact and abstract task landmarks
             self.operator_lms    = self.landmarks.count_operator_lms
             self.methods_lms     = self.landmarks.count_method_lms
@@ -146,6 +155,22 @@ class LandmarkCountHeuristic(Heuristic):
                 
             for dlm in self.landmarks.appears_in[lm_index]:
                 node.lm_node.mark_lm(dlm)
+            h_value =  node.lm_node.lm_value()
+
+            super().update_info(h_value)
+            return h_value
+        
+        if self.use_ucp:
+            node.lm_node = BitLm_Node(parent=parent_node.lm_node)
+            if isinstance(node.task, Operator):
+                lm_index =  self.landmarks.index_of[node.task.global_id]
+            else:
+                lm_index = self.landmarks.index_of[node.decomposition.global_id]
+            
+            for dlm in self.landmarks.appears_in[lm_index]:
+                if node.lm_node.is_active_lm(dlm):
+                    lm_cost = self.landmarks.ucp_cost[dlm]
+                    node.lm_node.mark_lm(dlm, lm_cost)
             h_value =  node.lm_node.lm_value()
             super().update_info(h_value)
             return h_value
@@ -182,6 +207,48 @@ class LandmarkCountHeuristic(Heuristic):
         super().update_info(h_value)
         
         return h_value
+
+    # NOTE: DEBUG only
+    # def close(self, node):
+    #     """
+    #     Debugging: Print the unfulfilled disjunctions (by bit index) and
+    #     list the component names that appear in each unfulfilled disjunction.
+        
+    #     This method assumes:
+    #     - node.lm_node.lms is the bitmask for all unique landmark indices.
+    #     - node.lm_node.mark is the bitmask for the disjunctions that have been achieved.
+    #     - self.landmarks.index_of maps component IDs to unique landmark indices.
+    #     - self.landmarks.appears_in maps each unique landmark index to a list of disjunction indices 
+    #         (i.e. positions in the landmark bitmask) where that landmark appears.
+    #     """
+    #     complete = node.lm_node.lms    # Bitmask for all unique landmark indices.
+    #     marked = node.lm_node.mark     # Bitmask for achieved disjunctions.
+    #     num_disj = complete.bit_length()
+
+    #     # Build an inverse mapping: unique index -> list of component IDs.
+    #     inverse_index = {}
+    #     for comp_id, uid in self.landmarks.index_of.items():
+    #         inverse_index.setdefault(uid, []).append(comp_id)
+
+    #     print("=== Unfulfilled Disjunctions and their Components ===")
+    #     # Iterate over each disjunction index (bit position).
+    #     for disj in range(num_disj):
+    #         # If this disjunction is not achieved:
+    #         if not (marked & (1 << disj)):
+    #             print(f"Disjunction {disj} not achieved:")
+    #             # Look for all unique landmark indices that appear in this disjunction.
+    #             for uid, disj_list in self.landmarks.appears_in.items():
+    #                 if disj in disj_list:
+    #                     # For each unique landmark, list all the corresponding component IDs.
+    #                     if uid in inverse_index:
+    #                         for comp_id in inverse_index[uid]:
+    #                             comp = self.model.get_component(comp_id)
+    #                             print(f"\tComponent {comp_id}: {comp.name}")
+
+
+
+        
+
 
     def _deal_with_fact_ordering(self, node: HTNNode, parent_node: HTNNode):
         """

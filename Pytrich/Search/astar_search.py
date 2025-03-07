@@ -8,6 +8,7 @@ from typing import Optional, Type, Union, List, Dict
 from Pytrich.DESCRIPTIONS import Descriptions
 from Pytrich.Heuristics.blind_heuristic import BlindHeuristic
 from Pytrich.Heuristics.heuristic import Heuristic
+from Pytrich.Heuristics.lmcount_heuristic import LandmarkCountHeuristic
 from Pytrich.Search.htn_node import AstarNode, GreedyNode, HTNNode
 from Pytrich.model import Operator, AbstractTask, Model
 import Pytrich.FLAGS as FLAGS
@@ -136,6 +137,7 @@ def search(
                     new_node.update_g_h(node.g_value, heuristic(node, new_node))
                     heapq.heappush(pq, new_node)
 
+    
     current_time = time.time()
     elapsed_time = current_time - start_time
     nodes_second = expansions/float(current_time - init_search_time)

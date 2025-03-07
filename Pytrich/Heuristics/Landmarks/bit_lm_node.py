@@ -4,38 +4,36 @@ class BitLm_Node:
         if parent:
             self.lms = parent.lms
             self.mark = parent.mark
-            self.number_lms = parent.number_lms
-            self.achieved_lms = parent.achieved_lms
+            self.total_cost = parent.total_cost
+            self.achieved_cost = parent.achieved_cost
         else:
             self.lms  = 0
             self.mark = 0
-            self.number_lms   = 0   # total number of lms
-            self.achieved_lms = 0   # total achieved lms
+            self.total_cost   = 0   # total number of lms
+            self.achieved_cost = 0   # total achieved lms
             
-    # mark as 'achieved' if node is a lm
-    def mark_lm(self, node_id):
+    # mark as 'achieved' if node is a lm and not already marked
+    def mark_lm(self, node_id, lm_cost=1):
         if self.lms & (1 << node_id) and ~self.mark & (1 << node_id):
-            self.achieved_lms+=1
+            self.achieved_cost+=lm_cost
         self.mark |= 1 << node_id
+
+    def is_active_lm(self, node_id):
+        return self.lms & (1 << node_id) and ~self.mark & (1 << node_id)
     
-    # in of recomputing landmarks and update lms
+    # for recomputing landmarks and update lms
     def update_lms(self, u_lms):
-        #new_bits = u_lms & ~self.lms
         new_bits = u_lms & ~self.mark
         self.lms |= new_bits
-        self.number_lms += new_bits.bit_count()
+        self.total_cost += new_bits.bit_count()
         
     # add new lms
-    def initialize_lms(self, lms):
-        # for lm_id in new_lms:
-        #     if ~self.lms & (1 << lm_id):
-        #         self.lms |= (1 << lm_id)
-        #         self.number_lms+=1
-        self.lms = lms
-        self.number_lms = lms.bit_count()
+    def initialize_lms(self, lms, lm_sum=None):
+        self.total_cost = lm_sum if lm_sum else lms.bit_count()
+        self.lms=lms
     
     def lm_value(self):
-        return self.number_lms - self.achieved_lms
+        return self.total_cost - self.achieved_cost
     
     def get_unreached_landmarks(self):
         unreached = []
